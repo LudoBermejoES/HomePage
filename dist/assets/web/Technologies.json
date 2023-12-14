@@ -1,0 +1,157 @@
+{
+    "OS":[
+        {
+            "title": "Windows",
+            "level": "3"
+        },
+        {
+            "title": "Linux",
+            "level": "3"
+        },
+        {
+            "title": "AS400",
+            "level": "1"
+        }
+
+    ],
+    "Agile development":[
+        {
+            "title": "Scrum",
+            "level": "3"
+        },
+        {
+            "title": "Kanban",
+            "level": "3"
+        }
+
+    ],
+    "Internet":[
+        {
+            "title": "HTML5",
+            "level": "3"
+        },
+        {
+            "title": "CSS 3",
+            "level": "3"
+        },
+        {
+            "title": "SASS",
+            "level": "1"
+        }
+    ],
+    "Languages":[
+        {
+            "title": "C / C++",
+            "level": "1"
+        },
+        {
+            "title": "Pascal",
+            "level": "1"
+        },
+        {
+            "title": "Delphi",
+            "level": "2"
+        }
+        ,
+        {
+            "title": "V. Basic",
+            "level": "1"
+        },
+        {
+            "title": "Cobol 400",
+            "level": "1"
+        },
+        {
+            "title": "Oval",
+            "level": "1"
+        },
+        {
+            "title": "AS3",
+            "level": "3"
+        },
+        {
+            "title": "Javascript",
+            "level": "3"
+        },
+        {
+            "title": "ASP",
+            "level": "1"
+        },
+        {
+            "title": "PHP",
+            "level": "2"
+        }
+    ],
+    "Frameworks":[
+        {
+            "title": "jQuery",
+            "level": "3"
+        },
+        {
+            "title": "KnockoutJS",
+            "level": "3"
+        },
+        {
+            "title": "RobotLegs",
+            "level": "2"
+        },
+        {
+            "title": "CodeIgniter",
+            "level": "2"
+        },
+        {
+            "title": "RequireJS",
+            "level": "3"
+        },
+        {
+            "title": "BackboneJS",
+            "level": "1"
+        },
+        {
+            "title": "AngularJS",
+            "level": "2"
+        }
+    ],
+    "WebServers":[
+        {
+            "title": "Apache",
+            "level": "3"
+        },
+        {
+            "title": "Ngnix",
+            "level": "3"
+        },
+        {
+            "title": "NodeJS",
+            "level": "2"
+        }
+    ],
+    "Database systems":[
+        {
+            "title": "dBase",
+            "level": "3"
+        },
+        {
+            "title": "Paradox",
+            "level": "3"
+        },
+        {
+            "title": "Multibase",
+            "level": "1"
+        },
+        {
+            "title": "Interbase",
+            "level": "3"
+        },
+        {
+            "title": "MySQL",
+            "level": "3"
+        },
+        {
+            "title": "MongoDB",
+            "level": "1"
+        }
+
+    ]
+
+}

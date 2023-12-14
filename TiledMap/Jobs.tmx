@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="22" height="22" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="Interior" tilewidth="16" tileheight="16">
+  <image source="Interior/Interior.png" width="560" height="816"/>
+ </tileset>
+ <layer name="Fondo" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJyzZWRgsB3Fo3gUj+JRPIpH8YBiAEXgdTk=
+  </data>
+ </layer>
+ <layer name="Mesas" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2D4gUhmBoYoZvL5uEANUE0tM/n8UTAKiAGj6XdkAgDgtw3B
+  </data>
+ </layer>
+ <layer name="CollisionMuros" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt00kKwkAQheECMXoK4wAu9BTGAUQFD+G8iAsP4bzwLl7Gu7jwDwgpmyzSdBCRPPigi4ZHBqpSFPFRRQ11NFAWNx06AnTRQx8DtMXNjI45FlhihTVa4mZPxwFHnHDGBRNx8w8poPQWqnPaOcrIExlj6sW9TYm//00+/0eaOUpI3xY71TtUz3433sV21tmo88O4s511rur8NO5s5zzfSxZ7kZQs9iIp+V78fl69LDi0
+  </data>
+ </layer>
+ <layer name="Objetos" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztk0kKwkAQRSsdyFIFxeEYKigOp1JwPIeC48LhBrrIAdToBXSRAzjewb+zbDQmpEUFPzyo6ipeb7qJnmckiMZgAqbC25lTFthZghWwhLczp+yxcwBHcBLezn4l5pu89ot5VCeK6bc+jjqh3+80WV0BVRf35uDIM08BdVHyDlndAV0XXr+ZGURzYBpqvVv4dsBW4LU0ojXYaP5dPCf4zuCi2BvAXwuCkOI/l4QvBdIf+Mt10GB9TZqXQJn1YbztiPS+H6UPBqzvSfMWaLM+A2fWhfef784VZ/wzFQ==
+  </data>
+ </layer>
+ <layer name="Ordenadores" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2DggCUTA4MVE/l8XCAGqCaWiXz+KBgFuEAWCwNDNgv1ze0FmtkHNZea+WID0MyNUHOpmS8uA828QoNwGMkAAL+RDrk=
+  </data>
+ </layer>
+ <layer name="Chicos" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztkzkKgEAQBDfaPyroSxT0Jd4H6Cu8D9Av2ZkNImxkIFNRFTQbzSolCP8j00rl+m4LblM7cJc6gsfUb0zYzLTz4D51AA+pO3hv8K4gfEGCW0zpHgt4SV3Ba+oG3hrc74DNSLsFvlJv8J36gJ/yLx5cYEcVQQ==
+  </data>
+ </layer>
+ <layer name="CollisionSillas" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUEAs2sTAwbGYhn48LXAWqucZCPn8UjIKBBKP5gjoAAIhhGQE=
+  </data>
+ </layer>
+ <objectgroup name="Objects" width="22" height="22" visible="0">
+  <object name="Player" type="StartPlayer" x="274" y="156" width="21" height="21"/>
+  <object name="Jobs" type="OpenWeb" x="4" y="122" width="40" height="40"/>
+  <object name="Exit" type="GotoArea" x="320" y="185" width="22" height="32"/>
+ </objectgroup>
+</map>

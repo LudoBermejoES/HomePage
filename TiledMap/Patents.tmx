@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="22" height="22" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="Interior" tilewidth="16" tileheight="16">
+  <image source="Interior/Interior.png" width="560" height="816"/>
+ </tileset>
+ <layer name="Suelo" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJyzYmFgsAZiKyrTsUAcRwOa2u4cde+oe0fdO+reUfeOuncwuBcAiA2XQQ==
+  </data>
+ </layer>
+ <layer name="CollisionParedes" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztlMENglAQRP8BLxSBipUgQiWCWgko9oll+EjWZLMx60VuO8nLzJ+d85+zlOY/84LdJqU95FDCQbLu7c3bFrCFGk6wqMFbybq3N29b4Ufo4SLdFb9J1r29edsz3sEdHtJN+FOy7u3N2w74qHahUChk9fk7vfzr/S3H/7vu//sGXqA8RA==
+  </data>
+ </layer>
+ <layer name="Collision Chair 2" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2B4gQfMDAwPmalvLjMLAwMLC3XMegR032MauJEV6D42KrlxFIyCUUBfAABLPAO1
+  </data>
+ </layer>
+ <layer name="People2" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2B4ARc2BgZXNuqbmw40M4MG5nYBzeymgbmjYBSMgqEFABdtApI=
+  </data>
+ </layer>
+ <layer name="CollisionTables" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzLcNgFAMAFFXfzniJMRJiJMQJyEOw01Agxskn/TaE7Es6y3PifgIECJC7L5/Ex4pMuQoUCp8Kx41GrTo0Ct8Bx4jJsxYsCp8Nx47Dpy4cCt8LetvPbA5Ef4=
+  </data>
+ </layer>
+ <layer name="People" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AU4AJObAwMzmzUNzcVaGYaDcztAJrZSQNzkcFCoPmLaGDHEaCZR2ns9lEwCgYzAABIpQVq
+  </data>
+ </layer>
+ <layer name="Objetos" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApGwUADAAeQAAE=
+  </data>
+ </layer>
+ <layer name="Collision Chairs" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIKBB2osDAzqLNQ31xNophcNzB0Fo4DaAACkMgDx
+  </data>
+ </layer>
+ <layer name="Stairs" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzMERABAQBME9ASAV5P9HKsjBBnE+artqvgOIyEvdgMGm+X4Xf5sd528MQGI5+H4Lf5U156/ILy4OfwX1
+  </data>
+ </layer>
+ <objectgroup name="Capa de Objetos 1" width="22" height="22">
+  <object name="Patents" type="OpenWeb" x="44" y="153" width="111" height="49"/>
+  <object name="Player" type="StartPlayer" x="254" y="143" width="13" height="23"/>
+  <object name="Exit" type="GotoArea" x="317" y="150" width="31" height="55"/>
+ </objectgroup>
+</map>

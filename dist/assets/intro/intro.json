@@ -1,0 +1,74 @@
+{
+    "messages": [
+        {
+            "text": "Hi!\n\nMy name is Ludo"
+        },
+        {
+            "text": "And I'm a code\n\nmonkey"
+        },
+        {
+            "text": "I'm also a\n\nScrum Master"
+        },
+        {
+            "text": "And a Tech leader"
+        },
+        {
+            "text": "Just the usual\n\nin startups :)"
+        },
+        {
+            "text": "Do you wanna\n\nplay with my website?"
+        },
+        {
+            "text": "You can move me\n\nwith your cursor keys"
+        },
+        {
+            "text": "Up",
+            "animation": "up",
+            "cursor": "up"
+        },
+        {
+            "text": "Down",
+            "animation": "down",
+            "cursor": "down"
+        },
+        {
+            "text": "Left",
+            "animation": "left",
+            "cursor": "left"
+        },
+        {
+            "text": "Right",
+            "animation": "right",
+            "cursor": "right"
+        },
+        {
+            "text": "In your journey you\n\nwill find portals",
+            "animation": "stop",
+            "sprite": "Portal",
+            "scale": 2
+        },
+        {
+            "text": "They lead to\n\ndifferent areas",
+            "animation": "stop",
+            "sprite": "Portal",
+            "scale": 2
+        },
+        {
+            "text": "Catch the books\n\nto get more info!",
+            "animation": "stop",
+            "sprite": "Book",
+            "scale": 2
+        },
+        {
+            "text": "Can you find\n\nthe Easter eggs?"
+        },
+        {
+            "text": "Let's try it!!!"
+        }
+
+
+
+    ]
+
+
+}

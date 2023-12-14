@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="22" height="22" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="Interior" tilewidth="16" tileheight="16">
+  <image source="Interior/Interior.png" width="560" height="816"/>
+ </tileset>
+ <layer name="Suelo" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJybx8rAMB+I51GZPgjEh2hAU9udo+4dde+oe0fdO+reUfcOBvcCADkdVkQ=
+  </data>
+ </layer>
+ <objectgroup name="Capa de Objetos 1" width="22" height="22">
+  <object name="Interests" type="OpenWeb" x="150" y="157" width="72" height="49"/>
+  <object name="Player" type="StartPlayer" x="179" y="281" width="9" height="22"/>
+  <object name="Exit" type="GotoArea" x="313" y="295" width="31" height="55"/>
+ </objectgroup>
+</map>

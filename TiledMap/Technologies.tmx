@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="22" height="22" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="Interior" tilewidth="16" tileheight="16">
+  <image source="Interior/Interior.png" width="560" height="816"/>
+ </tileset>
+ <layer name="Suelo" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzTZmZg0B7Fo3gUD2ncxcLA0M1CfXotEK8bQvRQC4dR9466F5kGAA9mxD4=
+  </data>
+ </layer>
+ <layer name="CollisionFences" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjALsgJmZgYGFmfq0GhCr04AeBaOAHqCbhYGhiwYYAH/yEFY=
+  </data>
+ </layer>
+ <objectgroup name="Capa de Objetos 1" width="22" height="22">
+  <object name="Player" type="StartPlayer" x="168" y="253" width="13" height="18"/>
+  <object x="501" y="227"/>
+ </objectgroup>
+</map>

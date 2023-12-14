@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="22" height="22" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="Interior" tilewidth="16" tileheight="16">
+  <image source="Interior/Interior.png" width="560" height="816"/>
+ </tileset>
+ <layer name="Suelo2" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJxjYICAzUzUwxOoaBYuvIVMjKx/ItStE5HkJ5KJYfonoJmLDU9ACiNCAJfeUTAKRsEoGAXDCwAAgYBCGg==
+  </data>
+ </layer>
+ <layer name="Suelo" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztklEKgCAQRJcQvEtHqDN0hDqTnmU9YEIIy+BapNtXHw9zy8cw5onIGzAbsRkRpouYSYIyY7Evz6x8I2cB3mtnuNObxBy9mLvlZeHW0Pq487bA/t96az3guafe2l309lvyIQEcmjeANwpvDexG+9+wJ/SPZndEhxu/LpnVYP3z/nm/yHsC36/YIQ==
+  </data>
+ </layer>
+ <layer name="People2" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIKRDRazMTAsYYOwFwLpRWzUMfcY0JzjULOOAOmjQBwLxHFUMH8+0IwFSOY0ANmNVDD3ENCMw0AcCcRRVAoHZFADNLOWiuZSM76QASy+6AkAjq8PKQ==
+  </data>
+ </layer>
+ <layer name="People" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztkTcOAjEQRV35XIQGjkBsYGngCMSTkFnSKciZK/EKI1YjI7wt8peeJviPLXmU8vLy8vp/9bVSA/2pF+RL/d0vlcObhwIUI3Mb8i1MYQY3uMe4t4m3BW3oWOZO9M6iv6JeO74xxDcS3jH1xPRC4tzkD+LT8d4dvj2UoGxmDsSjyS/Ea4x/kOoy2/sx77rDFJ40JCAp/O+9RWXbYYY6K3oBdQ0qUBVntr3ZVMfTML4XzyEkUQ==
+  </data>
+ </layer>
+ <layer name="CollisionPeopleArriba" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzt0TluwlAUheErP4cWYrMSwKQJ0MSsIVQMDaQhyRYYGkzDUAHZBUMFyVIYNsKPFCXoybYQUPpIX3Pu03HhuCmSwCMsnDIxRKaY4cuQv/j1emcrkSRSbKWRgfO7u+a+wTd+znb9er3LsvmkxDdb7jvscTDC+6C3flF8z8QDYiq8D3oblHxMpIBn5PACFxY3Gy4bxQt29FTZqKGMCupowOGWRYPNt5DdJv/qHR/4NP/7DhtdtNBGDx5euZXgsdlXwTsDDDHC2NS/enn0nTkWWGJ1w+69dqJEiRLl2hwBj6Y2fg==
+  </data>
+ </layer>
+ <layer name="CollisionSeparacion" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzjYGBg4KAB1qYR1qIR9qURHgWjYCiDiUy0wbQoczjoGjKjYBRQHwAA8Ewb7w==
+  </data>
+ </layer>
+ <layer name="CollisionTable" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztzE0OgjAQhuEJCy6HAidBkZMoPwvQo4AeReEivA3pwi5ouyTplzyZab5mRLb0kciAJ16R/GWvs/Uj7wlvfDw6W//l/cOMxaNz6Y+aJBY54YwUmbHrqeSx+92CvxdcUeJm7HoqlcfdO38fqNGgNXY9lc7jbkhISMgRswLiOyvM
+  </data>
+ </layer>
+ <layer name="NoCollTable" width="22" height="22">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2B4gS1sDAxbgXgbEG8H4h1obBgNwjvZiDf3OlDtDSC+CcS3gPg2GhtGg/AdEswdBaNgFIwCEAAAYzoTWw==
+  </data>
+ </layer>
+ <objectgroup name="Capa de Objetos 1" width="22" height="22">
+  <object name="Talks" type="OpenWeb" x="136" y="62" width="83" height="96"/>
+  <object name="Player" type="StartPlayer" x="1" y="123" width="13" height="23"/>
+  <object name="Exit" type="GotoArea" x="317" y="150" width="31" height="55"/>
+ </objectgroup>
+</map>
