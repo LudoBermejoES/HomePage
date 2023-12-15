@@ -1,18 +1,28 @@
 import SpriteLudo from '../sprites/SpriteLudo';
 import * as Phaser from 'phaser';
-
+import SpritePortal from '../sprites/SpritePortal';
+import {
+  Grid,
+  PathNode,
+  Pathfinding,
+  DistanceMethod
+} from '@raresail/phaser-pathfinding';
 export default class BaseScene extends Phaser.Scene {
-  controls: Phaser.Cameras.Controls.SmoothedKeyControl;
-  cursors: Phaser.Types.Input.Keyboard.CursorKeys;
-  spriteLudo: SpriteLudo;
-  map: Phaser.Tilemaps.Tilemap;
-  mapCollisions: Phaser.Tilemaps.Tilemap;
-  tileset: Phaser.Tilemaps.Tileset;
-  canvas: Phaser.Textures.CanvasTexture;
-  rt: Phaser.GameObjects.RenderTexture;
-  pixelCollision: boolean;
+  controls!: Phaser.Cameras.Controls.SmoothedKeyControl;
+  cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
+  spriteLudo!: SpriteLudo;
+  map!: Phaser.Tilemaps.Tilemap;
+  mapCollisions!: Phaser.Tilemaps.Tilemap;
+  tileset!: Phaser.Tilemaps.Tileset;
+  canvas!: Phaser.Textures.CanvasTexture;
+  rt!: Phaser.GameObjects.RenderTexture;
+  pixelCollision!: boolean;
+  pathfinding!: Pathfinding;
 
   calculateAreaToCapture() {
+    if (this.spriteLudo.body === null) {
+      return;
+    }
     let collideX: string = '';
     let collideY: string = '';
     if (this.spriteLudo.collideX + this.spriteLudo.collideY === '') {
@@ -53,16 +63,14 @@ export default class BaseScene extends Phaser.Scene {
       heightToCheck
     };
   }
-  checkPixels(
-    gameObject1:
-      | Phaser.Tilemaps.Tile
-      | Phaser.Types.Physics.Arcade.GameObjectWithBody,
-    gameObject2:
-      | Phaser.Tilemaps.Tile
-      | Phaser.Types.Physics.Arcade.GameObjectWithBody
-  ) {
+  checkPixels() {
     const { xToCheck, yToCheck, widthToCheck, heightToCheck } =
-      this.calculateAreaToCapture();
+      this.calculateAreaToCapture() as {
+        xToCheck: number;
+        yToCheck: number;
+        widthToCheck: number;
+        heightToCheck: number;
+      };
 
     this.rt.snapshotArea(
       xToCheck,
@@ -81,16 +89,20 @@ export default class BaseScene extends Phaser.Scene {
           image.width,
           image.height
         );
+        if (!snap) return;
+
         snap.draw(0, 0, image);
         const pixelsList = snap.getPixels(0, 0, image.width, image.height);
         let totalPixels: number = 0;
-        pixelsList.forEach((pixelsColumn: any) => {
-          const some = pixelsColumn.filter(
-            (pixel: any) => pixel.alpha > 0 && pixel.color !== 0
-          );
-          totalPixels += some.length;
-        });
-        console.log(totalPixels);
+        pixelsList.forEach(
+          (pixelsColumn: Phaser.Types.Textures.PixelConfig[]) => {
+            const some = pixelsColumn.filter(
+              (pixel: Phaser.Types.Textures.PixelConfig) =>
+                pixel.alpha > 0 && pixel.color !== 0
+            );
+            totalPixels += some.length;
+          }
+        );
 
         if (totalPixels > 0) {
           if (this.spriteLudo.lastX) {
@@ -108,11 +120,14 @@ export default class BaseScene extends Phaser.Scene {
     );
   }
 
-  prepareCollisionLayer(layer: Phaser.Tilemaps.LayerData) {
+  prepareCollisionLayer(
+    layer: Phaser.Tilemaps.LayerData
+  ): Phaser.Tilemaps.TilemapLayer | null {
     const collisionLayer = this.mapCollisions.createLayer(
       layer.name,
       this.tileset
     );
+    if (!collisionLayer) return collisionLayer;
     collisionLayer.setCollisionByExclusion([-1]);
     collisionLayer.visible = false;
     this.rt.draw(collisionLayer);
@@ -123,54 +138,117 @@ export default class BaseScene extends Phaser.Scene {
     this.physics.add.collider(
       this.spriteLudo,
       collisionLayer,
-      null,
-      (
-        object1:
-          | Phaser.Tilemaps.Tile
-          | Phaser.Types.Physics.Arcade.GameObjectWithBody,
-        object2:
-          | Phaser.Tilemaps.Tile
-          | Phaser.Types.Physics.Arcade.GameObjectWithBody
-      ) => {
-        console.log(object1, object2);
+      undefined,
+      () => {
         if (this.pixelCollision) {
-          this.checkPixels(object1, object2);
+          this.checkPixels();
           return false;
         }
         return true;
       }
     );
+    return collisionLayer;
   }
 
-  drawLayers(layers: Phaser.Tilemaps.LayerData[]) {
+  drawLayers(layers: Phaser.Tilemaps.LayerData[]): {
+    allLayers: Phaser.Tilemaps.TilemapLayer[];
+    collisionLayers: Phaser.Tilemaps.TilemapLayer[];
+    pathFinderCollisionLayers: Phaser.Tilemaps.TilemapLayer[];
+  } {
+    const collisionLayers: Phaser.Tilemaps.TilemapLayer[] = [];
+    const pathFinderCollisionLayers: Phaser.Tilemaps.TilemapLayer[] = [];
+    const allLayers: Phaser.Tilemaps.TilemapLayer[] = [];
+
     layers.forEach((layer: Phaser.Tilemaps.LayerData) => {
-      const createdLayer: Phaser.Tilemaps.TilemapLayer = this.map.createLayer(
-        layer.name,
-        this.tileset
-      );
-      createdLayer.visible = true;
-      if (layer.name.toLowerCase().includes('collision')) {
-        this.prepareCollisionLayer(layer);
+      const layerCreated = this.map.createLayer(layer.name, this.tileset);
+      if (layerCreated) {
+        allLayers.push(layerCreated);
+        if (layer.name.indexOf('PathfinderCollision') > -1) {
+          pathFinderCollisionLayers.push(layerCreated);
+        }
+      }
+      if (layer.name.toLowerCase().indexOf('collision') > -1) {
+        const layerCollisionCreated = this.prepareCollisionLayer(layer);
+        if (layerCollisionCreated) collisionLayers.push(layerCollisionCreated);
       }
     });
+    return {
+      allLayers,
+      collisionLayers,
+      pathFinderCollisionLayers
+    };
+  }
+  drawPortals(objects: Phaser.Tilemaps.ObjectLayer[]) {
+    const messages = objects.filter(
+      (objectList) => objectList.name === 'Portals'
+    );
+    messages.forEach((messageObject: Phaser.Tilemaps.ObjectLayer) => {
+      messageObject.objects.forEach(
+        (message: Phaser.Types.Tilemaps.TiledObject) => {
+          const moveToArea = new SpritePortal({
+            scene: this,
+            x: message.x || 0,
+            y: message.y || 0,
+            width: message.width || 0,
+            height: message.height || 0,
+            name: message.name
+          });
+          this.add.existing(moveToArea);
+
+          this.physics.add.collider(
+            this.spriteLudo,
+            moveToArea,
+            undefined,
+            () => {
+              if (!this.spriteLudo.moveToTarget) {
+                this.scene.launch(message.name);
+                this.scene.sleep(this.scene.key);
+              }
+              return false;
+            }
+          );
+        }
+      );
+    });
+  }
+
+  getPlayertart(objects: Phaser.Types.Tilemaps.TiledObject[]) {
+    const messages = objects.filter(
+      (objectList) => objectList.name === 'Player'
+    );
+    if (messages.length) {
+      const startObject: Phaser.Types.Tilemaps.TiledObject = (
+        messages[0] as Phaser.Tilemaps.ObjectLayer
+      ).objects[0];
+      if (startObject) {
+        this.spriteLudo.x = startObject.x || 0 + (startObject.width || 0) / 2;
+        this.spriteLudo.y = startObject.y || 0 + (startObject.height || 0) / 2;
+      }
+    }
   }
 
   create(tile: string, pixelCollision: boolean = false) {
     this.pixelCollision = pixelCollision;
     const image = this.game.textures.get('map_tiles');
-    this.canvas = this.textures.createCanvas(
+    if (this.textures.exists('pixelCollision')) {
+      this.textures.remove('pixelCollision');
+    }
+    const canvas = this.textures.createCanvas(
       'pixelCollision',
       image.getSourceImage().width,
       image.getSourceImage().height
     );
-
+    if (canvas) this.canvas = canvas;
     // create the Tilemap
-    this.map = this.make.tilemap({ key: 'tilemap' });
-    this.mapCollisions = this.make.tilemap({ key: 'tilemap' });
+    this.map = this.make.tilemap({ key: `tilemap_${tile}` });
+    this.mapCollisions = this.make.tilemap({ key: `tilemap_${tile}` });
     // add the tileset image we are using
-    this.tileset = this.map.addTilesetImage(tile, 'map_tiles');
+    const tileset = this.map.addTilesetImage(tile, `map_tiles_${tile}`);
+    if (!tileset) return;
+    this.tileset = tileset;
     // create the layers we want in the right order
-    this.cursors = this.input.keyboard.createCursorKeys();
+    const cursors = this?.input?.keyboard?.createCursorKeys();
+    if (cursors) this.cursors = cursors;
     this.spriteLudo = new SpriteLudo({
       scene: this,
       x: 100,
@@ -179,7 +257,13 @@ export default class BaseScene extends Phaser.Scene {
     });
     this.rt = this.add.renderTexture(0, 0, 800, 600);
 
-    this.drawLayers(this.map.layers);
+    const { collisionLayers, pathFinderCollisionLayers } = this.drawLayers(
+      this.map.layers
+    );
+
+    this.preparePathfinding([...collisionLayers, ...pathFinderCollisionLayers]);
+    this.drawPortals(this.map.objects);
+    this.getPlayertart(this.map.objects);
 
     this.add.existing(this.spriteLudo);
     this.physics.world.setBounds(
@@ -197,6 +281,39 @@ export default class BaseScene extends Phaser.Scene {
   }
 
   update() {
-    this.spriteLudo.updateMovement();
+    if (!this.spriteLudo.moveToTarget) {
+      this.spriteLudo.updateMovement();
+    } else {
+      this.spriteLudo.updatePathMovement();
+    }
+    return true;
+  }
+
+  preparePathfinding(collisionLayers: Phaser.Tilemaps.TilemapLayer[]) {
+    const grid = Grid.createFromMap(this.map, collisionLayers);
+
+    // The pathfinding instance is created from the grid and is used to get the path between 2 vectors on the map
+    this.pathfinding = new Pathfinding(grid);
+    this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
+      const touchX = pointer.worldX - this.spriteLudo.width / 2;
+      const touchY = pointer.worldY - this.spriteLudo.height / 2;
+      const startVec = collisionLayers[0].worldToTileXY(
+        this.spriteLudo.x,
+        this.spriteLudo.y
+      );
+      const targetVec = collisionLayers[0].worldToTileXY(touchX, touchY);
+      const path = this.pathfinding.findPathBetweenTl(startVec, targetVec, {
+        simplify: false,
+        distanceMethod: DistanceMethod.Octile,
+        diagonal: false
+      });
+      const vectorPath: Phaser.Math.Vector2[] = path.map(
+        (pathNode: PathNode) => {
+          return new Phaser.Math.Vector2(pathNode.worldX, pathNode.worldY);
+        }
+      );
+      console.log('PATHFINDING', vectorPath);
+      this.spriteLudo.moveAlongPath(vectorPath);
+    });
   }
 }

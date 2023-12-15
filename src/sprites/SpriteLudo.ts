@@ -16,13 +16,16 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
   lastCollideYBeforeStopping: string = '';
   lastX: string = '';
   lastY: string = '';
+  moveToTarget: Phaser.Math.Vector2 | undefined;
+  movePath: Phaser.Math.Vector2[] = [];
+
   constructor(config: LudoProps) {
     super(config.scene, config.x, config.y, 'LudoSprite');
     this.cursors = config.cursors;
     config.scene.physics.add.existing(this, false);
     this.setPosition(10, 200);
     this.setCollideWorldBounds(true);
-    this.body.onCollide = true;
+    if (this.body) this.body.onCollide = true;
     this.createAnims();
 
     //this.body.setOffset(10, 20);
@@ -79,13 +82,77 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
     });
   }
 
+  moveAlongPath(path: Phaser.Math.Vector2[]) {
+    this.movePath = path;
+    if (this.movePath.length > 0) {
+      this.moveTo(this.movePath.shift()!);
+    }
+  }
+
+  updatePathMovement(): boolean {
+    if (this.body) this.body.enable = true;
+
+    let dx = 0;
+    let dy = 0;
+
+    if (this.moveToTarget) {
+      dx = this.moveToTarget.x - this.x;
+      dy = this.moveToTarget.y - this.y;
+
+      if (Math.abs(dx) < 5) {
+        dx = 0;
+      }
+      if (Math.abs(dy) < 5) {
+        dy = 0;
+      }
+
+      if (dx === 0 && dy === 0) {
+        if (this.movePath.length > 0) {
+          this.moveTo(this.movePath.shift()!);
+          return true;
+        }
+        this.moveToTarget = undefined;
+      }
+    }
+    // this logic is the same except we determine
+    // if a key is down based on dx and dy
+    const leftDown = dx < 0;
+    const rightDown = dx > 0;
+    const upDown = dy < 0;
+    const downDown = dy > 0;
+
+    const speed = 200;
+
+    if (leftDown) {
+      this.anims.play('left', true);
+      this.setVelocity(-speed, 0);
+    } else if (rightDown) {
+      this.anims.play('right', true);
+      this.setVelocity(speed, 0);
+    } else if (upDown) {
+      this.anims.play('up', true);
+      this.setVelocity(0, -speed);
+    } else if (downDown) {
+      this.anims.play('down', true);
+      this.setVelocity(0, speed);
+    } else {
+      this.anims.play('stop', true);
+      this.setVelocity(0, 0);
+    }
+
+    return leftDown || rightDown || upDown || downDown;
+  }
+
+  moveTo(target: Phaser.Math.Vector2) {
+    this.moveToTarget = target;
+  }
+
   updateMovement() {
     let hasMoved = false;
     this.lastX = '';
     this.lastY = '';
 
     if (this.cursors.left.isDown) {
-      console.log('LEFT', this.collideX);
       this.lastX = 'left';
       if (this.collideX !== 'left') {
         this.setVelocityX(-this.velocity);
@@ -132,7 +199,8 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
     } else {
       this.setVelocityY(0);
     }
-    this.body.enable = hasMoved;
+
+    if (this.body) this.body.enable = hasMoved;
     if (!hasMoved) {
       this.anims.play('stop', true);
       this.lastCollideXBeforeStopping = this.collideX;

@@ -660,7 +660,7 @@
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
          "height":63,
          "id":11,
-         "name":"Buildings",
+         "name":"PathfinderCollisionBuildings",
          "opacity":1,
          "type":"tilelayer",
          "visible":true,
@@ -745,7 +745,7 @@
         {
          "draworder":"topdown",
          "id":10,
-         "name":"Messages",
+         "name":"Portals",
          "objects":[
                 {
                  "height":28,
@@ -788,7 +788,7 @@
                  "type":"GotoArea",
                  "visible":true,
                  "width":47,
-                 "x":192,
+                 "x":193,
                  "y":154
                 }, 
                 {
@@ -884,9 +884,31 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":12,
+         "name":"Player",
+         "objects":[
+                {
+                 "height":22,
+                 "id":13,
+                 "name":"Player",
+                 "rotation":0,
+                 "type":"GotoArea",
+                 "visible":true,
+                 "width":16.5652173913043,
+                 "x":14.3840579710145,
+                 "y":199.739130434783
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":12,
- "nextobjectid":13,
+ "nextlayerid":13,
+ "nextobjectid":14,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.2",
