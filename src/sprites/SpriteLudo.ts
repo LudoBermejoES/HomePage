@@ -1,4 +1,6 @@
 import * as Phaser from 'phaser';
+import { SIZES, DEPTH } from '../lib/constants';
+import OnTheFlySprite from './OnTheFlySprite';
 
 interface LudoProps {
   scene: Phaser.Scene;
@@ -16,70 +18,31 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
   lastCollideYBeforeStopping: string = '';
   lastX: string = '';
   lastY: string = '';
+  lastXForMoveAnimation: string = '';
+  lastYForMoveAnimation: string = '';
   moveToTarget: Phaser.Math.Vector2 | undefined;
   movePath: Phaser.Math.Vector2[] = [];
 
   constructor(config: LudoProps) {
     super(config.scene, config.x, config.y, 'LudoSprite');
     this.cursors = config.cursors;
+    this.depth = DEPTH.PLAYER;
     config.scene.physics.add.existing(this, false);
-    this.setPosition(10, 200);
     this.setCollideWorldBounds(true);
-    if (this.body) this.body.onCollide = true;
-    this.createAnims();
-
-    //this.body.setOffset(10, 20);
-    this.width -= 6;
-    this.height -= 10;
-    //this.body.setSize(10, 10, false);
+    this.anims.createFromAseprite('LudoSprite').forEach((anim) => {
+      anim.repeat = -1;
+    });
+    this.setPosition(30, 400);
+    //this.setCollideWorldBounds(true);
+    if (!this.body) return;
+    this.body.onCollide = true;
+    this.setOriginalBodySize();
   }
-  createAnims() {
-    this.anims.create({
-      key: 'stop',
-      frames: this.anims.generateFrameNumbers('LudoSprite', {
-        start: 0,
-        end: 0
-      }),
-      frameRate: 10,
-      repeat: -1
-    });
-    this.anims.create({
-      key: 'left',
-      frames: this.anims.generateFrameNumbers('LudoSprite', {
-        start: 4,
-        end: 7
-      }),
-      frameRate: 10,
-      repeat: -1
-    });
 
-    this.anims.create({
-      key: 'right',
-      frames: this.anims.generateFrameNumbers('LudoSprite', {
-        start: 8,
-        end: 11
-      }),
-      frameRate: 10,
-      repeat: -1
-    });
-    this.anims.create({
-      key: 'up',
-      frames: this.anims.generateFrameNumbers('LudoSprite', {
-        start: 12,
-        end: 15
-      }),
-      frameRate: 10,
-      repeat: -1
-    });
-    this.anims.create({
-      key: 'down',
-      frames: this.anims.generateFrameNumbers('LudoSprite', {
-        start: 0,
-        end: 3
-      }),
-      frameRate: 10,
-      repeat: -1
-    });
+  setOriginalBodySize() {
+    if (!this.body) return;
+    this.body.setOffset(this.body.width / 4, this.body.height / 2);
+    this.body.setSize(this.body.width / 2, this.body.height / 2, false);
   }
 
   moveAlongPath(path: Phaser.Math.Vector2[]) {
@@ -96,8 +59,8 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
     let dy = 0;
 
     if (this.moveToTarget) {
-      dx = this.moveToTarget.x - this.x;
-      dy = this.moveToTarget.y - this.y;
+      dx = this.moveToTarget.x * SIZES.BLOCK - this.x;
+      dy = this.moveToTarget.y * SIZES.BLOCK - this.y - 10;
 
       if (Math.abs(dx) < 5) {
         dx = 0;
@@ -111,6 +74,7 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
           this.moveTo(this.movePath.shift()!);
           return true;
         }
+
         this.moveToTarget = undefined;
       }
     }
@@ -121,24 +85,28 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
     const upDown = dy < 0;
     const downDown = dy > 0;
 
-    const speed = 200;
+    const defaultSpeed = 10;
+    const speedX = leftDown ? -defaultSpeed : rightDown ? defaultSpeed : 0;
+    const speedY = upDown ? -defaultSpeed : downDown ? defaultSpeed : 0;
 
-    if (leftDown) {
-      this.anims.play('left', true);
-      this.setVelocity(-speed, 0);
-    } else if (rightDown) {
-      this.anims.play('right', true);
-      this.setVelocity(speed, 0);
-    } else if (upDown) {
-      this.anims.play('up', true);
-      this.setVelocity(0, -speed);
-    } else if (downDown) {
-      this.anims.play('down', true);
-      this.setVelocity(0, speed);
+    let animation: string =
+      speedX < 0 ? 'left_move' : speedX > 0 ? 'right_move' : '';
+    animation = speedY < 0 ? 'up_move' : speedY > 0 ? 'down_move' : animation;
+
+    if (!animation) {
+      animation = this.lastX === 'left' ? 'left_stop' : 'right_stop';
+      animation =
+        this.lastY === 'up'
+          ? 'up_stop'
+          : this.lastY === 'down'
+            ? 'down_stop'
+            : animation;
     } else {
-      this.anims.play('stop', true);
-      this.setVelocity(0, 0);
+      this.lastX = speedX < 0 ? 'left' : speedX > 0 ? 'right' : '';
+      this.lastY = speedY < 0 ? 'up' : speedY > 0 ? 'down' : '';
     }
+    this.setPosition(this.x + speedX, this.y + speedY);
+    this.anims.play(animation, true);
 
     return leftDown || rightDown || upDown || downDown;
   }
@@ -148,65 +116,73 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
   }
 
   updateMovement() {
-    let hasMoved = false;
-    this.lastX = '';
-    this.lastY = '';
+    const speedX = this.cursors.left.isDown
+      ? -this.velocity
+      : this.cursors.right.isDown
+        ? this.velocity
+        : 0;
+    const speedY = this.cursors.up.isDown
+      ? -this.velocity
+      : this.cursors.down.isDown
+        ? this.velocity
+        : 0;
 
-    if (this.cursors.left.isDown) {
-      this.lastX = 'left';
-      if (this.collideX !== 'left') {
-        this.setVelocityX(-this.velocity);
-      } else {
-        this.setVelocityX(0);
-      }
-      hasMoved = true;
+    let animation: string =
+      speedX < 0 ? 'left_move' : speedX > 0 ? 'right_move' : '';
+    animation = speedY < 0 ? 'up_move' : speedY > 0 ? 'down_move' : animation;
 
-      this.anims.play('left', true);
-    } else if (this.cursors.right.isDown) {
-      this.lastX = 'right';
-      if (this.collideX !== 'right') {
-        this.setVelocityX(this.velocity);
-      } else {
-        this.setVelocityX(0);
-      }
-      hasMoved = true;
-
-      this.anims.play('right', true);
+    if (!animation) {
+      animation = this.lastX === 'left' ? 'left_stop' : 'right_stop';
+      animation =
+        this.lastY === 'up'
+          ? 'up_stop'
+          : this.lastY === 'down'
+            ? 'down_stop'
+            : animation;
     } else {
-      this.setVelocityX(0);
+      this.lastX = speedX < 0 ? 'left' : speedX > 0 ? 'right' : '';
+      this.lastY = speedY < 0 ? 'up' : speedY > 0 ? 'down' : '';
     }
+    this.setVelocity(speedX, speedY);
+    this.anims.play(animation, true);
+  }
 
-    if (this.cursors.up.isDown) {
-      this.lastY = 'up';
-      if (this.collideY !== 'up') {
-        this.setVelocityY(-this.velocity);
-      } else {
-        this.setVelocityY(0);
+  enterBuilding(door: OnTheFlySprite, scene: string | undefined) {
+    if (!this.body) return;
+    this.body.enable = false;
+
+    const tweens = [
+      {
+        alpha: 0,
+        scale: 0,
+        y: door.y,
+        duration: 1000,
+        ease: 'Linear',
+        onStart: () => {},
+        onComplete: () => {
+          console.log('PRUEBA');
+        }
       }
-      hasMoved = true;
-
-      this.anims.play('up', true);
-    } else if (this.cursors.down.isDown) {
-      this.lastY = 'down';
-      if (this.collideY !== 'down') {
-        this.setVelocityY(this.velocity);
-      } else {
-        this.setVelocityY(0);
-      }
-      hasMoved = true;
-
-      this.anims.play('down', true);
-    } else {
-      this.setVelocityY(0);
+    ];
+    if (!scene) {
+      tweens.push({
+        alpha: 1,
+        scale: 1,
+        y: door.y + SIZES.THREE_BLOCKS,
+        duration: 1000,
+        ease: 'Linear',
+        onStart: () => {
+          this.anims.play('down_move', true);
+        },
+        onComplete: () => {
+          this.body && (this.body.enable = true);
+        }
+      });
     }
-
-    if (this.body) this.body.enable = hasMoved;
-    if (!hasMoved) {
-      this.anims.play('stop', true);
-      this.lastCollideXBeforeStopping = this.collideX;
-      this.lastCollideYBeforeStopping = this.collideY;
-      this.collideX = '';
-      this.collideY = '';
-    }
+    if (!scene)
+      this.scene.tweens.chain({
+        targets: this,
+        tweens
+      });
   }
 }

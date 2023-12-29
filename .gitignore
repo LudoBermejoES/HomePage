@@ -11,3 +11,10 @@ node_modules/
 
 # Build
 /npm-debug.log
+
+# Dist
+dist/
+
+# Images
+*.png
+*.webp

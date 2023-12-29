@@ -52,7 +52,9 @@ export default {
         'node_modules/phaser/**',
         'node_modules/navmesh/**',
         'node_modules/lodash/**',
-        'node_modules/@raresail/phaser-pathfinding/**'
+        'node_modules/@raresail/phaser-pathfinding/**',
+        'node_modules/astar-typescript/**',
+        'node_modules/phaser3-nineslice/**'
       ],
       exclude: [
         'node_modules/phaser/src/polyfills/requestAnimationFrame.js',

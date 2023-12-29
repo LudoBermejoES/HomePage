@@ -1,0 +1,16 @@
+export const SIZES = {
+  BLOCK: 32,
+  DOUBLE_BLOCK: 64,
+  THREE_BLOCKS: 96,
+  FOUR_BLOCKS: 128
+};
+
+export const DEPTH = {
+  BACKGROUND: 0,
+  GROUND: 10,
+  DOOR_SPRITES: 15,
+  PLAYER: 20,
+  OBJECTS: 30,
+  ANIMALS: 31,
+  UI: 40
+};

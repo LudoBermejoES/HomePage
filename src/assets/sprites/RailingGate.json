@@ -1,0 +1,140 @@
+{ "frames": {
+   "0": {
+    "frame": { "x": 1, "y": 1, "w": 162, "h": 78 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 20, "w": 160, "h": 76 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 500
+   },
+   "1": {
+    "frame": { "x": 164, "y": 1, "w": 162, "h": 78 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 20, "w": 160, "h": 76 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 100
+   },
+   "2": {
+    "frame": { "x": 327, "y": 1, "w": 162, "h": 78 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 20, "w": 160, "h": 76 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 100
+   },
+   "3": {
+    "frame": { "x": 490, "y": 1, "w": 162, "h": 86 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 12, "w": 160, "h": 84 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 100
+   },
+   "4": {
+    "frame": { "x": 653, "y": 1, "w": 162, "h": 88 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 10, "w": 160, "h": 86 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 100
+   },
+   "5": {
+    "frame": { "x": 816, "y": 1, "w": 162, "h": 90 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 8, "w": 160, "h": 88 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 100
+   },
+   "6": {
+    "frame": { "x": 979, "y": 1, "w": 162, "h": 90 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 8, "w": 160, "h": 88 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 100
+   },
+   "7": {
+    "frame": { "x": 1142, "y": 1, "w": 162, "h": 90 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 8, "w": 160, "h": 88 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 500
+   },
+   "8": {
+    "frame": { "x": 1305, "y": 1, "w": 162, "h": 90 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 8, "w": 160, "h": 88 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 100
+   },
+   "9": {
+    "frame": { "x": 1468, "y": 1, "w": 162, "h": 90 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 8, "w": 160, "h": 88 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 100
+   },
+   "10": {
+    "frame": { "x": 1631, "y": 1, "w": 162, "h": 88 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 10, "w": 160, "h": 86 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 100
+   },
+   "11": {
+    "frame": { "x": 1794, "y": 1, "w": 162, "h": 86 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 12, "w": 160, "h": 84 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 100
+   },
+   "12": {
+    "frame": { "x": 1957, "y": 1, "w": 162, "h": 78 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 20, "w": 160, "h": 76 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 100
+   },
+   "13": {
+    "frame": { "x": 2120, "y": 1, "w": 162, "h": 78 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 20, "w": 160, "h": 76 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 100
+   },
+   "14": {
+    "frame": { "x": 2283, "y": 1, "w": 162, "h": 78 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 20, "w": 160, "h": 76 },
+    "sourceSize": { "w": 160, "h": 96 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.2-arm64",
+  "image": "RailingGate.png",
+  "format": "I8",
+  "size": { "w": 2446, "h": 92 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "open_door", "from": 1, "to": 7, "direction": "forward", "color": "#000000ff" },
+   { "name": "close_door", "from": 8, "to": 14, "direction": "forward", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "Layer", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

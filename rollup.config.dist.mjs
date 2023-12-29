@@ -3,7 +3,9 @@ import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-import copy from 'rollup-plugin-copy-assets';
+import copyAssets from 'rollup-plugin-copy-assets';
+import copy from 'rollup-plugin-copy';
+import execute from 'rollup-plugin-execute';
 
 export default {
   //  Our games entry point (edit as required)
@@ -15,7 +17,7 @@ export default {
   //  If using Phaser 3.21 or **below**, add: `intro: 'var global = window;'` to the output object.
   output: {
     file: './dist/game.js',
-    name: 'MyGame',
+    name: 'HomepageLudo',
     format: 'iife',
     sourcemap: false
   },
@@ -40,26 +42,50 @@ export default {
 
     //  We need to convert the Phaser 3 CJS modules into a format Rollup can use:
     commonjs({
-      include: ['node_modules/eventemitter3/**', 'node_modules/phaser/**'],
+      include: [
+        'node_modules/eventemitter3/**',
+        'node_modules/phaser/**',
+        'node_modules/navmesh/**',
+        'node_modules/lodash/**',
+        'node_modules/@raresail/phaser-pathfinding/**',
+        'node_modules/astar-typescript/**',
+        'node_modules/phaser3-nineslice/**'
+      ],
       exclude: [
         'node_modules/phaser/src/polyfills/requestAnimationFrame.js',
         'node_modules/phaser/src/phaser-esm.js'
       ],
       sourceMap: false,
-      ignoreGlobal: true
-    }),
-
-    copy({
-      assets: [
-        // You can include directories
-        'src/assets'
-      ]
+      ignoreGlobal: true,
+      requireReturnsDefault: 'auto'
     }),
 
     //  See https://github.com/rollup/plugins/tree/master/packages/typescript for config options
     typescript(),
 
     //  See https://github.com/rollup/plugins/tree/master/packages/terser for config options
-    terser()
+    terser(),
+
+    copy({
+      targets: [
+        {
+          src: 'src/assets',
+          dest: 'dist'
+        },
+        {
+          src: 'src/assets/map/city.json',
+          dest: 'utils'
+        },
+        {
+          src: 'src/assets/map/city.webp',
+          dest: 'utils'
+        }
+      ],
+      verbose: true
+    }),
+
+    execute(
+      'cd utils && node mapReducer.js && cp created/city.webp ../dist/assets/map/city.webp && cp created/city.json ../dist/assets/map/city.json && cd .. && rm -rf dist.zip && zip -r dist.zip dist -x "*.DS_Store"'
+    )
   ]
 };
