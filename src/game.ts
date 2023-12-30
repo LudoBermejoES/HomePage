@@ -7,7 +7,7 @@ import Training from './scenes/training';
 const config = {
   type: Phaser.AUTO,
   backgroundColor: '#000000',
-  scene: [City, BusTravel, Intro, Training],
+  scene: [BusTravel, Intro, City, Training],
   physics: {
     default: 'arcade',
     arcade: {

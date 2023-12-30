@@ -6,21 +6,26 @@ import { loadCars as carClassicLoad } from '../sprites/SpriteCarClassic';
 import SpriteSign from '../sprites/SpriteSign';
 import SpriteCarClassic from '../sprites/SpriteCarClassic';
 import SpriteTree from '../sprites/SpriteTree';
-import { Dialog, loadImages } from '../ui/Dialog';
-import { preloadLudoHead } from '../sprites/SpriteLudoHead';
-import SpriteLudoHead from '../sprites/SpriteLudoHead';
+import { loadImages } from '../ui/Dialog';
+import { preloadHead } from '../sprites/SpriteHead';
+import { ScriptScene } from '../ui/ScriptScene';
+import { DialogObject } from '../ui/Interfaces';
+import { DialogScene } from '../ui/DialogScene';
 
 export default class BusTravel extends Phaser.Scene {
   map!: Phaser.Tilemaps.Tilemap;
   tileSprite!: Phaser.GameObjects.TileSprite;
   bus: SpriteBus | undefined;
   objectsCreated: SpriteCar[] | SpriteCarClassic[] | SpriteSign[] = [];
+  scripScene: ScriptScene = new ScriptScene();
+  scriptLines: DialogObject[] = this.scripScene.getSceneChildren('BusScene');
   constructor() {
     super('busTravel');
   }
 
   preload() {
-    preloadLudoHead(this);
+    const heads: string[] = this.scriptLines.map((line) => line.name);
+    preloadHead(this, heads);
     this.load.image(
       '_Terrains_and_Fences_32x32',
       'assets/map/exteriors/1_Terrains_and_Fences_32x32.png'
@@ -105,29 +110,11 @@ export default class BusTravel extends Phaser.Scene {
       });
       this.add.existing(this.bus);
 
-      const spriteLudoHead = new SpriteLudoHead({
-        x: 0,
-        y: 0,
-        scene: this,
-        name: ''
-      });
-
       const widthDialog = this.scale.getViewPort().width / 1.5;
-
-      new Dialog(
-        this,
-        'Welcome to the city! This is a very large text',
-        {
-          x: widthDialog - widthDialog / 4,
-          y: this.scale.getViewPort().height - 75,
-          width: widthDialog,
-          height: 96
-        },
-        'Ludo',
-        spriteLudoHead as Phaser.GameObjects.Sprite
-      );
-
-      this.createTimers();
+      new DialogScene(this, this.scriptLines, {
+        scene: this,
+        widthDialog
+      });
     });
   }
 

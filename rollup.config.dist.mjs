@@ -3,9 +3,9 @@ import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-import copyAssets from 'rollup-plugin-copy-assets';
 import copy from 'rollup-plugin-copy';
 import execute from 'rollup-plugin-execute';
+import pluginJson from '@rollup/plugin-json';
 
 export default {
   //  Our games entry point (edit as required)
@@ -65,6 +65,8 @@ export default {
 
     //  See https://github.com/rollup/plugins/tree/master/packages/terser for config options
     terser(),
+
+    pluginJson(),
 
     copy({
       targets: [

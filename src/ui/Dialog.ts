@@ -6,13 +6,20 @@ type configSize = {
   width: number;
   height: number;
 };
+
+type CallbackFunction = () => void;
+
 /*
  /* Create typewriter animation for text
  * @param {Phaser.GameObjects.Text} target
  * @param {number} [speedInMs=25]
  * @returns {Promise<void>}
  */
-function animateText(target: Phaser.GameObjects.Text, speedInMs = 25) {
+function animateText(
+  target: Phaser.GameObjects.Text,
+  spriteHead: Phaser.GameObjects.Sprite,
+  speedInMs = 25
+) {
   // store original text
   const message = target.text;
   const invisibleMessage = message.replace(/[^ ]/g, ' ');
@@ -32,7 +39,19 @@ function animateText(target: Phaser.GameObjects.Text, speedInMs = 25) {
         // if all characters are visible, stop the timer
         if (target.text === message) {
           timer.destroy();
-          return resolve(true);
+          if (spriteHead) {
+            if (spriteHead.anims.get('idle')) {
+              spriteHead.anims.play('idle', true);
+            } else {
+              spriteHead.setFrame(0);
+            }
+          }
+          const timerDestroy = target.scene.time.delayedCall(2000, () => {
+            timerDestroy.destroy();
+            target.destroy();
+            return resolve(true);
+          });
+          return;
         }
 
         // add next character to visible text
@@ -41,6 +60,7 @@ function animateText(target: Phaser.GameObjects.Text, speedInMs = 25) {
         const invisibleText = invisibleMessage.substring(visibleText.length);
 
         // update text on screen
+
         target.text = visibleText + invisibleText;
       }
     });
@@ -59,19 +79,36 @@ export function loadImages(scene: Phaser.Scene) {
 
 export class Dialog extends Phaser.GameObjects.Container {
   sizeOfBlocks: number = 32;
+  nameHead!: Phaser.GameObjects.Text;
+  background: Phaser.GameObjects.RenderTexture | undefined;
+  text: Phaser.GameObjects.Text | undefined;
+  corners: {
+    leftCorner: Phaser.GameObjects.Image;
+    rightCorner: Phaser.GameObjects.Image;
+  };
+  actor: {
+    tx: Phaser.GameObjects.RenderTexture;
+    spriteHead: Phaser.GameObjects.Sprite;
+  };
+  actorName: {
+    backgroundActor: Phaser.GameObjects.RenderTexture;
+    message: Phaser.GameObjects.Text;
+  };
+
   constructor(
     scene: Phaser.Scene,
     textToShow: string,
     config: configSize,
     name: string,
-    spriteHead: Phaser.GameObjects.Sprite
+    spriteHead: Phaser.GameObjects.Sprite,
+    callback: CallbackFunction
   ) {
     super(scene, 0, 0);
-    this.createText(scene, textToShow, config);
-    this.createBackground(scene, config);
-    this.createCorners(scene, config);
-    this.createActor(scene, spriteHead, config);
-    this.createActorName(scene, name, config);
+    this.background = this.createBackground(scene, config);
+    this.actorName = this.createActorName(scene, name, config);
+    this.actor = this.createActor(scene, spriteHead, config);
+    this.text = this.createText(scene, textToShow, config, callback);
+    this.corners = this.createCorners(scene, config);
 
     scene.add.existing(this);
     this.setDepth(150);
@@ -88,8 +125,14 @@ export class Dialog extends Phaser.GameObjects.Container {
       config
     );
     this.add(spriteHead);
+    this.add(tx);
+
     spriteHead.x = tx.x;
     spriteHead.y = tx.y + 2;
+    return {
+      spriteHead,
+      tx
+    };
   }
 
   createBackgroundActor(
@@ -122,7 +165,7 @@ export class Dialog extends Phaser.GameObjects.Container {
   }
 
   createCorners(scene: Phaser.Scene, config: configSize) {
-    const leftCorner = scene.add
+    const leftCorner: Phaser.GameObjects.Image = scene.add
       .image(
         config.x - config.width / 2 + this.sizeOfBlocks * 2.8,
         config.y - config.height / 2 + 8,
@@ -130,17 +173,19 @@ export class Dialog extends Phaser.GameObjects.Container {
       )
       .setOrigin(0, 0);
 
-    const rightCorner = this.add(
-      scene.add
-        .image(
-          config.x + config.width / 2 - 16,
-          config.y + config.height / 2 - 16,
-          'dialogCornerRightBottom'
-        )
-        .setOrigin(0.5, 0.5)
-    );
+    const rightCorner: Phaser.GameObjects.Image = scene.add
+      .image(
+        config.x + config.width / 2 - 16,
+        config.y + config.height / 2 - 16,
+        'dialogCornerRightBottom'
+      )
+      .setOrigin(0.5, 0.5);
     this.add(leftCorner);
     this.add(rightCorner);
+    return {
+      leftCorner,
+      rightCorner
+    };
   }
 
   createBackground(scene: Phaser.Scene, config: configSize) {
@@ -189,12 +234,9 @@ export class Dialog extends Phaser.GameObjects.Container {
     return rt;
   }
 
-  createActorName(
-    scene: Phaser.Scene,
-    text: string,
-    config: configSize
-  ): Phaser.GameObjects.Text {
-    this.createBackgroundActorName(scene, config);
+  createActorName(scene: Phaser.Scene, text: string, config: configSize) {
+    const backgroundActor: Phaser.GameObjects.RenderTexture =
+      this.createBackgroundActorName(scene, config);
     const widthForCenter = config.width - this.sizeOfBlocks * 2;
     const heightForCenter = config.height - this.sizeOfBlocks * 2;
 
@@ -208,7 +250,7 @@ export class Dialog extends Phaser.GameObjects.Container {
       }
     };
     const message: Phaser.GameObjects.Text = scene.add.text(
-      scene.renderer.width / 2 - widthForCenter / 2,
+      backgroundActor.x - backgroundActor.width / 4,
       scene.renderer.height -
         heightForCenter * 2 -
         this.sizeOfBlocks * 2 -
@@ -218,14 +260,19 @@ export class Dialog extends Phaser.GameObjects.Container {
     );
     message.setDepth(151);
     this.add(message);
-    scene.add.existing(message);
-    return message;
+    this.nameHead = message;
+
+    return {
+      message,
+      backgroundActor
+    };
   }
 
   createText(
     scene: Phaser.Scene,
     text: string,
-    config: configSize
+    config: configSize,
+    callback: CallbackFunction
   ): Phaser.GameObjects.Text {
     const widthForCenter = config.width - this.sizeOfBlocks * 2;
     const heightForCenter = config.height - this.sizeOfBlocks * 2;
@@ -236,20 +283,33 @@ export class Dialog extends Phaser.GameObjects.Container {
       color: '#000000',
       align: 'left',
       wordWrap: {
-        width: widthForCenter - this.sizeOfBlocks,
+        width: widthForCenter - this.sizeOfBlocks * 2,
         useAdvancedWrap: true
       }
     };
     const message: Phaser.GameObjects.Text = scene.add.text(
-      scene.renderer.width / 2 - widthForCenter / 2 + this.sizeOfBlocks * 2,
+      this.actorName.backgroundActor.x + this.sizeOfBlocks * 2,
       scene.renderer.height - heightForCenter * 2 - this.sizeOfBlocks,
       text,
       style
     );
+
     message.setDepth(151);
     this.add(message);
     scene.add.existing(message);
-    animateText(message);
+    animateText(message, this.actor.spriteHead).then(() => {
+      callback();
+      this.destroy();
+    });
     return message;
+  }
+
+  destroy() {
+    this.list.forEach((child) => {
+      child.destroy();
+    });
+    this.nameHead.destroy();
+    this.removeAll(true);
+    super.destroy(true);
   }
 }

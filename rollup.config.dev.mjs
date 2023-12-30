@@ -4,6 +4,7 @@ import replace from '@rollup/plugin-replace';
 import serve from 'rollup-plugin-serve';
 import typescript from '@rollup/plugin-typescript';
 import copy from 'rollup-plugin-copy-assets';
+import pluginJson from '@rollup/plugin-json';
 
 export default {
   //  Our game entry point (edit as required)
@@ -77,6 +78,8 @@ export default {
       headers: {
         'Access-Control-Allow-Origin': '*'
       }
-    })
+    }),
+
+    pluginJson()
   ]
 };

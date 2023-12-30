@@ -1,0 +1,80 @@
+{
+  "DFr_9A92C073.Text": {
+    "en": {
+      "Text": "Yeah? Ludo speaking"
+    },
+    "es": {
+      "Text": "¿Sí? Ludo al habla."
+    },
+    "Context": "Flow/Ludo: \"Yeah? Ludo speaking\""
+  },
+  "DFr_790BE4B2.Text": {
+    "en": {
+      "Text": "Hey man! Where are you? I have been waiting for HOURS!"
+    },
+    "es": {
+      "Text": "Hey tío! ¿Donde coño estás? Llevo HORAS esperándote"
+    },
+    "Context": "Flow/Pak0: \"Hey man! Where are you? I have been...\""
+  },
+  "DFr_53332B01.Text": {
+    "en": {
+      "Text": "I told you I'll be there soon. What's the rush, man? It is not like I have anything to do in there."
+    },
+    "es": {
+      "Text": "Ya te dije que llegaré pronto. Pero, ¿por qué tanta prisa? Ni que tuviera algo que hacer allí"
+    },
+    "Context": "Flow/Ludo: \"I told you I'll be there soon. What...\""
+  },
+  "DFr_CDFB7D83.Text": {
+    "en": {
+      "Text": "Oh, no. No, no, no, no, no. No way. Come to the pub, we are here. The Lonely Owl. Come on,  brother, they are waiting for you"
+    },
+    "es": {
+      "Text": "Oh, no. No, no, no, no, no. Ni de coña. Estamos en el Buho Solitario. Vamos, tronco, que te estámos esperando."
+    },
+    "Context": "Flow/Pak0: \"Oh, no. No, no, no, no, no. No way....\""
+  },
+  "DFr_4FCF4F96.Text": {
+    "en": {
+      "Text": "What are you talking about? Who are waiting for me? What...."
+    },
+    "es": {
+      "Text": "¿De qué hablas? ¿Quien me está esperando? ¿Qué...?"
+    },
+    "Context": "Flow/Ludo: \"What are you talking about? Who are...\""
+  },
+  "DFr_54B88CD1.Text": {
+    "en": {
+      "Text": "... and he hang up. Perfect. First day and I'm already busy."
+    },
+    "es": {
+      "Text": "... y colgó. Perfecto: el primer día y ya me han liado"
+    },
+    "Context": "Flow/Ludo: \"... and he hang up. Perfect. First...\""
+  },
+  "Ntt_88CA51A5.DisplayName": {
+    "en": {
+      "Text": "Ludo"
+    },
+    "es": {
+      "Text": "Ludo"
+    },
+    "Context": "Entities/Ludo"
+  },
+  "Ntt_88CA51A5.Text": {
+    "Context": "Entities/Ludo"
+  },
+  "Ntt_3F5CF336.DisplayName": {
+    "en": {
+      "Text": "Pak0"
+    },
+    "es": {
+      "Text": "Pak0"
+    },
+    "Context": "Entities/Pak0"
+  },
+  "Ntt_3F5CF336.Text": {
+    "Context": "Entities/Pak0"
+  }
+}
