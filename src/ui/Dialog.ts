@@ -15,57 +15,6 @@ type CallbackFunction = () => void;
  * @param {number} [speedInMs=25]
  * @returns {Promise<void>}
  */
-function animateText(
-  target: Phaser.GameObjects.Text,
-  spriteHead: Phaser.GameObjects.Sprite,
-  speedInMs = 25
-) {
-  // store original text
-  const message = target.text;
-  const invisibleMessage = message.replace(/[^ ]/g, ' ');
-
-  // clear text on screen
-  target.text = '';
-
-  // mutable state for visible text
-  let visibleText = '';
-
-  // use a Promise to wait for the animation to complete
-  return new Promise((resolve) => {
-    const timer = target.scene.time.addEvent({
-      delay: speedInMs,
-      loop: true,
-      callback() {
-        // if all characters are visible, stop the timer
-        if (target.text === message) {
-          timer.destroy();
-          if (spriteHead) {
-            if (spriteHead.anims.get('idle')) {
-              spriteHead.anims.play('idle', true);
-            } else {
-              spriteHead.setFrame(0);
-            }
-          }
-          const timerDestroy = target.scene.time.delayedCall(2000, () => {
-            timerDestroy.destroy();
-            target.destroy();
-            return resolve(true);
-          });
-          return;
-        }
-
-        // add next character to visible text
-        visibleText += message[visibleText.length];
-        // right pad with invisibleText
-        const invisibleText = invisibleMessage.substring(visibleText.length);
-
-        // update text on screen
-
-        target.text = visibleText + invisibleText;
-      }
-    });
-  });
-}
 
 export function loadImages(scene: Phaser.Scene) {
   scene.load.image('actorBackground', 'assets/ui/buttonBackground.png');
@@ -94,7 +43,13 @@ export class Dialog extends Phaser.GameObjects.Container {
     backgroundActor: Phaser.GameObjects.RenderTexture;
     message: Phaser.GameObjects.Text;
   };
-
+  static keyPress: Phaser.Input.Keyboard.Key | undefined;
+  timer: Phaser.Time.TimerEvent | undefined;
+  timerDestroy: Phaser.Time.TimerEvent | undefined;
+  visibleText: string = '';
+  textToShow: string = '';
+  callbackF: CallbackFunction | undefined;
+  resolve: CallbackFunction | undefined;
   constructor(
     scene: Phaser.Scene,
     textToShow: string,
@@ -104,12 +59,16 @@ export class Dialog extends Phaser.GameObjects.Container {
     callback: CallbackFunction
   ) {
     super(scene, 0, 0);
+    this.resolve = callback;
+
+    this.callbackF = callback;
+    this.textToShow = textToShow;
     this.background = this.createBackground(scene, config);
     this.actorName = this.createActorName(scene, name, config);
     this.actor = this.createActor(scene, spriteHead, config);
     this.text = this.createText(scene, textToShow, config, callback);
     this.corners = this.createCorners(scene, config);
-
+    this.listenToKeyboard(scene);
     scene.add.existing(this);
     this.setDepth(150);
   }
@@ -237,7 +196,6 @@ export class Dialog extends Phaser.GameObjects.Container {
   createActorName(scene: Phaser.Scene, text: string, config: configSize) {
     const backgroundActor: Phaser.GameObjects.RenderTexture =
       this.createBackgroundActorName(scene, config);
-    const widthForCenter = config.width - this.sizeOfBlocks * 2;
     const heightForCenter = config.height - this.sizeOfBlocks * 2;
 
     const style = {
@@ -297,17 +255,130 @@ export class Dialog extends Phaser.GameObjects.Container {
     message.setDepth(151);
     this.add(message);
     scene.add.existing(message);
-    animateText(message, this.actor.spriteHead).then(() => {
+    this.animateText(message, this.actor.spriteHead).then(() => {
       callback();
       this.destroy();
     });
     return message;
   }
 
+  endDialog() {
+    console.log(this.timer, this.timerDestroy);
+    if (this.timer) {
+      this.timer.destroy();
+      this.timer = undefined;
+      console.log('Destruo', this.timer);
+      this.text?.setText(this.textToShow);
+      if (this.resolve && this.text)
+        this.onFinishDialog(this.actor.spriteHead, this.resolve, this.text);
+    }
+  }
+  listenToKeyboard(scene: Phaser.Scene) {
+    if (Dialog.keyPress) {
+      Dialog.keyPress?.off('up');
+      Dialog.keyPress.destroy();
+    }
+    Dialog.keyPress = scene?.input?.keyboard?.addKey(
+      Phaser.Input.Keyboard.KeyCodes.SPACE
+    );
+    Dialog.keyPress?.on('up', () => {
+      this.endDialog();
+    });
+  }
+
+  onFinishDialog(
+    spriteHead: Phaser.GameObjects.Sprite,
+    resolve: CallbackFunction,
+    target: Phaser.GameObjects.Text
+  ) {
+    if (spriteHead) {
+      if (spriteHead.anims.get('idle')) {
+        spriteHead.anims.play('idle', true);
+      } else {
+        spriteHead.setFrame(0);
+      }
+    }
+    this.timerDestroy = target.scene.time.delayedCall(1000, () => {
+      console.log('YEAH');
+      this.timerDestroy?.destroy();
+      target.destroy();
+      this.destroy();
+      return resolve();
+    });
+  }
+
+  callback(
+    target: Phaser.GameObjects.Text,
+    visibleText: string,
+    invisibleMessage: string,
+    message: string,
+    spriteHead: Phaser.GameObjects.Sprite,
+    resolve: CallbackFunction
+  ) {
+    // if all characters are visible, stop the timer
+    if (target.text === message) {
+      this.timer?.destroy();
+      this.onFinishDialog(spriteHead, resolve, target);
+      return;
+    }
+    // add next character to visible text
+    this.visibleText += message[this.visibleText.length];
+    // right pad with invisibleText
+    const invisibleText = invisibleMessage.substring(this.visibleText.length);
+
+    // update text on screen
+    target.text = this.visibleText + invisibleText;
+  }
+
+  async animateText(
+    target: Phaser.GameObjects.Text,
+    spriteHead: Phaser.GameObjects.Sprite,
+    speedInMs = 25
+  ) {
+    // store original text
+    const message = target.text;
+    const invisibleMessage = message.replace(/[^ ]/g, ' ');
+
+    // clear text on screen
+    target.text = '';
+
+    // mutable state for visible text
+    const visibleText = '';
+
+    // use a Promise to wait for the animation to complete
+    return new Promise((resolve) => {
+      console.log('creo el timer');
+      this.timer = target.scene.time.addEvent({
+        delay: speedInMs,
+        loop: true,
+        callback: () =>
+          this.callback(
+            target,
+            visibleText,
+            invisibleMessage,
+            message,
+            spriteHead,
+            resolve as CallbackFunction
+          )
+      });
+    });
+  }
+
   destroy() {
     this.list.forEach((child) => {
       child.destroy();
     });
+
+    this.timer?.destroy();
+    this.timerDestroy?.destroy();
+    this.background?.destroy();
+    this.actorName.backgroundActor?.destroy();
+    this.actorName.message?.destroy();
+    this.text?.destroy();
+    this.actor.spriteHead?.destroy();
+    this.corners.leftCorner?.destroy();
+    this.corners.rightCorner?.destroy();
+    this.nameHead.destroy();
     this.nameHead.destroy();
     this.removeAll(true);
     super.destroy(true);

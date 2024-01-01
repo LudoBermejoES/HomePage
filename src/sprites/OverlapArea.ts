@@ -2,6 +2,7 @@ import * as Phaser from 'phaser';
 import { DEPTH, SIZES } from '../lib/constants';
 import SpriteLudo from './SpriteLudo';
 import OnTheFlySprite from './OnTheFlySprite';
+import GotoSceneObject from '../objects/gotoSceneObject';
 interface Props {
   scene: Phaser.Scene;
   x: number;
@@ -9,13 +10,14 @@ interface Props {
   name: string;
   type: string;
   spriteLudo: SpriteLudo;
-  parent: OnTheFlySprite;
+  parent: OnTheFlySprite | Phaser.Types.Tilemaps.TiledObject;
+  gotoSceneObject?: GotoSceneObject;
 }
 
 export default class OverlapSprite extends Phaser.Physics.Arcade.Sprite {
   collider?: Phaser.Physics.Arcade.Collider;
   overlapping: boolean = false;
-
+  gotoSceneObject: GotoSceneObject | undefined;
   constructor(config: Props) {
     super(
       config.scene,
@@ -23,6 +25,7 @@ export default class OverlapSprite extends Phaser.Physics.Arcade.Sprite {
       config.y,
       'overlapArea' + config.x + config.y
     );
+    this.gotoSceneObject = config.gotoSceneObject;
     this.type = config.type;
     this.depth = DEPTH.OBJECTS;
     this.visible = true;
@@ -45,6 +48,8 @@ export default class OverlapSprite extends Phaser.Physics.Arcade.Sprite {
         [],
         this
       );
+    } else if (type === 'gotoScene') {
+      this.body.setSize(config.parent.width, config.parent.height, true);
     } else {
       this.body.setSize(
         config.parent.width + SIZES.DOUBLE_BLOCK,
@@ -77,7 +82,7 @@ export default class OverlapSprite extends Phaser.Physics.Arcade.Sprite {
       this.anims.play('open_door', true);
     }
     this.overlapping = true;
-    config.parent.onEnterArea();
+    config.gotoSceneObject?.onEnterArea() || config.parent.onEnterArea();
     return false;
   }
   onLeave(config: Props) {
@@ -86,7 +91,11 @@ export default class OverlapSprite extends Phaser.Physics.Arcade.Sprite {
     this.overlapping = false;
     collider.destroy();
     this.anims.play('close_door', true);
-    config.parent.onLeaveArea();
+    if (config.gotoSceneObject) {
+      config.gotoSceneObject?.onLeaveArea();
+    } else {
+      config.parent?.onLeaveArea();
+    }
     this.createCollider(config);
   }
 }

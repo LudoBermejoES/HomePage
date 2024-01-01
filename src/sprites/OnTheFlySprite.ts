@@ -66,10 +66,8 @@ export default class OnTheFlySprite extends Phaser.Physics.Arcade.Sprite {
         if (config.type === 'door') {
           if (!config.spriteLudo.movePath.length)
             config.spriteLudo.enterBuilding(this, this.gotoScene);
-          if (!this.gotoScene) {
-            this.triggered = false;
-            this.onEnterArea();
-          }
+          this.triggered = false;
+          this.onEnterArea();
         }
       }
     );

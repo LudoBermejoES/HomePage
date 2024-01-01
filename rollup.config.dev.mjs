@@ -1,9 +1,11 @@
-import commonjs from '@rollup/plugin-commonjs';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
-import replace from '@rollup/plugin-replace';
 import serve from 'rollup-plugin-serve';
+import { nodeResolve } from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import replace from '@rollup/plugin-replace';
+import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-import copy from 'rollup-plugin-copy-assets';
+import copy from 'rollup-plugin-copy';
+import execute from 'rollup-plugin-execute';
 import pluginJson from '@rollup/plugin-json';
 
 export default {
@@ -80,6 +82,31 @@ export default {
       }
     }),
 
-    pluginJson()
+    pluginJson(),
+    copy({
+      targets: [
+        {
+          src: 'src/assets',
+          dest: 'dist'
+        },
+        {
+          src: 'map/*.json',
+          dest: 'utils'
+        },
+        {
+          src: 'map/*.webp',
+          dest: 'utils'
+        },
+        {
+          src: 'map/*.png',
+          dest: 'utils'
+        }
+      ],
+      verbose: true
+    }),
+
+    execute(
+      'cd utils && node mapReducer.js && cp created/*.webp ../src/assets/map && cp created/*.json ../src/assets/map && cp created/*.json ../dist/assets/map && cp created/*.webp ../dist/assets/map'
+    )
   ]
 };

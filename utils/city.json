@@ -616,6 +616,28 @@
                  "width":27.0677,
                  "x":1219.95,
                  "y":673.684
+                }, 
+                {
+                 "height":24.2424242424242,
+                 "id":11,
+                 "name":"gotoScene",
+                 "properties":[
+                        {
+                         "name":"pause",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"scene",
+                         "type":"string",
+                         "value":"PubSolitaryOwl"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":27.2727272727273,
+                 "x":196.969696969697,
+                 "y":418.181818181818
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1121,7 +1143,7 @@
          "y":0
         }],
  "nextlayerid":29,
- "nextobjectid":11,
+ "nextobjectid":12,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.10.2",

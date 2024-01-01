@@ -96,6 +96,19 @@ export default class BusTravel extends Phaser.Scene {
     );
   }
 
+  escapeBus() {
+    this.tweens.add({
+      targets: this.bus,
+      x: 1500,
+      duration: 1500,
+      repeat: 0,
+      hold: 500,
+      ease: 'cubic.out',
+      onComplete: () => {
+        this.scene.start('city');
+      }
+    });
+  }
   create() {
     this.createMap();
 
@@ -113,8 +126,10 @@ export default class BusTravel extends Phaser.Scene {
       const widthDialog = this.scale.getViewPort().width / 1.5;
       new DialogScene(this, this.scriptLines, {
         scene: this,
-        widthDialog
+        widthDialog,
+        callback: () => this.escapeBus()
       });
+      this.createTimers();
     });
   }
 

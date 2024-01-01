@@ -75,11 +75,15 @@ export default {
           dest: 'dist'
         },
         {
-          src: 'src/assets/map/city.json',
+          src: 'map/*.json',
           dest: 'utils'
         },
         {
-          src: 'src/assets/map/city.webp',
+          src: 'map/*.webp',
+          dest: 'utils'
+        },
+        {
+          src: 'map/*.png',
           dest: 'utils'
         }
       ],
@@ -87,7 +91,7 @@ export default {
     }),
 
     execute(
-      'cd utils && node mapReducer.js && cp created/city.webp ../dist/assets/map/city.webp && cp created/city.json ../dist/assets/map/city.json && cd .. && rm -rf dist.zip && zip -r dist.zip dist -x "*.DS_Store"'
+      'cd utils && node mapReducer.js && cp created/*.webp ../dist/assets/map && cp created/*.json ../dist/assets/map && cd .. && rm -rf dist.zip && zip -r dist.zip dist -x "*.DS_Store"'
     )
   ]
 };

@@ -6,6 +6,7 @@ import { DialogObject } from './Interfaces';
 type configSize = {
   scene: Phaser.Scene;
   widthDialog: number;
+  callback: CallableFunction;
 };
 
 export class DialogScene {
@@ -19,13 +20,16 @@ export class DialogScene {
   ) {
     this.dialogLines = dialogLines;
     this.config = config;
-    this.startDialog();
+    this.startDialog(config.callback);
   }
 
-  startDialog() {
+  async startDialog(callback: CallableFunction) {
     const { scene, widthDialog } = this.config;
     const dialogLine: DialogObject | undefined = this.dialogLines.shift();
-    if (!dialogLine) return;
+    if (!dialogLine) {
+      callback();
+      return;
+    }
     const spriteHead: SpriteHead = new SpriteHead({
       scene,
       x: 0,
@@ -33,7 +37,7 @@ export class DialogScene {
       name: dialogLine.name,
       template: dialogLine.template
     });
-    const dialog = new Dialog(
+    new Dialog(
       scene,
       dialogLine.en,
       {
@@ -45,9 +49,8 @@ export class DialogScene {
       dialogLine.name,
       spriteHead as Phaser.GameObjects.Sprite,
       () => {
-        this.startDialog();
+        this.startDialog(callback);
       }
     );
-    console.log(dialog);
   }
 }

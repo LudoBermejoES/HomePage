@@ -149,40 +149,34 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
 
   enterBuilding(door: OnTheFlySprite, scene: string | undefined) {
     if (!this.body) return;
-    this.body.enable = false;
 
-    const tweens = [
-      {
-        alpha: 0,
-        scale: 0,
-        y: door.y,
-        duration: 1000,
-        ease: 'Linear',
-        onStart: () => {},
-        onComplete: () => {
-          console.log('PRUEBA');
-        }
+    this.scene.tweens.add({
+      targets: this,
+      alpha: 0,
+      scale: 0,
+      y: door.y,
+      duration: 1000,
+      ease: 'Linear',
+      onStart: () => {}
+    });
+  }
+  leaveBuilding() {
+    if (this.body) this.body.enable = false;
+    this.alpha = 0;
+    this.scale = 0;
+    this.scene.tweens.add({
+      targets: this,
+      alpha: 1,
+      scale: 1,
+      y: this.y + SIZES.THREE_BLOCKS,
+      duration: 1000,
+      ease: 'Linear',
+      onStart: () => {
+        this.anims.play('down_move', true);
+      },
+      onComplete: () => {
+        this.body && (this.body.enable = true);
       }
-    ];
-    if (!scene) {
-      tweens.push({
-        alpha: 1,
-        scale: 1,
-        y: door.y + SIZES.THREE_BLOCKS,
-        duration: 1000,
-        ease: 'Linear',
-        onStart: () => {
-          this.anims.play('down_move', true);
-        },
-        onComplete: () => {
-          this.body && (this.body.enable = true);
-        }
-      });
-    }
-    if (!scene)
-      this.scene.tweens.chain({
-        targets: this,
-        tweens
-      });
+    });
   }
 }

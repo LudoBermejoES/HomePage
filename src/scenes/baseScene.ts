@@ -3,6 +3,8 @@ import * as Phaser from 'phaser';
 import { AStarFinder } from 'astar-typescript';
 import OnTheFlySprite from '../sprites/OnTheFlySprite';
 import { DEPTH, SIZES } from '../lib/constants';
+import OverlapSprite from '../sprites/OverlapArea';
+import GotoSceneObject from '../objects/gotoSceneObject';
 
 export default class BaseScene extends Phaser.Scene {
   collisionLayer: Phaser.Tilemaps.TilemapLayer | null = null;
@@ -19,10 +21,11 @@ export default class BaseScene extends Phaser.Scene {
   rt!: Phaser.GameObjects.RenderTexture;
   pixelCollision!: boolean;
   aStarInstance!: AStarFinder;
+  name: string = '';
 
   drawLayers(layers: Phaser.Tilemaps.LayerData[]): number[][] {
     const tilesOnTop: Phaser.Tilemaps.Tile[] = [];
-
+    this.allLayers = [];
     const tilesCollision: number[][] = Array(this.map.height)
       .fill(1)
       .map(() => new Array(this.map.width).fill(0));
@@ -47,7 +50,7 @@ export default class BaseScene extends Phaser.Scene {
             const sprite = new OnTheFlySprite({
               scene: this,
               x: tile.x * 32 + (tile?.properties?.moveX || 0),
-              y: tile.y * 32,
+              y: tile.y * 32 + (tile?.properties?.moveY || 0),
               name: tile.properties.sprite,
               type: tile.properties.type,
               gotoScene: tile.properties.gotoScene,
@@ -84,51 +87,49 @@ export default class BaseScene extends Phaser.Scene {
       }
     }
 
-    if (this.game.device.os.desktop) {
-      this.rt = this.make.renderTexture({
-        width: this.frontLayer?.width,
-        height: this.frontLayer?.height
-      });
-      this.collisionLayer = this.map.createBlankLayer(
-        'collisionLayer',
-        this.tileset,
-        0,
-        0
-      );
+    this.rt = this.make.renderTexture({
+      width: this.frontLayer?.width,
+      height: this.frontLayer?.height
+    });
+    this.collisionLayer = this.map.createBlankLayer(
+      'collisionLayer',
+      this.tileset,
+      0,
+      0
+    );
 
-      this.allLayers.forEach((layer: Phaser.Tilemaps.TilemapLayer) => {
-        for (let i = 0; i <= layer.tilemap.width; i++) {
-          for (let j = 0; j <= layer.tilemap.height; j++) {
-            const tile = layer.tilemap.getTileAt(
-              i,
-              j,
-              undefined,
-              layer.layer.name
-            );
-            if (tile && tile.properties.collision) {
-              this.collisionLayer?.putTileAt(tile, tile.x, tile.y);
-            }
+    this.allLayers.forEach((layer: Phaser.Tilemaps.TilemapLayer) => {
+      for (let i = 0; i <= layer.tilemap.width; i++) {
+        for (let j = 0; j <= layer.tilemap.height; j++) {
+          const tile = layer.tilemap.getTileAt(
+            i,
+            j,
+            undefined,
+            layer.layer.name
+          );
+          if (tile && tile.properties.collision) {
+            this.collisionLayer?.putTileAt(tile, tile.x, tile.y);
           }
         }
-        this.rt.draw(layer);
-        if (layer !== this.frontLayer) {
-          layer.destroy();
-        }
-      });
-      this.allLayers.length = 0;
-      this.allLayers.push(this.collisionLayer!);
-      this.allLayers.push(this.frontLayer!);
-
-      if (this.collisionLayer) {
-        this.collisionLayer?.setCollisionByProperty({ collision: true });
-        this.add.existing(this.collisionLayer);
-        this.collisionLayer.visible = false;
       }
+      this.rt.draw(layer);
+      if (layer !== this.frontLayer) {
+        layer.destroy();
+      }
+    });
+    this.allLayers.length = 0;
+    this.allLayers.push(this.collisionLayer!);
+    this.allLayers.push(this.frontLayer!);
 
-      this.rt.x = this.rt.width / 2;
-      this.rt.y = this.rt.height / 2;
-      this.add.existing(this.rt);
+    if (this.collisionLayer) {
+      this.collisionLayer?.setCollisionByProperty({ collision: true });
+      this.add.existing(this.collisionLayer);
+      this.collisionLayer.visible = false;
     }
+
+    this.rt.x = this.rt.width / 2;
+    this.rt.y = this.rt.height / 2;
+    this.add.existing(this.rt);
 
     this.allLayers.forEach((layer: Phaser.Tilemaps.TilemapLayer) => {
       this.physics.add.collider(
@@ -175,6 +176,50 @@ export default class BaseScene extends Phaser.Scene {
     }
   }
 
+  prepareGotoScene(objects: Phaser.Tilemaps.ObjectLayer[]) {
+    const sceneObject = this.getObject('gotoScene', objects);
+    const gotoSceneObject = new GotoSceneObject({
+      onEnterArea: () => {
+        const scene = sceneObject?.properties?.find(
+          (prop) => prop.name === 'scene'
+        );
+        if (scene) {
+          const pause = sceneObject?.properties?.find(
+            (prop) => prop.name === 'pause'
+          );
+          const resume = sceneObject?.properties?.find(
+            (prop) => prop.name === 'resume'
+          );
+          if (pause?.value === true) {
+            console.log('PAUSA y activa', scene.value);
+            this.scene.pause();
+            this.scene.launch(scene.value);
+          } else if (resume?.value === true) {
+            console.log('RESUME', scene.value);
+            this.scene.resume(scene.value);
+            this.scene.stop();
+          } else {
+            this.scene.start(scene.value);
+          }
+        }
+        return true;
+      },
+      onLeaveArea: () => {}
+    });
+    if (sceneObject && sceneObject.x && sceneObject.y) {
+      new OverlapSprite({
+        x: sceneObject.x,
+        y: sceneObject.y,
+        parent: sceneObject,
+        gotoSceneObject: gotoSceneObject,
+        type: 'gotoScene',
+        scene: this,
+        spriteLudo: this.spriteLudo,
+        name: 'overlapArea' + sceneObject.x + sceneObject.y
+      });
+    }
+  }
+
   create(tile: string, pixelCollision: boolean = false) {
     this.pixelCollision = pixelCollision;
     const image = this.game.textures.get('map_tiles');
@@ -209,7 +254,7 @@ export default class BaseScene extends Phaser.Scene {
     const tilesCollision: number[][] = this.drawLayers(this.map.layers);
 
     this.getPlayerStart(this.map.objects);
-
+    this.prepareGotoScene(this.map.objects);
     this.physics.world.setBounds(
       0,
       0,
@@ -223,6 +268,12 @@ export default class BaseScene extends Phaser.Scene {
       this.map.height * 32
     );
     this.preparePathfinding(tilesCollision);
+    this.events.on('pause', () => {
+      this.spriteLudo.body!.enable = false;
+    });
+    this.events.on('resume', () => {
+      this.spriteLudo.leaveBuilding();
+    });
   }
 
   update() {
@@ -307,14 +358,14 @@ export default class BaseScene extends Phaser.Scene {
 
     this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
       this.prepareMovementByPointer(pointer);
-      this.timer = this.time.addEvent({
+      /* this.timer = this.time.addEvent({
         delay: 100, // ms
         callback: () => {
           this.prepareMovementByPointer(pointer);
         },
         //args: [],
         loop: true
-      });
+      });*/
     });
 
     this.input.on('pointerup', () => {

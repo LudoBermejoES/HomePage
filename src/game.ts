@@ -3,11 +3,12 @@ import Intro from './scenes/intro';
 import BusTravel from './scenes/busTravel';
 import City from './scenes/city';
 import Training from './scenes/training';
+import PubSolitaryOwl from './scenes/PubSolitaryOwl';
 
 const config = {
   type: Phaser.AUTO,
   backgroundColor: '#000000',
-  scene: [BusTravel, Intro, City, Training],
+  scene: [Intro, City, PubSolitaryOwl, BusTravel, Training],
   physics: {
     default: 'arcade',
     arcade: {

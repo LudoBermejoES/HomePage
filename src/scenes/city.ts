@@ -85,8 +85,8 @@ export default class City extends BaseScene {
       frameWidth: 32,
       frameHeight: 32
     });
-    this.load.image('map_tiles_City', 'assets/map/city.webp');
-    this.load.tilemapTiledJSON('tilemap_City', 'assets/map/city.json');
+    this.load.image('map_tiles_city', 'assets/map/city.webp');
+    this.load.tilemapTiledJSON('tilemap_city', 'assets/map/city.json');
   }
 
   createBusSprite() {
@@ -169,7 +169,8 @@ export default class City extends BaseScene {
   }
 
   create() {
-    super.create('City', true);
+    super.create('city', true);
+    console.log(this.spriteLudo);
     this.spriteLudo.body!.enable = false;
     this.spriteLudo.visible = false;
     this.createBusSprite();
