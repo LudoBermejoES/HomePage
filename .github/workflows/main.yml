@@ -18,5 +18,5 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /var/www/html/copy
+            cd  /var/www/html/copy
             git pull origin master
