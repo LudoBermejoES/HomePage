@@ -27,8 +27,8 @@ export default class PubSolitaryOwl extends BaseScene {
     );
     this.load.aseprite(
       'bathroomDoor',
-      'assets/sprites/BathroomDoor.png',
-      'assets/sprites/BathroomDoor.json'
+      'assets/sprites/bathroomDoor.png',
+      'assets/sprites/bathroomDoor.json'
     );
     this.load.aseprite(
       'BigDoor4',
