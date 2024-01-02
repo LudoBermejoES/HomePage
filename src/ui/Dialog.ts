@@ -333,7 +333,7 @@ export class Dialog extends Phaser.GameObjects.Container {
   async animateText(
     target: Phaser.GameObjects.Text,
     spriteHead: Phaser.GameObjects.Sprite,
-    speedInMs = 25
+    speedInMs = 50
   ) {
     // store original text
     const message = target.text;
