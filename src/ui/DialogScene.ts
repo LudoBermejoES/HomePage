@@ -37,9 +37,13 @@ export class DialogScene {
       name: dialogLine.name,
       template: dialogLine.template
     });
+    const language = navigator.language || navigator.userLanguage;
+    const line: string = language.includes('es')
+      ? dialogLine.es
+      : dialogLine.en;
     new Dialog(
       scene,
-      dialogLine.en,
+      line,
       {
         x: widthDialog - widthDialog / 4,
         y: scene.scale.getViewPort().height - 75,
