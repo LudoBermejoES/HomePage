@@ -18,5 +18,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd /var/www/html/copy
-            git pull origin master
+            cd /var/www/html/
+            rm -rf *
+            wget "https://raw.githubusercontent.com/LudoBermejoES/HomePage/main/dist.zip"
+            unzip dist.zip
