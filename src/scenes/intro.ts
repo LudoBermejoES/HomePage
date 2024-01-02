@@ -1,8 +1,24 @@
 import * as Phaser from 'phaser';
 import { TextButton, loadImages } from '../ui/TextButton';
 export default class City extends Phaser.Scene {
+  title: {
+    en: string;
+    es: string;
+  };
+  button: {
+    en: string;
+    es: string;
+  };
   constructor() {
     super('Intro');
+    this.title = {
+      en: 'A new life',
+      es: 'Una nueva vida'
+    };
+    this.button = {
+      en: "Let's go to the city",
+      es: '¡Vamos a la ciudad!'
+    };
   }
 
   preload() {
@@ -30,27 +46,31 @@ export default class City extends Phaser.Scene {
     video.play();
   }
 
+  getLanguage(): string {
+    return navigator.language || navigator.userLanguage || 'en';
+  }
+
+  getTitle(): string {
+    return this.getLanguage() === 'es' ? this.title.es : this.title.en;
+  }
+
+  getButton(): string {
+    return this.getLanguage() === 'es' ? this.button.es : this.button.en;
+  }
   drawText(): Phaser.GameObjects.Text {
-    const title = this.add.text(190, 136, 'A new life', {
+    const title = this.add.text(190, 136, this.getTitle(), {
       fontFamily: 'font1',
       fontSize: '150px'
     });
     title.alpha = 0;
     title.x = this.cameras.main.width / 2 - title.width / 2;
     title.y = this.scale.getViewPort().height / 2 - title.height / 2;
-    const title2 = this.add.text(190, 136, 'Insert coin to continue', {
-      fontFamily: 'font1',
-      fontSize: '50px'
-    });
-    title2.x = title.x + title.width / 2 - title2.width / 2;
-    title2.y = title.y + title.height;
-    title2.alpha = 0;
 
     return title;
   }
 
   createDialog(): TextButton {
-    const dialog: TextButton = new TextButton(this, "Let's go to the city!");
+    const dialog: TextButton = new TextButton(this, this.getButton());
     dialog.alpha = 0;
     dialog.setPosition(
       this.renderer.width / 2 - dialog.width / 2 - dialog.text.width / 2,
