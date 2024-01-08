@@ -29,6 +29,7 @@
     "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-terser": "^0.4.0",
     "@rollup/plugin-typescript": "^11.1.0",
+    "@types/yuka": "^0.7.4",
     "@typescript-eslint/eslint-plugin": "^6.14.0",
     "astar-typescript": "^1.2.7",
     "canvas": "^2.11.2",
@@ -39,6 +40,7 @@
     "onchange": "^7.1.0",
     "phaser": "^3.70.0",
     "phaser-ce": "^2.20.0",
+    "phaser-raycaster": "^0.10.10",
     "phaser3-nineslice": "^0.5.0",
     "prettier": "^3.1.1",
     "rollup": "^3.20.2",
@@ -46,7 +48,9 @@
     "rollup-plugin-copy-assets": "^2.0.3",
     "rollup-plugin-execute": "^1.1.1",
     "rollup-plugin-serve": "^2.0.2",
+    "rollup-plugin-watch": "^1.0.4",
     "sharp": "^0.33.1",
-    "typescript": "^5.0.3"
+    "typescript": "^5.0.3",
+    "yuka": "^0.7.8"
   }
 }

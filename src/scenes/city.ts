@@ -81,6 +81,11 @@ export default class City extends BaseScene {
       'assets/sprites/PoliceStationDoor3.png',
       'assets/sprites/PoliceStationDoor3.json'
     );
+    this.load.aseprite(
+      'ModularBuildingDoor2',
+      'assets/sprites/ModularBuildingDoor2.png',
+      'assets/sprites/ModularBuildingDoor2.json'
+    );
     this.load.spritesheet('PortalSprite', 'assets/sprites/PortalSprite.png', {
       frameWidth: 32,
       frameHeight: 32
@@ -121,7 +126,7 @@ export default class City extends BaseScene {
     this.tweens.add({
       targets: this.spriteLudo,
       alpha: 1,
-      scaleX: 1,
+      scaleX: this.spriteLudo.scaleByDefault,
       y: this.spriteLudo.y + 32,
       duration: 1000,
       ease: 'Linear',
@@ -170,6 +175,8 @@ export default class City extends BaseScene {
 
   create() {
     super.create('city', true);
+    this.cameras.main.setZoom(1.5);
+
     console.log(this.spriteLudo);
     this.spriteLudo.body!.enable = false;
     this.spriteLudo.visible = false;

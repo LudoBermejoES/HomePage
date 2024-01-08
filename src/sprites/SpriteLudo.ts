@@ -22,6 +22,7 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
   lastYForMoveAnimation: string = '';
   moveToTarget: Phaser.Math.Vector2 | undefined;
   movePath: Phaser.Math.Vector2[] = [];
+  scaleByDefault: number = 0.8;
 
   constructor(config: LudoProps) {
     super(config.scene, config.x, config.y, 'LudoSprite');
@@ -33,6 +34,7 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
       anim.repeat = -1;
     });
     this.setPosition(30, 400);
+    this.setScale(this.scaleByDefault);
     //this.setCollideWorldBounds(true);
     if (!this.body) return;
     this.body.onCollide = true;
@@ -167,7 +169,7 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
     this.scene.tweens.add({
       targets: this,
       alpha: 1,
-      scale: 1,
+      scale: this.scaleByDefault,
       y: this.y + SIZES.THREE_BLOCKS,
       duration: 1000,
       ease: 'Linear',

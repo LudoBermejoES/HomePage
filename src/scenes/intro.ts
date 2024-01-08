@@ -22,8 +22,14 @@ export default class City extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('background', 'assets/backgrounds/road_to_city.png');
-    this.load.video('intro', 'assets/videos/intro.webm');
+    this.load.image('bus', 'assets/sprites/bus.png');
+    this.load.image('background', 'assets/images/backgroundIntro.png');
+    this.load.aseprite(
+      'rabbitIntro',
+      'assets/sprites/rabbit.png',
+      'assets/sprites/rabbit.json'
+    );
+    //this.load.video('intro', 'assets/videos/intro.webm');
     loadImages(this);
   }
 
@@ -89,10 +95,31 @@ export default class City extends Phaser.Scene {
   }
   create() {
     const image = this.add.image(0, 0, 'background').setOrigin(0, 0);
-    image.x = this.cameras.main.width / 2 - image.width / 2;
-    image.y = this.scale.getViewPort().height / 2 - image.height / 2;
-    image.visible = false;
-    this.addVideoIntro(image);
+    image.scale = 0.5;
+    image.x = this.cameras.main.width / 2 - (image.width * image.scaleX) / 2;
+    image.y =
+      this.scale.getViewPort().height / 2 - (image.height * image.scaleY) / 2;
+
+    const bus = this.add.image(0, 0, 'bus').setOrigin(0, 0);
+
+    bus.x = this.cameras.main.width;
+    bus.y = this.scale.getViewPort().height / 2 - bus.height * bus.scaleY * 2;
+    bus.scale = 4;
+
+    this.tweens.chain({
+      targets: bus,
+      tweens: [
+        {
+          duration: 10000,
+          ease: 'quint.easeOut',
+          scale: 0,
+          repeat: -1,
+          x: this.cameras.main.width / 2 + 10,
+          y: this.scale.getViewPort().height / 1.43
+        }
+      ]
+    });
+    //this.addVideoIntro(image);
     const title = this.drawText();
     const dialog = this.createDialog();
     this.tweens.chain({

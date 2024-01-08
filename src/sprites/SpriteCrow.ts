@@ -20,6 +20,7 @@ export default class SpriteCrow extends Phaser.Physics.Arcade.Sprite {
       anim.repeat = -1;
     });
     this.anims.play('idle_right', true);
+    this.scale = 0.8;
   }
 }
 

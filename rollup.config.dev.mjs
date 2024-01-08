@@ -2,11 +2,11 @@ import serve from 'rollup-plugin-serve';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
-import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
 import copy from 'rollup-plugin-copy';
 import execute from 'rollup-plugin-execute';
 import pluginJson from '@rollup/plugin-json';
+import watch from 'rollup-plugin-watch';
 
 export default {
   //  Our game entry point (edit as required)
@@ -57,7 +57,8 @@ export default {
         'node_modules/lodash/**',
         'node_modules/@raresail/phaser-pathfinding/**',
         'node_modules/astar-typescript/**',
-        'node_modules/phaser3-nineslice/**'
+        'node_modules/phaser3-nineslice/**',
+        'node_modules/yuka/**'
       ],
       exclude: [
         'node_modules/phaser/src/polyfills/requestAnimationFrame.js',
@@ -107,6 +108,8 @@ export default {
 
     execute(
       'cd utils && node mapReducer.js && cp created/*.webp ../src/assets/map && cp created/*.json ../src/assets/map && cp created/*.json ../dist/assets/map && cp created/*.webp ../dist/assets/map'
-    )
+    ),
+
+    watch({ dir: 'map' })
   ]
 };
