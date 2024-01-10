@@ -1,0 +1,21 @@
+{
+  "name": "utils",
+  "version": "1.0.0",
+  "description": "",
+  "main": "mapReducer.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "copyfiles": "^2.4.1",
+    "decompress": "^4.2.1",
+    "looks-same": "^9.0.0",
+    "p-limit": "^5.0.0",
+    "path": "^0.12.7",
+    "rollup-plugin-execute": "^1.1.1",
+    "sharp": "^0.33.1"
+  }
+}

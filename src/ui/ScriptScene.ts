@@ -3,9 +3,9 @@ import * as Script from '../assets/scripts/script.json';
 import * as Objects from '../assets/scripts/objects.json';
 import * as Definitions from '../assets/scripts/definitions.json';
 import {
-  TemplateObject,
   DialogObject,
-  DialogTemplateAnimation
+  DialogTemplateAnimation,
+  ObjectDefinition
 } from './Interfaces';
 import {
   ChildrenEntity,
@@ -13,7 +13,6 @@ import {
   ChildrenEntity1,
   ChildrenEntity2,
   ScriptDialog,
-  Template,
   ObjectInterface
 } from './Interfaces';
 
@@ -41,11 +40,15 @@ export class ScriptScene {
           }
           return false;
         });
-        anims[key] = final || undefined;
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        anims[key] = String(final) || undefined;
       }
     });
 
-    return anims;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    return anims as DialogLine;
   }
 
   getSceneChildren(scene: string): DialogObject[] {

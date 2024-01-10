@@ -1,6 +1,8 @@
 import * as Phaser from 'phaser';
 import { TextButton, loadImages } from '../ui/TextButton';
-export default class City extends Phaser.Scene {
+import { createCrowsForIntro } from '../sprites/SpriteCrow';
+
+export default class Intro extends Phaser.Scene {
   title: {
     en: string;
     es: string;
@@ -9,6 +11,10 @@ export default class City extends Phaser.Scene {
     en: string;
     es: string;
   };
+
+  blood: Phaser.GameObjects.Image | undefined;
+  rabbit: Phaser.GameObjects.Sprite | undefined;
+  bus: Phaser.GameObjects.Image | undefined;
   constructor() {
     super('Intro');
     this.title = {
@@ -22,12 +28,19 @@ export default class City extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('bus', 'assets/sprites/bus.png');
+    this.load.image('blood', 'assets/sprites/PuddleOfBlood.png');
+    this.load.image('carrot', 'assets/sprites/carrot.png');
+    this.load.image('bus', 'assets/sprites/busIntro.png');
     this.load.image('background', 'assets/images/backgroundIntro.png');
     this.load.aseprite(
       'rabbitIntro',
       'assets/sprites/rabbit.png',
       'assets/sprites/rabbit.json'
+    );
+    this.load.aseprite(
+      'CrowSprite',
+      'assets/sprites/crow.png',
+      'assets/sprites/crow.json'
     );
     //this.load.video('intro', 'assets/videos/intro.webm');
     loadImages(this);
@@ -93,15 +106,47 @@ export default class City extends Phaser.Scene {
     });
     return dialog;
   }
-  create() {
-    const image = this.add.image(0, 0, 'background').setOrigin(0, 0);
-    image.scale = 0.5;
-    image.x = this.cameras.main.width / 2 - (image.width * image.scaleX) / 2;
-    image.y =
-      this.scale.getViewPort().height / 2 - (image.height * image.scaleY) / 2;
 
+  createRabbit() {
+    const carrot = this.add.image(
+      this.cameras.main.width / 1.5,
+      this.scale.getViewPort().height - 70,
+      'carrot'
+    );
+
+    this.rabbit = new Phaser.GameObjects.Sprite(
+      this,
+      0 - 100,
+      this.scale.getViewPort().height - 100,
+      'rabbitIntro'
+    );
+
+    this.tweens.add({
+      targets: this.rabbit,
+      x: this.cameras.main.width / 1.5,
+      duration: 3500,
+      onComplete: () => {
+        this.rabbit?.play('eating');
+        this.time.delayedCall(2000, () => this.createBus());
+      }
+    });
+
+    this.rabbit.anims.createFromAseprite('rabbitIntro').forEach((anim) => {
+      anim.repeat = -1;
+    });
+
+    this.rabbit.scale = 1.5;
+
+    this.add.existing(this.rabbit);
+
+    this.rabbit.play('run_right');
+
+    carrot.scale = 1.5;
+  }
+
+  createBus() {
     const bus = this.add.image(0, 0, 'bus').setOrigin(0, 0);
-
+    this.bus = bus;
     bus.x = this.cameras.main.width;
     bus.y = this.scale.getViewPort().height / 2 - bus.height * bus.scaleY * 2;
     bus.scale = 4;
@@ -110,21 +155,38 @@ export default class City extends Phaser.Scene {
       targets: bus,
       tweens: [
         {
-          duration: 10000,
+          duration: 1000,
           ease: 'quint.easeOut',
           scale: 0,
-          repeat: -1,
           x: this.cameras.main.width / 2 + 10,
-          y: this.scale.getViewPort().height / 1.43
+          y: this.scale.getViewPort().height / 1.43,
+          onComplete: () => this.createTitles()
         }
       ]
     });
-    //this.addVideoIntro(image);
+
+    this.time.delayedCall(300, () => this.createBlood());
+  }
+
+  createBlood() {
+    const blood = this.add.image(0, 0, 'blood').setOrigin(0, 0);
+    this.blood = blood;
+    if (this.bus) this.bus.setDepth(100);
+    if (this.rabbit) {
+      blood.x = this.rabbit.x;
+      blood.y = this.rabbit.y;
+      this.rabbit.visible = false;
+    }
+    this.time.delayedCall(7000, () => {
+      createCrowsForIntro(this);
+    });
+  }
+
+  createTitles() {
     const title = this.drawText();
     const dialog = this.createDialog();
     this.tweens.chain({
       targets: title,
-      delay: 3000,
       tweens: [
         {
           alpha: 1,
@@ -134,7 +196,7 @@ export default class City extends Phaser.Scene {
     });
     this.tweens.chain({
       targets: dialog,
-      delay: 6000,
+      delay: 3000,
       tweens: [
         {
           alpha: 1,
@@ -142,6 +204,16 @@ export default class City extends Phaser.Scene {
         }
       ]
     });
+  }
+
+  create() {
+    const image = this.add.image(0, 0, 'background').setOrigin(0, 0);
+    image.scale = 0.5;
+    image.x = this.cameras.main.width / 2 - (image.width * image.scaleX) / 2;
+    image.y =
+      this.scale.getViewPort().height / 2 - (image.height * image.scaleY) / 2;
+
+    this.createRabbit();
 
     this.preloadNextImages();
   }

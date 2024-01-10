@@ -107,8 +107,8 @@ export default {
     }),
 
     execute(
-      'cd utils && node mapReducer.js && cp created/*.webp ../src/assets/map && cp created/*.json ../src/assets/map && cp created/*.json ../dist/assets/map && cp created/*.webp ../dist/assets/map'
-    ),
+      'cd utils && node mapReducer.js'
+    ), 
 
     watch({ dir: 'map' })
   ]

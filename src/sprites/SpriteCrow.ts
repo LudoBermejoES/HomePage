@@ -1,5 +1,6 @@
 import * as Phaser from 'phaser';
 import { DEPTH } from '../lib/constants';
+import Intro from '../scenes/intro';
 
 interface Props {
   scene: Phaser.Scene;
@@ -119,4 +120,42 @@ export function createCrows(
       });
     });
   }
+}
+export function createCrowsForIntro(scene: Intro) {
+  const crow = new SpriteCrow({
+    scene,
+    x: Phaser.Math.Between(0, scene.cameras.main.width),
+    y: -100
+  });
+  crow.depth = DEPTH.ANIMALS;
+
+  crow.anims.play('flape_down', true);
+  scene.add.existing(crow);
+  if (scene.blood) {
+    scene.tweens.add({
+      targets: crow,
+      x: Phaser.Math.Between(scene.blood.x, scene.blood.x + scene.blood.width),
+      y: scene.blood.y,
+      onComplete: () => crow.anims.play('idle_down', true)
+    });
+  }
+
+  scene.time.delayedCall(Phaser.Math.Between(3000, 6000), () => {
+    createCrowsForIntro(scene);
+  });
+
+  scene.time.delayedCall(Phaser.Math.Between(5000, 10000), () => {
+    crow.anims.play('flape_up', true);
+    scene.tweens.add({
+      targets: crow,
+      x: Phaser.Math.Between(0, scene.cameras.main.width),
+      y: -100,
+      ease: 'quad.out',
+      duration: Phaser.Math.Between(2000, 3000),
+      repeat: 0,
+      onComplete: () => {
+        crow.destroy();
+      }
+    });
+  });
 }

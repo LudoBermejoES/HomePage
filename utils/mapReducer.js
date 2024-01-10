@@ -3,6 +3,7 @@ import sharp from 'sharp';
 import looksSame from 'looks-same';
 import pLimit from 'p-limit';
 
+
 async function getImage(image) {
   try {
     return sharp(image);
@@ -245,7 +246,7 @@ async function make(map) {
   tileset.image = map + '.webp';
   tileset.name = map;
 
-  fs.writeFile('created/' + map + '.json', JSON.stringify(json), 'utf8');
+  return fs.writeFile('created/' + map + '.json', JSON.stringify(json), 'utf8');
 }
 
 function sleep(ms) {
@@ -256,10 +257,27 @@ const filesJSON = await fs.readdir('.');
 const names = filesJSON
   .filter((file) => file.includes('.json') && !file.includes('package'))
   .map((file) => file.split('.json')[0]);
-names.forEach((name) => make(name));
-//make('city');
-//make('PubSolitaryOwl');
-//makeTiles('Interiors_32x32.png');
-//makeTiles('1_Terrains_and_Fences_32x32.png');
-//makeTiles('2_City_Terrains_32x32.png');
-//makeTiles('city.webp');
+const promises = names.map((name) => make(name));
+await Promise.all(promises);
+console.log("End of creation");
+
+
+
+const filesWebP = await fs.readdir('created/');
+const copyFiles = filesWebP
+  .filter((file) => file.includes('.webp') || file.includes('.json'))
+  
+const promisesFiles = []
+copyFiles.forEach((file) => {
+  const limit = pLimit(1);
+  console.log("Adding ", file)
+  promisesFiles.push(limit(() => fs.cp('created/' + file, '../src/assets/map/' + file)))
+  promisesFiles.push(limit(() => fs.cp('created/' + file, '../dist/assets/map/' + file)))
+})
+
+
+console.log(promisesFiles)
+
+await Promise.all(promisesFiles);
+console.log("End of copy");
+

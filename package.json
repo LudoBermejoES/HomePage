@@ -49,7 +49,6 @@
     "rollup-plugin-execute": "^1.1.1",
     "rollup-plugin-serve": "^2.0.2",
     "rollup-plugin-watch": "^1.0.4",
-    "sharp": "^0.33.1",
     "typescript": "^5.0.3",
     "yuka": "^0.7.8"
   }

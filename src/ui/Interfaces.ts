@@ -164,3 +164,58 @@ export interface DialogLine {
   animationAfter?: null;
   repeatAfter: number;
 }
+
+export interface ObjectDefinition {
+  type: string;
+  class: string;
+  properties?: ObjectDefinitionProperty[];
+  displayName?: string;
+  values?: { [key: string]: number };
+  displayNames?: DisplayNames;
+  inheritsFrom?: string;
+  template?: Template;
+}
+
+export interface DisplayNames {
+  male?: string;
+  female?: string;
+  unknown?: string;
+  idle?: string;
+  talking?: string;
+  yes?: string;
+  no?: string;
+  invalid?: string;
+  spot?: string;
+  circle?: string;
+  rectangle?: string;
+  path?: string;
+  polygon?: string;
+  link?: string;
+  unselectable?: string;
+  selectable?: string;
+  invisible?: string;
+  visible?: string;
+  solid?: string;
+  dot?: string;
+  dash?: string;
+  dashDot?: string;
+  dashDotDot?: string;
+  coloredDot?: string;
+  none?: string;
+  lineArrowHead?: string;
+  filledArrowHead?: string;
+  diamond?: string;
+  square?: string;
+  disc?: string;
+  small?: string;
+  medium?: string;
+  large?: string;
+  fromAsset?: string;
+  custom?: string;
+}
+
+export interface ObjectDefinitionProperty {
+  property: string;
+  type: string;
+  itemType?: string;
+}
