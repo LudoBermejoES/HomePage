@@ -2,7 +2,7 @@ import fs from 'fs/promises';
 import sharp from 'sharp';
 import looksSame from 'looks-same';
 import pLimit from 'p-limit';
-
+import AdmZip from 'adm-zip';
 
 async function getImage(image) {
   try {
@@ -10,6 +10,13 @@ async function getImage(image) {
   } catch (error) {
     console.log(error);
   }
+}
+
+async function zipDirectory(sourceDir, outputFilePath) {
+  const zip = new AdmZip();
+  zip.addLocalFolder(sourceDir);
+  await zip.writeZipPromise(outputFilePath);
+  console.log(`Zip file created: ${outputFilePath}`);
 }
 
 async function makeTiles(originalImage) {
@@ -259,25 +266,24 @@ const names = filesJSON
   .map((file) => file.split('.json')[0]);
 const promises = names.map((name) => make(name));
 await Promise.all(promises);
-console.log("End of creation");
-
-
+console.log('End of creation');
 
 const filesWebP = await fs.readdir('created/');
-const copyFiles = filesWebP
-  .filter((file) => file.includes('.webp') || file.includes('.json'))
-  
-const promisesFiles = []
+const copyFiles = filesWebP.filter(
+  (file) => file.includes('.webp') || file.includes('.json')
+);
+
+const promisesFiles = [];
 copyFiles.forEach((file) => {
   const limit = pLimit(1);
-  console.log("Adding ", file)
-  promisesFiles.push(limit(() => fs.cp('created/' + file, '../src/assets/map/' + file)))
-  promisesFiles.push(limit(() => fs.cp('created/' + file, '../dist/assets/map/' + file)))
-})
-
-
-console.log(promisesFiles)
+  console.log('Adding ', file);
+  promisesFiles.push(
+    limit(() => fs.cp('created/' + file, '../src/assets/map/' + file))
+  );
+  promisesFiles.push(
+    limit(() => fs.cp('created/' + file, '../dist/assets/map/' + file))
+  );
+});
 
 await Promise.all(promisesFiles);
-console.log("End of copy");
-
+await zipDirectory('../dist', '../dist.zip');

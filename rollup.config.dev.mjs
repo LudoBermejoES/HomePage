@@ -106,9 +106,7 @@ export default {
       verbose: true
     }),
 
-    execute(
-      'cd utils && node mapReducer.js'
-    ), 
+    execute('cd utils && node mapReducer.js'),
 
     watch({ dir: 'map' })
   ]
