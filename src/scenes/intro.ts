@@ -83,7 +83,7 @@ export default class Intro extends Phaser.Scene {
     });
     title.alpha = 0;
     title.x = this.cameras.main.width / 2 - title.width / 2;
-    title.y = this.scale.getViewPort().height / 2 - title.height / 2;
+    title.y = this.getViewPortHeight() / 2 - title.height / 2;
 
     return title;
   }
@@ -93,7 +93,7 @@ export default class Intro extends Phaser.Scene {
     dialog.alpha = 0;
     dialog.setPosition(
       this.renderer.width / 2 - dialog.width / 2 - dialog.text.width / 2,
-      this.renderer.height - dialog.height * 2 - 32 * 3
+      this.getViewPortHeight() - dialog.height * 2 - 32 * 3
     );
     dialog.text.on('pointerdown', () => {
       this.cameras.main.fadeOut(1000, 0, 0, 0);
@@ -107,23 +107,31 @@ export default class Intro extends Phaser.Scene {
     return dialog;
   }
 
+  getViewPortHeight(): number {
+    return this.scale.getViewPort().height + this.scale.getViewPort().y;
+  }
+
+  getViewPortWidth(): number {
+    return this.scale.getViewPort().width + this.scale.getViewPort().x;
+  }
+
   createRabbit() {
     const carrot = this.add.image(
-      this.cameras.main.width / 1.5,
-      this.scale.getViewPort().height - 70,
+      this.getViewPortWidth() / 1.3,
+      this.getViewPortHeight() - 70,
       'carrot'
     );
 
     this.rabbit = new Phaser.GameObjects.Sprite(
       this,
       0 - 100,
-      this.scale.getViewPort().height - 100,
+      this.getViewPortHeight() - 100,
       'rabbitIntro'
     );
 
     this.tweens.add({
       targets: this.rabbit,
-      x: this.cameras.main.width / 1.5,
+      x: carrot.x,
       duration: 3500,
       onComplete: () => {
         this.rabbit?.play('eating');
@@ -148,7 +156,7 @@ export default class Intro extends Phaser.Scene {
     const bus = this.add.image(0, 0, 'bus').setOrigin(0, 0);
     this.bus = bus;
     bus.x = this.cameras.main.width;
-    bus.y = this.scale.getViewPort().height / 2 - bus.height * bus.scaleY * 2;
+    bus.y = this.getViewPortHeight() / 2 - bus.height * bus.scaleY * 2;
     bus.scale = 4;
 
     this.tweens.chain({
@@ -159,7 +167,7 @@ export default class Intro extends Phaser.Scene {
           ease: 'quint.easeOut',
           scale: 0,
           x: this.cameras.main.width / 2 + 10,
-          y: this.scale.getViewPort().height / 1.43,
+          y: this.getViewPortHeight() / 1.43,
           onComplete: () => this.createTitles()
         }
       ]
@@ -169,12 +177,12 @@ export default class Intro extends Phaser.Scene {
   }
 
   createBlood() {
-    const blood = this.add.image(0, 0, 'blood').setOrigin(0, 0);
+    const blood = this.add.image(0, 0, 'blood');
     this.blood = blood;
     if (this.bus) this.bus.setDepth(100);
     if (this.rabbit) {
-      blood.x = this.rabbit.x;
-      blood.y = this.rabbit.y;
+      blood.x = this.rabbit.x + this.rabbit.width / 2;
+      blood.y = this.rabbit.y + this.rabbit.height / 2;
       this.rabbit.visible = false;
     }
     this.time.delayedCall(7000, () => {
@@ -210,8 +218,7 @@ export default class Intro extends Phaser.Scene {
     const image = this.add.image(0, 0, 'background').setOrigin(0, 0);
     image.scale = 0.5;
     image.x = this.cameras.main.width / 2 - (image.width * image.scaleX) / 2;
-    image.y =
-      this.scale.getViewPort().height / 2 - (image.height * image.scaleY) / 2;
+    image.y = this.getViewPortHeight() / 2 - (image.height * image.scaleY) / 2;
 
     this.createRabbit();
 

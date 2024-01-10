@@ -134,8 +134,11 @@ export function createCrowsForIntro(scene: Intro) {
   if (scene.blood) {
     scene.tweens.add({
       targets: crow,
-      x: Phaser.Math.Between(scene.blood.x, scene.blood.x + scene.blood.width),
-      y: scene.blood.y,
+      x: Phaser.Math.Between(
+        scene.blood.x,
+        scene.blood.x + scene.blood.width / 2
+      ),
+      y: scene.blood.y - 30,
       onComplete: () => crow.anims.play('idle_down', true)
     });
   }
