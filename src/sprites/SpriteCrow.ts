@@ -106,7 +106,7 @@ export function createCrows(
       x: 0,
       y: 0
     });
-    crow.depth = DEPTH.ANIMALS;
+    crow.depth = DEPTH.FLYING_ANIMALS;
     const { x, y } = getValidPosition(crow, crows, map, TOTAL_CROWS);
     crow.setPosition(x, y);
     crow.anims.play(crow.chooseIdleAnim(), true);
@@ -127,18 +127,15 @@ export function createCrowsForIntro(scene: Intro) {
     x: Phaser.Math.Between(0, scene.cameras.main.width),
     y: -100
   });
-  crow.depth = DEPTH.ANIMALS;
+  crow.depth = DEPTH.FLYING_ANIMALS;
 
   crow.anims.play('flape_down', true);
   scene.add.existing(crow);
   if (scene.blood) {
     scene.tweens.add({
       targets: crow,
-      x: Phaser.Math.Between(
-        scene.blood.x,
-        scene.blood.x + scene.blood.width / 2
-      ),
-      y: scene.blood.y - 30,
+      x: Phaser.Math.Between(scene.blood.x, scene.blood.x + scene.blood.width),
+      y: scene.blood.y,
       onComplete: () => crow.anims.play('idle_down', true)
     });
   }

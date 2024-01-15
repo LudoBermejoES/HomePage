@@ -1,10 +1,13 @@
 import BaseScene from './baseScene';
 import SpriteBus from '../sprites/SpriteBus';
-import { createCrows } from '../sprites/SpriteCrow';
+import { CrowActor } from '../actors/crow/actor';
+import { CatActor } from '../actors/cat/actor';
+import Statics from '../actors/statics/staticsCity';
 
 export default class City extends BaseScene {
   busSprite: SpriteBus | undefined;
   TOTAL_CROWS: number = 15;
+  TOTAL_CATS: number = 5;
 
   constructor() {
     super('city');
@@ -30,6 +33,11 @@ export default class City extends BaseScene {
       'CrowSprite',
       'assets/sprites/crow.png',
       'assets/sprites/crow.json'
+    );
+    this.load.aseprite(
+      'CatSprite',
+      'assets/sprites/cat.png',
+      'assets/sprites/cat.json'
     );
     this.load.aseprite(
       'CondoDoorOrange',
@@ -92,6 +100,12 @@ export default class City extends BaseScene {
     });
     this.load.image('map_tiles_city', 'assets/map/city.webp');
     this.load.tilemapTiledJSON('tilemap_city', 'assets/map/city.json');
+    Statics.groupOfCrows = this.physics.add.group();
+    Statics.groupEnemiesOfCrows = this.physics.add.group();
+    Statics.groupOfCats = this.physics.add.group();
+    Statics.groupEnemiesOfCat = this.physics.add.group();
+    Statics.tilesNotTotallySafeForLivingBeings =
+      this.tilesNotTotallySafeForLivingBeings;
   }
 
   createBusSprite() {
@@ -100,6 +114,7 @@ export default class City extends BaseScene {
       x: 300,
       y: 450
     });
+    Statics.groupEnemiesOfCrows.add(this.busSprite);
     this.busSprite.visible = false;
     this.add.existing(this.busSprite);
   }
@@ -119,6 +134,7 @@ export default class City extends BaseScene {
   }
   showPlayer() {
     this.busSprite?.off('animationcomplete');
+    Statics.groupEnemiesOfCrows.add(this.spriteLudo);
     this.spriteLudo.visible = true;
     this.spriteLudo.setState(0.1);
     this.spriteLudo.alpha = 0.1;
@@ -175,19 +191,21 @@ export default class City extends BaseScene {
 
   create() {
     super.create('city', true);
-    this.cameras.main.setZoom(1.5);
+    this.cameras.main.setZoom(1.25);
 
-    console.log(this.spriteLudo);
-    this.spriteLudo.body!.enable = false;
+    Statics.map = this.map;
+    Statics.tilesCollision = this.tilesCollision;
+    Statics.tilesNotSafeForLivingBeings = this.tilesNotSafeForLivingBeings;
+    Statics.tilesNotTotallySafeForLivingBeings =
+      this.tilesNotTotallySafeForLivingBeings;
+
+    if (this.spriteLudo.body) this.spriteLudo.body.enable = false;
     this.spriteLudo.visible = false;
     this.createBusSprite();
 
-    createCrows(
-      this,
-      this.TOTAL_CROWS,
-      [this.spriteLudo, this.busSprite!],
-      this.map
-    );
+    CrowActor.createCrows(this, this.TOTAL_CROWS);
+    CatActor.createCats(this, this.TOTAL_CATS);
+
     this.prepareAndAnimateBus(this.map.objects);
   }
 }

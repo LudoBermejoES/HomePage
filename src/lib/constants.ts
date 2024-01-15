@@ -10,7 +10,8 @@ export const DEPTH = {
   GROUND: 10,
   DOOR_SPRITES: 15,
   PLAYER: 20,
+  FLOOR_ANIMALS: 19,
   OBJECTS: 30,
-  ANIMALS: 31,
+  FLYING_ANIMALS: 31,
   UI: 40
 };

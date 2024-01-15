@@ -1,0 +1,143 @@
+{ "frames": {
+   "0": {
+    "frame": { "x": 1, "y": 1, "w": 23, "h": 42 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 11, "y": 6, "w": 23, "h": 42 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "1": {
+    "frame": { "x": 25, "y": 1, "w": 23, "h": 43 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 11, "y": 5, "w": 23, "h": 43 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "2": {
+    "frame": { "x": 49, "y": 1, "w": 23, "h": 42 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 11, "y": 6, "w": 23, "h": 42 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "3": {
+    "frame": { "x": 73, "y": 1, "w": 47, "h": 34 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 1, "y": 14, "w": 47, "h": 34 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "4": {
+    "frame": { "x": 121, "y": 1, "w": 46, "h": 35 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 1, "y": 13, "w": 46, "h": 35 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "5": {
+    "frame": { "x": 168, "y": 1, "w": 47, "h": 34 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 1, "y": 14, "w": 47, "h": 34 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "6": {
+    "frame": { "x": 216, "y": 1, "w": 47, "h": 34 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 14, "w": 47, "h": 34 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "7": {
+    "frame": { "x": 264, "y": 1, "w": 46, "h": 35 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 1, "y": 13, "w": 46, "h": 35 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "8": {
+    "frame": { "x": 311, "y": 1, "w": 47, "h": 34 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 0, "y": 14, "w": 47, "h": 34 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "9": {
+    "frame": { "x": 359, "y": 1, "w": 21, "h": 35 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 12, "y": 13, "w": 21, "h": 35 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "10": {
+    "frame": { "x": 381, "y": 1, "w": 21, "h": 36 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 12, "y": 12, "w": 21, "h": 36 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "11": {
+    "frame": { "x": 403, "y": 1, "w": 21, "h": 34 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 12, "y": 14, "w": 21, "h": 34 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "12": {
+    "frame": { "x": 425, "y": 1, "w": 23, "h": 42 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 11, "y": 6, "w": 23, "h": 42 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "13": {
+    "frame": { "x": 449, "y": 1, "w": 23, "h": 43 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 11, "y": 5, "w": 23, "h": 43 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   },
+   "14": {
+    "frame": { "x": 473, "y": 1, "w": 23, "h": 42 },
+    "rotated": false,
+    "trimmed": true,
+    "spriteSourceSize": { "x": 11, "y": 6, "w": 23, "h": 42 },
+    "sourceSize": { "w": 48, "h": 48 },
+    "duration": 100
+   }
+ },
+ "meta": {
+  "app": "https://www.aseprite.org/",
+  "version": "1.3.2-x64",
+  "image": "cat.png",
+  "format": "RGBA8888",
+  "size": { "w": 497, "h": 45 },
+  "scale": "1",
+  "frameTags": [
+   { "name": "down_move", "from": 0, "to": 2, "direction": "forward", "color": "#000000ff" },
+   { "name": "left_move", "from": 3, "to": 5, "direction": "forward", "color": "#000000ff" },
+   { "name": "right_move", "from": 6, "to": 8, "direction": "forward", "color": "#000000ff" },
+   { "name": "up_move", "from": 9, "to": 11, "direction": "forward", "color": "#000000ff" },
+   { "name": "wait", "from": 12, "to": 14, "direction": "forward", "color": "#000000ff" }
+  ],
+  "layers": [
+   { "name": "Layer 1", "opacity": 255, "blendMode": "normal" }
+  ],
+  "slices": [
+  ]
+ }
+}

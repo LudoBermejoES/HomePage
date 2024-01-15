@@ -38,6 +38,7 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
     //this.setCollideWorldBounds(true);
     if (!this.body) return;
     this.body.onCollide = true;
+
     this.setOriginalBodySize();
   }
 

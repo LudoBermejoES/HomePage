@@ -5,6 +5,7 @@ import OnTheFlySprite from '../sprites/OnTheFlySprite';
 import { DEPTH, SIZES } from '../lib/constants';
 import OverlapSprite from '../sprites/OverlapArea';
 import GotoSceneObject from '../objects/gotoSceneObject';
+import Statics from '../actors/statics/staticsCity';
 
 export default class BaseScene extends Phaser.Scene {
   collisionLayer: Phaser.Tilemaps.TilemapLayer | null = null;
@@ -22,11 +23,28 @@ export default class BaseScene extends Phaser.Scene {
   pixelCollision!: boolean;
   aStarInstance!: AStarFinder;
   name: string = '';
+  tilesCollision: number[][];
+  tilesNotSafeForLivingBeings: number[][];
+  tilesNotTotallySafeForLivingBeings: number[][];
 
-  drawLayers(layers: Phaser.Tilemaps.LayerData[]): number[][] {
+  drawLayers(layers: Phaser.Tilemaps.LayerData[]): {
+    tilesCollision: number[][];
+    tilesNotSafeForLivingBeings: number[][];
+    tilesNotTotallySafeForLivingBeings: number[][];
+  } {
     const tilesOnTop: Phaser.Tilemaps.Tile[] = [];
     this.allLayers = [];
     const tilesCollision: number[][] = Array(this.map.height)
+      .fill(1)
+      .map(() => new Array(this.map.width).fill(0));
+
+    const tilesNotSafeForLivingBeings: number[][] = Array(this.map.height)
+      .fill(1)
+      .map(() => new Array(this.map.width).fill(0));
+
+    const tilesNotTotallySafeForLivingBeings: number[][] = Array(
+      this.map.height
+    )
       .fill(1)
       .map(() => new Array(this.map.width).fill(0));
 
@@ -42,8 +60,25 @@ export default class BaseScene extends Phaser.Scene {
           if (tile.properties.hide) {
             tilesOnTop.push(tile);
           }
+
+          if (tile.properties.safeForLivingBeings) {
+            if (tile.properties.safeForLivingBeings !== 0) {
+              tilesNotSafeForLivingBeings[tile.y][tile.x] = 0;
+            } else {
+              tilesNotSafeForLivingBeings[tile.y][tile.x] = 1;
+            }
+
+            if (tile.properties.safeForLivingBeings === 1) {
+              tilesNotTotallySafeForLivingBeings[tile.y][tile.x] = 0;
+            } else {
+              tilesNotTotallySafeForLivingBeings[tile.y][tile.x] = 1;
+            }
+          }
+
           if (tile.properties.collision) {
             tilesCollision[tile.y][tile.x] = 1;
+            tilesNotSafeForLivingBeings[tile.y][tile.x] = 1;
+            tilesNotTotallySafeForLivingBeings[tile.y][tile.x] = 1;
           }
 
           if (tile.properties.sprite) {
@@ -149,7 +184,11 @@ export default class BaseScene extends Phaser.Scene {
       );
     });
 
-    return tilesCollision;
+    return {
+      tilesCollision,
+      tilesNotSafeForLivingBeings,
+      tilesNotTotallySafeForLivingBeings
+    };
   }
 
   getObject(
@@ -191,11 +230,9 @@ export default class BaseScene extends Phaser.Scene {
             (prop) => prop.name === 'resume'
           );
           if (pause?.value === true) {
-            console.log('PAUSA y activa', scene.value);
             this.scene.pause();
             this.scene.launch(scene.value);
           } else if (resume?.value === true) {
-            console.log('RESUME', scene.value);
             this.scene.resume(scene.value);
             this.scene.stop();
           } else {
@@ -251,7 +288,16 @@ export default class BaseScene extends Phaser.Scene {
     this.add.existing(this.spriteLudo);
 
     this.rt = this.add.renderTexture(0, 0, 800, 600);
-    const tilesCollision: number[][] = this.drawLayers(this.map.layers);
+    const {
+      tilesCollision,
+      tilesNotSafeForLivingBeings,
+      tilesNotTotallySafeForLivingBeings
+    } = this.drawLayers(this.map.layers);
+
+    this.tilesCollision = tilesCollision;
+    this.tilesNotSafeForLivingBeings = tilesNotSafeForLivingBeings;
+    this.tilesNotTotallySafeForLivingBeings =
+      tilesNotTotallySafeForLivingBeings;
 
     this.getPlayerStart(this.map.objects);
     this.prepareGotoScene(this.map.objects);
@@ -267,7 +313,7 @@ export default class BaseScene extends Phaser.Scene {
       this.map.width * 32,
       this.map.height * 32
     );
-    this.preparePathfinding(tilesCollision);
+    this.preparePathfinding(this.tilesNotTotallySafeForLivingBeings);
     this.events.on('pause', () => {
       this.spriteLudo.body!.enable = false;
     });
@@ -290,8 +336,8 @@ export default class BaseScene extends Phaser.Scene {
     xO?: number,
     yO?: number
   ): Phaser.Tilemaps.Tile | null {
-    const x = xO ? xO * SIZES.BLOCK : this.spriteLudo.x;
-    const y = yO ? yO * SIZES.BLOCK : this.spriteLudo.y;
+    const x = xO ? xO : this.spriteLudo.x;
+    const y = yO ? yO : this.spriteLudo.y;
     let result: Phaser.Tilemaps.Tile | null = null;
     this.allLayers.forEach((layer: Phaser.Tilemaps.TilemapLayer) => {
       const tile = layer.getTileAtWorldXY(x, y, true);
@@ -303,8 +349,11 @@ export default class BaseScene extends Phaser.Scene {
     return result;
   }
 
-  getValidTile(): Phaser.Tilemaps.Tile | false {
-    const tile: Phaser.Tilemaps.Tile | null = this.getCollisionTileInAnyLayer();
+  getValidTile(xO?: number, yO?: number): Phaser.Tilemaps.Tile | false {
+    const tile: Phaser.Tilemaps.Tile | null = this.getCollisionTileInAnyLayer(
+      xO,
+      yO
+    );
     if (!tile) return false;
     if (!tile.properties.collision) return tile;
     const tileDown: Phaser.Tilemaps.Tile | null =
@@ -323,6 +372,99 @@ export default class BaseScene extends Phaser.Scene {
     if (tileRight && !tileRight.properties.collision) return tileRight;
     return false;
   }
+
+  tileIsTotallySafeForLivingBeings(x: number, y: number): boolean {
+    if (
+      this.tilesNotTotallySafeForLivingBeings[y] &&
+      this.tilesNotTotallySafeForLivingBeings[y][x] === 0
+    )
+      return true;
+    return false;
+  }
+
+  tileIsSafeForLivingBeings(x: number, y: number): boolean {
+    if (
+      this.tilesNotSafeForLivingBeings[y] &&
+      this.tilesNotSafeForLivingBeings[y][x] === 0
+    )
+      return true;
+    return false;
+  }
+
+  getValidTileForTotallySafeWalk(
+    x: number,
+    y: number
+  ): { x: number; y: number } | false {
+    const tile = this.frontLayer?.getTileAtWorldXY(x, y, true);
+    if (!tile) return false;
+    if (this.tileIsTotallySafeForLivingBeings(tile.x, tile.y))
+      return {
+        x: tile.x,
+        y: tile.y
+      };
+    if (this.tileIsTotallySafeForLivingBeings(tile.x, tile.y + 1))
+      return {
+        x: tile.x,
+        y: tile.y + 1
+      };
+    if (this.tileIsTotallySafeForLivingBeings(tile.x, tile.y - 1))
+      return {
+        x: tile.x,
+        y: tile.y - 1
+      };
+
+    if (this.tileIsTotallySafeForLivingBeings(tile.x + 1, tile.y))
+      return {
+        x: tile.x + 1,
+        y: tile.y
+      };
+
+    if (this.tileIsTotallySafeForLivingBeings(tile.x - 1, tile.y))
+      return {
+        x: tile.x - 1,
+        y: tile.y
+      };
+
+    return false;
+  }
+
+  getValidTileForSafeWalk(
+    x: number,
+    y: number
+  ): { x: number; y: number } | false {
+    const tile = this.frontLayer?.getTileAtWorldXY(x, y, true);
+    if (!tile) return false;
+    if (this.tileIsSafeForLivingBeings(tile.x, tile.y))
+      return {
+        x: tile.x,
+        y: tile.y
+      };
+    if (this.tileIsSafeForLivingBeings(tile.x, tile.y + 1))
+      return {
+        x: tile.x,
+        y: tile.y + 1
+      };
+    if (this.tileIsSafeForLivingBeings(tile.x, tile.y - 1))
+      return {
+        x: tile.x,
+        y: tile.y - 1
+      };
+
+    if (this.tileIsSafeForLivingBeings(tile.x + 1, tile.y))
+      return {
+        x: tile.x + 1,
+        y: tile.y
+      };
+
+    if (this.tileIsSafeForLivingBeings(tile.x - 1, tile.y))
+      return {
+        x: tile.x - 1,
+        y: tile.y
+      };
+
+    return false;
+  }
+
   prepareMovementByPointer(pointer: Phaser.Input.Pointer) {
     if (this.spriteLudo.alpha < 1 || !this.spriteLudo.visible) return;
     const touchX = pointer.worldX - this.spriteLudo.width / 2;

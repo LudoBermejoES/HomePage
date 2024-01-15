@@ -263,11 +263,9 @@ export class Dialog extends Phaser.GameObjects.Container {
   }
 
   endDialog() {
-    console.log(this.timer, this.timerDestroy);
     if (this.timer) {
       this.timer.destroy();
       this.timer = undefined;
-      console.log('Destruo', this.timer);
       this.text?.setText(this.textToShow);
       if (this.resolve && this.text)
         this.onFinishDialog(this.actor.spriteHead, this.resolve, this.text);
@@ -299,7 +297,6 @@ export class Dialog extends Phaser.GameObjects.Container {
       }
     }
     this.timerDestroy = target.scene.time.delayedCall(1000, () => {
-      console.log('YEAH');
       this.timerDestroy?.destroy();
       target.destroy();
       this.destroy();
@@ -347,7 +344,6 @@ export class Dialog extends Phaser.GameObjects.Container {
 
     // use a Promise to wait for the animation to complete
     return new Promise((resolve) => {
-      console.log('creo el timer');
       this.timer = target.scene.time.addEvent({
         delay: speedInMs,
         loop: true,
