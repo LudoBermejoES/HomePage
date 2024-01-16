@@ -2407,6 +2407,11 @@
                  "id":209,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -2415,6 +2420,11 @@
                 {
                  "id":210,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -2425,6 +2435,11 @@
                  "id":211,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -2434,6 +2449,11 @@
                  "id":212,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -2442,6 +2462,11 @@
                 {
                  "id":213,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -2479,6 +2504,11 @@
                  "id":218,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -2487,6 +2517,11 @@
                 {
                  "id":219,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -2497,6 +2532,11 @@
                  "id":220,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -2506,6 +2546,11 @@
                  "id":221,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -2514,6 +2559,11 @@
                 {
                  "id":222,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -3101,6 +3151,11 @@
                  "id":385,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -3128,6 +3183,11 @@
                  "id":388,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -3136,6 +3196,11 @@
                 {
                  "id":389,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -3173,6 +3238,11 @@
                  "id":394,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -3200,6 +3270,11 @@
                  "id":397,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -3208,6 +3283,11 @@
                 {
                  "id":398,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -4072,6 +4152,11 @@
                  "id":561,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -4099,6 +4184,11 @@
                  "id":564,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -4107,6 +4197,11 @@
                 {
                  "id":565,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -4135,6 +4230,11 @@
                  "id":570,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -4162,6 +4262,11 @@
                  "id":573,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -4170,6 +4275,11 @@
                 {
                  "id":574,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -5047,6 +5157,11 @@
                  "id":736,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -5055,6 +5170,11 @@
                 {
                  "id":737,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -5065,6 +5185,11 @@
                  "id":738,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -5073,6 +5198,11 @@
                 {
                  "id":739,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -5083,6 +5213,11 @@
                  "id":740,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -5091,6 +5226,11 @@
                 {
                  "id":741,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -5119,6 +5259,11 @@
                  "id":745,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -5127,6 +5272,11 @@
                 {
                  "id":746,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -5137,6 +5287,11 @@
                  "id":747,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -5145,6 +5300,11 @@
                 {
                  "id":748,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -5155,6 +5315,11 @@
                  "id":749,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -5163,6 +5328,11 @@
                 {
                  "id":750,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -5946,6 +6116,11 @@
                  "id":912,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -5954,6 +6129,11 @@
                 {
                  "id":913,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -5964,6 +6144,11 @@
                  "id":914,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -5973,6 +6158,11 @@
                 {
                  "id":915,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -6019,6 +6209,11 @@
                  "id":921,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -6027,6 +6222,11 @@
                 {
                  "id":922,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -6037,6 +6237,11 @@
                  "id":923,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -6045,6 +6250,11 @@
                 {
                  "id":924,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -6853,6 +7063,11 @@
                  "id":1088,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -6861,6 +7076,11 @@
                 {
                  "id":1089,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -6871,6 +7091,11 @@
                  "id":1090,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -6879,6 +7104,11 @@
                 {
                  "id":1091,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -6925,6 +7155,11 @@
                  "id":1097,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -6933,6 +7168,11 @@
                 {
                  "id":1098,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -6943,6 +7183,11 @@
                  "id":1099,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -6951,6 +7196,11 @@
                 {
                  "id":1100,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -7379,6 +7629,11 @@
                  "id":1264,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -7387,6 +7642,11 @@
                 {
                  "id":1265,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -7397,6 +7657,11 @@
                  "id":1266,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -7405,6 +7670,11 @@
                 {
                  "id":1267,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -7451,6 +7721,11 @@
                  "id":1273,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -7459,6 +7734,11 @@
                 {
                  "id":1274,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -7469,6 +7749,11 @@
                  "id":1275,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -7477,6 +7762,11 @@
                 {
                  "id":1276,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11431,6 +11721,11 @@
                  "id":2496,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11439,6 +11734,11 @@
                 {
                  "id":2497,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11449,6 +11749,11 @@
                  "id":2498,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11457,6 +11762,11 @@
                 {
                  "id":2499,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11467,6 +11777,11 @@
                  "id":2500,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11475,6 +11790,11 @@
                 {
                  "id":2501,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11485,6 +11805,11 @@
                  "id":2502,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11493,6 +11818,11 @@
                 {
                  "id":2503,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11503,6 +11833,11 @@
                  "id":2504,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11511,6 +11846,11 @@
                 {
                  "id":2505,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11521,6 +11861,11 @@
                  "id":2506,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11529,6 +11874,11 @@
                 {
                  "id":2507,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11539,6 +11889,11 @@
                  "id":2508,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11547,6 +11902,11 @@
                 {
                  "id":2509,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11557,6 +11917,11 @@
                  "id":2510,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11565,6 +11930,11 @@
                 {
                  "id":2511,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11575,6 +11945,11 @@
                  "id":2512,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11583,6 +11958,11 @@
                 {
                  "id":2513,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11883,6 +12263,11 @@
                  "id":2672,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11891,6 +12276,11 @@
                 {
                  "id":2673,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11901,6 +12291,11 @@
                  "id":2674,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11909,6 +12304,11 @@
                 {
                  "id":2675,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11919,6 +12319,11 @@
                  "id":2676,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11927,6 +12332,11 @@
                 {
                  "id":2677,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11937,6 +12347,11 @@
                  "id":2678,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11945,6 +12360,11 @@
                 {
                  "id":2679,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11955,6 +12375,11 @@
                  "id":2680,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11963,6 +12388,11 @@
                 {
                  "id":2681,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11973,6 +12403,11 @@
                  "id":2682,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11981,6 +12416,11 @@
                 {
                  "id":2683,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -11991,6 +12431,11 @@
                  "id":2684,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -11999,6 +12444,11 @@
                 {
                  "id":2685,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12009,6 +12459,11 @@
                  "id":2686,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12017,6 +12472,11 @@
                 {
                  "id":2687,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12027,6 +12487,11 @@
                  "id":2688,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12035,6 +12500,11 @@
                 {
                  "id":2689,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12296,6 +12766,11 @@
                  "id":2848,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12304,6 +12779,11 @@
                 {
                  "id":2849,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12315,6 +12795,11 @@
                  "id":2850,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12323,6 +12808,11 @@
                 {
                  "id":2851,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12333,6 +12823,11 @@
                  "id":2852,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12341,6 +12836,11 @@
                 {
                  "id":2853,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12351,6 +12851,11 @@
                  "id":2854,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12359,6 +12864,11 @@
                 {
                  "id":2855,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12369,6 +12879,11 @@
                  "id":2856,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12377,6 +12892,11 @@
                 {
                  "id":2857,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12387,6 +12907,11 @@
                  "id":2858,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12395,6 +12920,11 @@
                 {
                  "id":2859,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12405,6 +12935,11 @@
                  "id":2860,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12413,6 +12948,11 @@
                 {
                  "id":2861,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12423,6 +12963,11 @@
                  "id":2862,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12431,6 +12976,11 @@
                 {
                  "id":2863,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12441,6 +12991,11 @@
                  "id":2864,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12449,6 +13004,11 @@
                 {
                  "id":2865,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12569,6 +13129,11 @@
                  "id":3024,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12577,6 +13142,11 @@
                 {
                  "id":3025,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12587,6 +13157,11 @@
                  "id":3026,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12595,6 +13170,11 @@
                 {
                  "id":3027,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12605,6 +13185,11 @@
                  "id":3028,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12613,6 +13198,11 @@
                 {
                  "id":3029,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12623,6 +13213,11 @@
                  "id":3030,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12631,6 +13226,11 @@
                 {
                  "id":3031,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12641,6 +13241,11 @@
                  "id":3032,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12649,6 +13254,11 @@
                 {
                  "id":3033,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12659,6 +13269,11 @@
                  "id":3034,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12667,6 +13282,11 @@
                 {
                  "id":3035,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12677,6 +13297,11 @@
                  "id":3036,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12685,6 +13310,11 @@
                 {
                  "id":3037,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12695,6 +13325,11 @@
                  "id":3038,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12703,6 +13338,11 @@
                 {
                  "id":3039,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12713,6 +13353,11 @@
                  "id":3040,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12721,6 +13366,11 @@
                 {
                  "id":3041,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12856,6 +13506,11 @@
                  "id":3200,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12864,6 +13519,11 @@
                 {
                  "id":3201,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12874,6 +13534,11 @@
                  "id":3202,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12882,6 +13547,11 @@
                 {
                  "id":3203,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12892,6 +13562,11 @@
                  "id":3204,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12900,6 +13575,11 @@
                 {
                  "id":3205,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12910,6 +13590,11 @@
                  "id":3206,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12918,6 +13603,11 @@
                 {
                  "id":3207,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12928,6 +13618,11 @@
                  "id":3208,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12936,6 +13631,11 @@
                 {
                  "id":3209,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12946,6 +13646,11 @@
                  "id":3210,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12954,6 +13659,11 @@
                 {
                  "id":3211,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12964,6 +13674,11 @@
                  "id":3212,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12972,6 +13687,11 @@
                 {
                  "id":3213,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -12982,6 +13702,11 @@
                  "id":3214,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -12990,6 +13715,11 @@
                 {
                  "id":3215,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -13000,6 +13730,11 @@
                  "id":3216,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -13008,6 +13743,11 @@
                 {
                  "id":3217,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -13158,6 +13898,11 @@
                  "id":3386,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -13166,6 +13911,11 @@
                 {
                  "id":3387,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -13176,6 +13926,11 @@
                  "id":3388,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -13184,6 +13939,11 @@
                 {
                  "id":3389,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -13194,6 +13954,11 @@
                  "id":3390,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -13202,6 +13967,11 @@
                 {
                  "id":3391,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -13212,6 +13982,11 @@
                  "id":3392,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -13220,6 +13995,11 @@
                 {
                  "id":3393,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -13244,6 +14024,11 @@
                  "id":3562,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -13252,6 +14037,11 @@
                 {
                  "id":3563,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -13262,6 +14052,11 @@
                  "id":3564,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -13270,6 +14065,11 @@
                 {
                  "id":3565,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -13280,6 +14080,11 @@
                  "id":3566,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -13288,6 +14093,11 @@
                 {
                  "id":3567,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -13298,6 +14108,11 @@
                  "id":3568,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -13306,6 +14121,11 @@
                 {
                  "id":3569,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -13398,6 +14218,11 @@
                  "id":3738,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -13406,6 +14231,11 @@
                 {
                  "id":3739,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -13416,6 +14246,11 @@
                  "id":3740,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -13424,6 +14259,11 @@
                 {
                  "id":3741,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",
@@ -13434,6 +14274,11 @@
                  "id":3742,
                  "properties":[
                         {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"safeForLivingBeings",
                          "type":"float",
                          "value":0.5
@@ -13442,6 +14287,11 @@
                 {
                  "id":3743,
                  "properties":[
+                        {
+                         "name":"ridable",
+                         "type":"bool",
+                         "value":true
+                        }, 
                         {
                          "name":"safeForLivingBeings",
                          "type":"float",

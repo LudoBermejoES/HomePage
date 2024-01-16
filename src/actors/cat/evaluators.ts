@@ -1,10 +1,9 @@
 import { GoalEvaluator } from '../../AI/base/goals/GoalEvaluator';
-import { WalkGoal, PursueGoal } from './goals';
+import { EscapeGoal, WalkGoal, PursueGoal, AttackGoal } from './goals';
 import { CatActor } from './actor';
 import Statics from '../statics/staticsCity';
 import * as Phaser from 'phaser';
 import BaseScene from '../../scenes/baseScene';
-import { CrowActor } from '../crow/actor';
 
 class WalkEvaluator extends GoalEvaluator<CatActor> {
   calculateDesirability() {
@@ -38,7 +37,7 @@ class PursueEvaluator extends GoalEvaluator<CatActor> {
 
     if (
       toCatch &&
-      !(toCatch as CrowActor).isAfraid &&
+      !(toCatch as CatActor).isAfraid &&
       Phaser.Math.Distance.BetweenPoints(
         Cat,
         nearestCatch as Phaser.Physics.Arcade.Sprite
@@ -68,7 +67,7 @@ class PursueEvaluator extends GoalEvaluator<CatActor> {
       }
     }
 
-    return Cat.isHuntingTo ? 1 : 0;
+    return Cat.isHuntingTo ? 0.8 : 0;
   }
 
   setGoal(Cat: CatActor) {
@@ -85,4 +84,42 @@ class PursueEvaluator extends GoalEvaluator<CatActor> {
   }
 }
 
-export { PursueEvaluator, WalkEvaluator };
+class EscapeEvaluator extends GoalEvaluator<CatActor> {
+  calculateDesirability(cat: CatActor) {
+    return cat.isAfraid ? 1 : 0;
+  }
+
+  setGoal(cat: CatActor) {
+    const currentSubgoal = cat.brain.currentSubgoal();
+    if (currentSubgoal instanceof EscapeGoal === false) {
+      cat.brain.clearSubgoals();
+
+      cat.brain.addSubgoal(new EscapeGoal(cat));
+    }
+    return {
+      type: this.constructor.name,
+      characterBias: this.characterBias
+    };
+  }
+}
+
+class AttackEvaluator extends GoalEvaluator<CatActor> {
+  calculateDesirability(cat: CatActor) {
+    return cat.isAttacking ? 0.9 : 0;
+  }
+
+  setGoal(cat: CatActor) {
+    const currentSubgoal = cat.brain.currentSubgoal();
+    if (currentSubgoal instanceof AttackGoal === false) {
+      cat.brain.clearSubgoals();
+
+      cat.brain.addSubgoal(new AttackGoal(cat));
+    }
+    return {
+      type: this.constructor.name,
+      characterBias: this.characterBias
+    };
+  }
+}
+
+export { AttackEvaluator, EscapeEvaluator, PursueEvaluator, WalkEvaluator };

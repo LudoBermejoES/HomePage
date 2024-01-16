@@ -115,6 +115,7 @@ export default class City extends BaseScene {
       y: 450
     });
     Statics.groupEnemiesOfCrows.add(this.busSprite);
+    Statics.groupEnemiesOfCat.add(this.busSprite);
     this.busSprite.visible = false;
     this.add.existing(this.busSprite);
   }
@@ -190,7 +191,7 @@ export default class City extends BaseScene {
   }
 
   create() {
-    this.frontLayer?.preFX.addColorMatrix();
+    this.frontLayer?.preFX?.addColorMatrix();
     super.create('city', true);
     this.cameras.main.setZoom(1);
 

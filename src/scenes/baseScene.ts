@@ -5,7 +5,6 @@ import OnTheFlySprite from '../sprites/OnTheFlySprite';
 import { DEPTH, SIZES } from '../lib/constants';
 import OverlapSprite from '../sprites/OverlapArea';
 import GotoSceneObject from '../objects/gotoSceneObject';
-import Statics from '../actors/statics/staticsCity';
 
 export default class BaseScene extends Phaser.Scene {
   MAX_ALPHA_NIGHT: number = 0.8;

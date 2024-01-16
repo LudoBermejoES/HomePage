@@ -64,7 +64,7 @@ class WalkGoal extends Goal<CatActor> {
 }
 
 class PursueGoal extends Goal<CatActor> {
-  MOVE_SPEED: 0.3;
+  MOVE_SPEED: 0.5;
   constructor(owner: CatActor) {
     super(owner);
   }
@@ -89,9 +89,7 @@ class PursueGoal extends Goal<CatActor> {
     }
     const isHuntingTo = this.owner.isHuntingTo as GameEntity;
     if (this.owner.movePath && this.owner.movePath.length === 0) {
-      const crow = isHuntingTo as CrowActor;
-      crow.isAfraid = true;
-      this.owner.isHuntingTo = undefined;
+      this.owner.isAttacking = true;
       this.status = Goal.STATUS.COMPLETED;
       return;
     }
@@ -117,4 +115,91 @@ class PursueGoal extends Goal<CatActor> {
   }
 }
 
-export { WalkGoal, PursueGoal };
+class EscapeGoal extends Goal<CatActor> {
+  constructor(owner: CatActor) {
+    super(owner);
+  }
+
+  activate() {
+    if (!this.owner) return;
+    if (this.owner?.body) this.owner.body.enable = false;
+    const cat = this.owner;
+    const { x, y } = CatActor.getValidPosition(cat, CatActor.TOTAL_CATS);
+    let duration: number = 0;
+    const difX = Math.abs(x - cat.x);
+    const difY = Math.abs(y - cat.y);
+    let anim: string = '';
+    if (difX > difY) {
+      x > cat.x ? (anim = 'right_move') : (anim = 'left_move');
+      duration = Math.abs(x - cat.x) * 10;
+    } else {
+      y > cat.y ? (anim = 'down_move') : (anim = 'up_move');
+      duration = Math.abs(y - cat.y) * 10;
+    }
+
+    cat.anims.play(anim);
+    if (cat.body) cat.body.enable = false;
+
+    cat.scene.tweens.add({
+      targets: cat,
+      x: x,
+      y: y,
+      ease: 'quad.out',
+      duration,
+      repeat: 0,
+      onComplete: () => {
+        cat.isAfraid = false;
+        this.status = Goal.STATUS.COMPLETED;
+      }
+    });
+  }
+
+  execute() {
+    this.replanIfFailed();
+  }
+
+  terminate() {
+    const cat = this.owner;
+    if (!cat) return;
+    cat.setVelocity(0, 0);
+  }
+}
+
+class AttackGoal extends Goal<CatActor> {
+  constructor(owner: CatActor) {
+    super(owner);
+  }
+
+  activate() {
+    if (!this.owner) return;
+    if (this.owner?.body) this.owner.body.enable = false;
+    const cat = this.owner;
+    const { x } = CatActor.getValidPosition(cat, CatActor.TOTAL_CATS);
+
+    const anim: string =
+      x > cat.x ? 'right_before_attack' : 'left_before_attack';
+
+    cat.anims.play({ key: anim, repeat: 5 }, true);
+    cat.on('animationcomplete', () => {
+      const crow = cat.isHuntingTo as CrowActor;
+      crow.isAfraid = true;
+      cat.isHuntingTo = undefined;
+      cat.x = crow.x;
+      cat.y = crow.y;
+      this.status = Goal.STATUS.COMPLETED;
+      cat.off('animationcomplete');
+    });
+  }
+
+  execute() {
+    this.replanIfFailed();
+  }
+
+  terminate() {
+    const cat = this.owner;
+    if (!cat) return;
+    cat.setVelocity(0, 0);
+  }
+}
+
+export { AttackGoal, EscapeGoal, WalkGoal, PursueGoal };

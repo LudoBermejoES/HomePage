@@ -1,5 +1,10 @@
 import { Think } from '../../AI/base/goals/Think';
-import { WalkEvaluator, PursueEvaluator } from './evaluators';
+import {
+  AttackEvaluator,
+  EscapeEvaluator,
+  WalkEvaluator,
+  PursueEvaluator
+} from './evaluators';
 import { GameEntity, Props } from '../../AI/base/core/GameEntity';
 import { DEPTH, SIZES } from '../../lib/constants';
 import * as Phaser from 'phaser';
@@ -9,6 +14,7 @@ export class CatActor extends GameEntity {
   brain: Think<CatActor>;
   isAfraid: boolean = false;
   isLazy: boolean = false;
+  isAttacking: boolean = false;
   isHuntingTo: Phaser.GameObjects.GameObject | undefined;
   static TOTAL_CATS: number = 0;
 
@@ -18,6 +24,8 @@ export class CatActor extends GameEntity {
 
     this.brain = new Think(this);
 
+    this.brain.addEvaluator(new AttackEvaluator());
+    this.brain.addEvaluator(new EscapeEvaluator());
     this.brain.addEvaluator(new WalkEvaluator());
     this.brain.addEvaluator(new PursueEvaluator());
     if (this.body) this.body.immovable = false;
