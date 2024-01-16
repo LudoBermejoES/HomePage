@@ -190,6 +190,7 @@ export default class City extends BaseScene {
   }
 
   create() {
+    this.frontLayer?.preFX.addColorMatrix();
     super.create('city', true);
     this.cameras.main.setZoom(1);
 

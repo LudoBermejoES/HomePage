@@ -90,10 +90,6 @@ export default {
       verbose: true
     }),
 
-    execute('cd utils && node mapReducer.js'),
-
-    execute(
-      'cd utils && node mapReducer.js && cp created/*.webp ../dist/assets/map && cp created/*.json ../dist/assets/map && cd .. && rm -rf dist.zip && zip -r dist.zip dist -x "*.DS_Store"'
-    )
+    execute('cd utils && node mapReducer.js')
   ]
 };
