@@ -23,9 +23,8 @@ class WalkGoal extends Goal<CatActor> {
     const owner = this.owner;
     if (!owner) return;
     if (owner.movePath && owner.movePath.length) {
-      if (owner.isBored && !this.timerEvent) {
+      if (!this.timerEvent) {
         this.timerEvent = owner.scene.time.delayedCall(2000, () => {
-          owner.isBored = false;
           this.timerEvent = undefined;
         });
       }
@@ -62,20 +61,6 @@ class WalkGoal extends Goal<CatActor> {
   }
 
   terminate() {}
-}
-
-class BoredGoal extends Goal<CatActor> {
-  constructor(owner: CatActor) {
-    super(owner);
-  }
-
-  activate() {}
-
-  execute() {
-    if (!this.owner) return;
-    this.owner.isBored = true;
-    this.status = Goal.STATUS.COMPLETED;
-  }
 }
 
 class PursueGoal extends Goal<CatActor> {
@@ -119,8 +104,6 @@ class PursueGoal extends Goal<CatActor> {
 
     if (path) {
       this.owner.moveAlongPath(path, this.MOVE_SPEED);
-    } else {
-      this.owner.isBored = true;
     }
     this.replanIfFailed();
   }
@@ -134,4 +117,4 @@ class PursueGoal extends Goal<CatActor> {
   }
 }
 
-export { BoredGoal, WalkGoal, PursueGoal };
+export { WalkGoal, PursueGoal };

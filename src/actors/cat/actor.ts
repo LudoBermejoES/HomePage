@@ -1,5 +1,5 @@
 import { Think } from '../../AI/base/goals/Think';
-import { WalkEvaluator, PursueEvaluator, BoredEvaluator } from './evaluators';
+import { WalkEvaluator, PursueEvaluator } from './evaluators';
 import { GameEntity, Props } from '../../AI/base/core/GameEntity';
 import { DEPTH, SIZES } from '../../lib/constants';
 import * as Phaser from 'phaser';
@@ -7,8 +7,8 @@ import Statics from '../statics/staticsCity';
 
 export class CatActor extends GameEntity {
   brain: Think<CatActor>;
-  isBored: boolean = false;
   isAfraid: boolean = false;
+  isLazy: boolean = false;
   isHuntingTo: Phaser.GameObjects.GameObject | undefined;
   static TOTAL_CATS: number = 0;
 
@@ -18,7 +18,6 @@ export class CatActor extends GameEntity {
 
     this.brain = new Think(this);
 
-    // this.brain.addEvaluator(new BoredEvaluator());
     this.brain.addEvaluator(new WalkEvaluator());
     this.brain.addEvaluator(new PursueEvaluator());
     if (this.body) this.body.immovable = false;
@@ -89,6 +88,7 @@ export class CatActor extends GameEntity {
         x: 0,
         y: 0
       });
+      cat.scale = 1.5;
       cat.depth = DEPTH.FLOOR_ANIMALS;
       const { x, y } = CatActor.getValidPosition(cat, TOTAL_CATS, true);
       cat.setPosition(x, y);

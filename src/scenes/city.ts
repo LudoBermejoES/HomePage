@@ -36,8 +36,8 @@ export default class City extends BaseScene {
     );
     this.load.aseprite(
       'CatSprite',
-      'assets/sprites/cat.png',
-      'assets/sprites/cat.json'
+      'assets/sprites/BlackCat.png',
+      'assets/sprites/BlackCat.json'
     );
     this.load.aseprite(
       'CondoDoorOrange',
@@ -191,7 +191,7 @@ export default class City extends BaseScene {
 
   create() {
     super.create('city', true);
-    this.cameras.main.setZoom(1.25);
+    this.cameras.main.setZoom(1);
 
     Statics.map = this.map;
     Statics.tilesCollision = this.tilesCollision;
@@ -207,5 +207,6 @@ export default class City extends BaseScene {
     CatActor.createCats(this, this.TOTAL_CATS);
 
     this.prepareAndAnimateBus(this.map.objects);
+    this.preparePassOfTime();
   }
 }

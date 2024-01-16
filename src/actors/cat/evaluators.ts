@@ -1,44 +1,10 @@
 import { GoalEvaluator } from '../../AI/base/goals/GoalEvaluator';
-import { BoredGoal, WalkGoal, PursueGoal } from './goals';
+import { WalkGoal, PursueGoal } from './goals';
 import { CatActor } from './actor';
 import Statics from '../statics/staticsCity';
 import * as Phaser from 'phaser';
 import BaseScene from '../../scenes/baseScene';
 import { CrowActor } from '../crow/actor';
-
-class BoredEvaluator extends GoalEvaluator<CatActor> {
-  MAX_TIME_BORED = 100;
-  currentBoredTime = 0;
-  lastX: number = 0;
-  lastY: number = 0;
-  calculateDesirability(cat: CatActor) {
-    if (!cat) return 0;
-
-    if (this.lastX === cat.x && this.lastY === cat.y) {
-      if (this.currentBoredTime++ > this.MAX_TIME_BORED) {
-        this.currentBoredTime = 0;
-        return 1;
-      }
-    }
-
-    this.lastX = cat.x;
-    this.lastY = cat.y;
-    return 0;
-  }
-
-  setGoal(Cat: CatActor) {
-    const currentSubgoal = Cat.brain.currentSubgoal();
-    if (currentSubgoal instanceof BoredGoal === false) {
-      Cat.brain.clearSubgoals();
-
-      Cat.brain.addSubgoal(new BoredGoal(Cat));
-    }
-    return {
-      type: this.constructor.name,
-      characterBias: this.characterBias
-    };
-  }
-}
 
 class WalkEvaluator extends GoalEvaluator<CatActor> {
   calculateDesirability() {
@@ -66,8 +32,6 @@ class PursueEvaluator extends GoalEvaluator<CatActor> {
   lastTime: number = 0;
 
   isCatchable(Cat: CatActor): Phaser.Physics.Arcade.Sprite | null {
-    if (Cat.isBored) return null;
-
     const nearestCatch: Phaser.GameObjects.GameObject | null =
       Cat.scene.physics.closest(Cat, Statics.groupOfCrows.children.entries);
     const toCatch = nearestCatch as Phaser.Physics.Arcade.Sprite;
@@ -86,7 +50,6 @@ class PursueEvaluator extends GoalEvaluator<CatActor> {
   }
 
   calculateDesirability(Cat: CatActor) {
-    if (Cat.isBored) return 0;
     if (Cat.scene.time.now + this.CHECKING_INTERVAL > this.lastTime) {
       this.lastTime = Cat.scene.time.now;
       const nearestCatch = this.isCatchable(Cat);
@@ -122,4 +85,4 @@ class PursueEvaluator extends GoalEvaluator<CatActor> {
   }
 }
 
-export { BoredEvaluator, PursueEvaluator, WalkEvaluator };
+export { PursueEvaluator, WalkEvaluator };

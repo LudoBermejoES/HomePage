@@ -8,9 +8,14 @@ import GotoSceneObject from '../objects/gotoSceneObject';
 import Statics from '../actors/statics/staticsCity';
 
 export default class BaseScene extends Phaser.Scene {
+  MAX_ALPHA_NIGHT: number = 0.8;
+
   collisionLayer: Phaser.Tilemaps.TilemapLayer | null = null;
   controls!: Phaser.Cameras.Controls.SmoothedKeyControl;
   cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
+  timerConfigCycleOfDays!: Phaser.Types.Time.TimerEventConfig;
+  currentTimeOfCycle: number = 0;
+  overlayCycle?: Phaser.GameObjects.Image;
   spriteLudo!: SpriteLudo;
   map!: Phaser.Tilemaps.Tilemap;
   frontLayer!: Phaser.Tilemaps.TilemapLayer | null;
@@ -513,5 +518,46 @@ export default class BaseScene extends Phaser.Scene {
     this.input.on('pointerup', () => {
       this.timer?.destroy();
     });
+  }
+
+  preparePassOfTime(timeOfCycle: number = 10 * 60 * 1000) {
+    /* add or load tilemap layers ... and stuff */
+    if (!this.frontLayer) return;
+
+    const texture = this.textures.createCanvas(
+      'night-layer',
+      this.map.width * SIZES.BLOCK,
+      this.map.height * SIZES.BLOCK
+    );
+
+    this.timerConfigCycleOfDays = {};
+    if (texture) {
+      texture.context.fillStyle = '#000000';
+      texture.context.fillRect(
+        0,
+        0,
+        this.map.width * SIZES.BLOCK,
+        this.map.height * SIZES.BLOCK
+      );
+
+      texture.context.globalCompositeOperation = 'destination-out';
+
+      texture.refresh();
+
+      this.overlayCycle = this.add.image(0, 0, 'night-layer');
+      this.overlayCycle.setOrigin(0, 0);
+      this.overlayCycle.alpha = 0;
+
+      this.tweens.add({
+        targets: this.overlayCycle,
+        alpha: this.MAX_ALPHA_NIGHT,
+        duration: timeOfCycle / 2,
+        ease: 'quad.out',
+        yoyo: true,
+        loop: -1
+      });
+
+      this.overlayCycle.setDepth(3000);
+    }
   }
 }

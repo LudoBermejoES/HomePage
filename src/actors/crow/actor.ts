@@ -92,7 +92,7 @@ export class CrowActor extends GameEntity {
       });
       crow.mapOfScene = Statics.map;
       crow.depth = DEPTH.FLYING_ANIMALS;
-      crow.scale = 0.8;
+      crow.scale = 0.5;
       const { x, y } = CrowActor.getValidPosition(crow, TOTAL_CROWS);
       crow.setPosition(x, y);
       crow.anims.play(crow.chooseIdleAnim(), true);
