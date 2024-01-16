@@ -81,7 +81,7 @@ class PursueGoal extends Goal<CatActor> {
       return;
     }
     if (this.owner.movePath && this.owner.movePath.length) {
-      this.owner.updatePathMovement(10, 10);
+      this.owner.updatePathMovement(30, 30);
       return;
     }
     if (!this.owner.isHuntingTo) {
@@ -173,21 +173,38 @@ class AttackGoal extends Goal<CatActor> {
   activate() {
     if (!this.owner) return;
     if (this.owner?.body) this.owner.body.enable = false;
-    const cat = this.owner;
-    const { x } = CatActor.getValidPosition(cat, CatActor.TOTAL_CATS);
 
-    const anim: string =
-      x > cat.x ? 'right_before_attack' : 'left_before_attack';
+    const cat = this.owner;
+    const crow = cat.isHuntingTo as CrowActor;
+    const { x, y } = crow;
+    const difX = Math.abs(x - cat.x);
+    const difY = Math.abs(y - cat.y);
+    let anim: string = '';
+    if (difX > difY) {
+      x > cat.x
+        ? (anim = 'right_before_attack')
+        : (anim = 'left_before_attack');
+    } else {
+      y > cat.y ? (anim = 'down_before_attack') : (anim = 'up_before_attack');
+    }
 
     cat.anims.play({ key: anim, repeat: 5 }, true);
     cat.on('animationcomplete', () => {
-      const crow = cat.isHuntingTo as CrowActor;
-      crow.isAfraid = true;
-      cat.isHuntingTo = undefined;
-      cat.x = crow.x;
-      cat.y = crow.y;
-      this.status = Goal.STATUS.COMPLETED;
       cat.off('animationcomplete');
+
+      cat.scene.tweens.add({
+        targets: cat,
+        x: crow.x,
+        y: crow.y,
+        ease: 'quad.out',
+        duration: 100,
+        onComplete: () => {
+          crow.isAfraid = true;
+          cat.isHuntingTo = undefined;
+          cat.isAttacking = false;
+          this.status = Goal.STATUS.COMPLETED;
+        }
+      });
     });
   }
 
