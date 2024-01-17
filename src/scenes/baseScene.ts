@@ -317,7 +317,7 @@ export default class BaseScene extends Phaser.Scene {
       this.map.width * 32,
       this.map.height * 32
     );
-    this.preparePathfinding(this.tilesNotTotallySafeForLivingBeings);
+    this.preparePathfinding(this.tilesNotSafeForLivingBeings);
     this.events.on('pause', () => {
       this.spriteLudo.body!.enable = false;
     });

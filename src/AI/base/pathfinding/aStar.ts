@@ -60,6 +60,27 @@ export default class Pathfinding {
     return vectorPath;
   }
 
+  moveEntityToTile(
+    origin: GameEntity,
+    { x, y }: { x: number; y: number }
+  ): Phaser.Math.Vector2[] | undefined {
+    const scene = origin.scene as BaseScene;
+    const startVec = scene.getValidTileForSafeWalk(origin.x, origin.y);
+    const endVec = { x, y };
+    if (!startVec || !endVec) return;
+    const path = this.aStarInstance.findPath(startVec, endVec);
+    const vectorPath: Phaser.Math.Vector2[] = [];
+    path.forEach((pathPoint: number[]) => {
+      vectorPath.push(
+        new Phaser.Math.Vector2({
+          x: pathPoint[0],
+          y: pathPoint[1]
+        })
+      );
+    });
+    return vectorPath;
+  }
+
   moveSafeFromEntityToPoint(
     origin: GameEntity,
     target: Phaser.Math.Vector2

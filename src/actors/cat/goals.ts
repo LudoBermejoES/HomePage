@@ -5,6 +5,7 @@ import Statics from '../statics/staticsCity';
 import { GameEntity } from '../../AI/base/core/GameEntity';
 import * as Phaser from 'phaser';
 import { CrowActor } from '../crow/actor';
+import { SIZES } from '../../lib/constants';
 
 class WalkGoal extends Goal<CatActor> {
   MOVE_SPEED = 0.5;
@@ -23,12 +24,6 @@ class WalkGoal extends Goal<CatActor> {
     const owner = this.owner;
     if (!owner) return;
     if (owner.movePath && owner.movePath.length) {
-      if (!this.timerEvent) {
-        this.timerEvent = owner.scene.time.delayedCall(2000, () => {
-          this.timerEvent = undefined;
-        });
-      }
-
       owner.updatePathMovement();
       if (this.lastPosToGo) return;
     }
@@ -109,52 +104,40 @@ class PursueGoal extends Goal<CatActor> {
   terminate() {
     if (!this.owner) return;
     if (this.owner?.body) this.owner.body.enable = false;
-
-    const cat = this.owner;
-    if (!cat) return;
   }
 }
 
 class EscapeGoal extends Goal<CatActor> {
+  MOVE_SPEED: 0.5;
   constructor(owner: CatActor) {
     super(owner);
+    owner.movePath = undefined;
+    owner.moveToTarget = undefined;
   }
 
-  activate() {
-    if (!this.owner) return;
-    if (this.owner?.body) this.owner.body.enable = false;
-    const cat = this.owner;
-    const { x, y } = CatActor.getValidPosition(cat, CatActor.TOTAL_CATS);
-    let duration: number = 0;
-    const difX = Math.abs(x - cat.x);
-    const difY = Math.abs(y - cat.y);
-    let anim: string = '';
-    if (difX > difY) {
-      x > cat.x ? (anim = 'right_move') : (anim = 'left_move');
-      duration = Math.abs(x - cat.x) * 10;
-    } else {
-      y > cat.y ? (anim = 'down_move') : (anim = 'up_move');
-      duration = Math.abs(y - cat.y) * 10;
-    }
-
-    cat.anims.play(anim);
-    if (cat.body) cat.body.enable = false;
-
-    cat.scene.tweens.add({
-      targets: cat,
-      x: x,
-      y: y,
-      ease: 'quad.out',
-      duration,
-      repeat: 0,
-      onComplete: () => {
-        cat.isAfraid = false;
-        this.status = Goal.STATUS.COMPLETED;
-      }
-    });
-  }
+  activate() {}
 
   execute() {
+    const owner = this.owner;
+    if (!owner) return;
+    if (owner.movePath && owner.movePath.length) {
+      owner.updatePathMovement();
+      return;
+    }
+
+    if (owner.movePath && !owner.movePath.length) {
+      this.status = Goal.STATUS.COMPLETED;
+      owner.isAfraid = false;
+      return;
+    }
+
+    const pathFinding = new Pathfinding(Statics.tilesNotSafeForLivingBeings);
+    const { x, y } = CatActor.getRandomTotallySafePositionNearOwner(owner);
+    console.log('Mi posicion más segura es ', x, y);
+    const path = pathFinding.moveEntityToTile(owner, { x, y });
+    console.log(path);
+    if (path) owner.moveAlongPath(path, 2);
+
     this.replanIfFailed();
   }
 
@@ -219,4 +202,121 @@ class AttackGoal extends Goal<CatActor> {
   }
 }
 
-export { AttackGoal, EscapeGoal, WalkGoal, PursueGoal };
+class LazyGoal extends Goal<CatActor> {
+  lastPosToGo: Phaser.Math.Vector2 | undefined;
+  MOVE_SPEED = 0.2;
+  MIN_TIME_TO_SLEEP = 5000;
+  MAX_TIME_TO_SLEEP = 10000;
+  bubble?: Phaser.GameObjects.Sprite;
+  constructor(owner: CatActor) {
+    super(owner);
+  }
+
+  activate() {
+    if (!this.owner) return;
+    // if (this.owner?.body) this.owner.body.enable = false;
+    this.owner.movePath = undefined;
+    this.owner.moveToTarget = undefined;
+    this.owner.isLazy = true;
+  }
+
+  moveToATotallySafeTile({
+    owner,
+    x,
+    y
+  }: {
+    owner: CatActor;
+    x: number;
+    y: number;
+  }) {
+    const pathFinding = new Pathfinding(Statics.tilesNotSafeForLivingBeings);
+    return pathFinding.moveEntityToTile(owner, { x, y });
+  }
+
+  moveInTotallySafeTiles(owner: CatActor): {
+    x: number;
+    y: number;
+    path: Phaser.Math.Vector2[] | undefined;
+  } {
+    const pathFinding = new Pathfinding(
+      Statics.tilesNotTotallySafeForLivingBeings
+    );
+    const { x, y } = CatActor.getRandomTotallySafePositionNearOwner(owner);
+    return {
+      x: x * SIZES.BLOCK,
+      y: y * x * SIZES.BLOCK,
+      path: pathFinding.moveEntityToTile(owner, { x, y })
+    };
+  }
+
+  execute() {
+    const owner = this.owner;
+    if (!owner) return;
+    if (owner.movePath && owner.movePath.length) {
+      owner.updatePathMovement();
+      if (this.lastPosToGo) return;
+    }
+
+    if (owner.movePath && !owner.movePath.length) {
+      const currentAnim = owner.anims.currentAnim;
+      if (!currentAnim || currentAnim.key !== 'sleep') {
+        owner.anims.play({ key: 'sleep', repeat: 1 }, true);
+
+        this.bubble = owner.scene.add.sprite(
+          owner.x,
+          owner.y - owner.height / 2,
+          'SleepBubble'
+        );
+
+        this.bubble.anims.createFromAseprite('SleepBubble').forEach((anim) => {
+          anim.repeat = -1;
+        });
+
+        this.bubble.anims.play('start');
+
+        owner.scene.time.delayedCall(
+          Phaser.Math.Between(this.MIN_TIME_TO_SLEEP, this.MAX_TIME_TO_SLEEP),
+          () => {
+            owner.isLazy = false;
+            this.bubble?.destroy();
+            this.bubble = undefined;
+
+            this.status = Goal.STATUS.COMPLETED;
+          }
+        );
+      }
+      return;
+    }
+
+    const position = CatActor.getNearestTotallySafePosition(owner);
+    const firstMoveToATotallySafeTile = !position.originTileIsSafe;
+
+    let foundPath: Phaser.Math.Vector2[] | undefined;
+    if (firstMoveToATotallySafeTile) {
+      foundPath = this.moveToATotallySafeTile({ owner, ...position });
+    } else {
+      const { x, y, path } = this.moveInTotallySafeTiles(owner);
+      position.x = x;
+      position.y = y;
+      foundPath = path;
+    }
+
+    const { x, y } = position;
+
+    if (foundPath) {
+      this.lastPosToGo = new Phaser.Math.Vector2(x, y);
+      owner.moveAlongPath(foundPath, this.MOVE_SPEED);
+    } else {
+      owner.x = x;
+      owner.y = y;
+    }
+
+    this.replanIfFailed();
+  }
+
+  terminate() {
+    if (!this.owner) return;
+  }
+}
+
+export { AttackGoal, EscapeGoal, LazyGoal, WalkGoal, PursueGoal };

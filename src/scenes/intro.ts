@@ -1,6 +1,7 @@
 import * as Phaser from 'phaser';
 import { TextButton, loadImages } from '../ui/TextButton';
 import { createCrowsForIntro } from '../sprites/SpriteCrow';
+import { SIZES } from '../lib/constants';
 
 export default class Intro extends Phaser.Scene {
   title: {
@@ -93,7 +94,7 @@ export default class Intro extends Phaser.Scene {
     dialog.alpha = 0;
     dialog.setPosition(
       this.renderer.width / 2 - dialog.width / 2 - dialog.text.width / 2,
-      this.getViewPortHeight() - dialog.height * 2 - 32 * 3
+      this.getViewPortHeight() - dialog.height * 2 - SIZES.BLOCK * 3
     );
     dialog.text.on('pointerdown', () => {
       this.cameras.main.fadeOut(1000, 0, 0, 0);

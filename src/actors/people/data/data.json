@@ -1,0 +1,769 @@
+[
+  {
+    "id": 1,
+    "name": "Marcos 'Rastro' Gutiérrez",
+    "age": 32,
+    "profesion": "Ladrón de información",
+    "attributes": {
+      "agility": "d6",
+      "strenght": "d4",
+      "vigor": "d4",
+      "smarts": "d6",
+      "spirits": "d4"
+    },
+    "skills": {
+      "sigilo": "d6",
+      "computacion": "d6",
+      "persuasion": "d4",
+      "armas_cuerpo_a_cuerpo": "d4",
+      "robo": "d6"
+    },
+    "advantages": [
+      "Reflejos Rápidos",
+      "Conocimiento de la Empresa",
+      "Conexiones en el Bajo Mundo"
+    ],
+    "disadvantages": ["Perseguido", "Desconfiado", "Deudas"],
+    "equipment": [
+      "Laptop de Contrabando",
+      "Navaja de Bolsillo",
+      "Ropa de Camuflaje"
+    ],
+    "background": "Marcos 'Rastro' Gutiérrez ha aprendido a sobrevivir en las calles y a aprovechar sus habilidades informáticas para realizar robos cibernéticos. Su conocimiento de la empresa que lo despidió le ha permitido acceder a información valiosa y convertirse en un ladrón astuto. Aunque su vida es ahora peligrosa, ha encontrado un sentido de libertad en las sombras de la ciudad.",
+    "relaciones": {
+      "id": 1,
+      "conoce_a": [
+        { "id": 2, "context": "Compañero en actividades de hacking" },
+        { "id": 3, "context": "Se conocen desde niños" },
+        { "id": 5, "context": "Juegan al futbol los fines de semana" },
+        {
+          "id": 8,
+          "context": "Le ayudó una vez a descubrir información sobre los cuadros"
+        },
+        { "id": 12, "context": "Es su proveedor de drogas habitual" }
+      ],
+      "know_by": [
+        { "id": 4, "context": "Conocido en el mundo criminal" },
+        { "id": 6, "context": "Reconocido en el bajo mundo" },
+        { "id": 7, "context": "Familiar de un colega" },
+        { "id": 10, "context": "Vínculo a través de actividades delictivas" },
+        { "id": 14, "context": "Encuentros ocasionales en la ciudad" }
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "sexo": "mujer",
+    "age": 28,
+    "name": "Laura 'Sombra'",
+    "profesion": "Analista de datos de seguridad (anteriormente)",
+    "attributes": {
+      "agility": "d4",
+      "strenght": "d4",
+      "vigor": "d4",
+      "smarts": "d6",
+      "spirits": "d6"
+    },
+    "skills": {
+      "computacion": "d6",
+      "persuasion": "d6",
+      "investigacion": "d6",
+      "sigilo": "d4",
+      "discrecion": "d4"
+    },
+    "advantages": [
+      "Reflejos Rápidos",
+      "Experta en Seguridad",
+      "Conexiones en el Bajo Mundo"
+    ],
+    "disadvantages": ["Perseguida", "Desconfiada", "Deudas"],
+    "equipment": [
+      "Laptop de Alta Gama",
+      "Identificación Falsa",
+      "Ropa Profesional"
+    ],
+    "background": "Laura, conocida como 'Sombra', solía trabajar como analista de datos de seguridad para una firma de ciberseguridad. Sin embargo, debido a circunstancias desafortunadas, se vio envuelta en situaciones menos legítimas. Ahora, utiliza sus habilidades para navegar por la línea entre la legalidad y la ilegalidad.",
+    "relaciones": {
+      "id": 2,
+      "conoce_a": [
+        { "id": 1, "context": "Compañero en actividades de hacking" },
+        { "id": 4, "context": "Cliente de servicios de seguridad" },
+        { "id": 6, "context": "Vínculo en el mundo del arte" },
+        { "id": 9, "context": "Conexión en la comunidad floral" },
+        { "id": 13, "context": "Relación profesional en investigaciones" }
+      ],
+      "know_by": [
+        { "id": 3, "context": "Reconocido en el mundo del arte" },
+        { "id": 5, "context": "Conocido en el ámbito de la ciberseguridad" },
+        { "id": 7, "context": "Cliente de servicios de seguridad" },
+        { "id": 8, "context": "Interacción en eventos artísticos" },
+        {
+          "id": 12,
+          "context": "Vínculo a través de investigaciones policiales"
+        }
+      ]
+    }
+  },
+  {
+    "id": 3,
+    "name": "Ricardo 'Muro' González",
+    "age": 35,
+    "profesion": "Trabajador de la construcción",
+    "attributes": {
+      "agility": "d4",
+      "strenght": "d6",
+      "vigor": "d4",
+      "smarts": "d4",
+      "spirits": "d4"
+    },
+    "skills": {
+      "pelea": "d6",
+      "construccion": "d4",
+      "resistir_dolor": "d4",
+      "atletismo": "d4",
+      "armas_cuerpo_a_cuerpo": "d4"
+    },
+    "advantages": [
+      "strenght Poderosa",
+      "Experiencia en Construcción",
+      "Resistente"
+    ],
+    "disadvantages": ["Torpe", "Fobia a Espacios Cerrados", "Deudas"],
+    "equipment": [
+      "Casco de Construcción",
+      "Martillo de Trabajador",
+      "Botas de Seguridad"
+    ],
+    "background": "Ricardo 'Muro' González ha pasado gran parte de su vida trabajando en la construcción. Su strenght y habilidades en el combate se han desarrollado en el entorno de la obra. Después de un accidente que lo dejó endeudado, se vio obligado a utilizar sus habilidades en situaciones menos legítimas para salir adelante.",
+    "relaciones": {
+      "id": 3,
+      "conoce_a": [
+        { "id": 2, "context": "Relación en eventos artísticos" },
+        { "id": 5, "context": "Conocido por sus habilidades de construcción" },
+        { "id": 7, "context": "Familiar de un colega" },
+        { "id": 9, "context": "Cliente frecuente en la floristería" },
+        { "id": 11, "context": "Interacción en eventos comunitarios" }
+      ],
+      "know_by": [
+        {
+          "id": 1,
+          "context": "Reconocido por sus habilidades de construcción"
+        },
+        { "id": 4, "context": "Conexión en el mundo criminal" },
+        { "id": 6, "context": "Cliente frecuente en la floristería" },
+        { "id": 8, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 10, "context": "Relación en actividades ilegales" }
+      ]
+    }
+  },
+  {
+    "id": 4,
+    "name": "Juan 'Sazón' Morales",
+    "age": 30,
+    "profesion": "Chef y restaurador",
+    "attributes": {
+      "agility": "d4",
+      "strenght": "d4",
+      "vigor": "d6",
+      "smarts": "d6",
+      "spirits": "d6"
+    },
+    "skills": {
+      "cocina": "d6",
+      "persuasion": "d6",
+      "sigilo": "d4",
+      "atletismo": "d4",
+      "conocimiento_gastronomico": "d6"
+    },
+    "advantages": [
+      "Paladar Exquisito",
+      "Habilidad Culinaria",
+      "Amistades en el Gremio de Chefs"
+    ],
+    "disadvantages": ["Torpe", "Impulsivo", "Deudas de Equipamiento"],
+    "equipment": [
+      "Cuchillos de Cocina Profesionales",
+      "Uniforme de Chef",
+      "Libro de Recetas Personalizado"
+    ],
+    "background": "Juan 'Sazón' Morales ha dedicado su vida a la culinaria. Trabajó en restaurantes reconocidos y perfeccionó sus habilidades en la cocina. Sin embargo, una inversión arriesgada en su propio restaurante lo dejó endeudado. Ahora, busca oportunidades para demostrar su habilidad culinaria y saldar sus deudas.",
+    "relaciones": {
+      "id": 4,
+      "conoce_a": [
+        { "id": 1, "context": "Cliente de servicios culinarios" },
+        { "id": 3, "context": "Cliente de servicios de seguridad" },
+        { "id": 5, "context": "Conexión en el mundo culinario" },
+        { "id": 9, "context": "Encuentros en eventos comunitarios" },
+        { "id": 11, "context": "Relación en actividades ilegales" }
+      ],
+      "know_by": [
+        { "id": 2, "context": "Cliente de servicios culinarios" },
+        { "id": 6, "context": "Vínculo en el mundo del arte" },
+        { "id": 7, "context": "Conexión en el mundo culinario" },
+        { "id": 8, "context": "Familiar de un colega" },
+        { "id": 12, "context": "Encuentros en eventos comunitarios" }
+      ]
+    }
+  },
+  {
+    "id": 5,
+    "name": "Profesor William 'Windsor' Thompson",
+    "age": 50,
+    "profesion": "Profesor de inglés y literatura",
+    "attributes": {
+      "agility": "d4",
+      "strenght": "d4",
+      "vigor": "d6",
+      "smarts": "d8",
+      "spirits": "d8"
+    },
+    "skills": {
+      "lengua_inglesa": "d10",
+      "persuasion": "d8",
+      "investigacion": "d6",
+      "conocimiento_humanidades": "d8",
+      "escritura_creativa": "d6"
+    },
+    "advantages": ["Culto", "Educado", "Conexiones Académicas"],
+    "disadvantages": ["Torpe", "Desconfiado", "Deudas Estudiantiles"],
+    "equipment": [
+      "Libros de Literatura Inglesa",
+      "Pizarra y Tiza",
+      "Traje Formal"
+    ],
+    "background": "El Profesor William 'Windsor' Thompson, de origen inglés, ha dedicado su vida a la enseñanza del idioma inglés y la literatura. Con un acento distintivo y una pasión por la cultura inglesa, busca inspirar a sus estudiantes. Sin embargo, las deudas estudiantiles y su naturaleza desconfiada han complicado su vida personal.",
+    "relaciones": {
+      "id": 5,
+      "conoce_a": [
+        { "id": 1, "context": "Colaborador en actividades de hacking" },
+        { "id": 2, "context": "Conexión en el ámbito de la ciberseguridad" },
+        { "id": 6, "context": "Vínculo en el mundo del arte" },
+        { "id": 10, "context": "Relación en actividades ilegales" },
+        { "id": 13, "context": "Relación profesional en investigaciones" }
+      ],
+      "know_by": [
+        { "id": 3, "context": "Reconocido en el mundo culinario" },
+        { "id": 4, "context": "Conocido en el ámbito de la ciberseguridad" },
+        { "id": 7, "context": "Vínculo en el mundo del arte" },
+        { "id": 8, "context": "Familiar de un colega" },
+        { "id": 14, "context": "Relación en actividades ilegales" }
+      ]
+    }
+  },
+  {
+    "id": 6,
+    "name": "Samuel 'Sombras' Rodríguez",
+    "profesion": "Detective privado (anteriormente en la policía)",
+    "age": 40,
+    "attributes": {
+      "agility": "d6",
+      "strenght": "d6",
+      "vigor": "d6",
+      "smarts": "d6",
+      "spirits": "d6"
+    },
+    "skills": {
+      "investigacion": "d6",
+      "sigilo": "d6",
+      "tiro": "d4",
+      "persuasion": "d6",
+      "atletismo": "d6"
+    },
+    "advantages": [
+      "Ojo Perspicaz",
+      "Contactos en la Policía",
+      "Mente Analítica"
+    ],
+    "disadvantages": ["Cauteloso", "Alcoholismo leve", "Deudas Pasadas"],
+    "equipment": [
+      "Gabardina y Sombrero",
+      "Pistola Colt Detective Special",
+      "Libreta de Notas y Bolígrafo",
+      "Lupa de Bolsillo"
+    ],
+    "background": "Samuel 'Sombras' Rodríguez, apodado así por su habilidad para desentrañar misterios, fue un detective respetado en la strenght policial. Sin embargo, su enfoque poco convencional lo llevó a volverse privado. Aunque resuelve casos, su adicción al alcohol y las deudas de su pasado lo persiguen, dándole un toque oscuro a sus investigaciones.",
+    "relaciones": {
+      "id": 6,
+      "conoce_a": [
+        { "id": 2, "context": "Interacción en eventos artísticos" },
+        { "id": 4, "context": "Vínculo en el mundo del arte" },
+        { "id": 5, "context": "Vínculo en el mundo del arte" },
+        { "id": 8, "context": "Relación en actividades ilegales" },
+        { "id": 12, "context": "Encuentros en eventos comunitarios" }
+      ],
+      "know_by": [
+        { "id": 1, "context": "Conocido en el ámbito de la ciberseguridad" },
+        { "id": 3, "context": "Cliente frecuente en la floristería" },
+        { "id": 7, "context": "Cliente frecuente en la floristería" },
+        { "id": 9, "context": "Vínculo en el mundo del arte" },
+        { "id": 11, "context": "Encuentros en eventos comunitarios" }
+      ]
+    }
+  },
+  {
+    "id": 7,
+    "name": "Carlos 'Llamas' Rodríguez",
+    "profesion": "Bombero",
+    "age": 38,
+    "attributes": {
+      "agility": "d6",
+      "strenght": "d6",
+      "vigor": "d6",
+      "smarts": "d4",
+      "spirits": "d4"
+    },
+    "skills": {
+      "combate": "d6",
+      "primeros_auxilios": "d4",
+      "atletismo": "d6",
+      "supervivencia": "d4",
+      "mecanica": "d4"
+    },
+    "advantages": [
+      "Resistente",
+      "Entrenamiento en Combate",
+      "Conexiones en el Departamento de Bomberos"
+    ],
+    "disadvantages": ["Torpe", "Impulsivo", "Deudas por equipment"],
+    "equipment": [
+      "equipment de Bombero",
+      "Botiquín de Primeros Auxilios",
+      "Hacha de Rescate"
+    ],
+    "background": "Carlos 'Llamas' Rodríguez ha servido como bombero durante años, enfrentándose a situaciones de emergencia con valentía. Aunque su destreza en combate y habilidades de rescate son notables, las deudas acumuladas por mantener su equipment en óptimas condiciones lo mantienen en aprietos financieros. Busca maneras de equilibrar su pasión por salvar vidas con sus obligaciones económicas.",
+    "relaciones": {
+      "id": 7,
+      "conoce_a": [
+        { "id": 1, "context": "Familiar de un colega" },
+        { "id": 3, "context": "Familiar de un colega" },
+        { "id": 5, "context": "Familiar de un colega" },
+        { "id": 9, "context": "Familiar de un colega" },
+        { "id": 11, "context": "Familiar de un colega" }
+      ],
+      "know_by": [
+        { "id": 2, "context": "Cliente de servicios de seguridad" },
+        { "id": 4, "context": "Conexión en el mundo culinario" },
+        { "id": 6, "context": "Cliente frecuente en la floristería" },
+        { "id": 8, "context": "Familiar de un colega" },
+        { "id": 12, "context": "Vínculo a través de eventos comunitarios" }
+      ]
+    }
+  },
+  {
+    "id": 8,
+    "name": "Isabella 'Galería' Martínez",
+    "profesion": "Marchante de arte",
+    "age": 33,
+    "attributes": {
+      "agility": "d6",
+      "strenght": "d4",
+      "vigor": "d4",
+      "smarts": "d6",
+      "spirits": "d6"
+    },
+    "skills": {
+      "persuasion": "d6",
+      "conocimiento_arte": "d6",
+      "negociacion": "d6",
+      "sigilo": "d4",
+      "atletismo": "d4"
+    },
+    "advantages": [
+      "Educado",
+      "Conexiones en el Mundo del Arte",
+      "Sentido Estético"
+    ],
+    "disadvantages": [
+      "Torpe",
+      "Desconfiada",
+      "Deudas por Adquisición de Obras"
+    ],
+    "equipment": [
+      "Ropa Elegante",
+      "Catálogo de Obras de Arte",
+      "Teléfono Móvil"
+    ],
+    "background": "Isabella 'Galería' Martínez ha pasado su vida inmersa en el mundo del arte. Como marchante, su habilidad para negociar y su conocimiento del arte son sus principales activos. Sin embargo, las deudas acumuladas por adquirir obras valiosas la han dejado en una situación financiera complicada. Busca oportunidades para revitalizar su galería y restaurar su reputación.",
+    "relaciones": {
+      "id": 8,
+      "conoce_a": [
+        { "id": 1, "context": "Interacción en el mundo criminal" },
+        { "id": 2, "context": "Interacción en eventos artísticos" },
+        { "id": 4, "context": "Familiar de un colega" },
+        { "id": 6, "context": "Relación en actividades ilegales" },
+        { "id": 10, "context": "Vínculo a través de actividades delictivas" }
+      ],
+      "know_by": [
+        { "id": 3, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 5, "context": "Familiar de un colega" },
+        { "id": 7, "context": "Familiar de un colega" },
+        { "id": 9, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 11, "context": "Vínculo a través de actividades delictivas" }
+      ]
+    }
+  },
+  {
+    "id": 9,
+    "name": "María 'Flores' López",
+    "profesion": "Florista",
+    "age": 28,
+    "attributes": {
+      "agility": "d4",
+      "strenght": "d4",
+      "vigor": "d4",
+      "smarts": "d6",
+      "spirits": "d6"
+    },
+    "skills": {
+      "arreglos_florales": "d6",
+      "atencion_al_cliente": "d6",
+      "conocimiento_floral": "d6",
+      "persuasion": "d4",
+      "sigilo": "d4"
+    },
+    "advantages": [
+      "Sentido Estético",
+      "Conexiones en la Industria Floral",
+      "Creatividad"
+    ],
+    "disadvantages": ["Torpe", "Desconfiada", "Deudas por Inventario"],
+    "equipment": [
+      "Herramientas de Jardinería",
+      "Flores y Plantas Variadas",
+      "Libro de Diseño Floral"
+    ],
+    "background": "María 'Flores' López ha cultivado su amor por las flores desde joven. Con habilidades florales excepcionales, ha construido una próspera tienda de flores en la ciudad. Sin embargo, las deudas acumuladas por un préstamo para expandir su negocio la han llevado a situaciones difíciles. Aunque encuentra consuelo en la belleza de las flores, busca maneras de superar sus problemas financieros.",
+    "relaciones": {
+      "id": 9,
+      "conoce_a": [
+        { "id": 2, "context": "Cliente frecuente en la floristería" },
+        { "id": 3, "context": "Cliente frecuente en la floristería" },
+        { "id": 5, "context": "Cliente frecuente en la floristería" },
+        { "id": 7, "context": "Familiar de un colega" },
+        { "id": 11, "context": "Vínculo a través de eventos comunitarios" }
+      ],
+      "know_by": [
+        { "id": 1, "context": "Conexión en la comunidad floral" },
+        { "id": 4, "context": "Encuentros en eventos comunitarios" },
+        { "id": 6, "context": "Vínculo en el mundo del arte" },
+        { "id": 8, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 12, "context": "Vínculo a través de eventos comunitarios" }
+      ]
+    }
+  },
+  {
+    "id": 10,
+    "name": "Diego 'Sable' Ramírez",
+    "age": 25,
+    "profesion": "Instructor de esgrima",
+    "attributes": {
+      "agility": "d6",
+      "strenght": "d6",
+      "vigor": "d6",
+      "smarts": "d4",
+      "spirits": "d4"
+    },
+    "skills": {
+      "combate": "d6",
+      "estrategia": "d6",
+      "supervivencia": "d6",
+      "atletismo": "d4",
+      "sigilo": "d4"
+    },
+    "advantages": [
+      "Disciplinado",
+      "Experiencia en Combate",
+      "Conexiones en el Ejército"
+    ],
+    "disadvantages": [
+      "Torpe",
+      "Desconfiado",
+      "Traumatizado por Experiencias de Guerra"
+    ],
+    "equipment": ["Uniforme Militar", "Arma de Fuego", "Kit de Supervivencia"],
+    "background": "Diego 'Sable' Ramírez ha sido un apasionado de la esgrima desde joven. Como instructor, comparte su amor por el arte de la esgrima con sus alumnos. Sin embargo, las deudas acumuladas por mantener su academia en funcionamiento y competir en torneos lo han dejado lidiando con la presión financiera. Busca mantener viva su academia y destacar en el mundo de la esgrima.",
+    "relaciones": {
+      "id": 10,
+      "conoce_a": [
+        { "id": 1, "context": "Vínculo a través de actividades delictivas" },
+        { "id": 3, "context": "Relación en actividades ilegales" },
+        { "id": 5, "context": "Relación en actividades ilegales" },
+        { "id": 7, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 11, "context": "Vínculo a través de eventos comunitarios" }
+      ],
+      "know_by": [
+        { "id": 2, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 4, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 6, "context": "Vínculo en el mundo del arte" },
+        { "id": 8, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 12, "context": "Vínculo a través de eventos comunitarios" }
+      ]
+    }
+  },
+  {
+    "id": 11,
+    "name": "Carlos 'Ruedas' Rodríguez",
+    "age": 45,
+    "profesion": "Conductor de autobuses",
+    "attributes": {
+      "agility": "d4",
+      "strenght": "d4",
+      "vigor": "d6",
+      "smarts": "d6",
+      "spirits": "d4"
+    },
+    "skills": {
+      "conduccion": "d6",
+      "atencion_al_cliente": "d6",
+      "orientacion": "d6",
+      "persuasion": "d4",
+      "sigilo": "d4"
+    },
+    "advantages": [
+      "Conocimiento de Rutas y Calles",
+      "Habilidades de Comunicación",
+      "Paciencia"
+    ],
+    "disadvantages": ["Torpe", "Desconfiado", "Horarios Irregulares"],
+    "equipment": [
+      "Uniforme de Conductor",
+      "Mapas y Guías de Rutas",
+      "Radio de Comunicación"
+    ],
+    "background": "Carlos 'Ruedas' Rodríguez ha sido conductor de autobuses durante muchos años. Con su habilidad para manejar vehículos grandes y su conocimiento de las rutas y calles de la ciudad, es capaz de llevar a los pasajeros a su destino de manera segura y eficiente. Sin embargo, los horarios irregulares y la naturaleza impredecible de su trabajo han afectado su vida personal. A pesar de ello, Carlos se enorgullece de su profesión y busca brindar un excelente servicio a los pasajeros.",
+    "relaciones": {
+      "id": 11,
+      "conoce_a": [
+        { "id": 1, "context": "Interacción en eventos comunitarios" },
+        { "id": 3, "context": "Interacción en eventos comunitarios" },
+        { "id": 5, "context": "Relación en actividades ilegales" },
+        { "id": 7, "context": "Familiar de un colega" },
+        { "id": 9, "context": "Vínculo a través de eventos comunitarios" }
+      ],
+      "know_by": [
+        { "id": 2, "context": "Cliente de servicios de seguridad" },
+        { "id": 4, "context": "Conexión en el mundo culinario" },
+        { "id": 6, "context": "Cliente frecuente en la floristería" },
+        { "id": 8, "context": "Familiar de un colega" },
+        { "id": 12, "context": "Vínculo a través de eventos comunitarios" }
+      ]
+    }
+  },
+  {
+    "id": 12,
+    "name": "Sergio 'Envío' Martínez",
+    "profesion": "Repartidor",
+    "age": 30,
+    "attributes": {
+      "agility": "d6",
+      "strenght": "d4",
+      "vigor": "d6",
+      "smarts": "d6",
+      "spirits": "d4"
+    },
+    "skills": {
+      "reparto_eficiente": "d6",
+      "orientacion_ciudad": "d6",
+      "atencion_al_cliente": "d6",
+      "sigilo": "d4",
+      "conduccion_segura": "d4"
+    },
+    "advantages": [
+      "Conocimiento de Rutas y Calles",
+      "Resistencia a la Presión",
+      "Buenas Relaciones con Empresas de Envíos"
+    ],
+    "disadvantages": [
+      "Horarios Irregulares",
+      "Estrés Laboral",
+      "Deudas por Mantenimiento de Vehículo"
+    ],
+    "equipment": [
+      "Furgoneta de Reparto",
+      "Dispositivo de Escaneo de Paquetes",
+      "Uniforme de Repartidor"
+    ],
+    "background": "Sergio 'Envío' Martínez ha dedicado su carrera a ser un repartidor eficiente y confiable. Conoce las calles de la ciudad como la palma de su mano y se enorgullece de entregar paquetes a tiempo. Sin embargo, los horarios irregulares y el estrés constante han dejado su marca. A pesar de las deudas por el mantenimiento de su furgoneta, Sergio sigue siendo una figura respetada en el mundo de la entrega de paquetes. Busca equilibrar su pasión por el trabajo con la gestión de sus problemas financieros.",
+    "relaciones": {
+      "id": 12,
+      "conoce_a": [
+        { "id": 1, "context": "Encuentros ocasionales en la ciudad" },
+        {
+          "id": 3,
+          "context": "Vínculo a través de investigaciones policiales"
+        },
+        { "id": 5, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 7, "context": "Encuentros en eventos comunitarios" },
+        { "id": 11, "context": "Relación en actividades ilegales" }
+      ],
+      "know_by": [
+        { "id": 2, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 4, "context": "Encuentros en eventos comunitarios" },
+        { "id": 6, "context": "Vínculo en el mundo del arte" },
+        { "id": 8, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 14, "context": "Encuentros ocasionales en la ciudad" }
+      ]
+    }
+  },
+  {
+    "id": 13,
+    "name": "Laura 'Justicia' Mendoza",
+    "age": 40,
+    "profesion": "Detective",
+    "attributes": {
+      "agility": "d6",
+      "strenght": "d6",
+      "vigor": "d6",
+      "smarts": "d8",
+      "spirits": "d6"
+    },
+    "skills": {
+      "investigacion": "d8",
+      "combate": "d6",
+      "negociacion": "d6",
+      "tiro": "d6",
+      "sigilo": "d6"
+    },
+    "advantages": [
+      "Entrenamiento Policial",
+      "Conexiones en el Departamento de Policía",
+      "Resolución Firme"
+    ],
+    "disadvantages": ["Escrupulosa", "Desconfiada", "Presión Institucional"],
+    "equipment": [
+      "Placa Policial",
+      "Pistola de Servicio",
+      "Libreta de Notas y Bolígrafo"
+    ],
+    "background": "Laura 'Justicia' Mendoza, detective veterana del departamento de policía, ha dedicado su carrera a hacer cumplir la ley. Su aguda capacidad de investigación y su firme resolución la han llevado a resolver casos difíciles. A pesar de enfrentarse a la presión institucional y su naturaleza escrupulosa, Laura sigue comprometida con la justicia y la protección de la comunidad.",
+    "relaciones": {
+      "id": 13,
+      "conoce_a": [
+        {
+          "id": 1,
+          "context": "Vínculo a través de investigaciones policiales"
+        },
+        { "id": 3, "context": "Relación en eventos comunitarios" },
+        { "id": 5, "context": "Relación profesional en investigaciones" },
+        { "id": 7, "context": "Cliente frecuente en la floristería" },
+        { "id": 9, "context": "Vínculo a través de eventos comunitarios" }
+      ],
+      "know_by": [
+        {
+          "id": 2,
+          "context": "Vínculo a través de investigaciones policiales"
+        },
+        { "id": 4, "context": "Cliente de servicios de seguridad" },
+        { "id": 6, "context": "Cliente frecuente en la floristería" },
+        { "id": 8, "context": "Familiar de un colega" },
+        { "id": 12, "context": "Vínculo a través de eventos comunitarios" }
+      ]
+    }
+  },
+  {
+    "id": 14,
+    "name": "Miguel 'Desamparo' Sánchez",
+    "profesion": "Persona sin hogar",
+    "age": 37,
+    "attributes": {
+      "agility": "d4",
+      "strenght": "d4",
+      "vigor": "d4",
+      "smarts": "d6",
+      "spirits": "d6"
+    },
+    "skills": {
+      "supervivencia": "d6",
+      "persuasion": "d6",
+      "sigilo": "d4",
+      "busqueda_de_recursos": "d6",
+      "conocimiento_calles": "d6"
+    },
+    "advantages": [
+      "Adaptabilidad",
+      "Conexiones en la Comunidad de Personas Sin Hogar",
+      "Invisibilidad Social"
+    ],
+    "disadvantages": [
+      "Desconfiado",
+      "Debilitado por la Exposición al Clima",
+      "Carece de Recursos"
+    ],
+    "equipment": [
+      "Ropa Harapienta",
+      "Manta Raída",
+      "Carrito de Supermercado para Transportar Pertinencias"
+    ],
+    "background": "Miguel 'Desamparo' Sánchez, una vez parte de la sociage, se encontró en las calles debido a circunstancias desafortunadas. Con habilidades de supervivencia, búsqueda de recursos y una red de conexiones en la comunidad de personas sin hogar, Miguel lucha por sobrevivir en las calles. Desconfiado pero adaptable, navega por la vida sin hogar con dignidad y esperanza de un día cambiar su situación.",
+    "relaciones": {
+      "id": 14,
+      "conoce_a": [
+        { "id": 1, "context": "Encuentros ocasionales en la ciudad" },
+        { "id": 3, "context": "Relación en actividades ilegales" },
+        { "id": 5, "context": "Relación en actividades ilegales" },
+        { "id": 7, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 11, "context": "Vínculo a través de eventos comunitarios" }
+      ],
+      "know_by": [
+        { "id": 2, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 4, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 6, "context": "Vínculo en el mundo del arte" },
+        { "id": 8, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 12, "context": "Vínculo a través de eventos comunitarios" }
+      ]
+    }
+  },
+  {
+    "id": 15,
+    "name": "Gabriela 'Trámites' Soto",
+    "age": 35,
+    "profesion": "Funcionaria pública",
+    "attributes": {
+      "agility": "d4",
+      "strenght": "d4",
+      "vigor": "d6",
+      "smarts": "d8",
+      "spirits": "d6"
+    },
+    "skills": {
+      "gestion_documental": "d8",
+      "negociacion": "d6",
+      "conocimiento_administrativo": "d8",
+      "persuasion": "d6",
+      "sigilo": "d4"
+    },
+    "advantages": [
+      "Conocimiento del Sistema Administrativo",
+      "Red de Contactos en el Gobierno",
+      "Paciencia"
+    ],
+    "disadvantages": [
+      "Desconfiada",
+      "Estrés Laboral",
+      "Deudas por Préstamos Estudiantiles"
+    ],
+    "equipment": [
+      "Identificación Oficial",
+      "Ordenanzas y Reglamentos",
+      "Agenda Electrónica"
+    ],
+    "background": "Gabriela 'Trámites' Soto ha dedicado gran parte de su carrera al servicio público en el Departamento de Asuntos Administrativos. Su habilidad para gestionar documentos, conocer el sistema administrativo y negociar le ha valido el reconocimiento dentro del gobierno. Aunque se enfrenta a desafíos como la desconfianza en el ámbito político y el estrés laboral, Gabriela busca cumplir con sus responsabilidades y contribuir al buen funcionamiento de la administración pública.",
+    "relaciones": {
+      "id": 15,
+      "conoce_a": [
+        { "id": 1, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 3, "context": "Vínculo a través de eventos comunitarios" },
+        { "id": 5, "context": "Cliente de servicios de robo cibernético" },
+        { "id": 7, "context": "Familiar de un colega" },
+        { "id": 11, "context": "Vínculo a través de eventos comunitarios" }
+      ],
+      "know_by": [
+        { "id": 2, "context": "Conocido en el mundo criminal" },
+        { "id": 4, "context": "Reconocido en el bajo mundo" },
+        { "id": 6, "context": "Familiar de un colega" },
+        { "id": 8, "context": "Vínculo a través de actividades delictivas" },
+        { "id": 12, "context": "Encuentros ocasionales en la ciudad" }
+      ]
+    }
+  }
+]

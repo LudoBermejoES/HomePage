@@ -1,5 +1,11 @@
 import { GoalEvaluator } from '../../AI/base/goals/GoalEvaluator';
-import { EscapeGoal, WalkGoal, PursueGoal, AttackGoal } from './goals';
+import {
+  LazyGoal,
+  EscapeGoal,
+  WalkGoal,
+  PursueGoal,
+  AttackGoal
+} from './goals';
 import { CatActor } from './actor';
 import Statics from '../statics/staticsCity';
 import * as Phaser from 'phaser';
@@ -67,7 +73,7 @@ class PursueEvaluator extends GoalEvaluator<CatActor> {
       }
     }
 
-    return Cat.isHuntingTo ? 0.8 : 0;
+    return Cat.isHuntingTo ? 0.7 : 0;
   }
 
   setGoal(Cat: CatActor) {
@@ -105,7 +111,7 @@ class EscapeEvaluator extends GoalEvaluator<CatActor> {
 
 class AttackEvaluator extends GoalEvaluator<CatActor> {
   calculateDesirability(cat: CatActor) {
-    return cat.isAttacking ? 0.9 : 0;
+    return cat.isAttacking ? 0.8 : 0;
   }
 
   setGoal(cat: CatActor) {
@@ -122,4 +128,52 @@ class AttackEvaluator extends GoalEvaluator<CatActor> {
   }
 }
 
-export { AttackEvaluator, EscapeEvaluator, PursueEvaluator, WalkEvaluator };
+class LazyEvaluator extends GoalEvaluator<CatActor> {
+  MIN_TIME_TO_BE_LAZY: number = 60000;
+  MAX_TIME_TO_BE_LAZY: number = 100000;
+  timeToBeLazy: number = Phaser.Math.Between(
+    this.MIN_TIME_TO_BE_LAZY,
+    this.MAX_TIME_TO_BE_LAZY
+  );
+
+  calculateDesirability(cat: CatActor) {
+    if (cat.isLazy) return 0.9;
+    const scene = cat.scene as BaseScene;
+    if (scene.overlayCycle) {
+      const probability = 1 - scene.overlayCycle.alpha * 2;
+
+      if (scene.time.now > this.timeToBeLazy) {
+        if (Math.random() < probability / 5) {
+          this.timeToBeLazy += Phaser.Math.Between(
+            this.MIN_TIME_TO_BE_LAZY,
+            this.MAX_TIME_TO_BE_LAZY
+          );
+          return 0.9;
+        }
+      }
+    }
+
+    return 0;
+  }
+
+  setGoal(Cat: CatActor) {
+    const currentSubgoal = Cat.brain.currentSubgoal();
+    if (currentSubgoal instanceof LazyGoal === false) {
+      Cat.brain.clearSubgoals();
+
+      Cat.brain.addSubgoal(new LazyGoal(Cat));
+    }
+    return {
+      type: this.constructor.name,
+      characterBias: this.characterBias
+    };
+  }
+}
+
+export {
+  AttackEvaluator,
+  EscapeEvaluator,
+  LazyEvaluator,
+  PursueEvaluator,
+  WalkEvaluator
+};

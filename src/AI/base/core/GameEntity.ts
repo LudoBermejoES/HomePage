@@ -366,7 +366,7 @@ export abstract class GameEntity extends Phaser.Physics.Arcade.Sprite {
     return this;
   }
 
-  moveAlongPath(path: Phaser.Math.Vector2[], speedToMove: number = 10) {
+  moveAlongPath(path: Phaser.Math.Vector2[], speedToMove: number = 2) {
     this.speedToMove = speedToMove;
     this.movePath = path;
     if (this.movePath.length > 0) {

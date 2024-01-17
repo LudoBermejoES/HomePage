@@ -3,6 +3,7 @@ import SpriteBus from '../sprites/SpriteBus';
 import { CrowActor } from '../actors/crow/actor';
 import { CatActor } from '../actors/cat/actor';
 import Statics from '../actors/statics/staticsCity';
+import { SIZES } from '../lib/constants';
 
 export default class City extends BaseScene {
   busSprite: SpriteBus | undefined;
@@ -90,6 +91,11 @@ export default class City extends BaseScene {
       'assets/sprites/PoliceStationDoor3.json'
     );
     this.load.aseprite(
+      'SleepBubble',
+      'assets/sprites/SleepBubble.png',
+      'assets/sprites/SleepBubble.json'
+    );
+    this.load.aseprite(
       'ModularBuildingDoor2',
       'assets/sprites/ModularBuildingDoor2.png',
       'assets/sprites/ModularBuildingDoor2.json'
@@ -116,6 +122,7 @@ export default class City extends BaseScene {
     });
     Statics.groupEnemiesOfCrows.add(this.busSprite);
     Statics.groupEnemiesOfCat.add(this.busSprite);
+    Statics.groupEnemiesOfCat.add(this.spriteLudo);
     this.busSprite.visible = false;
     this.add.existing(this.busSprite);
   }
@@ -144,7 +151,7 @@ export default class City extends BaseScene {
       targets: this.spriteLudo,
       alpha: 1,
       scaleX: this.spriteLudo.scaleByDefault,
-      y: this.spriteLudo.y + 32,
+      y: this.spriteLudo.y + SIZES.BLOCK,
       duration: 1000,
       ease: 'Linear',
       onComplete: () => {

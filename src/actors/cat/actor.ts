@@ -2,6 +2,7 @@ import { Think } from '../../AI/base/goals/Think';
 import {
   AttackEvaluator,
   EscapeEvaluator,
+  LazyEvaluator,
   WalkEvaluator,
   PursueEvaluator
 } from './evaluators';
@@ -26,6 +27,8 @@ export class CatActor extends GameEntity {
 
     this.brain.addEvaluator(new AttackEvaluator());
     this.brain.addEvaluator(new EscapeEvaluator());
+    this.brain.addEvaluator(new LazyEvaluator());
+
     this.brain.addEvaluator(new WalkEvaluator());
     this.brain.addEvaluator(new PursueEvaluator());
     if (this.body) this.body.immovable = false;
@@ -88,6 +91,115 @@ export class CatActor extends GameEntity {
     };
   }
 
+  static getRandomTotallySafePositionNearOwner(
+    cat: CatActor,
+    sizeOfArea: number = 10
+  ): {
+    x: number;
+    y: number;
+  } {
+    const validTiles: { tileX: number; tileY: number }[] = [];
+    const catTileXY = {
+      x: Math.round(cat.x / SIZES.BLOCK),
+      y: Math.round(cat.y / SIZES.BLOCK)
+    };
+    Statics.tilesNotTotallySafeForLivingBeings.forEach((row, y) => {
+      row.forEach((tile, x) => {
+        if (Statics.tilesNotTotallySafeForLivingBeings[y][x] === 0) {
+          if (
+            Phaser.Math.Within(x, catTileXY.x, sizeOfArea) &&
+            Phaser.Math.Within(y, catTileXY.y, sizeOfArea)
+          ) {
+            validTiles.push({ tileX: x, tileY: y });
+          }
+        }
+      });
+    });
+
+    const { tileX, tileY } =
+      validTiles[Phaser.Math.Between(0, validTiles.length - 1)];
+
+    return {
+      x: tileX,
+      y: tileY
+    };
+  }
+
+  static getTotallySafeForLivingBeingsPosition({
+    x,
+    y
+  }: {
+    x: number;
+    y: number;
+  }): number | undefined {
+    if (
+      Statics.tilesNotTotallySafeForLivingBeings[y] &&
+      Statics.tilesNotTotallySafeForLivingBeings[y][x] !== undefined
+    ) {
+      return Statics.tilesNotTotallySafeForLivingBeings[y][x];
+    }
+    return undefined;
+  }
+
+  static getNearestTotallySafePosition(cat: CatActor): {
+    x: number;
+    y: number;
+    originTileIsSafe: boolean;
+  } {
+    const validTiles: { tileX: number; tileY: number }[] = [];
+    Statics.tilesNotTotallySafeForLivingBeings.forEach((row, y) => {
+      row.forEach((tile, x) => {
+        if (Statics.tilesNotTotallySafeForLivingBeings[y][x] === 0)
+          validTiles.push({ tileX: x, tileY: y });
+      });
+    });
+    const valid = false;
+    const originPosition = {
+      x: Math.round(cat.x / SIZES.BLOCK),
+      y: Math.round(cat.y / SIZES.BLOCK)
+    };
+
+    if (CatActor.getTotallySafeForLivingBeingsPosition(originPosition) === 0)
+      return { ...originPosition, originTileIsSafe: true };
+
+    let sum = 1;
+    while (!valid) {
+      const { x, y } = originPosition;
+      if (
+        CatActor.getTotallySafeForLivingBeingsPosition({ x: x + sum, y: y }) ===
+        0
+      )
+        return { x: x + sum, y: y, originTileIsSafe: false };
+      if (
+        CatActor.getTotallySafeForLivingBeingsPosition({
+          x: x - sum,
+          y: y
+        }) === 0
+      )
+        return { x: x - sum, y: y, originTileIsSafe: false };
+      if (
+        CatActor.getTotallySafeForLivingBeingsPosition({
+          x: x,
+          y: y + sum
+        }) === 0
+      )
+        return { x: x, y: y + sum, originTileIsSafe: false };
+      if (
+        CatActor.getTotallySafeForLivingBeingsPosition({
+          x: x,
+          y: y - sum
+        }) === 0
+      )
+        return { x: x, y: y - sum, originTileIsSafe: false };
+      sum++;
+    }
+    return {
+      x: 0,
+      y: 0,
+      originTileIsSafe: false
+    };
+  }
+
   static createCats(scene: Phaser.Scene, TOTAL_CATS: number) {
     CatActor.TOTAL_CATS = TOTAL_CATS;
     for (let i = 0; i < TOTAL_CATS; i++) {
@@ -97,10 +209,11 @@ export class CatActor extends GameEntity {
         y: 0
       });
       cat.scale = 1.5;
+      cat.setPushable(false);
       cat.depth = DEPTH.FLOOR_ANIMALS;
       const { x, y } = CatActor.getValidPosition(cat, TOTAL_CATS, true);
       cat.setPosition(x, y);
-      cat.anims.play('wait', true);
+      cat.anims.play('wait_down', true);
       scene.add.existing(cat);
       Statics.groupOfCats.add(cat);
     }

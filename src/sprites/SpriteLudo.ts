@@ -150,7 +150,7 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
     this.anims.play(animation, true);
   }
 
-  enterBuilding(door: OnTheFlySprite, scene: string | undefined) {
+  enterBuilding(door: OnTheFlySprite) {
     if (!this.body) return;
 
     this.scene.tweens.add({
