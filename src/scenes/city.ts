@@ -4,6 +4,7 @@ import { CrowActor } from '../actors/crow/actor';
 import { CatActor } from '../actors/cat/actor';
 import Statics from '../actors/statics/staticsCity';
 import { SIZES } from '../lib/constants';
+import { CitizenActor } from '../actors/citizen/actor';
 
 export default class City extends BaseScene {
   busSprite: SpriteBus | undefined;
@@ -27,8 +28,8 @@ export default class City extends BaseScene {
     );
     this.load.aseprite(
       'LudoSprite',
-      'assets/sprites/Ludo.png',
-      'assets/sprites/Ludo.json'
+      'assets/sprites/LudoNew.png',
+      'assets/sprites/LudoNew.json'
     );
     this.load.aseprite(
       'CrowSprite',
@@ -106,10 +107,15 @@ export default class City extends BaseScene {
     });
     this.load.image('map_tiles_city', 'assets/map/city.webp');
     this.load.tilemapTiledJSON('tilemap_city', 'assets/map/city.json');
+
+    CitizenActor.preloadCitizens(this);
+
     Statics.groupOfCrows = this.physics.add.group();
     Statics.groupEnemiesOfCrows = this.physics.add.group();
     Statics.groupOfCats = this.physics.add.group();
     Statics.groupEnemiesOfCat = this.physics.add.group();
+    Statics.groupOfCitizens = this.physics.add.group();
+    Statics.groupEnemiesOfCitizens = this.physics.add.group();
     Statics.tilesNotTotallySafeForLivingBeings =
       this.tilesNotTotallySafeForLivingBeings;
   }
@@ -200,7 +206,7 @@ export default class City extends BaseScene {
   create() {
     this.frontLayer?.preFX?.addColorMatrix();
     super.create('city', true);
-    this.cameras.main.setZoom(1);
+    this.cameras.main.setZoom(1.2);
 
     Statics.map = this.map;
     Statics.tilesCollision = this.tilesCollision;
@@ -214,6 +220,7 @@ export default class City extends BaseScene {
 
     CrowActor.createCrows(this, this.TOTAL_CROWS);
     CatActor.createCats(this, this.TOTAL_CATS);
+    CitizenActor.createCitizens(this);
 
     this.prepareAndAnimateBus(this.map.objects);
     this.preparePassOfTime();

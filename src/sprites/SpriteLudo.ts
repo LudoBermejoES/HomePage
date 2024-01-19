@@ -22,7 +22,7 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
   lastYForMoveAnimation: string = '';
   moveToTarget: Phaser.Math.Vector2 | undefined;
   movePath: Phaser.Math.Vector2[] = [];
-  scaleByDefault: number = 0.8;
+  scaleByDefault: number = 0.7;
 
   constructor(config: LudoProps) {
     super(config.scene, config.x, config.y, 'LudoSprite');

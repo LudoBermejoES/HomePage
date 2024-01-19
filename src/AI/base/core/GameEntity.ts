@@ -364,6 +364,7 @@ export abstract class GameEntity extends Phaser.Physics.Arcade.Sprite {
     this.parent = entities.get(this.parent?._uuid) || null;
 
     return this;
+    4;
   }
 
   moveAlongPath(path: Phaser.Math.Vector2[], speedToMove: number = 2) {
@@ -378,18 +379,39 @@ export abstract class GameEntity extends Phaser.Physics.Arcade.Sprite {
     this.moveToTarget = target;
   }
 
+  getAnimationNames(): {
+    LEFT: string;
+    RIGHT: string;
+    UP: string;
+    DOWN: string;
+  } {
+    if (this.anims.get('left_move')) {
+      return {
+        LEFT: 'left_move',
+        RIGHT: 'right_move',
+        UP: 'up_move',
+        DOWN: 'down_move'
+      };
+    } else {
+      return {
+        LEFT: 'move_left',
+        RIGHT: 'move_right',
+        UP: 'move_up',
+        DOWN: 'move_down'
+      };
+    }
+  }
+
   updatePathMovement(
     minDistanceX: number = 5,
     minDistanceY: number = 5
   ): boolean {
-    if (this.body) this.body.enable = true;
-
     let dx = 0;
     let dy = 0;
 
     if (this.moveToTarget) {
-      dx = this.moveToTarget.x * SIZES.BLOCK - this.x;
-      dy = this.moveToTarget.y * SIZES.BLOCK - this.y - 10;
+      dx = this.moveToTarget.x * SIZES.BLOCK + SIZES.BLOCK / 2 - this.x;
+      dy = this.moveToTarget.y * SIZES.BLOCK + SIZES.BLOCK / 2 - this.y - 10;
 
       if (Math.abs(dx) < minDistanceX) {
         dx = 0;
@@ -407,13 +429,10 @@ export abstract class GameEntity extends Phaser.Physics.Arcade.Sprite {
         this.moveToTarget = undefined;
       }
     }
-    // this logic is the same except we determine
-    // if a key is down based on dx and dy
     const leftDown = dx < 0;
     const rightDown = dx > 0;
     const upDown = dy < 0;
     const downDown = dy > 0;
-
     const speedX = leftDown
       ? -this.speedToMove
       : rightDown
@@ -421,9 +440,19 @@ export abstract class GameEntity extends Phaser.Physics.Arcade.Sprite {
         : 0;
     const speedY = upDown ? -this.speedToMove : downDown ? this.speedToMove : 0;
 
+    const ANIMATION_NAMES = this.getAnimationNames();
     let animation: string =
-      speedX < 0 ? 'left_move' : speedX > 0 ? 'right_move' : '';
-    animation = speedY < 0 ? 'up_move' : speedY > 0 ? 'down_move' : animation;
+      speedX < 0
+        ? ANIMATION_NAMES.LEFT
+        : speedX > 0
+          ? ANIMATION_NAMES.RIGHT
+          : '';
+    animation =
+      speedY < 0
+        ? ANIMATION_NAMES.UP
+        : speedY > 0
+          ? ANIMATION_NAMES.DOWN
+          : animation;
 
     this.setPosition(this.x + speedX, this.y + speedY);
     this.anims.play(animation, true);
