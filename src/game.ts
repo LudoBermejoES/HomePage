@@ -12,7 +12,7 @@ const config = {
   physics: {
     default: 'arcade',
     arcade: {
-      debug: false
+      debug: true
     }
   },
   // Allows Phaser canvas to be responsive to browser sizing
@@ -28,6 +28,18 @@ const config = {
     max: {
       width: 1920,
       height: 1200
+    }
+  },
+  render: {
+    // prevent tile bleeding
+    antialiasGL: false,
+    // prevent pixel art from becoming blurre when scaled
+    pixelArt: true
+  },
+  fx: {
+    glow: {
+      distance: 32,
+      quality: 0.1
     }
   }
 };

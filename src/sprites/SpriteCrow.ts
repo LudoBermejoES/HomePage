@@ -77,7 +77,6 @@ function flyCrow(
   }
 
   crow.anims.play(anim);
-  if (crow.body) crow.body.enable = false;
 
   scene.tweens.add({
     targets: crow,
@@ -89,7 +88,6 @@ function flyCrow(
     onComplete: () => {
       if (crow.body) crow.body.enable = true;
       crow.anims.play(crow.chooseIdleAnim(), true);
-      crow.setVelocity(0, 0);
     }
   });
 }

@@ -1,10 +1,11 @@
-import BaseScene from './baseScene';
+import BaseScene, { Action } from './baseScene';
 import SpriteBus from '../sprites/SpriteBus';
 import { CrowActor } from '../actors/crow/actor';
 import { CatActor } from '../actors/cat/actor';
-import Statics from '../actors/statics/staticsCity';
+import Statics from '../actors/statics/statics';
 import { SIZES } from '../lib/constants';
 import { CitizenActor } from '../actors/citizen/actor';
+import OnTheFlyImage from '../sprites/OnTheFlyImage';
 
 export default class City extends BaseScene {
   busSprite: SpriteBus | undefined;
@@ -15,7 +16,50 @@ export default class City extends BaseScene {
     super('city');
   }
 
-  preload() {
+  preloadStaticImages() {
+    this.load.image(
+      'ME_Singles_City_Props_Bench_6',
+      'assets/sprites/statics/ME_Singles_City_Props_Bench_6.webp'
+    );
+    this.load.image(
+      'ME_Singles_Camping_Benched_Table_1',
+      'assets/sprites/statics/ME_Singles_Camping_Benched_Table_1.webp'
+    );
+    this.load.image(
+      'ME_Singles_Camping_Benched_Table_2',
+      'assets/sprites/statics/ME_Singles_Camping_Benched_Table_2.webp'
+    );
+    this.load.image(
+      'ME_Singles_Camping_Benched_Table_3',
+      'assets/sprites/statics/ME_Singles_Camping_Benched_Table_3.webp'
+    );
+    this.load.image(
+      'ME_Singles_Camping_Benched_Table_4',
+      'assets/sprites/statics/ME_Singles_Camping_Benched_Table_4.webp'
+    );
+    this.load.image(
+      'ME_Singles_City_Props_Bench_1',
+      'assets/sprites/statics/ME_Singles_City_Props_Bench_1.webp'
+    );
+    this.load.image(
+      'ME_Singles_City_Props_Bench_2',
+      'assets/sprites/statics/ME_Singles_City_Props_Bench_2.webp'
+    );
+    this.load.image(
+      'ME_Singles_City_Props_Bench_3',
+      'assets/sprites/statics/ME_Singles_City_Props_Bench_3.webp'
+    );
+    this.load.image(
+      'ME_Singles_City_Props_Bench_4',
+      'assets/sprites/statics/ME_Singles_City_Props_Bench_4.webp'
+    );
+    this.load.image(
+      'ME_Singles_City_Props_Bench_5',
+      'assets/sprites/statics/ME_Singles_City_Props_Bench_5.webp'
+    );
+  }
+
+  preloadSprites() {
     this.load.aseprite(
       'EmptySprite',
       'assets/sprites/empty.png',
@@ -28,8 +72,8 @@ export default class City extends BaseScene {
     );
     this.load.aseprite(
       'LudoSprite',
-      'assets/sprites/LudoNew.png',
-      'assets/sprites/LudoNew.json'
+      'assets/sprites/Ludo.png',
+      'assets/sprites/Ludo.json'
     );
     this.load.aseprite(
       'CrowSprite',
@@ -101,15 +145,20 @@ export default class City extends BaseScene {
       'assets/sprites/ModularBuildingDoor2.png',
       'assets/sprites/ModularBuildingDoor2.json'
     );
-    this.load.spritesheet('PortalSprite', 'assets/sprites/PortalSprite.png', {
-      frameWidth: 32,
-      frameHeight: 32
-    });
+  }
+
+  preloadMap() {
     this.load.image('map_tiles_city', 'assets/map/city.webp');
     this.load.tilemapTiledJSON('tilemap_city', 'assets/map/city.json');
+  }
+
+  preload() {
+    this.preloadStaticImages();
+    this.preloadSprites();
+    this.preloadMap();
 
     CitizenActor.preloadCitizens(this);
-
+    Statics.groupOfPlacesToRest = this.physics.add.group();
     Statics.groupOfCrows = this.physics.add.group();
     Statics.groupEnemiesOfCrows = this.physics.add.group();
     Statics.groupOfCats = this.physics.add.group();
@@ -152,7 +201,7 @@ export default class City extends BaseScene {
     this.spriteLudo.visible = true;
     this.spriteLudo.setState(0.1);
     this.spriteLudo.alpha = 0.1;
-    this.spriteLudo.anims.play('down_move', true);
+    this.spriteLudo.anims.play('move_down', true);
     this.tweens.add({
       targets: this.spriteLudo,
       alpha: 1,
@@ -206,7 +255,7 @@ export default class City extends BaseScene {
   create() {
     this.frontLayer?.preFX?.addColorMatrix();
     super.create('city', true);
-    this.cameras.main.setZoom(1.2);
+    this.cameras.main.setZoom(1.5);
 
     Statics.map = this.map;
     Statics.tilesCollision = this.tilesCollision;
@@ -217,6 +266,16 @@ export default class City extends BaseScene {
     if (this.spriteLudo.body) this.spriteLudo.body.enable = false;
     this.spriteLudo.visible = false;
     this.createBusSprite();
+
+    Statics.groupOfPlacesToRest.children.entries = this.groupOfActions.filter(
+      (entry: Phaser.GameObjects.GameObject) => {
+        const object = entry as OnTheFlyImage;
+        if (!object.actionList) return false;
+        return object.actionList.actions.find(
+          (action: Action) => action.name === 'sit'
+        );
+      }
+    );
 
     CrowActor.createCrows(this, this.TOTAL_CROWS);
     CatActor.createCats(this, this.TOTAL_CATS);

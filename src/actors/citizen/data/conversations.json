@@ -1,886 +1,1090 @@
 [
   {
     "id": 1,
-    "data": [
+    "talks": [
       {
-        "receptor_id": 2,
-        "mensajes": [
-          "Ey, Gaby, ¿qué pasa desde la última vez que nos cruzamos en movidas ilegales? 😎",
-          "¡Qué tal! Las cosas se han puesto moviditas en el mundo criminal. ¿Y tú, qué tramas? 😏",
-          "Ah, ya sabes, los líos de robo cibernético no paran. Últimamente, he estado en proyectos medio turbios. ¿Alguna movida rara por el bajo mundo? 💼",
-          "¡Jaja! Claro que sí. Me he topado con algunas figuras pintorescas en el hampa. Últimamente, me junto con gente de peso. ¿Tú en qué andas? 🌐",
-          "Pues, estoy pensando en ampliar mis operaciones. Hay oportunidades jugosas. Además, me llegó el chisme de que es´tas metido en algo chulo... 🔍",
-          "Sí, he tenido faena. Recientemente, anduve tras una cosa que me tuvo al filo. Pero, ya sabes, así es el juego. ¿Y tú, tienes algún proyecto que pueda interesarme? 🤔",
-          "De hecho, estoy buscando compis para un proyecto. Podría haber una oportunidad para ti. Charlemos más la próxima vez que nos veamos. ¡Hasta luego! 👋"
+        "id": 2,
+        "talk": [
+          "Hi Laura, have you read the latest manga release?",
+          "Hello Marcos, not yet. I've been busy with work and family.",
+          "I understand. When you get the chance, check it out. It's really good!",
+          "I will, Marcos. Thanks for the recommendation. Take care!"
         ]
       },
       {
-        "receptor_id": 3,
-        "mensajes": [
-          "¡Ey, Ricardo! ¿Cómo va todo desde nuestro último encuentro en la construcción? 💪",
-          "¡Hola, Marcos! Las cosas en la obra han estado intensas. ¿Tú todavía en esos asuntos de información? 🏗️",
-          "Sí, sigo navegando por esos mares digitales. Últimamente, he tenido algunos encargos interesantes. ¿Alguna movida nueva en la construcción? 🔧",
-          "La verdad, ha habido algunos líos, pero nada fuera de lo común. A propósito, si necesitas ayuda con algo, ¡cuenta conmigo! 🤝",
-          "Gracias, Ricardo. Puede que necesite a alguien fuerte en futuros proyectos. Mantengamos el contacto. ¡Hasta pronto! 👋"
+        "id": 3,
+        "talk": [
+          "Hey Ricardo, how's the construction site?",
+          "Hi Marcos, it's going well. We're making good progress.",
+          "That's great to hear. Keep up the good work!",
+          "Thanks, Marcos. I appreciate it. See you around!"
         ]
       },
       {
-        "receptor_id": 5,
-        "mensajes": [
-          "¡Hola, Profesor 'Windsor'! ¿Cómo va la enseñanza del inglés y la literatura? 📚",
-          "Saludos, Marcos. La docencia sigue su curso. ¿Todavía envuelto en esos asuntos cibernéticos? 🖥️",
-          "Sí, mi querido 'Windsor'. Los bytes y las letras son mi especialidad. ¿Algún drama literario en tu vida? 📖",
-          "Oh, solo los típicos desafíos académicos. Pero, hablando de literatura, deberías venir a una de mis clases. ¿Te animas? 🎓",
-          "Me encantaría, Profesor. Podríamos organizar algo. Mantengámonos en contacto. ¡Hasta pronto! 👋"
+        "id": 4,
+        "talk": [
+          "Juan, your dishes are always so unique. What's your secret?",
+          "Well Marcos, I just try to be creative and experiment with different flavors.",
+          "That's a great approach. Your passion really shows in your cooking.",
+          "Thank you, Marcos. That means a lot. Have a great day!"
         ]
       },
       {
-        "receptor_id": 8,
-        "mensajes": [
-          "¡Hola, Carlos 'Llamas'! ¿Cómo va eso de apagar fuegos y salvar vidas? 🚒",
-          "¡Hola, Marcos 'Rastro'! Salvando el día, uno incendio a la vez. ¿Sigues jugando con fuego en el mundo digital? 🔥",
-          "Así es, las llamas de la información son difíciles de resistir. ¿Algún rescate emocionante últimamente? 🌪️",
-          "He tenido algunas situaciones intensas, pero nada ilegal. Si alguna vez necesitas ayuda en un apuro, cuenta con este bombero. 🧯",
-          "Lo tendré en cuenta, Carlos. Nunca se sabe cuándo podré necesitar un héroe. Mantengamos el contacto. ¡Hasta la próxima emergencia! 👋"
+        "id": 5,
+        "talk": [
+          "William, do you have any book recommendations for my solitary time?",
+          "Sure Marcos, how about 'The Old Man and the Sea' by Hemingway?",
+          "Sounds interesting. I'll give it a read. Thanks!",
+          "You're welcome, Marcos. I hope you enjoy it. Goodbye!"
         ]
       },
       {
-        "receptor_id": 11,
-        "mensajes": [
-          "¡Hola, Carlos 'Ruedas'! ¿Cómo va todo en el mundo de los autobuses? 🚍",
-          "¡Hola, Marcos 'Rastro'! Girando esquinas y siguiendo rutas, ya sabes. ¿Aún trasteando con la información? 🛣️",
-          "Así es, las redes y yo somos inseparables. ¿Algún evento interesante en el transporte público últimamente? 🚌",
-          "Nada fuera de lo común. Pero, si alguna vez necesitas un paseo tranquilo, aquí estoy. ¿Tienes planes interesantes? 🤔",
-          "Estoy pensando en expandirme. Quizás pueda necesitar tus servicios de transporte. Mantengamos el contacto. ¡Hasta la próxima parada! 👋"
+        "id": 6,
+        "talk": [
+          "Hey Samuel, it's Marcos. Fancy cracking a case in a manga universe?",
+          "Marcos, that's intriguing! Any specific manga in mind?",
+          "How about 'Death Note'? A hacker and a detective, sounds fun!",
+          "Indeed, Marcos! Let's dive into it. Catch you later!"
         ]
       }
     ]
   },
   {
     "id": 2,
-    "data": [
+    "talks": [
       {
-        "receptor_id": 1,
-        "mensajes": [
-          "¡Hola Marcos 'Rastro'! ¿Cómo van esas incursiones en la red hoy?",
-          "Todo tranquilo por aquí, Laura. ¿Algún proyecto interesante en el horizonte?",
-          "Estoy trabajando con Juan 'Sazón'. Necesita seguridad para su restaurante. ¿Te unes?",
-          "¡Por supuesto! Cuéntame más sobre ese proyecto. Vamos a hacer magia juntos.",
-          "Perfecto, Marcos. Coordinaré la reunión con Juan. Además, estamos explorando algo en el mundo del arte. ¿Te animas?"
+        "id": 1,
+        "talk": [
+          "Marcos, ever pondered trading comics for a mountain sojourn?",
+          "Laura, indoors is my realm. But, a mountain hike? Intriguing!",
+          "That's it, Marcos! Nature narrates its own epic tales.",
+          "Quite a perspective, Laura. Tempting indeed. Until next time!"
         ]
       },
       {
-        "receptor_id": 4,
-        "mensajes": [
-          "Hola Juan 'Sazón', ¿cómo va la cocina? Estoy trabajando en reforzar tu seguridad.",
-          "¡Laura! Eso suena genial. Necesito proteger mi rincón culinario. ¿Cuándo hablamos de detalles?",
-          "Tranquilo, Juan. Coordinaré contigo y Marcos 'Rastro'. Estamos explorando algo en el arte también.",
-          "¿Arte? Eso suena interesante. Estoy dentro. Avísame para la reunión."
+        "id": 3,
+        "talk": [
+          "Ricardo, fancy exchanging solitude for a mountain escapade?",
+          "Laura, solitude at work is my sanctuary. But, a mountain trail? Sounds refreshing!",
+          "Trust me, Ricardo! The summit view is a sight to behold.",
+          "I trust your word, Laura. Looking forward to it!"
         ]
       },
       {
-        "receptor_id": 6,
-        "mensajes": [
-          "Saludos, Samuel 'Sombras'. ¿Cómo va la vida del detective privado?",
-          "Hola Laura 'Sombra'. Intrigante como siempre. ¿En qué puedo ayudarte hoy?",
-          "Tengo un nuevo caso. ¿Te unes? Además, estamos en algo artístico con Marcos 'Rastro'. ¿Te interesa?",
-          "¡Nuevo caso y arte! Cuenta conmigo. Avísame los detalles. Será emocionante."
+        "id": 4,
+        "talk": [
+          "Juan, how about a culinary expedition on a mountain campfire?",
+          "Laura, a challenge indeed! The flavors would be extraordinary!",
+          "Absolutely, Juan! The mountain breeze would add its own zest.",
+          "Sounds exciting, Laura. Let's plan it. Farewell for now!"
         ]
       },
       {
-        "receptor_id": 9,
-        "mensajes": [
-          "Hola María 'Flores', ¿cómo va la tienda de flores? Estoy explorando conexiones en la comunidad floral.",
-          "¡Hola Laura! Todo florece aquí. ¿En qué puedo ayudarte con las flores hoy?",
-          "Tenemos algunas ideas para colaborar. ¿Te gustaría discutirlas? Además, arte y proyectos con Marcos 'Rastro'. ¿Te apuntas?",
-          "Colaboración floral y arte suenan perfectos. Estoy dentro. Avísame para la reunión."
+        "id": 5,
+        "talk": [
+          "William, considered trading literature for a mountain quest?",
+          "Laura, the proposition is enticing. Nature does pen great epics.",
+          "Indeed, William! Mountains have their own sagas to narrate.",
+          "Intriguing, Laura. I'll ponder over it. Until our next enlightening conversation!"
         ]
       },
       {
-        "receptor_id": 13,
-        "mensajes": [
-          "Hola Laura 'Justicia', ¿cómo va tu vida como detective?",
-          "Hola Laura 'Sombra', la justicia nunca descansa. ¿En qué puedo asistirte hoy?",
-          "He estado involucrada en algunas investigaciones. ¿Podemos discutir un caso? Además, algo en el mundo del arte con Marcos 'Rastro'. ¿Te interesaría?",
-          "Siempre dispuesta a ayudar. Nos vemos en la comisaría. Y sí, arte y justicia suenan bien. Avísame para la reunión."
+        "id": 6,
+        "talk": [
+          "Samuel, ever swapped hospital corridors for mountain trails?",
+          "Laura, that's a shift! What's the agenda?",
+          "A hike to rejuvenate, perhaps unravel a mystery?",
+          "Sounds captivating, Laura. Let's venture. Until then!"
         ]
       }
     ]
   },
   {
     "id": 3,
-    "data": [
+    "talks": [
       {
-        "receptor_id": 2,
-        "mensajes": [
-          "Hola Laura 'Sombra', ¿cómo van las cosas desde la última vez que coincidimos en eventos artísticos? 🎨",
-          "¡Ricardo 'Muro' González! Todo bien, ocupada entre el mundo del arte y algunas investigaciones. ¿Y tú, alguna construcción interesante últimamente? 🔨",
-          "Sí, he estado trabajando en un proyecto arquitectónico fascinante. Además, me topé con algunos conocidos en eventos comunitarios. ¿Alguna novedad en el ámbito artístico? 🌆",
-          "¡Ah, sí! He estado gestionando algunas obras para Isabella 'Galería' Martínez. La escena del arte está movidita. ¿Tienes algún encargo de construcción próximo? 🏗️",
-          "Estoy planeando algo grande, quizás una estructura única. Hablando de planes, ¿has pensado en nuevos proyectos artísticos? 🤔",
-          "¡Por supuesto! Tengo algo en mente. Podríamos charlar más la próxima vez que nos veamos en eventos. ¡Hasta luego, Ricardo! 👋"
+        "id": 1,
+        "talk": [
+          "Marcos, ever pondered trading comics for a hands-on construction project?",
+          "Ricardo, you know me, I'm a digital realm dweller. But, a hands-on project? Intriguing!",
+          "That's it, Marcos! There's a unique satisfaction in crafting something tangible.",
+          "Quite a perspective, Ricardo. Tempting indeed. Until next time!"
         ]
       },
       {
-        "receptor_id": 5,
-        "mensajes": [
-          "Hola Profesor William 'Windsor' Thompson, ¿cómo va la enseñanza del inglés y la literatura? 📚",
-          "Saludos Ricardo 'Muro' González. La enseñanza sigue su curso. ¿Algún proyecto de construcción interesante últimamente? 🔨",
-          "Estoy trabajando en algo intrigante. Además, me he cruzado con algunos colegas en eventos comunitarios. ¿Novedades literarias por tu parte? 📖",
-          "¡Por supuesto! He estado explorando nuevos enfoques en mis clases. ¿Has pensado en fusionar arte y literatura en algún proyecto? 🎭",
-          "Buena idea. Estoy planeando algo así. Hablamos más la próxima vez que nos veamos. ¿Algún libro o autor que recomiendes en este momento? 📚",
-          "Sin duda, charlemos más sobre literatura y arte. ¡Hasta luego, Profesor 'Windsor'! 👋"
+        "id": 2,
+        "talk": [
+          "Laura, fancy exchanging mountain walks for a day amidst concrete and steel?",
+          "Ricardo, solitude at work is my sanctuary. But, a day at the construction site? Sounds refreshing!",
+          "Trust me, Laura! The view from atop a skyscraper is a sight to behold.",
+          "I trust your word, Ricardo. Looking forward to it!"
         ]
       },
       {
-        "receptor_id": 8,
-        "mensajes": [
-          "Hola Isabella 'Galería' Martínez, ¿cómo va el mundo del arte y las negociaciones? 🎨",
-          "¡Ricardo 'Muro' González! Todo bien, lidiando con algunas deudas. ¿Alguna construcción interesante en tus proyectos? 🔨",
-          "Sí, estoy inmerso en un proyecto arquitectónico emocionante. Además, me crucé con conocidos en eventos comunitarios. ¿Novedades en el arte? 🌆",
-          "Estoy gestionando algunas obras para ti. La escena del arte está activa. ¿Tienes en mente alguna estructura única próximamente? 🏗️",
-          "Sí, planeo algo grande. Hablando de planes, ¿alguna nueva exposición o evento artístico en tu galería? 🖼️",
-          "¡Por supuesto! Podemos hablar más sobre arte y construcción la próxima vez que nos veamos. ¡Hasta luego, Isabella! 👋"
+        "id": 4,
+        "talk": [
+          "Juan, how about a culinary expedition at the construction site?",
+          "Ricardo, a challenge indeed! The flavors would be extraordinary!",
+          "Absolutely, Juan! The workers would appreciate a hearty meal.",
+          "Sounds exciting, Ricardo. Let's plan it. Farewell for now!"
         ]
       },
       {
-        "receptor_id": 7,
-        "mensajes": [
-          "¡Hola, Sofía! ¿Cómo ha estado el mundo de la astronomía? 🌌",
-          "Hola, Ricardo. La astronomía siempre fascinante. He estado observando algunas estrellas interesantes. ¿Y tú, alguna estructura impresionante en tu horizonte? 🏰",
-          "Siempre hay algo en construcción. Pero me encantaría saber más sobre esas estrellas. ¿Algún descubrimiento emocionante? 🔭",
-          "Estuve observando una nueva constelación. Algo único. ¿Te gustaría venir a una de mis observaciones nocturnas? 🌠",
-          "¡Claro! Será emocionante. Podemos hablar sobre construcciones y estrellas. ¿Cuándo es la próxima observación? 🗓️",
-          "Genial. Planeo una esta semana. Te enviaré los detalles. Estoy emocionada por nuestra conversación bajo las estrellas. ¡Hasta luego, Ricardo! 👋"
+        "id": 5,
+        "talk": [
+          "William, considered trading literature for a construction adventure?",
+          "Ricardo, the proposition is enticing. Construction sites do pen great epics.",
+          "Indeed, William! Every building has its own saga to narrate.",
+          "Intriguing, Ricardo. I'll ponder over it. Until our next enlightening conversation!"
         ]
       },
       {
-        "receptor_id": 9,
-        "mensajes": [
-          "¡Hola, Diego! ¿Cómo va la vida llena de aventuras? 🌪️",
-          "Hola, Ricardo. ¡Las aventuras nunca descansan! He estado explorando lugares nuevos. ¿Algún proyecto interesante en tu mundo constructivo? 🏗️",
-          "Siempre hay algo en construcción. Actualmente, estoy trabajando en un rascacielos impresionante. Pero cuéntame, ¿alguna hazaña emocionante en tus últimas exploraciones? ⛰️",
-          "Recientemente descubrí una antigua ruina. Hay algo misterioso en ella. ¿Te gustaría unirte a la próxima expedición? 🗺️",
-          "¡Suena fascinante! Un misterio antiguo y una nueva estructura. ¡Definitivamente voy! Avísame los detalles de la expedición. 🕵️‍♂️",
-          "Perfecto. Planeo la expedición para la próxima semana. Será genial contar con tu experiencia. ¡Hasta luego, Diego! 👋"
-        ]
-      },
-      {
-        "receptor_id": 11,
-        "mensajes": [
-          "¡Hola, Sofia! ¿Cómo va el día lleno de ingenio y creatividad? 🔧",
-          "Hola, Ricardo. Todo marcha bien. Siempre estoy ideando algo nuevo. ¿Y tú? ¿Algún proyecto emocionante en tus manos? 🏗️",
-          "Por supuesto. Estoy trabajando en un innovador edificio ecológico. Quiero incorporar ideas sostenibles en la construcción. ¿Tienes alguna sugerencia ingeniosa? 🌱",
-          "¡Qué interesante! Podríamos integrar sistemas de energía renovable y diseño bioclimático. También podríamos utilizar materiales reciclados. ¿Qué opinas? ♻️",
-          "Me encanta la idea. Podemos hacer del edificio un ejemplo de sostenibilidad. Trabajar contigo siempre es inspirador. ¿Te gustaría unirte al proyecto? 🌍",
-          "¡Claro, cuenta conmigo! Será un desafío emocionante. Estoy ansiosa por poner en práctica nuestras ideas. ¡Hablemos más detalles pronto! 👷‍♀️🌟"
+        "id": 6,
+        "talk": [
+          "Samuel, ever swapped detective mysteries for life's enigmas?",
+          "Ricardo, that's a shift! What's the enigma?",
+          "Life itself, Samuel. It's a puzzle, isn't it?",
+          "Sounds captivating, Ricardo. Let's venture. Until then!"
         ]
       }
     ]
   },
   {
     "id": 4,
-    "data": [
+    "talks": [
       {
-        "receptor_id": 1,
-        "mensajes": [
-          "¡Hola Marcos! ¿Cómo va eso en el mundo de los códigos y las sombras? 😄",
-          "¡Hola Juan! Todo bien, entre cuchillos y fogones. ¿Alguna novedad en el mundo de la información? 🔍",
-          "¡Ja! Ya sabes, siempre buscando la receta perfecta. ¿Te enteraste de la última movida? 💼",
-          "No me pierdo una. ¿Qué tienes entre manos? 🤔",
-          "Estoy planeando un evento gastronómico. Podríamos colaborar, ¿qué te parece? 🍽️",
-          "¡Suena delicioso! Cuenta conmigo para darle sabor al asunto. ¿Más detalles? 👨‍🍳",
-          "Perfecto. Charlemos más en persona. ¡Hasta pronto! 👋"
+        "id": 1,
+        "talk": [
+          "Marcos, ever tried whipping up a manga-inspired dish?",
+          "Juan, you know me, I'm more of a reader. But a manga-inspired dish? Intriguing!",
+          "That's the spirit, Marcos! Culinary art narrates its own flavorful tales.",
+          "Well, when you put it that way, it does sound tempting. Catch you later, Juan!"
         ]
       },
       {
-        "receptor_id": 3,
-        "mensajes": [
-          "¡Hola Ricardo! ¿Cómo va eso en la construcción y los ladrillos? 😄",
-          "¡Hola Juan! Entre martillos y cemento, ¿y tú? ¿Alguna novedad en la cocina? 🍲",
-          "¡Ja! Siempre hay algo burbujeando. ¿Has oído hablar de la última movida en el bajo mundo? 💼",
-          "No suelo meterme en esas cosas, pero cuéntame. ¿Algo interesante? 🤔",
-          "Estoy planeando un evento culinario. Podríamos colaborar, ¿qué te parece? 🍽️",
-          "¡Suena bien! Podríamos hacer algo especial. ¿Más detalles? 👨‍🍳",
-          "Perfecto. Charlemos más en persona. ¡Hasta pronto, amigo constructor! 👋"
+        "id": 2,
+        "talk": [
+          "Laura, how about trading mountain walks for a culinary journey?",
+          "Hi Juan, that's an interesting proposition. I've always been keen to learn more about cooking.",
+          "Great! Cooking is akin to a hike, but in the kitchen. The destination is a scrumptious meal!",
+          "I love that analogy, Juan. I'll definitely give it a try. Take care!"
         ]
       },
       {
-        "receptor_id": 5,
-        "mensajes": [
-          "¡Saludos, Profesor Thompson! ¿Cómo va la literatura en tus clases? 📚",
-          "¡Hola Juan! Entre verbos y poesía, ¿alguna recomendación literaria? 📖",
-          "¡Ja! Siempre hay algo burbujeando. ¿Te enteraste de la exposición de arte local? 🎨",
-          "No suelo ir, pero cuéntame más. ¿Algo interesante? 🤔",
-          "Estoy organizando un club de lectura. ¿Te gustaría unirte? 📕",
-          "¡Por supuesto! Me encantaría. ¿Qué libro tienes en mente? 📚",
-          "Perfecto. Discutamos más detalles pronto. ¡Hasta luego, Profesor 'Windsor'! 👋"
+        "id": 3,
+        "talk": [
+          "Ricardo, ever thought of constructing a brick oven for some rustic cooking?",
+          "Well Juan, that's a challenge I'd love to take on. Imagine the flavors!",
+          "Exactly! There's nothing like a pizza cooked in a brick oven.",
+          "Indeed, Juan. Let's plan for it. Farewell for now!"
         ]
       },
       {
-        "receptor_id": 9,
-        "mensajes": [
-          "¡Hola María! ¿Cómo van esas creaciones florales? 💐",
-          "¡Hola Juan! Entre pétalos y colores, ¿alguna planta culinaria inusual? 🌱",
-          "¡Ja! Siempre hay algo burbujeando. ¿Escuchaste sobre el festival gastronómico? 🍴",
-          "No suelo asistir, pero cuéntame. ¿Algo interesante? 🤔",
-          "Estoy preparando un jardín de hierbas. ¿Te gustaría contribuir? 🌿",
-          "¡Por supuesto! Tengo algunas ideas florales en mente. ¿Hablamos más luego? 🌸",
-          "Perfecto. Planeemos en detalle más adelante. ¡Hasta pronto, amiga de las flores! 👋"
+        "id": 5,
+        "talk": [
+          "William, ever thought of swapping literature classes for a cooking class?",
+          "Juan, the idea is tempting. Cooking is an art in itself.",
+          "Absolutely! Every dish has its own tale to tell.",
+          "I'll consider it, Juan. Until our next intriguing talk!"
         ]
       },
       {
-        "receptor_id": 11,
-        "mensajes": [
-          "¡Hola Carlos 'Ruedas'! ¿Cómo va el mundo de los autobuses y las rutas? 🚌",
-          "¡Hola Juan! Entre paradas y recorridos, ¿alguna nueva creación culinaria? 🍜",
-          "¡Ja! Siempre hay algo burbujeando. ¿Has oído sobre la feria de tecnología? 🖥️",
-          "No suelo ir, pero cuéntame. ¿Algo interesante? 🤔",
-          "Estoy diseñando un menú temático. ¿Quisieras colaborar? 🍽️",
-          "¡Por supuesto! Podríamos incorporar ideas de transporte. ¿Charlamos más después? 🚍",
-          "Perfecto. Ajustemos los detalles pronto. ¡Hasta luego, amigo de las ruedas! 👋"
+        "id": 6,
+        "talk": [
+          "Samuel! Ever tried to solve a culinary mystery?",
+          "Juan, that's a first! What's the mystery dish?",
+          "It's a secret recipe, Samuel. Can your detective skills help?",
+          "Sounds like a tasty challenge, Juan. Let's do it. Until then!"
         ]
       }
     ]
   },
   {
     "id": 5,
-    "data": [
+    "talks": [
       {
-        "receptor_id": 1,
-        "mensajes": [
-          "Hola, Marcos, ¿cómo va eso del hacking? 😎",
-          "¡Saludos, Profesor! Todo tranquilo en mi mundo cibernético. ¿Algún libro interesante en tu vida literaria? 📚",
-          "Siempre hay algo nuevo. Estoy sumergido en novelas de misterio últimamente. ¿Tienes alguna recomendación? 🔍",
-          "¡Claro! Te sugiero 'Ciberespías y Rompecabezas'. Combina tu mundo con el mío de manera fascinante. 🕵️‍♂️",
-          "Suena intrigante. Definitivamente le echaré un vistazo. Gracias, Marcos. ¡Hasta luego! 👋"
+        "id": 1,
+        "talk": [
+          "Marcos, ever delved into literature's depths?",
+          "Intriguing, William! Which book?",
+          "'1984'. A hacker's view would be unique.",
+          "Challenging! I'm on it."
         ]
       },
       {
-        "receptor_id": 3,
-        "mensajes": [
-          "Hola, Ricardo. ¿Cómo va la construcción? 💪",
-          "¡Profesor William! La construcción avanza, aunque con sus retos. ¿En qué anda en el mundo de las letras hoy? 📖",
-          "Intentando descifrar los misterios de la literatura. ¿Algún consejo para una mente inquisitiva como la tuya? 🤔",
-          "¡Claro! Te recomendaría explorar la poesía moderna. Un buen ejercicio para la mente. 📝",
-          "Interesante. Nunca me adentré mucho en la poesía. Probaré tu sugerencia. Gracias, Ricardo. ¡Hasta luego! 👋"
+        "id": 2,
+        "talk": [
+          "Laura, fancy a literary mountain hike?",
+          "Sounds fun, William! Details?",
+          "Reading 'Into the Wild' amidst nature.",
+          "That's an adventure. I'm in."
         ]
       },
       {
-        "receptor_id": 6,
-        "mensajes": [
-          "Hola, Samuel. ¿Cómo va eso de desentrañar misterios? 🕵️‍♂️",
-          "¡Profesor Thompson! Resolviendo casos, aunque la vida privada se complica. ¿Alguna trama literaria en tu vida últimamente? 📚",
-          "Sigo sumergido en novelas de misterio. La vida a veces se refleja en la ficción, ¿no crees? 🔍",
-          "Totalmente de acuerdo. He notado similitudes entre casos reales y tramas ficticias. ¿Algún caso reciente que te haya impactado? 🤔",
-          "Hubo uno, bastante intrincado. Pero hablemos más la próxima vez que nos veamos. ¡Hasta luego, Samuel! 👋"
+        "id": 6,
+        "talk": [
+          "Samuel, ever solved a literary mystery?",
+          "A first, William! What's the mystery?",
+          "Symbolism in 'The Da Vinci Code'.",
+          "Intriguing. Let's dive in."
         ]
       },
       {
-        "receptor_id": 9,
-        "mensajes": [
-          "Hola, María. ¿Cómo va el mundo de las flores? 🌸",
-          "Profesor William, las flores florecen, aunque las deudas también. ¿Necesita un ramo para alegrar su día? 💐",
-          "Aprecio la oferta, María. ¿Alguna lectura floral interesante en tu radar últimamente? 📖",
-          "¡Definitivamente! Hay un libro encantador sobre el lenguaje de las flores. ¿Le interesaría? 🌷",
-          "Suena encantador. Acepto la sugerencia. Gracias, María. ¡Hasta luego! 👋"
+        "id": 3,
+        "talk": [
+          "Ricardo, ever deciphered solitude in literature?",
+          "New, William! Which book?",
+          "'Walden' by Thoreau. Your insight?",
+          "Challenging! I'm on it."
         ]
       },
       {
-        "receptor_id": 13,
-        "mensajes": [
-          "Hola, Laura. ¿Cómo va la lucha por la justicia? ⚖️",
-          "Profesor William, la lucha continúa. ¿Alguna conexión literaria con la justicia en su mundo de letras? 📚",
-          "Sí, estoy explorando obras que aborden dilemas éticos. ¿Alguna investigación interesante en tu radar? 🔍",
-          "Recientemente cerré un caso delicado. Pero hablemos más la próxima vez que nos veamos. ¿Algún libro que me recomendarías? 📖",
-          "Te sugeriría 'Justicia Ciega'. Un thriller legal fascinante. Hablemos luego, Laura. ¡Hasta pronto! 👋"
+        "id": 4,
+        "talk": [
+          "Juan, ever explored culinary arts in literature?",
+          "Intriguing, William! What's the plan?",
+          "Reading 'Like Water for Chocolate'.",
+          "That's an adventure. I'm in."
         ]
       }
     ]
   },
   {
     "id": 6,
-    "data": [
+    "talks": [
       {
-        "receptor_id": 2,
-        "mensajes": [
-          "Hey Laura, ¿qué onda? Hace tiempo no nos vemos en esos eventos artísticos. 😎",
-          "¡Hola Samuel! Sí, ha pasado un buen tiempo. Últimamente, he estado explorando el lado más oscuro del arte. 😏",
-          "Jaja, suena intrigante. Yo he estado enredado con mis investigaciones. Siempre hay misterios por resolver. 🔍",
-          "Eso suena a tí, Samuel 'Sombras'. ¿Algún caso interesante últimamente? 🕵️‍♂️",
-          "Justo ahora estoy tras la pista de un fraude en el mundo del arte. Podría ser un trabajo jugoso. ¿Tienes algún chisme que compartir? 😄",
-          "Hmm, nada del otro mundo. Pero podría haber algo. ¿Nos vemos pronto y charlamos más a fondo? 👋"
+        "id": 1,
+        "talk": [
+          "Marcos, ever hacked a detective's mind?",
+          "Intriguing, Samuel! What's the challenge?",
+          "Deciphering a detective novel.",
+          "Fun challenge! I'm on it."
         ]
       },
       {
-        "receptor_id": 4,
-        "mensajes": [
-          "¡Juan, mi amigo! Hace tiempo no coincidimos en eventos culinarios. ¿Qué tal la cocina? 😊",
-          "Hola Samuel 'Sombras'. Pues, la cocina siempre tiene sus retos. Últimamente, he estado innovando con sabores arriesgados. 🍳",
-          "Eso suena delicioso. Sabes, estoy involucrado en algunos proyectos interesantes. ¿Alguna novedad en tu restaurante? 🍽️",
-          "¡Por supuesto! Estoy planeando un evento culinario especial. Podría necesitar tu toque de 'Sombras'. ¿Te apuntas? 😏",
-          "¡Claro! Me encantaría participar. Además, podría haber oportunidades para ambos. ¿Nos reunimos para discutir detalles? 👍",
-          "Perfecto. Tomemos un café pronto y hablamos de sabores y negocios. ¡Hasta luego, Juan! ☕👋"
+        "id": 2,
+        "talk": [
+          "Laura, fancy a mystery on a mountain trail?",
+          "Interesting, Samuel! What's the plan?",
+          "Solving a case while hiking.",
+          "That's an adventure. I'm in."
         ]
       },
       {
-        "receptor_id": 8,
-        "mensajes": [
-          "Isabella, ¿cómo va todo en el mundo del arte? Hace tiempo no hablamos de nuestras actividades. 😊",
-          "¡Hola Samuel 'Sombras'! Sí, ha pasado un tiempo. Las deudas por obras de arte me tienen ocupada. 😓",
-          "Entiendo. Precisamente, estoy involucrado en algunos proyectos que podrían ayudarnos a ambos. ¿Alguna novedad interesante en tu galería? 🎨",
-          "Hmm, estoy planeando una exposición arriesgada. Podría ser una oportunidad para revitalizar la galería. ¿Tienes algo en mente? 😌",
-          "De hecho, estoy buscando conexiones en el mundo del arte para un proyecto. ¿Te gustaría colaborar y salir de estas deudas? 💼",
-          "¡Por supuesto! Necesito cambios positivos. Charlemos más en detalle la próxima vez que nos veamos. ¡Hasta pronto! 👋"
+        "id": 3,
+        "talk": [
+          "Ricardo, ever solved a mystery alone?",
+          "New, Samuel! What's the mystery?",
+          "Life itself. It's a puzzle, isn't it?",
+          "Indeed. A puzzle we all solve."
         ]
       },
       {
-        "receptor_id": 12,
-        "mensajes": [
-          "Sergio, ¿cómo va el mundo de las entregas? Hace tiempo que no nos cruzamos por la ciudad. 🚚",
-          "¡Hola Samuel 'Sombras'! Sí, ha pasado un tiempo desde nuestros encuentros en eventos comunitarios. El estrés de las entregas no cesa. 😅",
-          "Entiendo, el mundo laboral puede ser complicado. Estoy explorando algunas oportunidades interesantes. ¿Alguna novedad en tus rutas de entrega? 🗺️",
-          "Bueno, he estado pensando en optimizar las rutas. Siempre hay maneras de mejorar. ¿Y tú, en qué andas? 🤔",
-          "Estoy involucrado en un proyecto. Necesitaré servicios de entrega confiables. ¿Te interesaría formar parte y ganar algo extra? 💼",
-          "¡Claro! Siempre estoy abierto a nuevas oportunidades. Charlemos más la próxima vez que coincidamos. ¡Hasta luego, Samuel! 👋"
+        "id": 4,
+        "talk": [
+          "Juan, ever solved a culinary mystery?",
+          "Intriguing, Samuel! What's the mystery?",
+          "A secret recipe.",
+          "Tasty challenge! I'm on it."
         ]
       },
       {
-        "receptor_id": 11,
-        "mensajes": [
-          "Carlos 'Ruedas', hace tiempo no coincidimos en eventos comunitarios. ¿Cómo va la ruta de autobuses? 🚌",
-          "¡Samuel 'Sombras'! Sí, ha pasado un buen tiempo. Los horarios son un caos, pero seguimos llevando a la gente a sus destinos. 😅",
-          "Siempre he admirado tu habilidad para manejar esas máquinas. Estoy enredado en algunos proyectos interesantes. ¿Algún chisme de la ciudad que pueda interesarme? 🌆",
-          "Bueno, he notado movimientos extraños últimamente. Gente nueva en las paradas y cosas así. ¿Te afecta en tus rutas? 🤔",
-          "Interesante. Estoy explorando oportunidades en el transporte. ¿Te gustaría participar en algo más grande? 🚀",
-          "¡Definitivamente! Necesitamos cambios emocionantes. Charlemos más en detalle la próxima vez que coincidamos. ¡Hasta luego, Samuel! 👋"
+        "id": 5,
+        "talk": [
+          "William, ever solved a mystery in literature?",
+          "A first, Samuel! What's the mystery?",
+          "Symbolism in 'The Da Vinci Code'.",
+          "Intriguing. Let's dive in."
         ]
       }
     ]
   },
+
   {
     "id": 7,
-    "data": [
+    "talks": [
       {
-        "receptor_id": 1,
-        "mensajes": [
-          "¡Hola Carlos 'Ruedas'! ¿Cómo va todo en la ruta hoy? 🚌",
-          "¡Hola 'Llamas'! Los viajes han sido tranquilos. ¿Algún evento comunitario interesante próximamente? 🚒",
-          "Sí, estamos organizando algo en el parque. ¡Sería genial verte por allí! ¿Y tú? ¿Algún proyecto nuevo en la floristería? 💐",
-          "Estoy preparando arreglos especiales para el evento. Por cierto, ¿has tenido problemas con incendios recientemente? 🔥",
-          "Afortunadamente, no. Pero siempre estamos alerta. Hablando de eso, ¿has tenido encuentros con colegas en el mundo floral? 🌸",
-          "Sí, algunos floristas se han unido para compartir ideas. ¡Deberías unirte la próxima vez! ¡Hasta luego, colega! 👋"
+        "id": 8,
+        "talk": [
+          "Isabella, ever painted a firefighter's life?",
+          "Intriguing, Carlos! The scene?",
+          "Firefighter saving art from a burning museum.",
+          "A masterpiece! Let's do it."
         ]
       },
       {
-        "receptor_id": 3,
-        "mensajes": [
-          "¡Hola Ricardo 'Muro'! ¿Cómo va la construcción? 🛠️",
-          "¡Saludos 'Llamas'! Todo en obra. ¿Necesitas ayuda con algo? 🚒",
-          "No por ahora, pero estoy pensando en renovar la floristería. ¿Conoces a alguien en el mundo de la construcción que pueda echarme una mano? 🌺",
-          "Conozco a un par de expertos. Te pondré en contacto. Por cierto, ¿algún cliente interesante en tu negocio? 💼",
-          "Sí, algunos. Pero estoy explorando nuevas oportunidades. ¿Has tenido encuentros en eventos comunitarios? 🎉",
-          "Sí, a veces. ¡Sería genial verte en el próximo! Mantente fuerte en la construcción. ¡Hasta luego! 👷"
+        "id": 9,
+        "talk": [
+          "María, how about a bouquet for a firefighter?",
+          "A first, Carlos! The occasion?",
+          "Just a day in a firefighter's life.",
+          "Beautiful idea. I'm in."
         ]
       },
       {
-        "receptor_id": 5,
-        "mensajes": [
-          "¡Profesor 'Windsor'! ¿Cómo va la enseñanza estos días? 📚",
-          "¡Hola 'Llamas'! Siempre emocionante. ¿Algún evento cultural que me recomiendes? 🎭",
-          "Hay una exposición de arte pronto. ¿Te gustaría ir? Por cierto, ¿alguna vez has necesitado seguridad para eventos? 🔒",
-          "¡Suena genial! Y sí, a veces. ¿Alguna novedad en el mundo literario que pueda interesarte? 📖",
-          "Estoy explorando nuevas colaboraciones. ¿Has tenido encuentros en actividades culturales? 🎨",
-          "Sí, algunos. Podríamos charlar más sobre eso. ¡Nos vemos en la exposición! ¡Hasta luego, profesor! 👋"
+        "id": 10,
+        "talk": [
+          "Diego, ever fenced with a firefighter?",
+          "New, Carlos! The challenge?",
+          "A friendly match.",
+          "Fun challenge! Let's do it."
         ]
       },
       {
-        "receptor_id": 9,
-        "mensajes": [
-          "¡Hola María 'Flores'! ¿Cómo va el negocio de las flores hoy? 💐",
-          "¡Hola 'Llamas'! Todo marcha bien. ¿Necesitas algo especial para la floristería? 🚒",
-          "Estoy planeando renovaciones. ¿Conoces a algún florista que pueda ofrecer ideas frescas? 🌷",
-          "Sí, conozco a algunos creativos. Te pondré en contacto. Por cierto, ¿alguna noticia floral interesante? 🌼",
-          "Estoy explorando nuevas oportunidades. ¿Has tenido encuentros en eventos comunitarios recientemente? 🎉",
-          "Sí, algunos. ¡Sería genial verte en el próximo! ¡Hasta luego, colega de las flores! 👋"
+        "id": 11,
+        "talk": [
+          "Carlos, ever driven a fire truck?",
+          "Intriguing! The plan?",
+          "A ride along on a firefighter's day.",
+          "An adventure. I'm in."
         ]
       },
       {
-        "receptor_id": 11,
-        "mensajes": [
-          "¡Hola Carlos 'Ruedas'! ¿Cómo va todo en la ruta hoy? 🚌",
-          "¡Hola 'Ruedas'! Los viajes han sido tranquilos. ¿Algún evento comunitario interesante próximamente? 🚒",
-          "Sí, estamos organizando algo en el parque. ¡Sería genial verte por allí! ¿Y tú? ¿Algún proyecto nuevo en la floristería? 💐",
-          "Estoy preparando arreglos especiales para el evento. Por cierto, ¿has tenido problemas con incendios recientemente? 🔥",
-          "Afortunadamente, no. Pero siempre estamos alerta. Hablando de eso, ¿has tenido encuentros con colegas en el mundo floral? 🌸",
-          "Sí, algunos floristas se han unido para compartir ideas. ¡Deberías unirte la próxima vez! ¡Hasta luego, colega! 👋"
+        "id": 12,
+        "talk": [
+          "Sergio, ever delivered a package to a fire station?",
+          "A first, Carlos! The package?",
+          "A surprise gift for the team.",
+          "Special delivery! Let's do it."
         ]
       }
     ]
   },
   {
     "id": 8,
-    "data": [
+    "talks": [
       {
-        "receptor_id": 1,
-        "mensajes": [
-          "¡Isabella! ¿Cómo va todo en el mundo criminal? Hace tiempo que no nos vemos en alguna movida. 😎",
-          "¡Hola, Rastro! Las cosas se mantienen interesantes. Últimamente, he estado en tratos con algunas obras de arte intrigantes. ¿Tú en qué andas? 🎨",
-          "Bueno, sabes que siempre tengo algunos trucos bajo la manga. Estoy pensando en algo grande. ¿Has tenido algún encuentro peculiar en el mundo del arte? 🕵️‍♂️",
-          "Definitivamente. He conocido a algunos coleccionistas bastante extravagantes. ¡Ah, el arte y sus misterios! ¿Algún proyecto emocionante en tu radar? 🤔",
-          "Estoy considerando una operación interesante. Algo que podría necesitar de tus contactos en el ámbito artístico. ¿Te gustaría unirte? 🤝",
-          "¡Por supuesto! Me encantaría. La próxima vez que nos veamos, charlamos más al respecto. ¡Hasta pronto, Isabella! 👋"
+        "id": 7,
+        "talk": [
+          "Carlos, ever captured a firefighter's life in art?",
+          "Intriguing, Isabella! The scene?",
+          "Firefighter saving a masterpiece.",
+          "A masterpiece! Let's do it."
         ]
       },
       {
-        "receptor_id": 2,
-        "mensajes": [
-          "Ey, Laura 'Sombra', ¿cómo va todo desde nuestra última colaboración? 😏",
-          "¡Hola, Isabella 'Galería'! Las cosas han estado movidas. Últimamente, me he topado con algunos casos interesantes en el ámbito de la ciberseguridad. ¿Y tú? 💻",
-          "Ah, el mundo del hacking nunca deja de sorprender. Últimamente, me he cruzado con algunos personajes coloridos. ¿Alguna actividad interesante en tu radar? 🔍",
-          "Definitivamente. Estoy evaluando algunas oportunidades. He oído que estás en algo intrigante. ¿Algún proyecto emocionante en el mundo de la seguridad? 🌐",
-          "Estoy pensando en ampliar mis operaciones. Tal vez pueda necesitar tus habilidades en algún momento. ¿Te interesaría colaborar en algo? 🤝",
-          "¡Por supuesto, Laura! Charlemos más la próxima vez que nos veamos. Hay mucho de lo que podemos hablar. ¡Hasta luego! 👋"
+        "id": 9,
+        "talk": [
+          "María, how about a floral arrangement for an art gallery?",
+          "A first, Isabella! The occasion?",
+          "Just a day in an art dealer's life.",
+          "Beautiful idea. I'm in."
         ]
       },
       {
-        "receptor_id": 6,
-        "mensajes": [
-          "¡Samuel 'Sombras'! Hace tiempo que no nos cruzamos en eventos artísticos. ¿Cómo va la vida de detective privado? 🕵️‍♂️",
-          "¡Isabella 'Galería'! Las investigaciones privadas me mantienen ocupado. Últimamente, he estado tras la pista de algunos misterios. ¿Algún proyecto intrigante en tu mundo del arte? 🎨",
-          "Siempre hay algo en mi radar. He tenido algunos encuentros con personas peculiares. ¿Y tú, has descubierto algo fascinante en tus círculos artísticos? 🔍",
-          "Definitivamente. El arte siempre tiene sus secretos. Estoy evaluando algunas oportunidades. ¿Te gustaría formar parte de algo emocionante? 🤝",
-          "Estoy considerando una operación intrigante. Podría necesitar de tus habilidades de investigación en algún momento. ¿Te apuntas? 🌐",
-          "¡Claro, Samuel! La próxima vez que nos veamos, charlamos más al respecto. Hay mucho por descubrir juntos. ¡Hasta pronto! 👋"
+        "id": 10,
+        "talk": [
+          "Diego, ever fenced with an art dealer?",
+          "New, Isabella! The challenge?",
+          "A friendly match.",
+          "Fun challenge! Let's do it."
         ]
       },
       {
-        "receptor_id": 10,
-        "mensajes": [
-          "Diego 'Sable', hace tiempo que no hablamos de nuestras actividades ilegales. ¿Cómo va todo en el mundo de la esgrima y la clandestinidad? 😎",
-          "¡Hola, Isabella 'Galería'! La esgrima sigue siendo mi pasión. Últimamente, he estado en torneos y algunas movidas intrigantes. ¿Y tú? 🤺",
-          "Siempre me impresiona tu dedicación. Últimamente, he tenido algunos encuentros curiosos. ¿Algún proyecto emocionante en tu academia de esgrima? 🤔",
-          "Definitivamente. Estoy considerando algo grande. ¿Has tenido alguna experiencia interesante en tus competiciones? 🏆",
-          "Estoy pensando en una operación intrigante. Podría necesitar de tus habilidades en algún momento. ¿Te unirías a algo así? 🤝",
-          "¡Por supuesto, Diego! Charlemos más la próxima vez que nos veamos. Seguro podemos combinar nuestros talentos de manera emocionante. ¡Hasta pronto! 👋"
+        "id": 11,
+        "talk": [
+          "Carlos, ever driven an art dealer around?",
+          "Intriguing! The plan?",
+          "A ride along on an art dealer's day.",
+          "An adventure. I'm in."
         ]
       },
       {
-        "receptor_id": 12,
-        "mensajes": [
-          "¡Hola Sergio! ¿Cómo va el mundo de las entregas y las actividades ilegales?",
-          "¡Hola 'Envío'! Todo en orden. Últimamente, he estado entregando paquetes y explorando ciertos asuntos. ¿Y tú, alguna novedad en el mundo de las entregas?",
-          "Las entregas van bien. Además, he estado involucrado en investigaciones policiales. ¿Hay alguna conexión entre tus entregas y el bajo mundo?",
-          "Bueno, algunas pistas me han llevado por ese camino. Pero, ¿alguna novedad en el ámbito criminal que pueda interesarme?",
-          "Estoy considerando expandir mis operaciones. ¿Te gustaría ser parte de algo más grande y emocionante?",
-          "Esa propuesta suena intrigante. Charlemos más a fondo la próxima vez que nos veamos. ¡Hasta luego, Sergio! 👋"
+        "id": 11,
+        "talk": [
+          "Carlos, ever driven an art dealer around?",
+          "Intriguing! The plan?",
+          "A ride along on an art dealer's day.",
+          "An adventure. I'm in."
         ]
       }
     ]
   },
   {
     "id": 9,
-    "data": [
+    "talks": [
       {
-        "receptor_id": 2,
-        "mensajes": [
-          "Hola Laura, ¿cómo va en la floristería? 🌸",
-          "¡Hola María! Todo bien entre las flores. ¿Necesitas algo especial para tu tienda? 🌺",
-          "Solo estoy curioseando. ¿Te enteraste de la exposición de arte en el centro? Podría ser un buen plan para el fin de semana. 🎨",
-          "Sí, lo escuché. Podríamos ir juntas. ¿Te animas? 🤔",
-          "¡Claro! Sería genial. Necesito un descanso de tanto arreglo floral. 😅 ¿Nos encontramos allí?",
-          "¡Perfecto! Nos vemos en la exposición. ¡Hasta luego! 👋"
+        "id": 7,
+        "talk": [
+          "Carlos, ever made a bouquet for a firefighter?",
+          "Intriguing, María! The occasion?",
+          "Just a day in a florist's life.",
+          "Beautiful idea. Let's do it."
         ]
       },
       {
-        "receptor_id": 6,
-        "mensajes": [
-          "Hola Samuel, ¿cómo va todo en tus investigaciones? 🔍",
-          "¡Saludos María! Las cosas se ponen interesantes. Últimamente, he estado tras la pista de algunos misterios locales. 🕵️‍♂️",
-          "¡Qué emocionante! Si necesitas un toque floral en tus casos, ya sabes dónde encontrarme. 🌷",
-          "Lo tendré en cuenta. A propósito, ¿has escuchado algo sobre el evento de caridad en el parque este fin de semana?",
-          "Sí, lo tengo en mente. Podría ser un buen lugar para relajarnos. ¿Te animas? 😊",
-          "¡Por supuesto! Necesito un descanso de tanto enigma. Nos vemos allí. 👋"
+        "id": 8,
+        "talk": [
+          "Isabella, how about a floral arrangement for an art gallery?",
+          "A first, María! The occasion?",
+          "Just a day in a florist's life.",
+          "Beautiful idea. I'm in."
         ]
       },
       {
-        "receptor_id": 11,
-        "mensajes": [
-          "Hola Carlos, ¿cómo va tu día al volante? 🚍",
-          "¡Hola María! Como siempre, llevando a la gente a sus destinos. ¿Necesitas un paseo?",
-          "No por ahora, solo saludo. ¿Te enteraste del evento en el parque este fin de semana?",
-          "Sí, lo escuché. ¿Te gustaría ir juntos? Podríamos organizar algo con los demás colegas. 🎉",
-          "¡Buena idea! Puedo convocar a algunos amigos. Será divertido. ¿Qué dices?",
-          "Perfecto, avísame y coordinamos. ¡Nos vemos luego, Carlos! 👋"
+        "id": 10,
+        "talk": [
+          "Diego, ever fenced with a florist?",
+          "New, María! The challenge?",
+          "A friendly match.",
+          "Fun challenge! Let's do it."
         ]
       },
       {
-        "receptor_id": 8,
-        "mensajes": [
-          "Hola Isabella, ¿cómo va el mundo del arte? 🎨",
-          "¡María! Todo en marcha, tratando de revitalizar la galería. ¿Alguna novedad en la floristería?",
-          "Solo la rutina floral. Por cierto, ¿has considerado agregar arreglos florales a tu galería? Podría ser un toque único. 💐",
-          "Interesante propuesta. Podríamos discutirlo en persona. ¿Nos vemos en el evento del parque este fin de semana?",
-          "¡Por supuesto! Podemos hablar de ello allí. ¿Algún otro de nuestros colegas va?",
-          "Sí, estaré con Samuel y otros. Será genial. ¡Nos vemos en el evento, Isabella! 👋"
+        "id": 11,
+        "talk": [
+          "Carlos, ever delivered flowers to a bus?",
+          "Intriguing, María! The plan?",
+          "A surprise bouquet for the passengers.",
+          "Special delivery. I'm in."
         ]
       },
       {
-        "receptor_id": 12,
-        "mensajes": [
-          "Hola Sergio, ¿cómo van las entregas? 📦",
-          "¡María! Día a día, entregando paquetes por toda la ciudad. ¿Alguna novedad en la floristería?",
-          "Solo la misma rutina floral. Por cierto, ¿necesitas ayuda con las entregas? Podría echar una mano. 👐",
-          "¡Eso sería genial! ¿Hablamos más en detalle en el evento del parque este fin de semana?",
-          "Perfecto, estaré allí. Podemos coordinar y ver cómo podemos colaborar. ¿Te parece bien?",
-          "¡Por supuesto! Nos vemos en el evento, Sergio. ¡Hasta luego! 👋"
+        "id": 12,
+        "talk": [
+          "Sergio, ever delivered a bouquet?",
+          "A first, María! The occasion?",
+          "Just a day in a florist's life.",
+          "Beautiful idea. I'm in."
         ]
       }
     ]
   },
   {
     "id": 10,
-    "data": [
+    "talks": [
       {
-        "receptor_id": 1,
-        "mensajes": [
-          "¡Hola Diego! ¿Cómo va ese arte con la espada?",
-          "¡Hey! La esgrima sigue siendo mi pasión. Últimamente, he tenido unos torneos intensos. ¿Y tú, alguna movida interesante?",
-          "Nada del otro mundo. Algunos negocios en el bajo mundo, ya sabes. ¿Alguna vez consideraste hacer algo más emocionante que esgrima? 😏",
-          "¡Ja! No lo he pensado, pero siempre estoy abierto a nuevas experiencias. ¿Tienes algún proyecto interesante en mente?",
-          "Estoy reclutando para un proyecto. Podría ser algo diferente y emocionante. ¿Te gustaría hablar más sobre ello la próxima vez que nos veamos? 👀",
-          "¡Por supuesto! Estaré atento. Suena intrigante. Nos vemos pronto, Diego. 👋"
+        "id": 7,
+        "talk": [
+          "Carlos! How about a fencing match during a fire drill?",
+          "Diego, that's a new one! What's the idea?",
+          "A friendly match amidst the adrenaline. Ready for the challenge?",
+          "Sounds like a fun challenge, Diego. Let's do it. Until then!"
         ]
       },
       {
-        "receptor_id": 3,
-        "mensajes": [
-          "¡Hola Ricardo! ¿Cómo va ese arte con la construcción?",
-          "¡Hey! Las obras han sido intensas, pero siempre me mantengo ocupado. ¿Y tú, algo interesante en tu mundo?",
-          "Solo las habituales en el bajo mundo. A propósito, ¿alguna vez pensaste en usar tus habilidades para algo más que construir?",
-          "¡Ja! No lo había considerado, pero suena intrigante. ¿Tienes algo en mente?",
-          "Estoy reclutando para un proyecto interesante. ¿Te gustaría saber más la próxima vez que nos veamos? 👀",
-          "¡Claro, estaré pendiente! Si es algo emocionante, podría considerarlo. Nos vemos pronto, Ricardo. 👋"
+        "id": 8,
+        "talk": [
+          "Isabella! How about a fencing match in an art gallery?",
+          "Diego, that's a first! What's the plan?",
+          "Just a day in a fencer's life. What do you think?",
+          "That's an adventure, Diego. I'm in. Until next time!"
         ]
       },
       {
-        "receptor_id": 5,
-        "mensajes": [
-          "¡Hola Profesor Windsor! ¿Cómo van las clases de esgrima?",
-          "¡Saludos Diego! Las clases marchan bien. ¿Y tú, alguna novedad en el mundo de la esgrima?",
-          "Solo las habituales en el bajo mundo. ¿Alguna vez consideraste un cambio más emocionante que la enseñanza?",
-          "Interesante pensamiento. No lo había contemplado. ¿Tienes algo en mente?",
-          "Estoy reclutando para un proyecto intrigante. ¿Te gustaría saber más la próxima vez que nos veamos? 👀",
-          "¡Por supuesto! Sonaría interesante. Estaré atento a nuestra próxima charla. Nos vemos, Profesor Windsor. 👋"
+        "id": 9,
+        "talk": [
+          "María! How about a fencing match in a flower shop?",
+          "Diego, that's new! What's the challenge?",
+          "A surprise match amidst the flowers. Can you help?",
+          "Sounds like a beautiful challenge, Diego. Let's do it. Until then!"
         ]
       },
       {
-        "receptor_id": 7,
-        "mensajes": [
-          "¡Hola Carlos! ¿Cómo va eso de apagar fuegos?",
-          "¡Hola Diego! Siempre enfrentando desafíos. ¿Y tú, alguna novedad en tu vida de instructor?",
-          "Solo las habituales en el bajo mundo. ¿Alguna vez pensaste en cambiar esos apagafuegos por algo más emocionante?",
-          "¡Ja! Nunca lo había pensado. ¿Tienes algo en mente?",
-          "Estoy reclutando para un proyecto emocionante. ¿Te gustaría saber más la próxima vez que nos veamos? 👀",
-          "¡Definitivamente! Suena interesante. Estaré atento a eso. Nos vemos, Carlos. 👋"
+        "id": 11,
+        "talk": [
+          "Carlos! How about a fencing match on a bus?",
+          "Diego, that's intriguing! What's the plan?",
+          "A surprise match for the passengers. Interested?",
+          "Sounds like an adventure, Diego. I'm in. Until next time!"
         ]
       },
       {
-        "receptor_id": 11,
-        "mensajes": [
-          "¡Hola Carlos! ¿Cómo va eso de manejar autobuses?",
-          "¡Hola Diego! Siempre en la ruta. ¿Y tú, alguna novedad en tu vida de esgrimista?",
-          "Solo las habituales en el bajo mundo. ¿Alguna vez pensaste en cambiar esos sables por algo más emocionante?",
-          "¡Ja! No lo había considerado. ¿Tienes algo interesante en mente?",
-          "Estoy reclutando para un proyecto intrigante. ¿Te gustaría saber más la próxima vez que nos veamos? 👀",
-          "¡Por supuesto! Suena interesante. Estaré atento a eso. Nos vemos, Carlos. 👋"
+        "id": 12,
+        "talk": [
+          "Sergio! How about a fencing match during a delivery?",
+          "Diego, that's a first! What's the occasion?",
+          "Just a day in a delivery person's life. What do you think?",
+          "That's a special delivery, Diego. I'm in. Until next time!"
         ]
       }
     ]
   },
   {
     "id": 11,
-    "data": [
+    "talks": [
       {
-        "receptor_id": 4,
-        "mensajes": [
-          "¡Hola Juan! ¿Cómo va en la cocina? Últimamente he probado algunos platillos nuevos. 😋",
-          "¡Carlos! La cocina siempre tiene sorpresas. ¿Algún platillo que recomiendes? 🍲",
-          "He estado experimentando con sabores exóticos. ¡Te invito a probarlos en mi casa este fin de semana! ¿Te apuntas? 🎉",
-          "¡Claro, cuenta conmigo! Siempre es genial disfrutar de buena comida. ¿Algún plato en especial que debo esperar? 😁",
-          "¡Voy a preparar mi especialidad: risotto de mariscos! Te aseguro que te encantará. ¡Hasta el sábado! 👨‍🍳"
+        "id": 9,
+        "talk": [
+          "María, imagine a bus ride with a floral surprise.",
+          "Intriguing, Carlos! What's the challenge?",
+          "A bouquet for passengers to brighten their day.",
+          "Beautiful challenge, Carlos. Let's do it."
         ]
       },
       {
-        "receptor_id": 6,
-        "mensajes": [
-          "Hey Samuel, ¿cómo va todo? Hace tiempo que no nos vemos en eventos comunitarios. 🎉",
-          "¡Carlos! Las cosas han estado ocupadas. Últimamente, he estado investigando algunos casos interesantes. 🕵️‍♂️",
-          "¡Suena emocionante! Yo he estado manejando por la ciudad, ¡siempre hay nuevas rutas que descubrir! 🚍",
-          "Siempre has sido un experto en conocer las calles. Deberíamos reunirnos pronto, tal vez en uno de tus recorridos. ¿Qué opinas? 🗺️",
-          "Me parece genial. Podemos organizar algo la próxima semana. Habrá que ponerse al día. ¡Nos vemos pronto, colega! 👋"
+        "id": 10,
+        "talk": [
+          "Diego, envision a bus ride with a fencing demonstration.",
+          "Intriguing, Carlos! What's the plan?",
+          "A surprise match for passengers to enjoy.",
+          "Sounds adventurous, Carlos. I'm in."
         ]
       },
       {
-        "receptor_id": 9,
-        "mensajes": [
-          "¡Hola María! ¿Cómo va tu hermosa floristería? Siempre es agradable pasar por ahí. 💐",
-          "Carlos, gracias por tu visita frecuente. La floristería sigue floreciendo. ¿Te gustaría algo especial esta vez? 🌺",
-          "Estoy pensando en llevar algunas flores a casa. ¿Tienes alguna recomendación? 🏡",
-          "¡Claro! Las rosas y los lirios siempre son una elección encantadora. ¿Para alguna ocasión especial? 🌹",
-          "Solo quiero darle un toque de frescura a mi hogar. Gracias, María. Pasaré más tarde por las flores. 🌼"
+        "id": 12,
+        "talk": [
+          "Sergio, consider a bus ride with a surprise delivery.",
+          "First time hearing this, Carlos! What's the occasion?",
+          "A day in a bus driver's life with a twist.",
+          "Special delivery, Carlos. I'm in."
         ]
       },
       {
-        "receptor_id": 10,
-        "mensajes": [
-          "¡Hola Diego! ¿Cómo va todo en la academia de esgrima? Deberíamos organizar algo pronto. 🤺",
-          "Carlos, siempre es bueno escuchar de ti. La academia va viento en popa. ¿Te animas a una clase de esgrima? 🤔",
-          "¡Eso suena divertido! Aunque no sé si soy tan hábil como tus estudiantes. ¿Algún consejo para principiantes? 🤺",
-          "La paciencia y la postura son clave. Podemos organizar algo informal, ¡te divertirás! ¿Cuándo te viene bien? ⏰",
-          "Perfecto, la próxima semana estaré más relajado. Coordinamos detalles entonces. ¡Gracias, Diego! 👍"
+        "id": 7,
+        "talk": [
+          "Carlos, think about a day driving a fire truck.",
+          "Intriguing, Carlos! What's the plan?",
+          "A ride along on a firefighter's day. Interested?",
+          "Sounds adventurous, Carlos. I'm in."
         ]
       },
       {
-        "receptor_id": 15,
-        "mensajes": [
-          "¡Hola Gabriela! ¿Cómo van los trámites en el servicio público? Siempre admiré tu eficiencia. 📑",
-          "Carlos, gracias por el elogio. Los trámites siguen su curso. ¿Necesitas alguna gestión especial? 🤝",
-          "Bueno, tengo algunos papeles pendientes. ¿Podrías echarme una mano? Siempre me pierdo en la burocracia. 🗂️",
-          "¡Por supuesto! Conozco algunos atajos. Podemos revisarlos juntos esta semana. ¿Te parece? 🗓️",
-          "Perfecto, Gabriela. Aprecio tu ayuda. Coordinamos y te paso los detalles. ¡Gracias de antemano! 👏"
-        ]
-      }
-    ]
-  },
-  {
-    "id": 12,
-    "data": [
-      {
-        "receptor_id": 1,
-        "mensajes": [
-          "Hola Sergio, ¿cómo va el trajín de las entregas? 🚚",
-          "¡Hola! La furgoneta sigue dando guerra, pero ya sabes cómo es. ¿Algún encargo especial últimamente? 📦",
-          "Bueno, he tenido algunos paquetitos 'interesantes'. 😏 ¿Tú qué tal con esos encuentros en la ciudad? 🌆",
-          "Ah, sí. Me cruzo con gente variada. Últimamente, un par de individuos llamativos. ¿Novedades en tus encuentros? 🤔",
-          "Nada fuera de lo común. He visto a Gaby 'Trámites' por ahí. Si necesitas algo, podría echarte un cable. 😉",
-          "Gracias, Sergio. Tendré en cuenta eso. Si algo se cocina, te aviso. ¡Hasta la próxima entrega! 👋"
+        "id": 8,
+        "talk": [
+          "Isabella, picture a bus tour showcasing local art.",
+          "First time hearing this, Carlos! What's the plan?",
+          "A day in a bus driver's life turned artistic.",
+          "Sounds adventurous, Carlos. I'm in."
         ]
       },
       {
-        "receptor_id": 3,
-        "mensajes": [
-          "Ey Ricardo, ¿cómo va eso de la construcción? 💪",
-          "¡Hola! Los ladrillos siguen en su sitio. ¿Algún cliente peculiar en la floristería últimamente? 🌸",
-          "Bueno, he notado a algunos buscando flores 'especiales'. Cosas raras, ya sabes. ¿Tú qué has estado construyendo últimamente? 🏗️",
-          "Mis obras de siempre. Pero, oye, ¿has escuchado algo sobre proyectos interesantes? 🤔",
-          "Algo he oído. Hablan de negocios en la sombra. Quizás podríamos combinar nuestras habilidades. ¿Te animas? 🔧",
-          "¡Suena intrigante! Charlemos más la próxima vez que nos veamos en eventos comunitarios. ¡Hasta luego, 'Envío'! 👋"
+        "id": 9,
+        "talk": [
+          "María, imagine a bus ride with a floral surprise.",
+          "New concept, Carlos! What's the challenge?",
+          "A bouquet for passengers to brighten their day.",
+          "Beautiful challenge, Carlos. Let's do it."
         ]
       },
       {
-        "receptor_id": 5,
-        "mensajes": [
-          "Hola Profesor Windsor, ¿cómo va eso de las clases? 📚",
-          "¡Hola! Las letras y la gramática siguen siendo mi vida. ¿Algún problema gramatical en tus investigaciones últimamente? 🔍",
-          "Nada grave, solo algunos detalles. Pero, hablando de detalles, ¿has notado algo inusual en eventos artísticos? 🎨",
-          "Ah, sí. Últimamente, ciertos 'coleccionistas' llaman la atención. ¿Tú encuentras inspiración en tus 'actividades ilegales'? 🕵️‍♂️",
-          "No es exactamente así, pero he tenido ciertos desafíos recientes. ¿Algún consejo literario para superarlos? 📖",
-          "La literatura siempre ofrece respuestas. Hablemos más en la próxima reunión. ¡Hasta luego, Profesor! 👋"
+        "id": 10,
+        "talk": [
+          "Diego, envision a bus ride with a fencing demonstration.",
+          "Intriguing, Carlos! What's the plan?",
+          "A surprise match for passengers to enjoy.",
+          "Sounds adventurous, Carlos. I'm in."
         ]
       },
       {
-        "receptor_id": 7,
-        "mensajes": [
-          "Hola Carlos, ¿cómo van esas intervenciones como bombero? 🚒",
-          "¡Hola! Apagando fuegos como siempre. ¿Algún encuentro peculiar en eventos comunitarios? 🚨",
-          "Bueno, he notado a algunos rondando la floristería. ¿Situaciones de emergencia en ese lugar? 🌷",
-          "No, nada grave. Pero, ¿alguna novedad en tus acciones heroicas? 🦸‍♂️",
-          "Un par de rescates, lo habitual. Pero escuché sobre acciones menos 'heroicas'. ¿Tienes algún chisme? 🤐",
-          "Algún rumor, pero nada confirmado. Charlemos más la próxima vez que nos veamos. ¡Hasta luego, Carlos! 👋"
-        ]
-      },
-      {
-        "receptor_id": 11,
-        "mensajes": [
-          "Hola Carlos 'Ruedas', ¿cómo va eso de manejar autobuses? 🚌",
-          "¡Hola! Conduciendo por las calles como siempre. ¿Algún problema de tráfico en tus encuentros comunitarios? 🛣️",
-          "Bueno, he notado a algunos con intereses peculiares en eventos ilegales. ¿Problemas de ruta? 🗺️",
-          "No, todo en orden. Pero, ¿alguna novedad en tus rutas habituales? 🚌",
-          "Algunas alteraciones, pero nada serio. Oí hablar de tu participación en eventos ilegales. ¿Qué hay de nuevo? 🤔",
-          "Ah, cosas de la ciudad. Charlemos más la próxima vez que nos veamos en la ruta. ¡Hasta luego, Carlos 'Ruedas'! 👋"
+        "id": 12,
+        "talk": [
+          "Sergio, consider a bus ride with a surprise delivery.",
+          "First time hearing this, Carlos! What's the occasion?",
+          "A day in a bus driver's life with a twist.",
+          "Special delivery, Carlos. I'm in."
         ]
       }
     ]
   },
   {
     "id": 13,
-    "data": [
+    "talks": [
       {
-        "receptor_id": 1,
-        "mensajes": [
-          "¡Hola Laura 'Justicia'! ¿Cómo va todo en el mundo de las investigaciones?",
-          "Hola Sergio 'Envío'. La rutina de siempre, resolviendo casos y manteniendo la paz. ¿Y tú?",
-          "Bien, bien. Mis entregas van sobre ruedas. Últimamente, he tenido algunos encuentros ocasionales en la ciudad.",
-          "¡Vaya! Debe ser interesante. ¿Alguna novedad?",
-          "Nada demasiado emocionante. Solo los habituales trasiegos urbanos. ¿Algún caso intrigante en tu radar?",
-          "Nada fuera de lo común. Pero si te enteras de algo interesante en tus rondas, avísame. ¡Hasta luego!"
+        "id": 14,
+        "talk": [
+          "Pedro, consider a stone sculpture bathed in light.",
+          "Intriguing, Ana! How would that work?",
+          "Your sculptures could become a nighttime spectacle.",
+          "Bright idea, Ana. Let's do it."
         ]
       },
       {
-        "receptor_id": 3,
-        "mensajes": [
-          "¡Ricardo 'Muro'! ¿Cómo va eso en el mundo de la construcción?",
-          "¡Hola Laura 'Justicia'! Aquí, construyendo sueños y levantando estructuras. ¿Y tú?",
-          "Lo de siempre, investigaciones y resolviendo casos. A propósito, ¿has notado algo inusual en tus obras?",
-          "Hmm, no mucho. Solo la rutina diaria. Pero si buscas algo específico, házmelo saber.",
-          "No, nada en particular. Solo curiosidad. Si te topas con algo sospechoso, avísame. ¡Nos vemos!"
+        "id": 15,
+        "talk": [
+          "Sofia, think about a beach lit up at night.",
+          "First time hearing this, Ana! What's the plan?",
+          "A day in a light designer's life turned magical.",
+          "Sounds adventurous, Ana. I'm in."
         ]
       },
       {
-        "receptor_id": 5,
-        "mensajes": [
-          "Profesor 'Windsor', ¿cómo van las clases de inglés y literatura?",
-          "Hola Laura 'Justicia'. Las clases marchan bien. Siempre inspirando a las mentes jóvenes. ¿Y tú?",
-          "En la misma línea, lidiando con investigaciones. Por cierto, ¿algún estudiante interesante últimamente?",
-          "Ah, sí. Siempre hay talento emergente. Algunos participan en actividades ilegales, pero son solo fases, ¿verdad?",
-          "Exacto, solo fases. Pero si ves algo que pueda necesitar mi atención, házmelo saber. ¡Hasta luego!"
+        "id": 16,
+        "talk": [
+          "Juan, how about a kite performance under the stars?",
+          "New concept, Ana! What's the challenge?",
+          "A surprise show for spectators with kites and lights.",
+          "Fun challenge, Ana. Let's do it."
         ]
       },
       {
-        "receptor_id": 7,
-        "mensajes": [
-          "¡Carlos 'Llamas'! ¿Cómo va eso apagando incendios?",
-          "Hola Laura 'Justicia'. Apagando fuegos, como siempre. ¿Y tú, alguna novedad en el frente policial?",
-          "La rutina de siempre. Pero, hablando de rutinas, ¿has notado algo inusual en tus intervenciones?",
-          "Hmm, nada fuera de lo común. Solo algunos rescates y situaciones típicas. ¿Por qué lo preguntas?",
-          "Solo curiosidad. Si percibes algo extraño, avísame. Puede ser importante. ¡Nos vemos, 'Llamas'!"
+        "id": 17,
+        "talk": [
+          "Maria, picture a garden glowing under a light show.",
+          "Intriguing, Ana! What's the plan?",
+          "A surprise for visitors with plants and lights.",
+          "Special event, Ana. I'm in."
         ]
       },
       {
-        "receptor_id": 11,
-        "mensajes": [
-          "Carlos 'Ruedas', ¿cómo va eso conduciendo por la ciudad?",
-          "¡Hola Laura 'Justicia'! Ruedas siempre en movimiento. ¿Y tú, persiguiendo criminales?",
-          "En cierto modo. Pero hablando de movimientos, ¿has notado algo inusual en tus rutas?",
-          "No, nada fuera de lo normal. Solo los altibajos de la ciudad. ¿Algo en particular que deba tener en cuenta?",
-          "No, por ahora solo curiosidad. Si ves algo sospechoso, avísame. ¡Hasta luego, 'Ruedas'!"
+        "id": 18,
+        "talk": [
+          "Pablo, how about a fire performance under a light show?",
+          "First time hearing this, Ana! What's the occasion?",
+          "A day in a light designer's life with a fiery twist.",
+          "Bright idea, Ana. I'm in."
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": 15,
+    "talks": [
+      {
+        "id": 13,
+        "talk": [
+          "Ana, imagine creating a constellation on the beach.",
+          "Intriguing, Sofia! How would that work?",
+          "A light installation mimicking stars on the sand.",
+          "Bright idea, Sofia. Let's do it."
+        ]
+      },
+      {
+        "id": 14,
+        "talk": [
+          "Pedro, envision creating a sand sculpture.",
+          "First time hearing this, Sofia! What's the plan?",
+          "A day at the beach turned into an art project.",
+          "Sounds adventurous, Sofia. I'm in."
+        ]
+      },
+      {
+        "id": 16,
+        "talk": [
+          "Juan, consider a kite festival by the sea.",
+          "New concept, Sofia! What's the challenge?",
+          "A surprise show for beachgoers with colorful kites.",
+          "Fun challenge, Sofia. Let's do it."
+        ]
+      },
+      {
+        "id": 17,
+        "talk": [
+          "Maria, picture a beach transformed into a garden.",
+          "Intriguing, Sofia! What's the plan?",
+          "A surprise for beachgoers with plants and flowers.",
+          "Special event, Sofia. I'm in."
+        ]
+      },
+      {
+        "id": 1,
+        "talk": [
+          "Marcos, think about simplifying bureaucratic processes.",
+          "Intriguing, Gabriela! What's the plan?",
+          "A day in a public servant's life made efficient.",
+          "Sounds like a challenge, Gabriela. Let's do it."
         ]
       }
     ]
   },
   {
     "id": 14,
-    "data": [
+    "talks": [
       {
-        "receptor_id": 1,
-        "mensajes": [
-          "Hola Miguel, ¿cómo va la vida en las calles? 🌆",
-          "Hey, todo bien, lidiando con lo de siempre. ¿Y tú, qué noticias tienes? 🤔",
-          "Bueno, he estado haciendo malabares para conseguir recursos. La ciudad está un poco más frenética estos días. 🏙️",
-          "Sí, he notado un aumento en la actividad. ¿Algún encuentro interesante últimamente? 🤨",
-          "La semana pasada, me crucé con algunos conocidos en eventos comunitarios. Siempre hay algo en marcha. ¿Tienes algún plan? 🚶",
-          "Estoy explorando algunas oportunidades. Tal vez podamos charlar más la próxima vez que nos veamos. Cuídate, Miguel. 👋"
+        "id": 13,
+        "talk": [
+          "Ana, imagine a sculpture garden under the moonlight.",
+          "Intriguing, Pedro! What's the scene?",
+          "A night tour with sculptures bathed in soft light.",
+          "Bright idea, Pedro. Let's do it."
         ]
       },
       {
-        "receptor_id": 3,
-        "mensajes": [
-          "Ricardo, ¿cómo va todo en el mundo de la construcción? 🏗️",
-          "Hola 'Muro', las obras van bien. Últimamente, he tenido algunos encargos interesantes. ¿Y tú? 🤨",
-          "Bien, bien. En mis rondas habituales, noté algunos cambios en la ciudad. ¿Alguna construcción llamativa? 🌆",
-          "Sí, están renovando el centro. Al parecer, hay planes grandes. ¿Te interesaría un proyecto diferente? 🤔",
-          "Dependiendo de qué se trate, claro. Si es algo fuera de lo común, podría estar interesado. ¿Tienes algo en mente? 🏰",
-          "Estoy explorando algunas oportunidades. Charlemos más la próxima vez que nos veamos en la ciudad. ¡Hasta luego! 👋"
+        "id": 15,
+        "talk": [
+          "Sofia, envision a beach adorned with stone sculptures.",
+          "First time hearing this, Pedro! What's the plan?",
+          "A day at the beach turned into an art exhibit.",
+          "Sounds adventurous, Pedro. I'm in."
         ]
       },
       {
-        "receptor_id": 5,
-        "mensajes": [
-          "Profesor Windsor, ¿cómo está la literatura y el mundo académico? 📚",
-          "Ah, Miguel, siempre interesado en las palabras. Todo sigue su curso. ¿Y tú? ¿Nueva inspiración en las calles? 🤨",
-          "Sí, la ciudad siempre tiene algo que contar. Últimamente, he tenido encuentros peculiares en eventos comunitarios. 🏙️",
-          "Ah, los giros de la vida. A propósito, ¿algún libro recomendado para estos días? 📖",
-          "Siempre recomendaré 'Cien Años de Soledad'. En eventos comunitarios, siempre hay historias sorprendentes. ¿Algún proyecto literario en tu horizonte? ✍️",
-          "Estoy explorando algunas oportunidades. Podríamos charlar más la próxima vez que nos veamos. ¡Cuídate, Profesor! 👋"
+        "id": 16,
+        "talk": [
+          "Juan, consider a kite festival around sculptures.",
+          "New concept, Pedro! What's the challenge?",
+          "A surprise show for spectators with kites and art.",
+          "Fun challenge, Pedro. Let's do it."
         ]
       },
       {
-        "receptor_id": 7,
-        "mensajes": [
-          "Carlos, ¿cómo van las cosas en el mundo de los bomberos? 🚒",
-          "¡Miguel! Todo bien, apagando fuegos y salvando gatos de árboles. ¿Y tú, alguna emergencia interesante? 🤨",
-          "No tanto, pero he notado que la ciudad está más agitada. ¿Algún incendio sospechoso por ahí? 🔥",
-          "Nada fuera de lo común. Pero escuché que estás buscando oportunidades. ¿En qué puedo ayudarte? 🤔",
-          "Estoy considerando algunos proyectos. Tal vez podríamos hablar más la próxima vez que nos encontremos. ¡Cuídate, Carlos! 👋"
+        "id": 17,
+        "talk": [
+          "Maria, picture a sculpture garden with lush greenery.",
+          "Intriguing, Pedro! What's the plan?",
+          "A surprise for visitors with plants around sculptures.",
+          "Special event, Pedro. I'm in."
         ]
       },
       {
-        "receptor_id": 11,
-        "mensajes": [
-          "Carlos 'Ruedas', ¿cómo va todo en el mundo de los autobuses? 🚌",
-          "¡Hola Miguel! Siguiendo rutas y llevando a la gente a sus destinos. ¿Y tú, alguna ruta nueva en tus andanzas? 🤨",
-          "Sí, estoy explorando un poco más la ciudad. Últimamente, he tenido encuentros en eventos comunitarios. ¿Algún consejo de navegación? 🗺️",
-          "Bueno, siempre es bueno conocer nuevas rutas, aunque sea en la ciudad. ¿Necesitas alguna información de viaje? 🚌",
-          "No por ahora, pero gracias, Carlos. Estoy explorando oportunidades. Podríamos charlar más la próxima vez que nos veamos. ¡Hasta luego! 👋"
+        "id": 18,
+        "talk": [
+          "Pablo, think about a sculpture unveiling with a fire show.",
+          "First time hearing this, Pedro! What's the occasion?",
+          "A day in a sculptor's life with a fiery twist.",
+          "Bright idea, Pedro. I'm in."
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": 16,
+    "talks": [
+      {
+        "id": 13,
+        "talk": [
+          "Ana, imagine a taxi with a light show.",
+          "Intriguing, Antonio! How would that work?",
+          "A night ride could become a luminous journey.",
+          "Bright idea, Antonio. Let's do it."
+        ]
+      },
+      {
+        "id": 14,
+        "talk": [
+          "Pedro, envision a taxi with a stone art installation.",
+          "First time hearing this, Antonio! What's the plan?",
+          "A ride could turn into an artistic experience.",
+          "Sounds adventurous, Antonio. I'm in."
+        ]
+      },
+      {
+        "id": 15,
+        "talk": [
+          "Gabriela, consider a taxi as a mobile office.",
+          "New concept, Antonio! What's the challenge?",
+          "A surprise service for passengers to work on the go.",
+          "Fun challenge, Antonio. Let's do it."
+        ]
+      },
+      {
+        "id": 17,
+        "talk": [
+          "Luis, picture a taxi with a treasure hunt.",
+          "Intriguing, Antonio! What's the plan?",
+          "A surprise game for passengers during their ride.",
+          "Sounds adventurous, Antonio. I'm in."
+        ]
+      },
+      {
+        "id": 18,
+        "talk": [
+          "Javier, think about a taxi for business meetings.",
+          "First time hearing this, Antonio! What's the occasion?",
+          "A day in a taxi driver's life with a business twist.",
+          "Unique idea, Antonio. I'm in."
         ]
       }
     ]
   },
   {
-    "id": 15,
-    "data": [
+    "id": 17,
+    "talks": [
       {
-        "receptor_id": 6,
-        "mensajes": [
-          "¡Hola Samuel! ¿Qué misterios has estado desentrañando últimamente? 🔍",
-          "Hola Gaby, los mismos misterios de siempre. ¿Algún trámite burocrático interesante en tu vida? 📂",
-          "Más interesante de lo que piensas. Estoy explorando algunos proyectos fuera de lo común. ¿Alguna sombra intrigante en tus investigaciones? 🕵️‍♂️",
-          "Siempre hay sombras interesantes. Últimamente, me he topado con figuras intrigantes en el bajo mundo. ¿Tú en qué andas? 🌑",
-          "Ando metida en algunos asuntos gubernamentales... pero ya sabes, mi especialidad. Tal vez puedas ayudarme con algo en el futuro. ¿Hablamos más luego? ",
-          "Por supuesto, te llamo un día y hablamos. ¡Hasta luego!"
+        "id": 13,
+        "talk": [
+          "Laura, ever chased a cat?",
+          "Laura: Only if it's up to no good, Luis.",
+          "Then let's play a game of cat and mouse.",
+          "Just remember, Luis, the mouse doesn't always win."
         ]
       },
       {
-        "receptor_id": 9,
-        "mensajes": [
-          "Hola María, ¿cómo va con las flores? 🌷",
-          "¡Hola Gaby! Todo marcha bien en la floristería. ¿Algún trámite nuevo en tu mundo? 📄",
-          "Sí, siempre hay papeleo. Pero últimamente, estoy involucrada en asuntos más interesantes. ¿Alguna novedad floral? 🌸",
-          "Bueno, he estado explorando nuevas opciones para expandir el negocio. Pero nada ilegal, por supuesto. ¿Tú en qué líos andas? 🤔",
-          "Nada ilegal, solo la rutina de siempre. Pero escuché que podrías necesitar de mis servicios. ¿Charlamos más la próxima vez que nos veamos?",
-          "Claro, hablamos pronto. ¡Un beso!"
+        "id": 14,
+        "talk": [
+          "Miguel, need a partner in crime?",
+          "Only if it gets me off the streets, Luis.",
+          "Then let's make some mischief together.",
+          "Just don't get us caught, Luis."
         ]
       },
       {
-        "receptor_id": 10,
-        "mensajes": [
-          "¡Hola Diego! ¿Cómo va en el mundo de la esgrima? ⚔️",
-          "¡Hola Gaby! Todo bien, entrenando duro. ¿Algún trámite complicado en tu vida? 🤷‍♂️",
-          "Más que trámites, estoy en busca de colaboradores para un proyecto. ¿Algún duelo interesante en tu academia últimamente? 🤺",
-          "Bueno, siempre hay duelos emocionantes. Pero últimamente, estoy enfocado en mantener la academia a flote. ¿Y tú, en qué piensas? 💭",
-          "Estoy pensando en algo grande. Podría haber una oportunidad para ti en mi proyecto. Charlemos más la próxima vez que nos veamos. ¡Hasta luego! 👋"
+        "id": 15,
+        "talk": [
+          "Gabriela, ever bend the rules?",
+          "Only when necessary, Luis.",
+          "Then let's bend them together.",
+          "Just don't break them, Luis."
         ]
       },
       {
-        "receptor_id": 2,
-        "mensajes": [
-          "Ey Laura, ¿algún dato interesante en tus investigaciones? 🕵️‍♀️",
-          "Hola Gaby, siempre hay algo interesante. ¿Algún trámite legal complicado en tu vida? 📑",
-          "Menos legalidad, más proyectos emocionantes. ¿Algún secreto cibernético en tu radar? 💻",
-          "¡Oh, algunos secretos interesantes! Últimamente, he estado investigando conexiones en el mundo del arte. ¿Tú en qué andas? 🎨",
-          "Estoy explorando oportunidades en el bajo mundo del arte. Quizás podamos colaborar en el futuro. ¿Hablamos más la próxima vez que nos veamos? 👋",
-          "¡Claro! Pero ahora me piro que tengo prisa. ¡Agur!"
+        "id": 16,
+        "talk": [
+          " Antonio, ever take the scenic route?",
+          "Only if it's worth the ride, Luis.",
+          "Then let's take a detour together.",
+          "Just don't get us lost, Luis."
         ]
       },
       {
-        "receptor_id": 3,
-        "mensajes": [
-          "¡Hola Ricardo! ¿Cómo va todo en el mundo de la construcción? 🏗️",
-          "Hola Gaby, la construcción sigue su curso. ¿Algún trámite complicado en tu vida? 🚧",
-          "Más que trámites, estoy en busca de aliados para un proyecto. ¿Alguna estructura interesante que hayas construido últimamente? 🏰",
-          "Bueno, siempre construyendo algo. Pero últimamente, he estado involucrado en proyectos menos convencionales. ¿Y tú, en qué piensas construir? 🤔",
-          "Estoy explorando oportunidades interesantes. Podría haber una oportunidad para ti en mi proyecto. Charlemos más la próxima vez que nos veamos. ¡Hasta luego! 👋"
+        "id": 18,
+        "talk": [
+          "Javier, ever risk it all?",
+          "Only if the reward is high, Luis.",
+          "Then let's gamble together.",
+          " Just don't lose everything, Luis."
+        ]
+      },
+      {
+        "id": 18,
+        "talk": [
+          "Javier, ever risk it all?",
+          "Only if the reward is high, Luis.",
+          "Then let's gamble together.",
+          " Just don't lose everything, Luis."
+        ]
+      }
+    ]
+  },
+
+  {
+    "id": 18,
+    "talks": [
+      {
+        "id": 13,
+        "talk": [
+          "Laura, let's discuss crime novels over coffee.",
+          "Sounds interesting, Javier.",
+          "They often reflect real-life law and order.",
+          "Looking forward to our chat, Javier."
+        ]
+      },
+      {
+        "id": 14,
+        "talk": [
+          "Miguel, let's discuss urban survival strategies.",
+          "Sounds good, Javier.",
+          "Proper planning can improve any situation.",
+          "Appreciate your help, Javier."
+        ]
+      },
+      {
+        "id": 15,
+        "talk": [
+          "Gabriela, let's discuss improving public services.",
+          "Great idea, Javier.",
+          "Streamlining processes can make a real difference.",
+          "Looking forward to it, Javier."
+        ]
+      },
+      {
+        "id": 16,
+        "talk": [
+          "Antonio, let's discuss enhancing taxi services.",
+          "Sounds great, Javier.",
+          "Customer satisfaction is key in your business.",
+          "Appreciate your help, Javier."
+        ]
+      },
+      {
+        "id": 17,
+        "talk": [
+          "Luis, let's discuss personal growth strategies.",
+          "Sounds good, Javier.",
+          "Improvement starts with the right approach.",
+          "Appreciate your help, Javier."
+        ]
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "talks": [
+      {
+        "id": 20,
+        "talk": [
+          "Dr. Martínez, let's discuss the benefits of meditation.",
+          "Sounds interesting, Carlos.",
+          "Meditation can help improve focus and reduce stress.",
+          "Looking forward to it, Carlos."
+        ]
+      },
+      {
+        "id": 21,
+        "talk": [
+          "Ana, let's discuss the art of origami.",
+          "Sounds fun, Carlos.",
+          "Origami is a great way to improve concentration.",
+          "I'll definitely give it a try. Take care!"
+        ]
+      },
+      {
+        "id": 22,
+        "talk": [
+          "Miguel, let's discuss the benefits of journaling.",
+          "Sounds good, Carlos.",
+          "Journaling can help organize thoughts and reduce stress.",
+          "Appreciate your suggestion, Carlos."
+        ]
+      },
+      {
+        "id": 1,
+        "talk": [
+          "Marcos, let's discuss the art of digital painting.",
+          "Sounds interesting, Carlos.",
+          "Digital painting is a great way to express creativity.",
+          "Looking forward to it, Carlos."
+        ]
+      },
+      {
+        "id": 2,
+        "talk": [
+          "Laura, let's discuss the benefits of yoga.",
+          "Sounds great, Carlos.",
+          "Yoga can help improve flexibility and reduce stress.",
+          "I'll definitely give it a try. Take care!"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "talks": [
+      {
+        "id": 19,
+        "talk": [
+          "Carlos, let's explore botany over herbal tea.",
+          "Sounds interesting, Dr. Martínez.",
+          "Nature holds remedies for many ailments.",
+          "Looking forward to it, Dr. Martínez."
+        ]
+      },
+      {
+        "id": 21,
+        "talk": [
+          "Ana, let's delve into puzzles' mental benefits.",
+          "Sounds fun, Dr. Martínez.",
+          "Puzzles enhance memory and cognitive function.",
+          "I'll definitely give it a try. Take care!"
+        ]
+      },
+      {
+        "id": 22,
+        "talk": [
+          "Miguel, let's discuss Sudoku's mental benefits.",
+          "Sounds good, Dr. Martínez.",
+          "Sudoku enhances concentration and problem-solving.",
+          "Appreciate your help, Dr. Martínez."
+        ]
+      },
+      {
+        "id": 1,
+        "talk": [
+          "Marcos, let's discuss manga's relaxation benefits.",
+          "Sounds interesting, Dr. Martínez.",
+          "Manga helps reduce stress and boost creativity.",
+          "Looking forward to it, Dr. Martínez."
+        ]
+      },
+      {
+        "id": 2,
+        "talk": [
+          "Laura, let's explore mountain walks' health benefits.",
+          "Sounds great, Dr. Martínez.",
+          "Mountain walks improve cardiovascular health.",
+          "I'll definitely give it a try. Take care!"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "talks": [
+      {
+        "id": 19,
+        "talk": [
+          "Carlos, ever tried stargazing?",
+          "Sounds interesting, Ana.",
+          "It's a way to connect with the universe.",
+          "I'll give it a try, Ana. Take care!"
+        ]
+      },
+      {
+        "id": 20,
+        "talk": [
+          "Dr. Martínez, ever tried bird watching?",
+          "Sounds fun, Ana. I love nature.",
+          "It's a great way to relax and enjoy nature.",
+          "I'll definitely give it a try. Take care!"
+        ]
+      },
+      {
+        "id": 22,
+        "talk": [
+          "Miguel, ever tried pottery?",
+          "Good idea, Ana. I love crafts.",
+          "It's a way to create something beautiful and useful.",
+          "Appreciate your suggestion, Ana. Talk soon."
+        ]
+      },
+      {
+        "id": 1,
+        "talk": [
+          "Marcos, ever tried cooking?",
+          "Interesting, Ana. I love trying new things.",
+          "It's a way to create and enjoy delicious food.",
+          "Looking forward to it, Ana. Take care!"
+        ]
+      },
+      {
+        "id": 2,
+        "talk": [
+          "Laura, ever tried yoga?",
+          "Great idea, Ana. I love fitness.",
+          "It's a way to relax and stay fit.",
+          "I'll definitely give it a try. Take care!"
+        ]
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "talks": [
+      {
+        "id": 19,
+        "talk": [
+          "Carlos, ever thought about garden layouts?",
+          "Interesting, Miguel. Tell me more.",
+          "It's like a puzzle, each plant has its place.",
+          "Intriguing, Miguel. I'll ponder on it."
+        ]
+      },
+      {
+        "id": 20,
+        "talk": [
+          "Dr. Martínez, Sudoku's health benefits?",
+          "Sounds fun, Miguel. Elaborate?",
+          "It's a mental exercise, improves cognitive function.",
+          "Fascinating, Dr. Martínez. I'll try it."
+        ]
+      },
+      {
+        "id": 21,
+        "talk": [
+          "Ana, let's discuss store organization.",
+          "Good idea, Miguel. Any specifics?",
+          "It's like a puzzle, every product has its place.",
+          "I love puzzles, Miguel. I'm in."
+        ]
+      },
+      {
+        "id": 1,
+        "talk": [
+          "Marcos, ever thought about hacking puzzles?",
+          "Intriguing, Miguel. What's the challenge?",
+          "Solving a puzzle is like hacking a system.",
+          "Challenging, Miguel. I'm on it."
+        ]
+      },
+      {
+        "id": 2,
+        "talk": [
+          "Laura, ever hiked a mountain puzzle?",
+          "New, Miguel. What's the plan?",
+          "Solving a puzzle while hiking, interesting?",
+          "Adventurous, Miguel. I'm in."
         ]
       }
     ]

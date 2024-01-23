@@ -3,6 +3,7 @@ import { DEPTH, SIZES } from '../lib/constants';
 import SpriteLudo from './SpriteLudo';
 import OnTheFlySprite from './OnTheFlySprite';
 import GotoSceneObject from '../objects/gotoSceneObject';
+import OnTheFlyImage from './OnTheFlyImage';
 interface Props {
   scene: Phaser.Scene;
   x: number;
@@ -10,7 +11,7 @@ interface Props {
   name: string;
   type: string;
   spriteLudo: SpriteLudo;
-  parent: OnTheFlySprite | Phaser.Types.Tilemaps.TiledObject;
+  parent: OnTheFlySprite | Phaser.Types.Tilemaps.TiledObject | OnTheFlyImage;
   gotoSceneObject?: GotoSceneObject;
 }
 
@@ -27,7 +28,7 @@ export default class OverlapSprite extends Phaser.Physics.Arcade.Sprite {
     );
     this.gotoSceneObject = config.gotoSceneObject;
     this.type = config.type;
-    this.depth = DEPTH.OBJECTS;
+    this.depth = DEPTH.ON_THE_FLY_OBJECTS_ABOVE_PLAYER;
     this.visible = true;
     this.setOrigin(0, 0);
     config.scene.physics.add.existing(this, true);

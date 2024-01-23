@@ -1,28 +1,73 @@
 import { Think } from '../../AI/base/goals/Think';
-import { EscapeEvaluator, WalkEvaluator } from './evaluators';
-import { GameEntity, Props } from '../../AI/base/core/GameEntity';
-import { DEPTH, SIZES } from '../../lib/constants';
+import {
+  RestingEvaluator,
+  GoToRestEvaluator,
+  WalkEvaluator
+} from './evaluators';
+import { GameEntity } from '../../AI/base/core/GameEntity';
+import { DEPTH } from '../../lib/constants';
 import * as Phaser from 'phaser';
-import Statics from '../statics/staticsCity';
+import Statics from '../statics/statics';
 import { Citizens } from './data/citizens.json';
+
+export interface CharacterInfo {
+  name: string;
+  age: number;
+  profession: string;
+  background: Background;
+  characteristics: Characteristics;
+  skills: { [key: string]: number | undefined };
+  advantages: string[];
+  disadvantages: string[];
+  quirks?: string[];
+  id: number;
+  sprite?: string;
+  hobbies?: string[];
+}
+
+interface Props {
+  scene: Phaser.Scene;
+  x: number;
+  y: number;
+  texture?: string;
+  info: CharacterInfo;
+}
+
+export interface Background {
+  childhood: string;
+  current: string;
+}
+
+export interface Characteristics {
+  strength: number;
+  dexterity: number;
+  intelligence: number;
+  health: number;
+}
 
 export class CitizenActor extends GameEntity {
   brain: Think<CitizenActor>;
   isAfraid: boolean = false;
-  isLazy: boolean = false;
-  isAttacking: boolean = false;
-  isHuntingTo: Phaser.GameObjects.GameObject | undefined;
+  isTired: boolean = false;
+  isResting: boolean = false;
   static baseScale: 0.7;
-  info?: unknown;
+  info?: CharacterInfo;
+  velocity: number = 150;
+  currentEnergy: number = -1;
+
+  static cyclesToRest: number = 1000;
 
   constructor(config: Props) {
     super({ ...config });
     this.prepareAnimsFromAseSprite();
-
+    this.currentEnergy = Phaser.Math.Between(
+      500,
+      config.info.characteristics.health * CitizenActor.cyclesToRest
+    );
+    this.info = config.info;
     this.brain = new Think(this);
-
-    this.brain.addEvaluator(new EscapeEvaluator());
-
+    this.brain.addEvaluator(new GoToRestEvaluator());
+    this.brain.addEvaluator(new RestingEvaluator());
     this.brain.addEvaluator(new WalkEvaluator());
     if (this.body) this.body.immovable = false;
   }
@@ -33,168 +78,6 @@ export class CitizenActor extends GameEntity {
       this.brain?.execute();
       this.brain?.arbitrate();
     }
-  }
-
-  static getValidPosition(
-    currentcitizen: CitizenActor,
-    TOTAL_CITIZENS: number,
-    firstIteration: boolean = false
-  ): { x: number; y: number } {
-    let x: number = 0;
-    let y: number = 0;
-    let valid: boolean = false;
-    const validDistanceX = Statics.map.widthInPixels / TOTAL_CITIZENS / 2;
-    const validDistanceY = Statics.map.heightInPixels / TOTAL_CITIZENS / 2;
-
-    const validTiles: { tileX: number; tileY: number }[] = [];
-    Statics.tilesNotTotallySafeForLivingBeings.forEach((row, y) => {
-      row.forEach((tile, x) => {
-        if (Statics.tilesNotTotallySafeForLivingBeings[y][x] === 0)
-          validTiles.push({ tileX: x, tileY: y });
-      });
-    });
-
-    while (!valid) {
-      let internalValid: boolean = true;
-      const { tileX, tileY } =
-        validTiles[Phaser.Math.Between(0, validTiles.length - 1)];
-
-      if (Statics.tilesNotTotallySafeForLivingBeings[tileY][tileX] === 0) {
-        x = tileX * SIZES.BLOCK;
-        y = tileY * SIZES.BLOCK;
-        if (firstIteration)
-          Statics.groupOfCitizens.children.entries.forEach((citizen) => {
-            const thecitizen = citizen as CitizenActor;
-            if (thecitizen !== currentcitizen)
-              if (
-                Math.abs(thecitizen.x - x) < validDistanceX ||
-                Math.abs(thecitizen.y - y) < validDistanceY
-              ) {
-                internalValid = false;
-              }
-          });
-      } else {
-        internalValid = false;
-      }
-      valid = internalValid;
-    }
-    return {
-      x,
-      y
-    };
-  }
-
-  static getRandomTotallySafePositionNearOwner(
-    citizen: CitizenActor,
-    sizeOfArea: number = 10
-  ): {
-    x: number;
-    y: number;
-  } {
-    const validTiles: { tileX: number; tileY: number }[] = [];
-    const citizenTileXY = {
-      x: Math.round(citizen.x / SIZES.BLOCK),
-      y: Math.round(citizen.y / SIZES.BLOCK)
-    };
-    Statics.tilesNotTotallySafeForLivingBeings.forEach((row, y) => {
-      row.forEach((tile, x) => {
-        if (Statics.tilesNotTotallySafeForLivingBeings[y][x] === 0) {
-          if (
-            Phaser.Math.Within(x, citizenTileXY.x, sizeOfArea) &&
-            Phaser.Math.Within(y, citizenTileXY.y, sizeOfArea)
-          ) {
-            validTiles.push({ tileX: x, tileY: y });
-          }
-        }
-      });
-    });
-
-    const { tileX, tileY } =
-      validTiles[Phaser.Math.Between(0, validTiles.length - 1)];
-
-    return {
-      x: tileX,
-      y: tileY
-    };
-  }
-
-  static getTotallySafeForLivingBeingsPosition({
-    x,
-    y
-  }: {
-    x: number;
-    y: number;
-  }): number | undefined {
-    if (
-      Statics.tilesNotTotallySafeForLivingBeings[y] &&
-      Statics.tilesNotTotallySafeForLivingBeings[y][x] !== undefined
-    ) {
-      return Statics.tilesNotTotallySafeForLivingBeings[y][x];
-    }
-    return undefined;
-  }
-
-  static getNearestTotallySafePosition(citizen: CitizenActor): {
-    x: number;
-    y: number;
-    originTileIsSafe: boolean;
-  } {
-    const validTiles: { tileX: number; tileY: number }[] = [];
-    Statics.tilesNotTotallySafeForLivingBeings.forEach((row, y) => {
-      row.forEach((tile, x) => {
-        if (Statics.tilesNotTotallySafeForLivingBeings[y][x] === 0)
-          validTiles.push({ tileX: x, tileY: y });
-      });
-    });
-    const valid = false;
-    const originPosition = {
-      x: Math.round(citizen.x / SIZES.BLOCK),
-      y: Math.round(citizen.y / SIZES.BLOCK)
-    };
-
-    if (
-      CitizenActor.getTotallySafeForLivingBeingsPosition(originPosition) === 0
-    )
-      return { ...originPosition, originTileIsSafe: true };
-
-    let sum = 1;
-    while (!valid) {
-      const { x, y } = originPosition;
-      if (
-        CitizenActor.getTotallySafeForLivingBeingsPosition({
-          x: x + sum,
-          y: y
-        }) === 0
-      )
-        return { x: x + sum, y: y, originTileIsSafe: false };
-      if (
-        CitizenActor.getTotallySafeForLivingBeingsPosition({
-          x: x - sum,
-          y: y
-        }) === 0
-      )
-        return { x: x - sum, y: y, originTileIsSafe: false };
-      if (
-        CitizenActor.getTotallySafeForLivingBeingsPosition({
-          x: x,
-          y: y + sum
-        }) === 0
-      )
-        return { x: x, y: y + sum, originTileIsSafe: false };
-      if (
-        CitizenActor.getTotallySafeForLivingBeingsPosition({
-          x: x,
-          y: y - sum
-        }) === 0
-      )
-        return { x: x, y: y - sum, originTileIsSafe: false };
-      sum++;
-    }
-    return {
-      x: 0,
-      y: 0,
-      originTileIsSafe: false
-    };
   }
 
   static preloadCitizens(scene: Phaser.Scene) {
@@ -213,16 +96,17 @@ export class CitizenActor extends GameEntity {
         scene,
         x: 0,
         y: 0,
-        texture: citizenInfo.name
+        texture: citizenInfo.name,
+        info: citizenInfo
       });
-      citizen.info = citizenInfo;
       citizen.scale = CitizenActor.baseScale;
       citizen.setPushable(false);
       citizen.depth = DEPTH.CITIZENS;
-      const { x, y } = CitizenActor.getValidPosition(
+      const { x, y } = CitizenActor.getValidPositionForCitizens(
         citizen,
         Citizens.filter((citizen) => citizen.sprite).length - 1,
-        true
+        true,
+        Statics.groupOfCitizens
       );
       citizen.setPosition(x, y);
       citizen.scale = 0.7;

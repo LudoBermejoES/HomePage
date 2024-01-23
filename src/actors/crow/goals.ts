@@ -1,4 +1,5 @@
 import { Goal } from '../../AI/base/goals/Goal';
+import Statics from '../statics/statics';
 
 import { CrowActor } from './actor';
 
@@ -10,7 +11,6 @@ class RestGoal extends Goal<CrowActor> {
   activate() {
     if (!this.owner) return;
     const crow = this.owner;
-    if (crow.body) crow.body.enable = true;
   }
 
   execute() {
@@ -39,10 +39,13 @@ class EscapeGoal extends Goal<CrowActor> {
   }
 
   activate() {
-    if (this.owner?.body) this.owner.body.enable = false;
     if (!this.owner) return;
     const crow = this.owner;
-    const { x, y } = CrowActor.getValidPosition(crow, CrowActor.TOTAL_CROWS);
+    const { x, y } = CrowActor.getValidPositionForFlyingCreatures(
+      crow,
+      CrowActor.TOTAL_CROWS,
+      Statics.groupOfCrows
+    );
     let duration: number = 0;
     const difX = Math.abs(x - crow.x);
     const difY = Math.abs(y - crow.y);
@@ -56,7 +59,6 @@ class EscapeGoal extends Goal<CrowActor> {
     }
 
     crow.anims.play(anim);
-    if (crow.body) crow.body.enable = false;
 
     crow.scene.tweens.add({
       targets: crow,
@@ -81,7 +83,6 @@ class EscapeGoal extends Goal<CrowActor> {
     const crow = this.owner;
     if (!crow) return;
     crow.anims.play(crow.chooseIdleAnim(), true);
-    crow.setVelocity(0, 0);
   }
 }
 

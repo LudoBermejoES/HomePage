@@ -1,7 +1,7 @@
 import { Goal } from '../../AI/base/goals/Goal';
 import { CatActor } from './actor';
 import Pathfinding from '../../AI/base/pathfinding/aStar';
-import Statics from '../statics/staticsCity';
+import Statics from '../statics/statics';
 import { GameEntity } from '../../AI/base/core/GameEntity';
 import * as Phaser from 'phaser';
 import { CrowActor } from '../crow/actor';
@@ -17,7 +17,6 @@ class WalkGoal extends Goal<CatActor> {
 
   activate() {
     if (!this.owner) return;
-    if (this.owner?.body) this.owner.body.enable = false;
   }
 
   execute() {
@@ -38,7 +37,12 @@ class WalkGoal extends Goal<CatActor> {
     }
 
     const pathFinding = new Pathfinding(Statics.tilesNotSafeForLivingBeings);
-    const { x, y } = CatActor.getValidPosition(owner, CatActor.TOTAL_CATS);
+    const { x, y } = CatActor.getValidPositionForNotFlyingCreatures(
+      owner,
+      CatActor.TOTAL_CATS,
+      false,
+      Statics.groupOfCats
+    );
     const path = pathFinding.moveSafeFromEntityToPoint(
       owner,
       new Phaser.Math.Vector2(x, y)
@@ -46,7 +50,7 @@ class WalkGoal extends Goal<CatActor> {
 
     if (path) {
       this.lastPosToGo = new Phaser.Math.Vector2(x, y);
-      owner.moveAlongPath(path, this.MOVE_SPEED);
+      owner.moveAlongPath(path, owner.velocity);
     } else {
       owner.x = x;
       owner.y = y;
@@ -66,7 +70,6 @@ class PursueGoal extends Goal<CatActor> {
 
   activate() {
     if (!this.owner) return;
-    if (this.owner?.body) this.owner.body.enable = false;
     this.owner.movePath = undefined;
     this.owner.moveToTarget = undefined;
   }
@@ -96,14 +99,13 @@ class PursueGoal extends Goal<CatActor> {
     );
 
     if (path) {
-      this.owner.moveAlongPath(path, this.MOVE_SPEED);
+      this.owner.moveAlongPath(path, this.owner.velocityHunt);
     }
     this.replanIfFailed();
   }
 
   terminate() {
     if (!this.owner) return;
-    if (this.owner?.body) this.owner.body.enable = false;
   }
 }
 
@@ -133,10 +135,8 @@ class EscapeGoal extends Goal<CatActor> {
 
     const pathFinding = new Pathfinding(Statics.tilesNotSafeForLivingBeings);
     const { x, y } = CatActor.getRandomTotallySafePositionNearOwner(owner);
-    console.log('Mi posicion más segura es ', x, y);
     const path = pathFinding.moveEntityToTile(owner, { x, y });
-    console.log(path);
-    if (path) owner.moveAlongPath(path, 2);
+    if (path) owner.moveAlongPath(path, owner.velocityEscape);
 
     this.replanIfFailed();
   }
@@ -144,7 +144,6 @@ class EscapeGoal extends Goal<CatActor> {
   terminate() {
     const cat = this.owner;
     if (!cat) return;
-    cat.setVelocity(0, 0);
   }
 }
 
@@ -155,9 +154,9 @@ class AttackGoal extends Goal<CatActor> {
 
   activate() {
     if (!this.owner) return;
-    if (this.owner?.body) this.owner.body.enable = false;
 
     const cat = this.owner;
+    cat.setVelocity(0, 0);
     const crow = cat.isHuntingTo as CrowActor;
     const { x, y } = crow;
     const difX = Math.abs(x - cat.x);
@@ -195,11 +194,7 @@ class AttackGoal extends Goal<CatActor> {
     this.replanIfFailed();
   }
 
-  terminate() {
-    const cat = this.owner;
-    if (!cat) return;
-    cat.setVelocity(0, 0);
-  }
+  terminate() {}
 }
 
 class LazyGoal extends Goal<CatActor> {
@@ -214,7 +209,6 @@ class LazyGoal extends Goal<CatActor> {
 
   activate() {
     if (!this.owner) return;
-    // if (this.owner?.body) this.owner.body.enable = false;
     this.owner.movePath = undefined;
     this.owner.moveToTarget = undefined;
     this.owner.isLazy = true;
@@ -227,6 +221,7 @@ class LazyGoal extends Goal<CatActor> {
   }: {
     owner: CatActor;
     x: number;
+    16;
     y: number;
   }) {
     const pathFinding = new Pathfinding(Statics.tilesNotSafeForLivingBeings);
@@ -260,6 +255,7 @@ class LazyGoal extends Goal<CatActor> {
     if (owner.movePath && !owner.movePath.length) {
       const currentAnim = owner.anims.currentAnim;
       if (!currentAnim || currentAnim.key !== 'sleep') {
+        owner.setVelocity(0, 0);
         owner.anims.play({ key: 'sleep', repeat: 1 }, true);
 
         this.bubble = owner.scene.add.sprite(
@@ -288,7 +284,7 @@ class LazyGoal extends Goal<CatActor> {
       return;
     }
 
-    const position = CatActor.getNearestTotallySafePosition(owner);
+    const position = CatActor.getNearestTotallySafePositionForObject(owner);
     const firstMoveToATotallySafeTile = !position.originTileIsSafe;
 
     let foundPath: Phaser.Math.Vector2[] | undefined;
@@ -305,7 +301,7 @@ class LazyGoal extends Goal<CatActor> {
 
     if (foundPath) {
       this.lastPosToGo = new Phaser.Math.Vector2(x, y);
-      owner.moveAlongPath(foundPath, this.MOVE_SPEED);
+      owner.moveAlongPath(foundPath, owner.velocityLazy);
     } else {
       owner.x = x;
       owner.y = y;

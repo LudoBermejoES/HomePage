@@ -2,30 +2,16 @@ import { EntityManager } from './EntityManager';
 import { Telegram } from './Telegram';
 import { generateUUID } from '../libs/generateUUID';
 import { entitiesToIds } from '../libs/entitiesToIds';
-import * as Phaser from 'phaser';
-import { SIZES } from '../../../lib/constants';
-
+import { SpriteMovement } from './SpriteMovement';
+import { Props } from './SpriteMovement';
 export interface GameEntityConstructor {
   new (): GameEntity;
-}
-
-export interface Props {
-  scene: Phaser.Scene;
-  x: number;
-  y: number;
-  texture?: string;
 }
 
 /**
  * Base class for all game entities.
  */
-export abstract class GameEntity extends Phaser.Physics.Arcade.Sprite {
-  movePath: Phaser.Math.Vector2[] | undefined;
-  moveToTarget: Phaser.Math.Vector2 | undefined;
-  speedToMove: number = 10;
-  /** config */
-  config: Props;
-
+export abstract class GameEntity extends SpriteMovement {
   /**
    * The uuid of this game entity.
    */
@@ -98,12 +84,8 @@ export abstract class GameEntity extends Phaser.Physics.Arcade.Sprite {
      * The name of this game entity.
      * @type {String}
      */
-    if (!config.texture) return;
-    super(config.scene, config.x, config.y, config.texture);
+    super(config);
     this.name = '';
-    this.scene.physics.add.existing(this, false);
-
-    this.config = config;
 
     /**
      * Whether this game entity is active or not.
@@ -365,99 +347,6 @@ export abstract class GameEntity extends Phaser.Physics.Arcade.Sprite {
 
     return this;
     4;
-  }
-
-  moveAlongPath(path: Phaser.Math.Vector2[], speedToMove: number = 2) {
-    this.speedToMove = speedToMove;
-    this.movePath = path;
-    if (this.movePath.length > 0) {
-      this.moveTo(this.movePath.shift()!);
-    }
-  }
-
-  moveTo(target: Phaser.Math.Vector2) {
-    this.moveToTarget = target;
-  }
-
-  getAnimationNames(): {
-    LEFT: string;
-    RIGHT: string;
-    UP: string;
-    DOWN: string;
-  } {
-    if (this.anims.get('left_move')) {
-      return {
-        LEFT: 'left_move',
-        RIGHT: 'right_move',
-        UP: 'up_move',
-        DOWN: 'down_move'
-      };
-    } else {
-      return {
-        LEFT: 'move_left',
-        RIGHT: 'move_right',
-        UP: 'move_up',
-        DOWN: 'move_down'
-      };
-    }
-  }
-
-  updatePathMovement(
-    minDistanceX: number = 5,
-    minDistanceY: number = 5
-  ): boolean {
-    let dx = 0;
-    let dy = 0;
-
-    if (this.moveToTarget) {
-      dx = this.moveToTarget.x * SIZES.BLOCK + SIZES.BLOCK / 2 - this.x;
-      dy = this.moveToTarget.y * SIZES.BLOCK + SIZES.BLOCK / 2 - this.y - 10;
-
-      if (Math.abs(dx) < minDistanceX) {
-        dx = 0;
-      }
-      if (Math.abs(dy) < minDistanceY) {
-        dy = 0;
-      }
-
-      if (dx === 0 && dy === 0) {
-        if (this.movePath && this.movePath.length > 0) {
-          this.moveTo(this.movePath.shift()!);
-          return true;
-        }
-
-        this.moveToTarget = undefined;
-      }
-    }
-    const leftDown = dx < 0;
-    const rightDown = dx > 0;
-    const upDown = dy < 0;
-    const downDown = dy > 0;
-    const speedX = leftDown
-      ? -this.speedToMove
-      : rightDown
-        ? this.speedToMove
-        : 0;
-    const speedY = upDown ? -this.speedToMove : downDown ? this.speedToMove : 0;
-
-    const ANIMATION_NAMES = this.getAnimationNames();
-    let animation: string =
-      speedX < 0
-        ? ANIMATION_NAMES.LEFT
-        : speedX > 0
-          ? ANIMATION_NAMES.RIGHT
-          : '';
-    animation =
-      speedY < 0
-        ? ANIMATION_NAMES.UP
-        : speedY > 0
-          ? ANIMATION_NAMES.DOWN
-          : animation;
-
-    this.setPosition(this.x + speedX, this.y + speedY);
-    this.anims.play(animation, true);
-
-    return leftDown || rightDown || upDown || downDown;
   }
 }
 

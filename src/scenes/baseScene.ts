@@ -1,10 +1,26 @@
-import SpriteLudo from '../sprites/SpriteLudo';
-import * as Phaser from 'phaser';
 import { AStarFinder } from 'astar-typescript';
-import OnTheFlySprite from '../sprites/OnTheFlySprite';
+import * as Phaser from 'phaser';
+import { GameEntity } from '../AI/base/core/GameEntity';
+import { SpriteMovement } from '../AI/base/core/SpriteMovement';
 import { DEPTH, SIZES } from '../lib/constants';
-import OverlapSprite from '../sprites/OverlapArea';
 import GotoSceneObject from '../objects/gotoSceneObject';
+import OnTheFlyImage from '../sprites/OnTheFlyImage';
+import OnTheFlySprite from '../sprites/OnTheFlySprite';
+import OverlapSprite from '../sprites/OverlapArea';
+import SpriteLudo from '../sprites/SpriteLudo';
+
+export interface Action {
+  name: string;
+  animation?: string;
+  positions?: string[];
+}
+
+export interface ActionList {
+  actions: Action[];
+  image?: string;
+  sprite?: string;
+  object?: Phaser.Physics.Arcade.Sprite | Phaser.Physics.Arcade.Image;
+}
 
 export default class BaseScene extends Phaser.Scene {
   MAX_ALPHA_NIGHT: number = 0.8;
@@ -30,11 +46,14 @@ export default class BaseScene extends Phaser.Scene {
   tilesCollision: number[][];
   tilesNotSafeForLivingBeings: number[][];
   tilesNotTotallySafeForLivingBeings: number[][];
+  tilesActions: ActionList[];
+  groupOfActions: (OnTheFlyImage | OnTheFlySprite)[];
 
   drawLayers(layers: Phaser.Tilemaps.LayerData[]): {
     tilesCollision: number[][];
     tilesNotSafeForLivingBeings: number[][];
     tilesNotTotallySafeForLivingBeings: number[][];
+    groupOfActions: (OnTheFlyImage | OnTheFlySprite)[];
   } {
     const tilesOnTop: Phaser.Tilemaps.Tile[] = [];
     this.allLayers = [];
@@ -51,6 +70,8 @@ export default class BaseScene extends Phaser.Scene {
     )
       .fill(1)
       .map(() => new Array(this.map.width).fill(0));
+
+    const groupOfActions: (OnTheFlyImage | OnTheFlySprite)[] = [];
 
     layers.forEach((layer: Phaser.Tilemaps.LayerData) => {
       layer.data.forEach((row: Phaser.Tilemaps.Tile[]) => {
@@ -97,6 +118,32 @@ export default class BaseScene extends Phaser.Scene {
             });
             this.add.existing(sprite);
           }
+
+          if (tile.properties.image) {
+            let tileActions: ActionList | undefined;
+            if (tile.properties.actions) {
+              tileActions = {
+                actions: JSON.parse(tile.properties.actions).actions,
+                image: tile.properties.image,
+                sprite: tile.properties.sprite
+              };
+            }
+
+            const sprite = new OnTheFlyImage({
+              scene: this,
+              x: tile.x * 32 + (tile?.properties?.moveX || 0),
+              y: tile.y * 32 + (tile?.properties?.moveY || 0),
+              name: tile.properties.image,
+              spriteLudo: this.spriteLudo,
+              actions: tileActions
+            });
+
+            if (tileActions) {
+              groupOfActions.push(sprite);
+            }
+
+            this.add.existing(sprite);
+          }
         });
       });
 
@@ -120,7 +167,7 @@ export default class BaseScene extends Phaser.Scene {
       });
 
       if (this.frontLayer) {
-        this.frontLayer.depth = DEPTH.OBJECTS;
+        this.frontLayer.depth = DEPTH.ON_THE_FLY_OBJECTS_ABOVE_PLAYER;
         this.add.existing(this.frontLayer);
         this.allLayers.push(this.frontLayer);
       }
@@ -191,7 +238,8 @@ export default class BaseScene extends Phaser.Scene {
     return {
       tilesCollision,
       tilesNotSafeForLivingBeings,
-      tilesNotTotallySafeForLivingBeings
+      tilesNotTotallySafeForLivingBeings,
+      groupOfActions
     };
   }
 
@@ -224,14 +272,14 @@ export default class BaseScene extends Phaser.Scene {
     const gotoSceneObject = new GotoSceneObject({
       onEnterArea: () => {
         const scene = sceneObject?.properties?.find(
-          (prop) => prop.name === 'scene'
+          (prop: { name: string }) => prop.name === 'scene'
         );
         if (scene) {
           const pause = sceneObject?.properties?.find(
-            (prop) => prop.name === 'pause'
+            (prop: { name: string }) => prop.name === 'pause'
           );
           const resume = sceneObject?.properties?.find(
-            (prop) => prop.name === 'resume'
+            (prop: { name: string }) => prop.name === 'resume'
           );
           if (pause?.value === true) {
             this.scene.pause();
@@ -295,9 +343,11 @@ export default class BaseScene extends Phaser.Scene {
     const {
       tilesCollision,
       tilesNotSafeForLivingBeings,
-      tilesNotTotallySafeForLivingBeings
+      tilesNotTotallySafeForLivingBeings,
+      groupOfActions
     } = this.drawLayers(this.map.layers);
 
+    this.groupOfActions = groupOfActions;
     this.tilesCollision = tilesCollision;
     this.tilesNotSafeForLivingBeings = tilesNotSafeForLivingBeings;
     this.tilesNotTotallySafeForLivingBeings =
@@ -327,7 +377,12 @@ export default class BaseScene extends Phaser.Scene {
   }
 
   update() {
-    if (this.spriteLudo.alpha < 1 || !this.spriteLudo.visible) return;
+    if (
+      this.spriteLudo.alpha < 1 ||
+      !this.spriteLudo.visible ||
+      this.spriteLudo.action
+    )
+      return;
     if (!this.spriteLudo.moveToTarget) {
       this.spriteLudo.updateMovement();
     } else {
@@ -491,6 +546,63 @@ export default class BaseScene extends Phaser.Scene {
     });
     this.spriteLudo.moveAlongPath(vectorPath);
   }
+
+  moveAndExecuteActions(
+    object: OnTheFlyImage | OnTheFlySprite | GameEntity,
+    actions: ActionList
+  ) {
+    const startVec = this.getValidTile();
+    if (!startVec) return;
+
+    const position = new Phaser.Math.Vector2(
+      object.x < this.spriteLudo.x ? object.x + object.width : object.x,
+      object.y < this.spriteLudo.y ? object.y + object.height : object.y
+    );
+
+    const endVec =
+      SpriteMovement.getNearestTotallySafePositionForPosition(position);
+
+    const path = this.aStarInstance.findPath(startVec, endVec);
+    const vectorPath: Phaser.Math.Vector2[] = [];
+    path.forEach((pathPoint: number[]) => {
+      vectorPath.push(
+        new Phaser.Math.Vector2({
+          x: pathPoint[0],
+          y: pathPoint[1]
+        })
+      );
+    });
+    this.spriteLudo.moveAlongPath(vectorPath, { ...actions, object });
+  }
+
+  doPathfinding(
+    pointer: Phaser.Input.Pointer,
+    objectsClicked: Phaser.GameObjects.GameObject[]
+  ) {
+    const needToExecuteActions = objectsClicked.filter(
+      (object) => (object as OnTheFlyImage).actionList
+    );
+
+    if (needToExecuteActions.length > 0) {
+      const object = needToExecuteActions[0] as OnTheFlyImage;
+      if (object.actionList)
+        this.moveAndExecuteActions(object, object.actionList);
+    } else {
+      this.prepareMovementByPointer(pointer);
+    }
+
+    return;
+    this.timer = this.time.addEvent({
+      delay: 100, // ms
+      callback: () => {
+        this.spriteLudo.movePath = [];
+        this.spriteLudo.moveToTarget = undefined;
+        this.prepareMovementByPointer(pointer);
+      },
+      loop: true
+    });
+  }
+
   preparePathfinding(matrix: number[][]) {
     this.aStarInstance = new AStarFinder({
       grid: {
@@ -502,21 +614,21 @@ export default class BaseScene extends Phaser.Scene {
       allowPathAsCloseAsPossible: true
     });
 
-    this.input.on('pointerdown', (pointer: Phaser.Input.Pointer) => {
-      this.prepareMovementByPointer(pointer);
-      /* this.timer = this.time.addEvent({
-        delay: 100, // ms
-        callback: () => {
-          this.prepareMovementByPointer(pointer);
-        },
-        //args: [],
-        loop: true
-      });*/
-    });
-
-    this.input.on('pointerup', () => {
-      this.timer?.destroy();
-    });
+    this.input.on(
+      'pointerdown',
+      (
+        pointer: Phaser.Input.Pointer,
+        objectsClicked: Phaser.GameObjects.GameObject[]
+      ) => {
+        if (this.spriteLudo.action) {
+          this.time.delayedCall(100, () =>
+            this.doPathfinding(pointer, objectsClicked)
+          );
+        } else {
+          this.doPathfinding(pointer, objectsClicked);
+        }
+      }
+    );
   }
 
   preparePassOfTime(timeOfCycle: number = 10 * 60 * 1000) {

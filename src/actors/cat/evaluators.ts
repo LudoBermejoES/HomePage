@@ -7,7 +7,7 @@ import {
   AttackGoal
 } from './goals';
 import { CatActor } from './actor';
-import Statics from '../statics/staticsCity';
+import Statics from '../statics/statics';
 import * as Phaser from 'phaser';
 import BaseScene from '../../scenes/baseScene';
 

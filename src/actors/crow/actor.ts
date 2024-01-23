@@ -1,9 +1,10 @@
 import { Think } from '../../AI/base/goals/Think';
 import { RestEvaluator, EscapeEvaluator, BoredEvaluator } from './evaluators';
-import { GameEntity, Props } from '../../AI/base/core/GameEntity';
+import { GameEntity } from '../../AI/base/core/GameEntity';
 import { DEPTH } from '../../lib/constants';
 import * as Phaser from 'phaser';
-import Statics from '../statics/staticsCity';
+import Statics from '../statics/statics';
+import { Props } from '../../AI/base/core/SpriteMovement';
 
 export class CrowActor extends GameEntity {
   idle_anims: string[] = ['idle_left', 'idle_right', 'idle_up', 'idle_down'];
@@ -51,37 +52,6 @@ export class CrowActor extends GameEntity {
     }
   }
 
-  static getValidPosition(
-    currentCrow: CrowActor,
-    TOTAL_CROWS: number
-  ): { x: number; y: number } {
-    let x: number = 0;
-    let y: number = 0;
-    let valid: boolean = false;
-    const validDistanceX = Statics.map.widthInPixels / TOTAL_CROWS / 2;
-    const validDistanceY = Statics.map.heightInPixels / TOTAL_CROWS / 2;
-    while (!valid) {
-      let internalValid: boolean = true;
-      x = Phaser.Math.Between(10, Statics.map.widthInPixels);
-      y = Phaser.Math.Between(10, Statics.map.heightInPixels);
-      Statics.groupOfCrows.children.entries.forEach((crow) => {
-        const theCrow = crow as CrowActor;
-        if (theCrow !== currentCrow)
-          if (
-            Math.abs(theCrow.x - x) < validDistanceX ||
-            Math.abs(theCrow.y - y) < validDistanceY
-          ) {
-            internalValid = false;
-          }
-      });
-      valid = internalValid;
-    }
-    return {
-      x,
-      y
-    };
-  }
-
   static createCrows(scene: Phaser.Scene, TOTAL_CROWS: number) {
     for (let i = 0; i < TOTAL_CROWS; i++) {
       CrowActor.TOTAL_CROWS = TOTAL_CROWS;
@@ -93,14 +63,18 @@ export class CrowActor extends GameEntity {
       crow.mapOfScene = Statics.map;
       crow.depth = DEPTH.FLYING_ANIMALS;
       crow.scale = 0.5;
-      const { x, y } = CrowActor.getValidPosition(crow, TOTAL_CROWS);
+      const { x, y } = CrowActor.getValidPositionForFlyingCreatures(
+        crow,
+        TOTAL_CROWS,
+        Statics.groupOfCrows
+      );
       crow.setPosition(x, y);
       crow.anims.play(crow.chooseIdleAnim(), true);
       scene.add.existing(crow);
       Statics.groupOfCrows.add(crow);
     }
     Statics.groupOfCrows.runChildUpdate = true;
-    scene.physics.add.collider(
+    scene.physics.add.overlap(
       Statics.groupOfCrows,
       Statics.groupEnemiesOfCrows,
       undefined,

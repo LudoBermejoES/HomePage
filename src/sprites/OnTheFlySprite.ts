@@ -43,7 +43,7 @@ export default class OnTheFlySprite extends Phaser.Physics.Arcade.Sprite {
   getDepth() {
     return this.type.toLowerCase().includes('door')
       ? DEPTH.DOOR_SPRITES
-      : DEPTH.OBJECTS;
+      : DEPTH.ON_THE_FLY_OBJECTS_ABOVE_PLAYER;
   }
   createAreaIfNeeded(config: Props) {
     this.needsTrigger = false;
@@ -65,7 +65,7 @@ export default class OnTheFlySprite extends Phaser.Physics.Arcade.Sprite {
         if (!config.spriteLudo) return;
         if (config.type === 'door') {
           if (!config.spriteLudo.movePath.length)
-            config.spriteLudo.enterBuilding(this, this.gotoScene);
+            config.spriteLudo.enterBuilding(this);
           this.triggered = false;
           this.onEnterArea();
         }

@@ -1,6 +1,8 @@
 import * as Phaser from 'phaser';
 import { SIZES, DEPTH } from '../lib/constants';
 import OnTheFlySprite from './OnTheFlySprite';
+import { ActionList } from '../scenes/baseScene';
+import ActionController from '../actions/ActionController';
 
 interface LudoProps {
   scene: Phaser.Scene;
@@ -23,6 +25,8 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
   moveToTarget: Phaser.Math.Vector2 | undefined;
   movePath: Phaser.Math.Vector2[] = [];
   scaleByDefault: number = 0.7;
+  actionsToExecute: ActionList | undefined;
+  action: string | undefined;
 
   constructor(config: LudoProps) {
     super(config.scene, config.x, config.y, 'LudoSprite');
@@ -38,6 +42,7 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
     //this.setCollideWorldBounds(true);
     if (!this.body) return;
     this.body.onCollide = true;
+    this.name = 'ludo';
 
     this.setOriginalBodySize();
   }
@@ -48,7 +53,11 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
     this.body.setSize(this.body.width / 2, this.body.height / 2, false);
   }
 
-  moveAlongPath(path: Phaser.Math.Vector2[]) {
+  moveAlongPath(
+    path: Phaser.Math.Vector2[],
+    actionsToExecute?: ActionList | undefined
+  ) {
+    this.actionsToExecute = actionsToExecute;
     this.movePath = path;
     if (this.movePath.length > 0) {
       this.moveTo(this.movePath.shift()!);
@@ -56,14 +65,21 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
   }
 
   updatePathMovement(): boolean {
-    if (this.body) this.body.enable = true;
+    if (!this.body) return false;
+    this.body.enable = true;
 
     let dx = 0;
     let dy = 0;
 
     if (this.moveToTarget) {
-      dx = this.moveToTarget.x * SIZES.BLOCK - this.x;
-      dy = this.moveToTarget.y * SIZES.BLOCK - this.y - 10;
+      dx =
+        this.moveToTarget.x * SIZES.BLOCK +
+        SIZES.MID_BLOCK -
+        (this.x + this.body.width / 2);
+      dy =
+        this.moveToTarget.y * SIZES.BLOCK +
+        +SIZES.MID_BLOCK -
+        (this.y + this.body.height / 2);
 
       if (Math.abs(dx) < 5) {
         dx = 0;
@@ -77,38 +93,42 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
           this.moveTo(this.movePath.shift()!);
           return true;
         }
-
+        this.setVelocity(0, 0);
+        if (this.actionsToExecute) {
+          this.action = 'wait';
+          ActionController.executeActions(this, this.actionsToExecute);
+        }
         this.moveToTarget = undefined;
+        return false;
       }
     }
-    // this logic is the same except we determine
-    // if a key is down based on dx and dy
+
     const leftDown = dx < 0;
     const rightDown = dx > 0;
     const upDown = dy < 0;
     const downDown = dy > 0;
 
-    const defaultSpeed = 10;
-    const speedX = leftDown ? -defaultSpeed : rightDown ? defaultSpeed : 0;
-    const speedY = upDown ? -defaultSpeed : downDown ? defaultSpeed : 0;
+    const speedX = leftDown ? -this.velocity : rightDown ? this.velocity : 0;
+    const speedY = upDown ? -this.velocity : downDown ? this.velocity : 0;
 
     let animation: string =
-      speedX < 0 ? 'left_move' : speedX > 0 ? 'right_move' : '';
-    animation = speedY < 0 ? 'up_move' : speedY > 0 ? 'down_move' : animation;
+      speedX < 0 ? 'move_left' : speedX > 0 ? 'move_right' : '';
+    animation = speedY < 0 ? 'move_up' : speedY > 0 ? 'move_down' : animation;
 
     if (!animation) {
-      animation = this.lastX === 'left' ? 'left_stop' : 'right_stop';
+      animation = this.lastX === 'left' ? 'stop_left' : 'stop_right';
       animation =
         this.lastY === 'up'
-          ? 'up_stop'
+          ? 'stop_up'
           : this.lastY === 'down'
-            ? 'down_stop'
+            ? 'stop_down'
             : animation;
     } else {
       this.lastX = speedX < 0 ? 'left' : speedX > 0 ? 'right' : '';
       this.lastY = speedY < 0 ? 'up' : speedY > 0 ? 'down' : '';
     }
-    this.setPosition(this.x + speedX, this.y + speedY);
+    this.setVelocity(speedX, speedY);
+
     this.anims.play(animation, true);
 
     return leftDown || rightDown || upDown || downDown;
@@ -131,16 +151,16 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
         : 0;
 
     let animation: string =
-      speedX < 0 ? 'left_move' : speedX > 0 ? 'right_move' : '';
-    animation = speedY < 0 ? 'up_move' : speedY > 0 ? 'down_move' : animation;
+      speedX < 0 ? 'move_left' : speedX > 0 ? 'move_right' : '';
+    animation = speedY < 0 ? 'move_up' : speedY > 0 ? 'move_down' : animation;
 
     if (!animation) {
-      animation = this.lastX === 'left' ? 'left_stop' : 'right_stop';
+      animation = this.lastX === 'left' ? 'stop_left' : 'stop_right';
       animation =
         this.lastY === 'up'
-          ? 'up_stop'
+          ? 'stop_up'
           : this.lastY === 'down'
-            ? 'down_stop'
+            ? 'stop_down'
             : animation;
     } else {
       this.lastX = speedX < 0 ? 'left' : speedX > 0 ? 'right' : '';
@@ -175,7 +195,7 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
       duration: 1000,
       ease: 'Linear',
       onStart: () => {
-        this.anims.play('down_move', true);
+        this.anims.play('move_down', true);
       },
       onComplete: () => {
         this.body && (this.body.enable = true);
