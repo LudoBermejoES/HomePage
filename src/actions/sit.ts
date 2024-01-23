@@ -68,6 +68,8 @@ export default class Sit extends ExecutableAction {
       );
       sprite.scene.input.off('pointerup', this.cancelAction, this);
       sprite.depth = DEPTH.PLAYER;
+    } else {
+      sprite.depth = DEPTH.CITIZENS;
     }
     sprite.action = '';
     if (this.mask) {
