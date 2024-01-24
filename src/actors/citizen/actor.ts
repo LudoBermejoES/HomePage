@@ -9,6 +9,7 @@ import { DEPTH } from '../../lib/constants';
 import * as Phaser from 'phaser';
 import Statics from '../statics/statics';
 import { Citizens } from './data/citizens.json';
+import BaseScene from '../../scenes/baseScene';
 
 export interface CharacterInfo {
   name: string;
@@ -52,7 +53,7 @@ export class CitizenActor extends GameEntity {
   isResting: boolean = false;
   static baseScale: 0.7;
   info?: CharacterInfo;
-  velocity: number = 150;
+  velocity: number = 125;
   currentEnergy: number = -1;
 
   static cyclesToRest: number = 1000;
@@ -124,5 +125,23 @@ export class CitizenActor extends GameEntity {
       );
     });
     Statics.groupOfCitizens.runChildUpdate = true;
+    const groupScene: BaseScene = scene as BaseScene;
+    groupScene.allLayers.forEach((layer: Phaser.Tilemaps.TilemapLayer) => {
+      scene.physics.add.collider(
+        Statics.groupOfCitizens,
+        layer,
+        undefined,
+        (spriteLudo, tile) => {
+          /*const tileBlock: Phaser.Tilemaps.Tile = tile as Phaser.Tilemaps.Tile;
+          if (
+            tileBlock.properties.collision &&
+            scene.spriteLudo.moveToTarget === undefined
+          ) {
+            return true;
+          }
+          return false;*/
+        }
+      );
+    });
   }
 }

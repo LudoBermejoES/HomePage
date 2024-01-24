@@ -4009,14 +4009,14 @@
         "color": "#000000ff"
       },
       {
-        "name": "sitting_right",
+        "name": "s_left",
         "from": 58,
         "to": 63,
         "direction": "forward",
         "color": "#000000ff"
       },
       {
-        "name": "sitting_left",
+        "name": "sitting_right",
         "from": 64,
         "to": 69,
         "direction": "forward",

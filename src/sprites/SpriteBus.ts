@@ -11,7 +11,7 @@ export default class SpriteBus extends Phaser.Physics.Arcade.Sprite {
     super(config.scene, config.x, config.y, 'BusSprite');
     config.scene.physics.add.existing(this, false);
     this.setBounce(0);
-
+    this.setPipeline('Light2D');
     this.anims.createFromAseprite('BusSprite').forEach((anim) => {
       anim.repeat = anim.key.includes('door') ? 0 : -1;
     });

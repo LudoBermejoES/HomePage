@@ -6369,28 +6369,28 @@
         "color": "#000000ff"
       },
       {
-        "name": "sitting_left",
+        "name": "sitting_right",
         "from": 54,
         "to": 59,
         "direction": "forward",
         "color": "#000000ff"
       },
       {
-        "name": "sitting_right",
+        "name": "s_left",
         "from": 60,
         "to": 65,
         "direction": "forward",
         "color": "#000000ff"
       },
       {
-        "name": "sitting_left_action",
+        "name": "sitting_right_action",
         "from": 66,
         "to": 71,
         "direction": "forward",
         "color": "#000000ff"
       },
       {
-        "name": "sitting_right_action",
+        "name": "s_left_action",
         "from": 72,
         "to": 77,
         "direction": "forward",

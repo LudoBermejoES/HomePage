@@ -18,10 +18,10 @@ export class CatActor extends GameEntity {
   isAttacking: boolean = false;
   isHuntingTo: Phaser.GameObjects.GameObject | undefined;
   static TOTAL_CATS: number = 0;
-  velocity: number = 200;
-  velocityEscape: number = 400;
-  velocityHunt: number = 400;
-  velocityLazy: number = 400;
+  velocity: number = 125;
+  velocityEscape: number = 150;
+  velocityHunt: number = 150;
+  velocityLazy: number = 150;
 
   constructor(config: Props) {
     super({ ...config, texture: 'CatSprite' });

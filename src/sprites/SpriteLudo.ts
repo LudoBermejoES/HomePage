@@ -32,6 +32,7 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
     super(config.scene, config.x, config.y, 'LudoSprite');
     this.cursors = config.cursors;
     this.depth = DEPTH.PLAYER;
+    this.setPipeline('Light2D');
     config.scene.physics.add.existing(this, false);
     this.setCollideWorldBounds(true);
     this.anims.createFromAseprite('LudoSprite').forEach((anim) => {

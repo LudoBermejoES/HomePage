@@ -30,7 +30,7 @@ export default class BaseScene extends Phaser.Scene {
   cursors!: Phaser.Types.Input.Keyboard.CursorKeys;
   timerConfigCycleOfDays!: Phaser.Types.Time.TimerEventConfig;
   currentTimeOfCycle: number = 0;
-  overlayCycle?: Phaser.GameObjects.Image;
+  overlayCycleTween?: Phaser.Tweens.Tween;
   spriteLudo!: SpriteLudo;
   map!: Phaser.Tilemaps.Tilemap;
   frontLayer!: Phaser.Tilemaps.TilemapLayer | null;
@@ -98,6 +98,17 @@ export default class BaseScene extends Phaser.Scene {
             } else {
               tilesNotTotallySafeForLivingBeings[tile.y][tile.x] = 1;
             }
+          }
+          if (tile.properties.light) {
+            this.lights
+              .addLight(
+                tile.x * SIZES.BLOCK + SIZES.MID_BLOCK,
+                tile.y * SIZES.BLOCK + SIZES.MID_BLOCK,
+                256
+              )
+              .setIntensity(1)
+              .setColor(0xf2b22b)
+              .setVisible(false);
           }
 
           if (tile.properties.collision) {
@@ -203,9 +214,11 @@ export default class BaseScene extends Phaser.Scene {
         layer.destroy();
       }
     });
+    this.rt.setPipeline('Light2D');
     this.allLayers.length = 0;
     this.allLayers.push(this.collisionLayer!);
     this.allLayers.push(this.frontLayer!);
+    this.frontLayer?.setPipeline('Light2D');
 
     if (this.collisionLayer) {
       this.collisionLayer?.setCollisionByProperty({ collision: true });
@@ -634,41 +647,44 @@ export default class BaseScene extends Phaser.Scene {
   preparePassOfTime(timeOfCycle: number = 10 * 60 * 1000) {
     /* add or load tilemap layers ... and stuff */
     if (!this.frontLayer) return;
+    //this.lights.addLight(500, 250, 200);
+    this.lights.enable().setAmbientColor(0xffffff);
 
-    const texture = this.textures.createCanvas(
-      'night-layer',
-      this.map.width * SIZES.BLOCK,
-      this.map.height * SIZES.BLOCK
-    );
+    const allLight: Phaser.Display.Color =
+      Phaser.Display.Color.ValueToColor(0xffffff);
 
-    this.timerConfigCycleOfDays = {};
-    if (texture) {
-      texture.context.fillStyle = '#000000';
-      texture.context.fillRect(
-        0,
-        0,
-        this.map.width * SIZES.BLOCK,
-        this.map.height * SIZES.BLOCK
-      );
+    const noLight: Phaser.Display.Color =
+      Phaser.Display.Color.ValueToColor(0x102c54);
 
-      texture.context.globalCompositeOperation = 'destination-out';
+    this.overlayCycleTween = this.tweens.addCounter({
+      from: 0,
+      to: 100,
+      duration: timeOfCycle / 2,
+      ease: 'quad.out',
+      yoyo: true,
+      loop: -1,
+      onUpdate: (tween) => {
+        const colorObject = Phaser.Display.Color.Interpolate.ColorWithColor(
+          allLight,
+          noLight,
+          100,
+          tween.getValue()
+        );
+        this.lights.setAmbientColor(
+          Phaser.Display.Color.GetColor(
+            colorObject.r,
+            colorObject.g,
+            colorObject.b
+          )
+        );
 
-      texture.refresh();
-
-      this.overlayCycle = this.add.image(0, 0, 'night-layer');
-      this.overlayCycle.setOrigin(0, 0);
-      this.overlayCycle.alpha = 0;
-
-      this.tweens.add({
-        targets: this.overlayCycle,
-        alpha: this.MAX_ALPHA_NIGHT,
-        duration: timeOfCycle / 2,
-        ease: 'quad.out',
-        yoyo: true,
-        loop: -1
-      });
-
-      this.overlayCycle.setDepth(3000);
-    }
+        this.lights.lights.forEach((light: Phaser.GameObjects.Light) => {
+          console.log(light);
+          if (!light.visible && tween.getValue() > 70) light.visible = true;
+          else if (light.visible && tween.getValue() < 70)
+            light.visible = false;
+        });
+      }
+    });
   }
 }

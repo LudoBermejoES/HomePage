@@ -139,8 +139,8 @@ class LazyEvaluator extends GoalEvaluator<CatActor> {
   calculateDesirability(cat: CatActor) {
     if (cat.isLazy) return 0.9;
     const scene = cat.scene as BaseScene;
-    if (scene.overlayCycle) {
-      const probability = 1 - scene.overlayCycle.alpha * 2;
+    if (scene.overlayCycleTween) {
+      const probability = 1 - scene.overlayCycleTween.getValue() * 2;
 
       if (scene.time.now > this.timeToBeLazy) {
         if (Math.random() < probability / 5) {

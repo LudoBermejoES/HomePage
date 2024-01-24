@@ -221,7 +221,6 @@ class LazyGoal extends Goal<CatActor> {
   }: {
     owner: CatActor;
     x: number;
-    16;
     y: number;
   }) {
     const pathFinding = new Pathfinding(Statics.tilesNotSafeForLivingBeings);

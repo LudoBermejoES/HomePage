@@ -4,6 +4,8 @@ import Sit from './sit';
 import SpriteLudo from '../sprites/SpriteLudo';
 import { SpriteMovement } from '../AI/base/core/SpriteMovement';
 import ExecutableAction from './ExecutableAction';
+import OnTheFlyImage from '../sprites/OnTheFlyImage';
+import OnTheFlySprite from '../sprites/OnTheFlySprite';
 
 export default class ActionController {
   static executeActions(
@@ -21,10 +23,7 @@ export default class ActionController {
 
   static executeAction(
     sprite: SpriteLudo | SpriteMovement,
-    object:
-      | Phaser.Physics.Arcade.Sprite
-      | Phaser.Physics.Arcade.Image
-      | undefined,
+    object: OnTheFlyImage | OnTheFlySprite | undefined,
     action: Action | undefined
   ): ExecutableAction | false {
     if (!action) return false;

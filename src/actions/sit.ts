@@ -4,6 +4,8 @@ import SpriteLudo from '../sprites/SpriteLudo';
 import { DEPTH } from '../lib/constants';
 import { SpriteMovement } from '../AI/base/core/SpriteMovement';
 import ExecutableAction from './ExecutableAction';
+import OnTheFlyImage from '../sprites/OnTheFlyImage';
+import OnTheFlySprite from '../sprites/OnTheFlySprite';
 
 export default class Sit extends ExecutableAction {
   mask: Phaser.GameObjects.Graphics | undefined;
@@ -11,49 +13,48 @@ export default class Sit extends ExecutableAction {
   setPositionSprite(
     positions: string[],
     sprite: SpriteLudo | SpriteMovement,
-    object: Phaser.Physics.Arcade.Sprite | Phaser.Physics.Arcade.Image
+    object: OnTheFlyImage | OnTheFlySprite
   ) {
     this.lastValidPosition = new Phaser.Math.Vector2({
       x: sprite.x,
       y: sprite.y
     });
 
-    if (positions[0] === 'center') {
+    this.object = object;
+    const numberOfActors = object.actorsInHere.length;
+
+    this.addActor(sprite, object);
+
+    if (positions[numberOfActors] === 'center') {
       sprite.setPosition(
         object.x + object.width / 2,
         object.y + object.height / 2
       );
-    } else if (positions[0] === 'up') {
+    } else if (positions[numberOfActors] === 'left') {
       sprite.setPosition(
-        object.x + object.width / 2 - sprite.width / 2,
-        object.y - sprite.height / 2
+        object.x + sprite.width / 2,
+        object.y + object.height / 2
       );
-    } else if (positions[0] === 'down') {
-      sprite.setPosition(
-        object.x + object.width / 2 - sprite.width / 2,
-        object.y + object.height / 2 - sprite.height / 2
-      );
-    } else if (positions[0] === 'left') {
-      sprite.setPosition(
-        object.x - sprite.width / 2,
-        object.y - sprite.height / 2
-      );
-    } else if (positions[0] === 'right') {
+    } else if (positions[numberOfActors] === 'right') {
       sprite.setPosition(
         object.x + object.width - sprite.width / 2,
-        object.y - sprite.height / 2
+        object.y + object.height / 2
       );
-    } else if (positions[0] === 'down_left') {
+    } else if (positions[numberOfActors] === 'up') {
+      sprite.setPosition(object.x + object.width / 2, object.y);
+    } else if (positions[numberOfActors] === 'down') {
+      sprite.setPosition(object.x + object.width / 2, object.y + object.height);
+    } else if (positions[numberOfActors] === 'down_left') {
       sprite.setPosition(
         object.x - sprite.width / 2,
         object.y + object.height - sprite.height / 2
       );
-    } else if (positions[0] === 'down_right') {
+    } else if (positions[numberOfActors] === 'down_right') {
       sprite.setPosition(
         object.x + object.width - sprite.width / 2,
         object.y + object.height - sprite.height / 2
       );
-    } else if (positions[0] == 'down_center') {
+    } else if (positions[numberOfActors] == 'down_center') {
       sprite.setPosition(
         object.x + object.width / 2 - sprite.width / 2,
         object.y + object.height - sprite.height / 2
@@ -61,7 +62,12 @@ export default class Sit extends ExecutableAction {
     }
   }
 
-  cancelAction(sprite: SpriteLudo | SpriteMovement) {
+  cancelAction(
+    sprite: SpriteLudo | SpriteMovement,
+    object: OnTheFlyImage | OnTheFlySprite | undefined
+  ) {
+    if (object) this.removeActor(sprite, object);
+
     if (sprite.name === 'ludo' && sprite?.scene?.input?.keyboard) {
       sprite.scene.input.keyboard.off(
         Phaser.Input.Keyboard.Events.ANY_KEY_DOWN
@@ -80,14 +86,13 @@ export default class Sit extends ExecutableAction {
     if (this.lastValidPosition)
       sprite.setPosition(this.lastValidPosition?.x, this.lastValidPosition?.y);
     this.lastValidPosition = undefined;
+    this.destroy();
   }
+
   execute(
     config: Action,
     sprite: SpriteLudo | SpriteMovement,
-    object:
-      | Phaser.Physics.Arcade.Sprite
-      | Phaser.Physics.Arcade.Image
-      | undefined
+    object: OnTheFlyImage | OnTheFlySprite | undefined
   ) {
     if (config.positions && object) {
       this.setPositionSprite(config.positions, sprite, object);
@@ -119,9 +124,11 @@ export default class Sit extends ExecutableAction {
     if (sprite.name === 'ludo' && sprite?.scene?.input?.keyboard) {
       sprite.scene.input.keyboard.on(
         Phaser.Input.Keyboard.Events.ANY_KEY_DOWN,
-        () => this.cancelAction(sprite)
+        () => this.cancelAction(sprite, object)
       );
-      sprite.scene.input.on('pointerup', () => this.cancelAction(sprite));
+      sprite.scene.input.on('pointerup', () =>
+        this.cancelAction(sprite, object)
+      );
     }
   }
 }

@@ -30,7 +30,7 @@ export abstract class SpriteMovement extends Phaser.Physics.Arcade.Sprite {
     this.name = '';
     this.scene.physics.add.existing(this, false);
     this.setBounce(0);
-
+    this.setPipeline('Light2D');
     this.config = config;
   }
 
@@ -42,10 +42,16 @@ export abstract class SpriteMovement extends Phaser.Physics.Arcade.Sprite {
 
     let dx = 0;
     let dy = 0;
-
+    if (!this.body) return false;
     if (this.moveToTarget) {
-      dx = this.moveToTarget.x * SIZES.BLOCK + SIZES.BLOCK / 2 - this.x;
-      dy = this.moveToTarget.y * SIZES.BLOCK + SIZES.BLOCK / 2 - this.y;
+      dx =
+        this.moveToTarget.x * SIZES.BLOCK +
+        SIZES.MID_BLOCK -
+        (this.x + this.body.width / 2);
+      dy =
+        this.moveToTarget.y * SIZES.BLOCK +
+        +SIZES.MID_BLOCK -
+        (this.y + this.body.height / 2);
 
       if (Math.abs(dx) < minDistanceX) {
         dx = 0;

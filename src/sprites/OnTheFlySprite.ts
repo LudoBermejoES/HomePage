@@ -2,6 +2,7 @@ import * as Phaser from 'phaser';
 import { SIZES, DEPTH } from '../lib/constants';
 import SpriteLudo from './SpriteLudo';
 import OverlapSprite from './OverlapArea';
+import { SpriteMovement } from '../AI/base/core/SpriteMovement';
 interface Props {
   scene: Phaser.Scene;
   x: number;
@@ -20,6 +21,7 @@ export default class OnTheFlySprite extends Phaser.Physics.Arcade.Sprite {
   triggered: boolean = false;
   spriteOverlapArea?: Phaser.Physics.Arcade.Sprite;
   gotoScene: string | undefined;
+  actorsInHere: (SpriteMovement | SpriteLudo)[] = [];
 
   constructor(config: Props) {
     super(config.scene, config.x, config.y, config.name);
@@ -28,6 +30,8 @@ export default class OnTheFlySprite extends Phaser.Physics.Arcade.Sprite {
     this.depth = this.getDepth();
     this.visible = true;
     this.createAreaIfNeeded(config);
+    this.setPipeline('Light2D');
+
     this.setOrigin(0, 0);
     config.scene.physics.add.existing(this, true);
     this.anims.createFromAseprite(config.name);

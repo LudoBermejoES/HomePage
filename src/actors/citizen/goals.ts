@@ -195,9 +195,15 @@ class RestingGoal extends Goal<CitizenActor> {
     if (!this.owner) return;
 
     this.actions.forEach((action) => {
-      if (action)
-        (action as ExecutableAction).cancelAction(this.owner as SpriteMovement);
+      if (action) {
+        (action as ExecutableAction).cancelAction(
+          this.owner as SpriteMovement,
+          (action as ExecutableAction).object
+        );
+      }
     });
+
+    this.actions = [];
 
     this.owner.isTired = false;
     this.owner.isResting = false;

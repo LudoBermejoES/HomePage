@@ -25,7 +25,7 @@
       "disadvantages": ["Obsession (Manga)", "Dependent (Mother)"],
       "quirks": ["Collects Comics"],
       "id": 1,
-      "sprite": ""
+      "sprite": "marcos_rastro_guttierrez"
     },
     {
       "enneagram": "Type 2: The Helper",
@@ -52,7 +52,7 @@
       "disadvantages": ["Chronic Pain", "Addiction (Painkillers)"],
       "quirks": ["Loves Mountain Walks"],
       "id": 2,
-      "sprite": ""
+      "sprite": "laura_sombra"
     },
     {
       "enneagram": "Type 9: The Peacemaker",
@@ -105,7 +105,7 @@
       "advantages": ["Talent (Cooking)", "Fit"],
       "disadvantages": ["Workaholic", "Obsession (Perfecting recipes)"],
       "id": 4,
-      "sprite": ""
+      "sprite": "juan_sazon_morales"
     },
     {
       "enneagram": "Type 4: The Individualist",
@@ -131,7 +131,7 @@
       "advantages": ["Language Talent", "Cultural Adaptability"],
       "disadvantages": ["Workaholic", "Obsession (Literature)"],
       "id": 5,
-      "sprite": ""
+      "sprite": "william_thomson"
     },
     {
       "enneagram": "Type 5: The Investigator",
@@ -174,7 +174,8 @@
       "skills": { "firefighting": 14, "firstAid": 13, "climbing": 12 },
       "advantages": ["Bravery", "Fit"],
       "disadvantages": ["Duty (Fire Department)", "Sense of Duty (Innocents)"],
-      "id": 7
+      "id": 7,
+      "sprite": "carlos_llamas"
     },
     {
       "enneagram": "Type 3: The Achiever",
@@ -248,7 +249,7 @@
       "advantages": ["Combat Reflexes", "Enhanced Dodge"],
       "disadvantages": ["Workaholic", "Obsession (Fencing)"],
       "id": 10,
-      "sprite": ""
+      "sprite": "diego_ramirez"
     },
     {
       "enneagram": "Type 6: The Loyalist",

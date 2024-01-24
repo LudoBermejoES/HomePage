@@ -2,6 +2,8 @@ import * as Phaser from 'phaser';
 import { DEPTH } from '../lib/constants';
 import SpriteLudo from './SpriteLudo';
 import { ActionList } from '../scenes/baseScene';
+import { SpriteMovement } from '../AI/base/core/SpriteMovement';
+
 interface Props {
   scene: Phaser.Scene;
   x: number;
@@ -17,6 +19,7 @@ export default class OnTheFlyImage extends Phaser.Physics.Arcade.Image {
   glow?: Phaser.FX.Glow;
   timer?: Phaser.Time.TimerEvent;
   config: Props;
+  actorsInHere: (SpriteMovement | SpriteLudo)[] = [];
 
   constructor(config: Props) {
     super(config.scene, config.x, config.y, config.name);
@@ -25,6 +28,7 @@ export default class OnTheFlyImage extends Phaser.Physics.Arcade.Image {
     this.visible = true;
     this.setOrigin(0, 0);
     this.config = config;
+    this.setPipeline('Light2D');
 
     this.prepareForActions(config);
   }
@@ -47,10 +51,11 @@ export default class OnTheFlyImage extends Phaser.Physics.Arcade.Image {
     }
 
     this.on('pointerover', () => {
-      if (!this.glow) this.glow = this.preFX?.addGlow();
+      if (!this.glow) this.glow = this.postFX?.addGlow();
     });
     this.on('pointerout', () => {
       if (this.glow) {
+        this.postFX.remove(this.glow);
         this.glow.destroy();
         this.glow = undefined;
       }
@@ -66,14 +71,17 @@ export default class OnTheFlyImage extends Phaser.Physics.Arcade.Image {
       this,
       config.spriteLudo,
       () => {
-        if (!this.glow) this.glow = this.preFX?.addGlow();
+        if (!this.glow) this.glow = this.postFX?.addGlow();
         if (!this.timer) {
           this.timer = config.scene.time.addEvent({
             delay: 100, // ms
             callback: () => {
-              if (!config.scene.physics.collide(this, config.spriteLudo)) {
-                this.glow?.destroy();
-                this.timer?.destroy();
+              if (!config.scene.physics.overlap(this, config.spriteLudo)) {
+                if (this.glow) {
+                  this.postFX.remove(this.glow);
+                  this.glow?.destroy();
+                  this.timer?.destroy();
+                }
                 this.glow = undefined;
                 this.timer = undefined;
               }
