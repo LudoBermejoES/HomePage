@@ -1,9 +1,9 @@
 import * as Phaser from 'phaser';
 import { DEPTH, SIZES } from '../lib/constants';
 import SpriteLudo from './SpriteLudo';
-import OnTheFlySprite from './OnTheFlySprite';
+import OnTheFlySprite from './interactableObjects/OnTheFlySprite';
 import GotoSceneObject from '../objects/gotoSceneObject';
-import OnTheFlyImage from './OnTheFlyImage';
+import OnTheFlyImage from './interactableObjects/OnTheFlyImage';
 interface Props {
   scene: Phaser.Scene;
   x: number;

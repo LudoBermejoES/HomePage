@@ -1,13 +1,13 @@
 import { AStarFinder } from 'astar-typescript';
 import * as Phaser from 'phaser';
-import { GameEntity } from '../AI/base/core/GameEntity';
 import { SpriteMovement } from '../AI/base/core/SpriteMovement';
 import { DEPTH, SIZES } from '../lib/constants';
 import GotoSceneObject from '../objects/gotoSceneObject';
-import OnTheFlyImage from '../sprites/OnTheFlyImage';
-import OnTheFlySprite from '../sprites/OnTheFlySprite';
+import OnTheFlyImage from '../sprites/interactableObjects/OnTheFlyImage';
+import OnTheFlySprite from '../sprites/interactableObjects/OnTheFlySprite';
 import OverlapSprite from '../sprites/OverlapArea';
 import SpriteLudo from '../sprites/SpriteLudo';
+import InteractableObject from '../sprites/interactableObjects/InteractableObject';
 
 export interface Action {
   name: string;
@@ -19,7 +19,7 @@ export interface ActionList {
   actions: Action[];
   image?: string;
   sprite?: string;
-  object?: Phaser.Physics.Arcade.Sprite | Phaser.Physics.Arcade.Image;
+  object?: InteractableObject;
 }
 
 export default class BaseScene extends Phaser.Scene {
@@ -48,6 +48,14 @@ export default class BaseScene extends Phaser.Scene {
   tilesNotTotallySafeForLivingBeings: number[][];
   tilesActions: ActionList[];
   groupOfActions: (OnTheFlyImage | OnTheFlySprite)[];
+
+  preloadUI() {
+    this.load.aseprite(
+      'PressE',
+      'assets/ui/PressE.webp',
+      'assets/ui/PressE.json'
+    );
+  }
 
   drawLayers(layers: Phaser.Tilemaps.LayerData[]): {
     tilesCollision: number[][];
@@ -132,12 +140,15 @@ export default class BaseScene extends Phaser.Scene {
 
           if (tile.properties.image) {
             let tileActions: ActionList | undefined;
-            if (tile.properties.actions) {
+            let maxActors: number = 1;
+            if (tile.properties.interactive) {
+              const data = JSON.parse(tile.properties.interactive);
               tileActions = {
-                actions: JSON.parse(tile.properties.actions).actions,
+                actions: data.actions,
                 image: tile.properties.image,
                 sprite: tile.properties.sprite
               };
+              if (data.maxActors) maxActors = data.maxActors;
             }
 
             const sprite = new OnTheFlyImage({
@@ -146,7 +157,8 @@ export default class BaseScene extends Phaser.Scene {
               y: tile.y * 32 + (tile?.properties?.moveY || 0),
               name: tile.properties.image,
               spriteLudo: this.spriteLudo,
-              actions: tileActions
+              actions: tileActions,
+              maxActors: maxActors
             });
 
             if (tileActions) {
@@ -560,10 +572,7 @@ export default class BaseScene extends Phaser.Scene {
     this.spriteLudo.moveAlongPath(vectorPath);
   }
 
-  moveAndExecuteActions(
-    object: OnTheFlyImage | OnTheFlySprite | GameEntity,
-    actions: ActionList
-  ) {
+  moveAndExecuteActions(object: InteractableObject, actions: ActionList) {
     const startVec = this.getValidTile();
     if (!startVec) return;
 
@@ -679,7 +688,6 @@ export default class BaseScene extends Phaser.Scene {
         );
 
         this.lights.lights.forEach((light: Phaser.GameObjects.Light) => {
-          console.log(light);
           if (!light.visible && tween.getValue() > 70) light.visible = true;
           else if (light.visible && tween.getValue() < 70)
             light.visible = false;

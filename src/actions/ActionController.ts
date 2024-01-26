@@ -1,11 +1,9 @@
-import * as Phaser from 'phaser';
 import { Action, ActionList } from '../scenes/baseScene';
 import Sit from './sit';
 import SpriteLudo from '../sprites/SpriteLudo';
 import { SpriteMovement } from '../AI/base/core/SpriteMovement';
 import ExecutableAction from './ExecutableAction';
-import OnTheFlyImage from '../sprites/OnTheFlyImage';
-import OnTheFlySprite from '../sprites/OnTheFlySprite';
+import InteractableObject from '../sprites/interactableObjects/InteractableObject';
 
 export default class ActionController {
   static executeActions(
@@ -23,7 +21,7 @@ export default class ActionController {
 
   static executeAction(
     sprite: SpriteLudo | SpriteMovement,
-    object: OnTheFlyImage | OnTheFlySprite | undefined,
+    object: InteractableObject | undefined,
     action: Action | undefined
   ): ExecutableAction | false {
     if (!action) return false;

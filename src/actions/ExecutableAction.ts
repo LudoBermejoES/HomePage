@@ -1,40 +1,17 @@
 import { SpriteMovement } from '../AI/base/core/SpriteMovement';
 import SpriteLudo from '../sprites/SpriteLudo';
-import OnTheFlyImage from '../sprites/OnTheFlyImage';
-import OnTheFlySprite from '../sprites/OnTheFlySprite';
+import InteractableObject from '../sprites/interactableObjects/InteractableObject';
 
 export default class ExecutableAction {
-  object: OnTheFlyImage | OnTheFlySprite | undefined;
-  addActor(
-    sprite: SpriteMovement | SpriteLudo,
-    object: OnTheFlyImage | OnTheFlySprite
-  ) {
-    console.log('Añado actor', sprite, object.texture.key, object.actorsInHere);
-    object.actorsInHere.push(sprite);
-  }
-  removeActor(
-    sprite: SpriteMovement | SpriteLudo,
-    object: OnTheFlyImage | OnTheFlySprite
-  ) {
-    console.log(
-      'Borro actor',
-      sprite,
-      object.texture.key,
-      object.actorsInHere,
-      object.actorsInHere.indexOf(sprite)
-    );
-    object.actorsInHere.splice(object.actorsInHere.indexOf(sprite), 1);
-  }
+  object: InteractableObject | undefined;
+
   execute(
     config: Action,
     sprite: SpriteLudo | SpriteMovement,
-    object: OnTheFlyImage | OnTheFlySprite | undefined
+    object: InteractableObject | undefined
   ) {}
 
-  cancelAction(
-    sprite: SpriteLudo | SpriteMovement,
-    object: OnTheFlyImage | OnTheFlySprite
-  ) {}
+  cancelAction(sprite: SpriteLudo | SpriteMovement) {}
 
   destroy() {
     this.object = undefined;

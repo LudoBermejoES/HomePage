@@ -7,6 +7,7 @@ import OnTheFlyImage from '../../sprites/OnTheFlyImage';
 import ActionController from '../../actions/ActionController';
 import ExecutableAction from '../../actions/ExecutableAction';
 import { SpriteMovement } from '../../AI/base/core/SpriteMovement';
+import InteractableObject from '../../sprites/interactableObjects/InteractableObject';
 
 class WalkGoal extends Goal<CitizenActor> {
   timerEvent: Phaser.Time.TimerEvent | undefined;
@@ -110,12 +111,23 @@ class GoToRestGoal extends Goal<CitizenActor> {
       return;
     }
 
-    const nearestPlaceToRest = owner.scene.physics.closest(
+    const placesToLook = [...Statics.groupOfPlacesToRest.children.entries];
+    let nearestPlaceToRest: InteractableObject = owner.scene.physics.closest(
       owner,
       Statics.groupOfPlacesToRest.children.entries
-    ) as OnTheFlyImage;
+    ) as InteractableObject;
 
     if (!nearestPlaceToRest) return;
+    while (!(nearestPlaceToRest as InteractableObject).areThereFreeSpots()) {
+      placesToLook.splice(placesToLook.indexOf(nearestPlaceToRest), 1);
+      nearestPlaceToRest = owner.scene.physics.closest(
+        nearestPlaceToRest as InteractableObject,
+        placesToLook
+      ) as InteractableObject;
+      if (!nearestPlaceToRest) return;
+    }
+
+    nearestPlaceToRest.addActor(owner);
 
     const position = new Phaser.Math.Vector2(
       nearestPlaceToRest.x < owner.x
@@ -155,6 +167,8 @@ class GoToRestGoal extends Goal<CitizenActor> {
 
 class RestingGoal extends Goal<CitizenActor> {
   actions: (ExecutableAction | false)[] = [];
+  nearestPlaceToRest: InteractableObject;
+  lastValidPosition: Phaser.Math.Vector2 | undefined;
   constructor(owner: CitizenActor) {
     super(owner);
   }
@@ -163,14 +177,14 @@ class RestingGoal extends Goal<CitizenActor> {
     if (!this.owner) return;
     this.owner.movePath = undefined;
     this.owner.moveToTarget = undefined;
-    const nearestPlaceToRest = this.owner.scene.physics.closest(
+    this.nearestPlaceToRest = this.owner.scene.physics.closest(
       this.owner,
       Statics.groupOfPlacesToRest.children.entries
-    ) as OnTheFlyImage;
-
+    ) as InteractableObject;
+    this.lastValidPosition = this.owner.body?.position;
     this.actions = ActionController.executeActions(
       this.owner,
-      nearestPlaceToRest.actionList
+      this.nearestPlaceToRest.actionList
     );
   }
 
@@ -185,7 +199,7 @@ class RestingGoal extends Goal<CitizenActor> {
       return;
     }
     if (this.owner.currentEnergy < energyToGet) {
-      this.owner.currentEnergy++;
+      this.owner.currentEnergy += 5;
       return;
     }
     this.status = Goal.STATUS.COMPLETED;
@@ -196,12 +210,16 @@ class RestingGoal extends Goal<CitizenActor> {
 
     this.actions.forEach((action) => {
       if (action) {
-        (action as ExecutableAction).cancelAction(
-          this.owner as SpriteMovement,
-          (action as ExecutableAction).object
-        );
+        (action as ExecutableAction).cancelAction(this.owner as SpriteMovement);
       }
     });
+
+    this.nearestPlaceToRest.removeActor(this.owner);
+
+    if (this.owner.body && this.lastValidPosition) {
+      this.owner.body.position = this.lastValidPosition;
+      this.owner.body.position = this.lastValidPosition;
+    }
 
     this.actions = [];
 

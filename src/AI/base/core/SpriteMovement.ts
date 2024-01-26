@@ -2,8 +2,8 @@ import * as Phaser from 'phaser';
 
 import { SIZES } from '../../../lib/constants';
 import Statics from '../../../actors/statics/statics';
-import OnTheFlyImage from '../../../sprites/OnTheFlyImage';
-import OnTheFlySprite from '../../../sprites/OnTheFlySprite';
+import OnTheFlyImage from '../../../sprites/interactableObjects/OnTheFlyImage';
+import OnTheFlySprite from '../../../sprites/interactableObjects/OnTheFlySprite';
 
 export interface Props {
   scene: Phaser.Scene;
@@ -38,11 +38,10 @@ export abstract class SpriteMovement extends Phaser.Physics.Arcade.Sprite {
     minDistanceX: number = 5,
     minDistanceY: number = 5
   ): boolean {
-    this.debugShowVelocity = true;
-
     let dx = 0;
     let dy = 0;
     if (!this.body) return false;
+
     if (this.moveToTarget) {
       dx =
         this.moveToTarget.x * SIZES.BLOCK +
@@ -220,7 +219,7 @@ export abstract class SpriteMovement extends Phaser.Physics.Arcade.Sprite {
     };
   }
 
-  static getNearestTotallySafePosition(originPosition: {
+  static getNearestTotallySafePositionNotOriginal(originPosition: {
     x: number;
     y: number;
   }): {
@@ -229,18 +228,6 @@ export abstract class SpriteMovement extends Phaser.Physics.Arcade.Sprite {
     originTileIsSafe: boolean;
   } {
     const valid = false;
-
-    const validTiles: { tileX: number; tileY: number }[] = [];
-    Statics.tilesNotTotallySafeForLivingBeings.forEach((row, y) => {
-      row.forEach((tile, x) => {
-        if (Statics.tilesNotTotallySafeForLivingBeings[y][x] === 0)
-          validTiles.push({ tileX: x, tileY: y });
-      });
-    });
-    if (
-      SpriteMovement.getTotallySafeForLivingBeingsPosition(originPosition) === 0
-    )
-      return { ...originPosition, originTileIsSafe: true };
 
     let sum = 1;
     while (!valid) {
@@ -280,6 +267,31 @@ export abstract class SpriteMovement extends Phaser.Physics.Arcade.Sprite {
       y: 0,
       originTileIsSafe: false
     };
+  }
+
+  static getNearestTotallySafePosition(originPosition: {
+    x: number;
+    y: number;
+  }): {
+    x: number;
+    y: number;
+    originTileIsSafe: boolean;
+  } {
+    const validTiles: { tileX: number; tileY: number }[] = [];
+    Statics.tilesNotTotallySafeForLivingBeings.forEach((row, y) => {
+      row.forEach((tile, x) => {
+        if (Statics.tilesNotTotallySafeForLivingBeings[y][x] === 0)
+          validTiles.push({ tileX: x, tileY: y });
+      });
+    });
+    if (
+      SpriteMovement.getTotallySafeForLivingBeingsPosition(originPosition) === 0
+    )
+      return { ...originPosition, originTileIsSafe: true };
+
+    return SpriteMovement.getNearestTotallySafePositionNotOriginal(
+      originPosition
+    );
   }
 
   static getNearestTotallySafePositionForPosition(pos: Phaser.Math.Vector2): {

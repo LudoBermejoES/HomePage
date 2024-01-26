@@ -1,8 +1,9 @@
 import * as Phaser from 'phaser';
 import { SIZES, DEPTH } from '../lib/constants';
-import OnTheFlySprite from './OnTheFlySprite';
+import OnTheFlySprite from './interactableObjects/OnTheFlySprite';
 import { ActionList } from '../scenes/baseScene';
 import ActionController from '../actions/ActionController';
+import InteractableObject from './interactableObjects/InteractableObject';
 
 interface LudoProps {
   scene: Phaser.Scene;
@@ -27,6 +28,7 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
   scaleByDefault: number = 0.7;
   actionsToExecute: ActionList | undefined;
   action: string | undefined;
+  keyPress: Phaser.Input.Keyboard.Key | undefined;
 
   constructor(config: LudoProps) {
     super(config.scene, config.x, config.y, 'LudoSprite');
@@ -44,6 +46,21 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
     if (!this.body) return;
     this.body.onCollide = true;
     this.name = 'ludo';
+
+    this.keyPress = this.scene.input?.keyboard
+      ?.addKey(Phaser.Input.Keyboard.KeyCodes.E)
+      .on('down', () => {
+        const actions = InteractableObject.currentObject?.actionList;
+        if (actions) {
+          this.setVelocity(0, 0);
+          this.action = 'wait';
+          ActionController.executeActions(this, actions);
+        } else if (InteractableObject.currentObject?.type === 'door') {
+          this.enterBuilding(
+            InteractableObject.currentObject as OnTheFlySprite
+          );
+        }
+      });
 
     this.setOriginalBodySize();
   }
@@ -130,7 +147,9 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
     }
     this.setVelocity(speedX, speedY);
 
-    this.anims.play(animation, true);
+    if (!this.action) {
+      this.anims.play(animation, true);
+    }
 
     return leftDown || rightDown || upDown || downDown;
   }
@@ -168,12 +187,14 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
       this.lastY = speedY < 0 ? 'up' : speedY > 0 ? 'down' : '';
     }
     this.setVelocity(speedX, speedY);
-    this.anims.play(animation, true);
+    if (!this.action) this.anims.play(animation, true);
   }
 
   enterBuilding(door: OnTheFlySprite) {
     if (!this.body) return;
-
+    this.setVelocity(0, 0);
+    this.action = 'enterBuilding';
+    this.anims.play('move_up', true);
     this.scene.tweens.add({
       targets: this,
       alpha: 0,
@@ -181,7 +202,9 @@ export default class SpriteLudo extends Phaser.Physics.Arcade.Sprite {
       y: door.y,
       duration: 1000,
       ease: 'Linear',
-      onStart: () => {}
+      onComplete: () => {
+        this.action = '';
+      }
     });
   }
   leaveBuilding() {

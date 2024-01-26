@@ -5,7 +5,7 @@ import { CatActor } from '../actors/cat/actor';
 import Statics from '../actors/statics/statics';
 import { SIZES } from '../lib/constants';
 import { CitizenActor } from '../actors/citizen/actor';
-import OnTheFlyImage from '../sprites/OnTheFlyImage';
+import OnTheFlyImage from '../sprites/interactableObjects/OnTheFlyImage';
 
 export default class City extends BaseScene {
   busSprite: SpriteBus | undefined;
@@ -153,6 +153,8 @@ export default class City extends BaseScene {
   }
 
   preload() {
+    this.preloadUI();
+
     this.preloadStaticImages();
     this.preloadSprites();
     this.preloadMap();
@@ -279,6 +281,13 @@ export default class City extends BaseScene {
     CrowActor.createCrows(this, this.TOTAL_CROWS);
     CatActor.createCats(this, this.TOTAL_CATS);
     CitizenActor.createCitizens(this);
+
+    Statics.groupOfCitizens.children.entries.forEach(
+      (c: Phaser.GameObjects.GameObject) => {
+        Statics.groupEnemiesOfCat.add(c);
+        Statics.groupEnemiesOfCrows.add(c);
+      }
+    );
 
     this.prepareAndAnimateBus(this.map.objects);
     this.preparePassOfTime();

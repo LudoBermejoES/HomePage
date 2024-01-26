@@ -9,7 +9,6 @@ import { DEPTH } from '../../lib/constants';
 import * as Phaser from 'phaser';
 import Statics from '../statics/statics';
 import { Citizens } from './data/citizens.json';
-import BaseScene from '../../scenes/baseScene';
 
 export interface CharacterInfo {
   name: string;
@@ -70,7 +69,19 @@ export class CitizenActor extends GameEntity {
     this.brain.addEvaluator(new GoToRestEvaluator());
     this.brain.addEvaluator(new RestingEvaluator());
     this.brain.addEvaluator(new WalkEvaluator());
-    if (this.body) this.body.immovable = false;
+    this.name = config.info.name;
+    if (this.body) {
+      this.body.immovable = false;
+      this.body.enable = true;
+      this.setBounce(0);
+      this.setOriginalBodySize();
+    }
+  }
+
+  setOriginalBodySize() {
+    if (!this.body) return;
+    this.body.setOffset(this.body.width / 3, this.body.height / 3);
+    this.body.setSize(this.body.width / 3, this.body.height / 3, false);
   }
 
   update() {
@@ -125,23 +136,5 @@ export class CitizenActor extends GameEntity {
       );
     });
     Statics.groupOfCitizens.runChildUpdate = true;
-    const groupScene: BaseScene = scene as BaseScene;
-    groupScene.allLayers.forEach((layer: Phaser.Tilemaps.TilemapLayer) => {
-      scene.physics.add.collider(
-        Statics.groupOfCitizens,
-        layer,
-        undefined,
-        (spriteLudo, tile) => {
-          /*const tileBlock: Phaser.Tilemaps.Tile = tile as Phaser.Tilemaps.Tile;
-          if (
-            tileBlock.properties.collision &&
-            scene.spriteLudo.moveToTarget === undefined
-          ) {
-            return true;
-          }
-          return false;*/
-        }
-      );
-    });
   }
 }

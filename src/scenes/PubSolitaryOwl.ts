@@ -43,6 +43,8 @@ export default class PubSolitaryOwl extends BaseScene {
 
   create() {
     super.create('PubSolitaryOwl', true);
+    this.cameras.main.setZoom(1.5);
+    this.lights.enable().setAmbientColor(0xffffff);
     this.cameras.main.startFollow(this.spriteLudo);
   }
 }
