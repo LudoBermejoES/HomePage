@@ -22,6 +22,14 @@ export interface ActionList {
   object?: InteractableObject;
 }
 
+export interface CitizenPriorities {
+  WALKING: number;
+  GOTO_REST: number;
+  RESTING: number;
+  GOTO_TALK: number;
+  TALKING_GOAL: number;
+}
+
 export default class BaseScene extends Phaser.Scene {
   MAX_ALPHA_NIGHT: number = 0.8;
 
@@ -48,6 +56,13 @@ export default class BaseScene extends Phaser.Scene {
   tilesNotTotallySafeForLivingBeings: number[][];
   tilesActions: ActionList[];
   groupOfActions: (OnTheFlyImage | OnTheFlySprite)[];
+  CITIZEN_PRIORITIES: CitizenPriorities = {
+    WALKING: 0.5,
+    GOTO_REST: 0.9,
+    RESTING: 0.95,
+    GOTO_TALK: 0.6,
+    TALKING_GOAL: 0.95
+  };
 
   preloadUI() {
     this.load.aseprite(

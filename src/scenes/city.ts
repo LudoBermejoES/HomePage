@@ -57,6 +57,11 @@ export default class City extends BaseScene {
       'ME_Singles_City_Props_Bench_5',
       'assets/sprites/statics/ME_Singles_City_Props_Bench_5.webp'
     );
+
+    this.load.image(
+      'CitizensDialogBackground',
+      'assets/sprites/CitizensDialogBackground.png'
+    );
   }
 
   preloadSprites() {

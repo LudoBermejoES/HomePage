@@ -3,21 +3,23 @@ import { CitizenActor } from './actor';
 import Pathfinding from '../../AI/base/pathfinding/aStar';
 import Statics from '../statics/statics';
 import * as Phaser from 'phaser';
-import OnTheFlyImage from '../../sprites/OnTheFlyImage';
 import ActionController from '../../actions/ActionController';
 import ExecutableAction from '../../actions/ExecutableAction';
 import { SpriteMovement } from '../../AI/base/core/SpriteMovement';
 import InteractableObject from '../../sprites/interactableObjects/InteractableObject';
+import { SIZES } from '../../lib/constants';
 
 class WalkGoal extends Goal<CitizenActor> {
   timerEvent: Phaser.Time.TimerEvent | undefined;
   lastPosToGo: Phaser.Math.Vector2 | undefined;
+
   constructor(owner: CitizenActor) {
     super(owner);
   }
 
   activate() {
     if (!this.owner) return;
+    this.owner.clearTint();
   }
 
   execute() {
@@ -59,6 +61,101 @@ class WalkGoal extends Goal<CitizenActor> {
       owner.y = y;
     }
 
+    this.replanIfFailed();
+  }
+
+  terminate() {}
+}
+
+class GotoTalkGoal extends Goal<CitizenActor> {
+  timerEvent: Phaser.Time.TimerEvent | undefined;
+  lastPosToGo: Phaser.Math.Vector2 | undefined;
+  target: CitizenActor;
+  lastPositionTarget: Phaser.Math.Vector2 | undefined;
+  constructor(owner: CitizenActor, target: CitizenActor) {
+    super(owner);
+    this.target = target;
+  }
+
+  activate() {
+    if (!this.owner) return;
+    this.timerEvent = this.owner.scene.time.addEvent({
+      delay: 2000,
+      callback: this.checkNewPath,
+      callbackScope: this
+    });
+  }
+
+  checkNewPath() {
+    const owner = this.owner;
+    if (!owner) return;
+    const xTarget = Math.round(this.target.x / SIZES.BLOCK);
+    const yTarget = Math.round(this.target.y / SIZES.BLOCK);
+
+    if (
+      this.lastPosToGo &&
+      (this.lastPosToGo.x !== xTarget || this.lastPosToGo.y !== yTarget)
+    ) {
+      this.lastPosToGo = undefined;
+      owner.movePath = undefined;
+      owner.moveToTarget = undefined;
+    }
+  }
+
+  execute() {
+    const owner = this.owner;
+    if (!owner) return;
+
+    owner.setTint(0xffff00);
+    const ownerPos = {
+      x: Math.round(owner.x / SIZES.BLOCK),
+      y: Math.round(owner.y / SIZES.BLOCK)
+    };
+    const targetPos = {
+      x: Math.round(this.target.x / SIZES.BLOCK),
+      y: Math.round(this.target.y / SIZES.BLOCK)
+    };
+
+    if (
+      Math.abs(ownerPos.x - targetPos.x) + Math.abs(ownerPos.y - targetPos.y) <=
+      2
+    ) {
+      owner.isTalking = true;
+      this.status = Goal.STATUS.COMPLETED;
+      this.lastPosToGo = undefined;
+      if (this.owner) {
+        this.owner.movePath = undefined;
+        this.owner.moveToTarget = undefined;
+      }
+      this.timerEvent?.destroy();
+      this.timerEvent = undefined;
+      owner.setVelocity(0, 0);
+      return;
+    }
+
+    if (owner.movePath && owner.movePath.length) {
+      owner.updatePathMovement();
+      if (this.lastPosToGo) return;
+    }
+
+    const pathFinding = new Pathfinding(
+      Statics.tilesNotTotallySafeForLivingBeings
+    );
+    const x = Math.round(this.target.x / SIZES.BLOCK);
+    const y = Math.round(this.target.y / SIZES.BLOCK);
+    const path = pathFinding.moveTotallySafeFromEntityToEntity(
+      owner,
+      this.target
+    );
+
+    if (path) {
+      this.lastPosToGo = new Phaser.Math.Vector2(x, y);
+      this.lastPositionTarget = new Phaser.Math.Vector2(
+        this.target.x,
+        this.target.y
+      );
+      owner.moveAlongPath(path, owner.velocity);
+    }
     this.replanIfFailed();
   }
 
@@ -228,4 +325,30 @@ class RestingGoal extends Goal<CitizenActor> {
   }
 }
 
-export { WalkGoal, GoToRestGoal, RestingGoal };
+class TalkingGoal extends Goal<CitizenActor> {
+  actions: (ExecutableAction | false)[] = [];
+  nearestPlaceToRest: InteractableObject;
+  lastValidPosition: Phaser.Math.Vector2 | undefined;
+  constructor(owner: CitizenActor) {
+    super(owner);
+    owner.movePath = undefined;
+    owner.moveToTarget = undefined;
+    owner.setVelocity(0, 0);
+    const animation: string | undefined = owner?.anims.currentAnim?.key;
+    if (!animation) return;
+    const animationName = animation.replace('stop', 'move');
+    owner.anims.play(animationName, true);
+  }
+
+  activate() {
+    if (!this.owner) return;
+  }
+
+  execute() {
+    //this.status = Goal.STATUS.COMPLETED;
+  }
+
+  terminate() {}
+}
+
+export { WalkGoal, GoToRestGoal, RestingGoal, GotoTalkGoal, TalkingGoal };

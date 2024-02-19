@@ -8,7 +8,7 @@ import PubSolitaryOwl from './scenes/PubSolitaryOwl';
 const config = {
   type: Phaser.AUTO,
   backgroundColor: '#000000',
-  scene: [Intro, City, PubSolitaryOwl, BusTravel, Training],
+  scene: [City, Intro, PubSolitaryOwl, BusTravel, Training],
   physics: {
     default: 'arcade',
     arcade: {
