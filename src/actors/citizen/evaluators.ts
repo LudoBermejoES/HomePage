@@ -36,20 +36,71 @@ class WalkEvaluator extends GoalEvaluator<CitizenActor> {
 class GotoTalkEvaluator extends GoalEvaluator<CitizenActor> {
   TALK_PRIORITY: number = 0.7;
   DISTANCE_TO_START_TALKING: number = 500;
+  TIME_TO_TALK_AGAIN: number = 1000 * 60 * 2;
 
   constructor(TALK_PRIORITY: number) {
     super();
     this.TALK_PRIORITY = TALK_PRIORITY;
   }
+
+  checkIfTheyCanTalk(citizen: CitizenActor, nearestCitizen: CitizenActor) {
+    if (
+      citizen.lastConversation &&
+      citizen.lastConversation + this.TIME_TO_TALK_AGAIN >
+        citizen.scene.time.now
+    ) {
+      return false;
+    }
+
+    if (
+      nearestCitizen.lastConversation &&
+      nearestCitizen.lastConversation + this.TIME_TO_TALK_AGAIN >
+        citizen.scene.time.now
+    ) {
+      return false;
+    }
+
+    const idToSearch: string = `${Math.min(
+      citizen.info.id,
+      nearestCitizen.info.id
+    )}-${Math.min(citizen.info.id, nearestCitizen.info.id)}`;
+
+    const lastConversation =
+      citizen.conversationsGroup.conversationsBetweenNPC.find(
+        (c) => c.id === idToSearch
+      );
+
+    if (
+      lastConversation &&
+      lastConversation.lastTime &&
+      lastConversation.lastTime + this.TIME_TO_TALK_AGAIN >
+        citizen.scene.time.now
+    ) {
+      return false;
+    }
+
+    const canTalk =
+      !nearestCitizen.isTired &&
+      !nearestCitizen.isTalking &&
+      [undefined, citizen].includes(nearestCitizen.isMovingToTalkWith);
+
+    return canTalk;
+  }
+
   calculateDesirability(citizen: CitizenActor) {
     const nearestRelation: Phaser.GameObjects.GameObject | null =
       citizen.scene.physics.closest(
         citizen,
         citizen.groupOfRelations.children.entries
       );
+    if (!nearestRelation) return 0;
+
+    const nearestCitizen: CitizenActor = nearestRelation as CitizenActor;
+
+    const canTalk = this.checkIfTheyCanTalk(citizen, nearestCitizen);
+
     if (
-      nearestRelation &&
-      !(nearestRelation as CitizenActor).isTired &&
+      canTalk &&
       Phaser.Math.Distance.BetweenPoints(
         citizen,
         nearestRelation as Phaser.Physics.Arcade.Sprite
@@ -149,8 +200,9 @@ class TalkingEvaluator extends GoalEvaluator<CitizenActor> {
   }
 
   calculateDesirability(citizen: CitizenActor) {
-    console.log(citizen.isTalking);
-    if (citizen.isTalking) return this.TALKING_PRIORITY;
+    if (citizen.isTalking) {
+      return this.TALKING_PRIORITY;
+    }
     return 0;
   }
 

@@ -6,9 +6,19 @@ import Statics from '../actors/statics/statics';
 import { SIZES } from '../lib/constants';
 import { CitizenActor } from '../actors/citizen/actor';
 import OnTheFlyImage from '../sprites/interactableObjects/OnTheFlyImage';
+import { loadImages } from '../ui/DialogNPC';
+
+import { Citizens } from './data/city/citizens.json';
+import ConversationsObject from './data/city/conversations.json';
+import {
+  Conversation,
+  ConversationsGroup
+} from '../conversations/conversation';
+import { plainToInstance } from 'class-transformer';
 
 export default class City extends BaseScene {
   busSprite: SpriteBus | undefined;
+  conversationGroup: ConversationsGroup;
   TOTAL_CROWS: number = 15;
   TOTAL_CATS: number = 5;
 
@@ -58,10 +68,7 @@ export default class City extends BaseScene {
       'assets/sprites/statics/ME_Singles_City_Props_Bench_5.webp'
     );
 
-    this.load.image(
-      'CitizensDialogBackground',
-      'assets/sprites/CitizensDialogBackground.png'
-    );
+    loadImages(this);
   }
 
   preloadSprites() {
@@ -164,7 +171,7 @@ export default class City extends BaseScene {
     this.preloadSprites();
     this.preloadMap();
 
-    CitizenActor.preloadCitizens(this);
+    CitizenActor.preloadCitizens(this, Citizens);
     Statics.groupOfPlacesToRest = this.physics.add.group();
     Statics.groupOfCrows = this.physics.add.group();
     Statics.groupEnemiesOfCrows = this.physics.add.group();
@@ -285,7 +292,20 @@ export default class City extends BaseScene {
 
     CrowActor.createCrows(this, this.TOTAL_CROWS);
     CatActor.createCats(this, this.TOTAL_CATS);
-    CitizenActor.createCitizens(this);
+
+    const Conversations: Conversation[] = plainToInstance(
+      Conversation,
+      ConversationsObject
+    );
+
+    this.conversationGroup = {
+      id: 'city',
+      conversations: Conversations,
+      conversationsBetweenNPC: []
+    };
+
+    console.log(this.conversationGroup);
+    CitizenActor.createCitizens(this, Citizens, this.conversationGroup);
 
     Statics.groupOfCitizens.children.entries.forEach(
       (c: Phaser.GameObjects.GameObject) => {

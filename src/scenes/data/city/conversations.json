@@ -1,0 +1,992 @@
+[
+  {
+    "id1": 1,
+    "id2": 3,
+    "conversation": [
+      "Hey Ricardo, have you tried composting at home for our gardening hobby?",
+      "Hey Marcos! Yeah, I've started a small compost pile. It's a great way to recycle kitchen waste.",
+      "That's awesome, Ricardo! I've been thinking about starting one too. Any tips?",
+      "Sure, Marcos! Start with equal parts green and brown material. And turn it often! Catch you later."
+    ]
+  },
+  {
+    "id1": 1,
+    "id2": 4,
+    "conversation": [
+      "Hey Juan, what's your signature dish? I'm curious!",
+      "Hola Marcos! It's a spicy shrimp taco. You'd love it!",
+      "Sounds delicious, Juan! I'd love to try it sometime.",
+      "Sure thing, Marcos! Let's plan a cook-off soon. Adiós!"
+    ]
+  },
+  {
+    "id1": 1,
+    "id2": 6,
+    "conversation": [
+      "Hi Samuel, what's the last book you read and what did you think of it?",
+      "Hey Marcos! I just finished 'Dune'. It's a fascinating blend of science fiction and politics.",
+      "Sounds interesting, Samuel! I'll add it to my reading list.",
+      "You should, Marcos! It's a great read. Talk to you later!"
+    ]
+  },
+  {
+    "id1": 1,
+    "id2": 9,
+    "conversation": [
+      "Hello María, what's the most memorable hike you've been on?",
+      "Hi Marcos! I once hiked the Inca Trail to Machu Picchu. It was breathtaking!",
+      "Wow, María! That sounds like an amazing experience.",
+      "It was, Marcos! I highly recommend it. Bye for now!"
+    ]
+  },
+  {
+    "id1": 1,
+    "id2": 15,
+    "conversation": [
+      "Hey Gabriela, what's your favorite medium to paint with?",
+      "Hello Marcos! I love watercolors. They're so versatile and fun to work with.",
+      "That's cool, Gabriela! I've always wanted to try watercolors.",
+      "You should, Marcos! It's a lot of fun. See you later!"
+    ]
+  },
+  {
+    "id1": 2,
+    "id2": 5,
+    "conversation": [
+      "Hey Windsor, seen any cool stars lately?",
+      "Yeah, Laura! Spotted Orion's Belt last night.",
+      "Awesome! I've been trying to spot Andromeda.",
+      "Keep trying, Laura! Clear skies!"
+    ]
+  },
+  {
+    "id1": 2,
+    "id2": 7,
+    "conversation": [
+      "Hey Carlos, written any new code?",
+      "Sure, Laura! Working on a Python project.",
+      "Cool! I've been learning JavaScript.",
+      "That's great, Laura! Happy coding!"
+    ]
+  },
+  {
+    "id1": 2,
+    "id2": 10,
+    "conversation": [
+      "Hi Diego, taken any good photos recently?",
+      "Yes, Laura! Captured a beautiful sunset.",
+      "Nice! I've been trying portrait photography.",
+      "Sounds interesting, Laura! Keep clicking!"
+    ]
+  },
+  {
+    "id1": 2,
+    "id2": 13,
+    "conversation": [
+      "Hey Laura, tried any new yoga poses?",
+      "Yes, Laura! Mastered the Crow Pose.",
+      "Impressive! I've been working on Tree Pose.",
+      "Keep practicing, Laura! Namaste."
+    ]
+  },
+  {
+    "id1": 2,
+    "id2": 16,
+    "conversation": [
+      "Hi Antonio, spotted any interesting birds?",
+      "Hey Laura! Saw a Blue Jay yesterday.",
+      "Cool! I've been trying to spot a Cardinal.",
+      "Good luck, Laura! Happy bird watching!"
+    ]
+  },
+  {
+    "id1": 3,
+    "id2": 1,
+    "conversation": [
+      "Hey Marcos, have you tried any new dance moves lately?",
+      "Hey Ricardo! Yes, I've been trying to learn some salsa steps.",
+      "That's cool! I've been thinking about joining a dance class.",
+      "That sounds like a great idea, Marcos! Dancing is a lot of fun!"
+    ]
+  },
+  {
+    "id1": 3,
+    "id2": 6,
+    "conversation": [
+      "Hi Samuel, have you written anything interesting recently?",
+      "Hey Ricardo! Yes, I've been working on a short story.",
+      "That's awesome! I've been wanting to try writing fiction.",
+      "You should definitely give it a try, Ricardo. It's a great creative outlet!"
+    ]
+  },
+  {
+    "id1": 3,
+    "id2": 9,
+    "conversation": [
+      "Hey María, have you been working on any pottery projects?",
+      "Hello Ricardo! Yes, I just finished a ceramic vase.",
+      "That sounds amazing! I've been wanting to try pottery.",
+      "You should, Ricardo! It's a great way to express creativity."
+    ]
+  },
+  {
+    "id1": 3,
+    "id2": 14,
+    "conversation": [
+      "Hi Miguel, have you played any challenging chess games lately?",
+      "Hey Ricardo! Yes, I just had a tough match against a strong opponent.",
+      "That's cool! I've been thinking about joining a chess club.",
+      "You should definitely do it, Ricardo! Chess is a great mental exercise."
+    ]
+  },
+  {
+    "id1": 3,
+    "id2": 17,
+    "conversation": [
+      "Hello Luis, have you been gardening lately?",
+      "Hi Ricardo! Yes, I've been trying to grow some darkwood.",
+      "That's interesting! I've been wanting to start a weird garden.",
+      "Well, Ricardo, you know... things are strange in the city."
+    ]
+  },
+  {
+    "id1": 4,
+    "id2": 1,
+    "conversation": [
+      "Hey Marcos, tried any new recipes lately?",
+      "Yeah, Juan! Been experimenting with some bowels dishes.",
+      "What? That's disgusting.",
+      "Only to the eye, my boy! Only to the eye"
+    ]
+  },
+  {
+    "id1": 4,
+    "id2": 7,
+    "conversation": [
+      "Hey Carlos, read any good books recently?",
+      "Sure, Juan! Just finished a thriller.",
+      "Nice! I've been into mystery novels lately.",
+      "Sounds interesting, Juan! Happy reading!"
+    ]
+  },
+  {
+    "id1": 4,
+    "id2": 10,
+    "conversation": [
+      "Hi Diego, been on any hikes lately?",
+      "Yes, Juan! Explored a new trail last weekend.",
+      "Awesome! I've been planning a mountain hike.",
+      "That's great, Juan! Enjoy your hike!"
+    ]
+  },
+  {
+    "id1": 4,
+    "id2": 15,
+    "conversation": [
+      "Hello Gabriela, painted anything interesting recently?",
+      "Hi Juan! Yes, I've been working on a landscape.",
+      "Cool! I've been thinking about trying painting.",
+      "You should, Juan! It's a great way to relax."
+    ]
+  },
+  {
+    "id1": 4,
+    "id2": 18,
+    "conversation": [
+      "Hey Javier, seen any cool celestial objects?",
+      "Yeah, Juan! Spotted Jupiter last night.",
+      "Awesome! I've been trying to spot Mars.",
+      "Keep looking, Juan! Clear skies!"
+    ]
+  },
+  {
+    "id1": 5,
+    "id2": 2,
+    "conversation": [
+      "Hey Laura, seen any cool stars lately?",
+      "Yeah, Windsor! Spotted Orion's Belt last night.",
+      "Awesome! I've been trying to spot Andromeda.",
+      "Keep trying, Windsor! Clear skies!"
+    ]
+  },
+  {
+    "id1": 5,
+    "id2": 8,
+    "conversation": [
+      "Hey Isabella, taken any good photos recently?",
+      "Sure, Windsor! Captured a beautiful sunset.",
+      "Nice! I've been trying portrait photography.",
+      "Sounds interesting, Windsor! Keep clicking!"
+    ]
+  },
+  {
+    "id1": 5,
+    "id2": 11,
+    "conversation": [
+      "Hi Carlos, tried any new yoga poses?",
+      "Yes, Windsor! Mastered the Zombie Pose.",
+      "The... Zombie Pose? ",
+      "Yeah, it is when you lay in bed and want to die! Namaste!!"
+    ]
+  },
+  {
+    "id1": 5,
+    "id2": 14,
+    "conversation": [
+      "Hey Miguel, spotted any interesting birds?",
+      "Hey Windsor! Saw a Blue Jay yesterday.",
+      "Cool! I've been trying to spot a Cardinal.",
+      "Good luck, Windsor! Happy bird watching!"
+    ]
+  },
+  {
+    "id1": 5,
+    "id2": 19,
+    "conversation": [
+      "Hello Carlos, have you been dancing lately?",
+      "Hi Windsor! Yes, I've been trying some salsa steps.",
+      "That's cool! I've been thinking about joining a dance class.",
+      "You should, Windsor! Dancing is a lot of fun!"
+    ]
+  },
+  {
+    "id1": 6,
+    "id2": 3,
+    "conversation": [
+      "Hello Ricardo, have you been writing anything new lately?",
+      "Hey Samuel, yes, I've been working on a sci-fi novel. It's quite challenging!",
+      "That sounds interesting! I'd love to read it when you're done.",
+      "Absolutely, Samuel! I'll share it with you. Goodbye for now!"
+    ]
+  },
+  {
+    "id1": 6,
+    "id2": 8,
+    "conversation": [
+      "Hi Isabella, how's your pottery going?",
+      "Hello Samuel, it's going well. I'm currently working on a new vase design.",
+      "That's great! I'd love to see it when it's finished.",
+      "Sure thing, Samuel! I'll show you once it's done. Bye!"
+    ]
+  },
+  {
+    "id1": 6,
+    "id2": 9,
+    "conversation": [
+      "Hello María, have you played any interesting chess games recently?",
+      "Hi Samuel, yes, I had a challenging game last week. It was quite a match!",
+      "Sounds exciting! I'd love to hear more about it.",
+      "Definitely, Samuel! I'll tell you all about it next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 6,
+    "id2": 20,
+    "conversation": [
+      "Hello Dr. Martínez, how's your garden coming along?",
+      "Hi Samuel, it's thriving! I've got some new flowers blooming.",
+      "That's wonderful! I'd love to see them sometime.",
+      "Of course, Samuel! You're welcome to visit. Bye for now!"
+    ]
+  },
+  {
+    "id1": 6,
+    "id2": 19,
+    "conversation": [
+      "Hi Carlos, have you tried any new recipes recently?",
+      "Hello Samuel, yes, I've been experimenting with some new dessert recipes.",
+      "Sounds delicious! I'd love to try them sometime.",
+      "Sure thing, Samuel! I'll save some for you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 7,
+    "id2": 2,
+    "conversation": [
+      "Hey Laura, seen any interesting celestial bodies lately?",
+      "Hi Carlos, I spotted a beautiful nebula last night. It was breathtaking!",
+      "Wow, that sounds amazing! I'd love to see it sometime.",
+      "Definitely, Carlos! I'll show you next time. Bye!"
+    ]
+  },
+  {
+    "id1": 7,
+    "id2": 4,
+    "conversation": [
+      "Hello Juan, working on any cool coding projects?",
+      "Hey Carlos, yes, I'm developing a new mobile app. It's quite challenging!",
+      "That sounds exciting! Can't wait to see it when it's done.",
+      "Sure thing, Carlos! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 7,
+    "id2": 10,
+    "conversation": [
+      "Hi Diego, taken any great photos recently?",
+      "Hello Carlos, yes, I captured some stunning landscapes on my last trip.",
+      "That's awesome! I'd love to see them sometime.",
+      "Absolutely, Carlos! I'll show you the photos. Bye for now!"
+    ]
+  },
+  {
+    "id1": 7,
+    "id2": 13,
+    "conversation": [
+      "Hello Laura, how's your yoga practice going?",
+      "Hi Carlos, it's going well. I've been focusing on my balance poses.",
+      "That's great! Keep up the good work.",
+      "Thanks, Carlos! I appreciate it. Goodbye!"
+    ]
+  },
+  {
+    "id1": 7,
+    "id2": 18,
+    "conversation": [
+      "Hi Javier, spotted any interesting birds lately?",
+      "Hello Carlos, yes, I saw a rare species in the park yesterday. It was a treat!",
+      "Sounds fascinating! I'd love to hear more about it.",
+      "Sure thing, Carlos! I'll tell you all about it next time. Bye!"
+    ]
+  },
+  {
+    "id1": 8,
+    "id2": 5,
+    "conversation": [
+      "Hello William, have you taken any interesting photos recently?",
+      "Hi Isabella, yes, I captured a stunning sunset last night.",
+      "That sounds beautiful! I'd love to see it sometime.",
+      "Sure thing, Isabella! I'll show you the photo. Goodbye!"
+    ]
+  },
+  {
+    "id1": 8,
+    "id2": 6,
+    "conversation": [
+      "Hi Samuel, how's your pottery project coming along?",
+      "Hello Isabella, it's going well. I'm working on a new bowl design.",
+      "That's great! Can't wait to see it when it's finished.",
+      "Absolutely, Isabella! I'll share it with you. Bye for now!"
+    ]
+  },
+  {
+    "id1": 8,
+    "id2": 11,
+    "conversation": [
+      "Hello Carlos, spotted any interesting birds lately?",
+      "Hi Isabella, yes, I saw a rare bird in the park yesterday.",
+      "Sounds fascinating! I'd love to hear more about it.",
+      "Definitely, Isabella! I'll tell you all about it next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 8,
+    "id2": 12,
+    "conversation": [
+      "Hey Sergio, how's your dancing practice going?",
+      "Hello Isabella, it's going well. I've been learning a new routine.",
+      "That's exciting! Keep up the good work.",
+      "Thanks, Isabella! I appreciate it. Goodbye!"
+    ]
+  },
+  {
+    "id1": 8,
+    "id2": 19,
+    "conversation": [
+      "Hi Carlos, have you been writing anything new lately?",
+      "Hello Isabella, yes, I've been working on a short story.",
+      "That sounds interesting! I'd love to read it when you're done.",
+      "Sure thing, Isabella! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 9,
+    "id2": 1,
+    "conversation": [
+      "Hello Marcos, have you been on any interesting hikes recently?",
+      "Hi María, yes, I explored a new trail last weekend. It was quite an adventure!",
+      "That sounds exciting! I'd love to hear more about it.",
+      "Absolutely, María! I'll share my experience next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 9,
+    "id2": 3,
+    "conversation": [
+      "Hi Ricardo, how's your pottery project coming along?",
+      "Hello María, it's going well. I'm working on a new vase design.",
+      "That's great! Can't wait to see it when it's finished.",
+      "Sure thing, María! I'll share it with you. Bye for now!"
+    ]
+  },
+  {
+    "id1": 9,
+    "id2": 6,
+    "conversation": [
+      "Hello Samuel, played any interesting chess games recently?",
+      "Hi María, yes, I had a challenging game last week. It was quite a match!",
+      "Sounds exciting! I'd love to hear more about it.",
+      "Definitely, María! I'll tell you all about it next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 9,
+    "id2": 7,
+    "conversation": [
+      "Hey Carlos, have you tried any new recipes recently?",
+      "Hello María, yes, I've been experimenting with some new dessert recipes.",
+      "Sounds delicious! I'd love to try them sometime.",
+      "Sure thing, María! I'll save some for you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 9,
+    "id2": 20,
+    "conversation": [
+      "Hi Dr. Martínez, read any interesting books lately?",
+      "Hello María, yes, I just finished a fascinating historical novel.",
+      "That sounds intriguing! I'd love to hear more about it.",
+      "Absolutely, María! I'll share my thoughts next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 10,
+    "id2": 2,
+    "conversation": [
+      "Hello Laura, have you taken any interesting photos recently?",
+      "Hi Diego, yes, I captured a stunning sunset last night.",
+      "That sounds beautiful! I'd love to see it sometime.",
+      "Sure thing, Diego! I'll show you the photo. Goodbye!"
+    ]
+  },
+  {
+    "id1": 10,
+    "id2": 7,
+    "conversation": [
+      "Hey Carlos, been on any interesting hikes lately?",
+      "Hello Diego, yes, I explored a new trail last weekend. It was quite an adventure!",
+      "That sounds exciting! I'd love to hear more about it.",
+      "Absolutely, Diego! I'll share my experience next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 10,
+    "id2": 9,
+    "conversation": [
+      "Hi María, how's your painting project coming along?",
+      "Hello Diego, it's going well. I'm working on a new landscape painting.",
+      "That's great! Can't wait to see it when it's finished.",
+      "Sure thing, Diego! I'll share it with you. Bye for now!"
+    ]
+  },
+  {
+    "id1": 10,
+    "id2": 11,
+    "conversation": [
+      "Hello Carlos, spotted any interesting celestial bodies lately?",
+      "Hi Diego, yes, I saw a beautiful nebula last night. It was breathtaking!",
+      "Sounds fascinating! I'd love to hear more about it.",
+      "Definitely, Diego! I'll tell you all about it next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 10,
+    "id2": 15,
+    "conversation": [
+      "Hey Gabriela, working on any cool coding projects?",
+      "Hello Diego, yes, I'm developing a new mobile app. It's quite challenging!",
+      "That sounds exciting! Can't wait to see it when it's done.",
+      "Sure thing, Diego! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 11,
+    "id2": 5,
+    "conversation": [
+      "Hello William, how's your yoga practice going?",
+      "Hi Carlos, it's going well. I've been focusing on my balance poses.",
+      "That's great! Keep up the good work.",
+      "Thanks, Carlos! I appreciate it. Goodbye!"
+    ]
+  },
+  {
+    "id1": 11,
+    "id2": 8,
+    "conversation": [
+      "Hi Isabella, spotted any interesting birds lately?",
+      "Hello Carlos, yes, I saw a rare bird in the park yesterday.",
+      "Sounds fascinating! I'd love to hear more about it.",
+      "Definitely, Carlos! I'll tell you all about it next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 11,
+    "id2": 12,
+    "conversation": [
+      "Hey Sergio, how's your dancing practice going?",
+      "Hello Carlos, it's going well. I've been learning a new routine.",
+      "That's exciting! Keep up the good work.",
+      "Thanks, Carlos! I appreciate it. Goodbye!"
+    ]
+  },
+  {
+    "id1": 11,
+    "id2": 22,
+    "conversation": [
+      "Hello Miguel, have you been writing anything new lately?",
+      "Hi Carlos, yes, I've been working on a short story.",
+      "That sounds interesting! I'd love to read it when you're done.",
+      "Sure thing, Carlos! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 12,
+    "id2": 3,
+    "conversation": [
+      "Hello Ricardo, played any interesting chess games recently?",
+      "Hi Sergio, yes, I had a challenging game last week. It was quite a match!",
+      "Sounds exciting! I'd love to hear more about it.",
+      "Definitely, Sergio! I'll tell you all about it next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 12,
+    "id2": 6,
+    "conversation": [
+      "Hi Samuel, how's your garden coming along?",
+      "Hello Sergio, it's thriving! I've got some new flowers blooming.",
+      "That's wonderful! I'd love to see them sometime.",
+      "Of course, Sergio! You're welcome to visit. Bye for now!"
+    ]
+  },
+  {
+    "id1": 12,
+    "id2": 7,
+    "conversation": [
+      "Hey Carlos, have you tried any new recipes recently?",
+      "Hello Sergio, yes, I've been experimenting with some new dessert recipes.",
+      "Sounds delicious! I'd love to try them sometime.",
+      "Sure thing, Sergio! I'll save some for you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 12,
+    "id2": 20,
+    "conversation": [
+      "Hi Dr. Martínez, read any interesting books lately?",
+      "Hello Sergio, yes, I just finished a fascinating historical novel.",
+      "That sounds intriguing! I'd love to hear more about it.",
+      "Absolutely, Sergio! I'll share my thoughts next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 13,
+    "id2": 2,
+    "conversation": [
+      "Hello Laura, seen any interesting celestial bodies lately?",
+      "Hi Laura, yes, I spotted a beautiful nebula last night. It was breathtaking!",
+      "Wow, that sounds amazing! I'd love to see it sometime.",
+      "Definitely, Laura! I'll show you next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 13,
+    "id2": 4,
+    "conversation": [
+      "Hey Juan, working on any cool coding projects?",
+      "Hello Laura, yes, I'm developing a new mobile app. It's quite challenging!",
+      "That sounds exciting! Can't wait to see it when it's done.",
+      "Sure thing, Laura! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 13,
+    "id2": 10,
+    "conversation": [
+      "Hi Diego, have you taken any interesting photos recently?",
+      "Hello Laura, yes, I captured a stunning sunset last night.",
+      "That sounds beautiful! I'd love to see it sometime.",
+      "Sure thing, Laura! I'll show you the photo. Goodbye!"
+    ]
+  },
+  {
+    "id1": 13,
+    "id2": 16,
+    "conversation": [
+      "Hello Antonio, how's your yoga practice going?",
+      "Hi Laura, it's going well. I've been focusing on my balance poses.",
+      "That's great! Keep up the good work.",
+      "Thanks, Laura! I appreciate it. Goodbye!"
+    ]
+  },
+  {
+    "id1": 13,
+    "id2": 18,
+    "conversation": [
+      "Hi Javier, spotted any interesting birds lately?",
+      "Hello Laura, yes, I saw a rare bird in the park yesterday.",
+      "Sounds fascinating! I'd love to hear more about it.",
+      "Definitely, Laura! I'll tell you all about it next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 14,
+    "id2": 3,
+    "conversation": [
+      "Hello Ricardo, how's your dancing practice going?",
+      "Hi Miguel, it's going well. I've been learning a new routine.",
+      "That's exciting! Keep up the good work.",
+      "Thanks, Miguel! I appreciate it. Goodbye!"
+    ]
+  },
+  {
+    "id1": 14,
+    "id2": 6,
+    "conversation": [
+      "Hi Samuel, have you been writing anything new lately?",
+      "Hello Miguel, yes, I've been working on a short story.",
+      "That sounds interesting! I'd love to read it when you're done.",
+      "Sure thing, Miguel! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 14,
+    "id2": 7,
+    "conversation": [
+      "Hey Carlos, how's your pottery project coming along?",
+      "Hello Miguel, it's going well. I'm working on a new vase design.",
+      "That's great! Can't wait to see it when it's finished.",
+      "Sure thing, Miguel! I'll share it with you. Bye for now!"
+    ]
+  },
+  {
+    "id1": 14,
+    "id2": 20,
+    "conversation": [
+      "Hello Dr. Martínez, played any interesting chess games recently?",
+      "Hi Miguel, yes, I had a challenging game last week. It was quite a match!",
+      "Sounds exciting! I'd love to hear more about it.",
+      "Definitely, Miguel! I'll tell you all about it next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 15,
+    "id2": 1,
+    "conversation": [
+      "Hello Marcos, how's your painting project coming along?",
+      "Hi Gabriela, it's going well. I'm working on a new landscape painting.",
+      "That's great! Can't wait to see it when it's finished.",
+      "Sure thing, Gabriela! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 15,
+    "id2": 4,
+    "conversation": [
+      "Hey Juan, seen any interesting celestial bodies lately?",
+      "Hello Gabriela, yes, I spotted a beautiful nebula last night. It was breathtaking!",
+      "Wow, that sounds amazing! I'd love to see it sometime.",
+      "Definitely, Gabriela! I'll show you next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 15,
+    "id2": 10,
+    "conversation": [
+      "Hi Diego, working on any cool coding projects?",
+      "Hello Gabriela, yes, I'm developing a new mobile app. It's quite challenging!",
+      "That sounds exciting! Can't wait to see it when it's done.",
+      "Sure thing, Gabriela! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 15,
+    "id2": 16,
+    "conversation": [
+      "Hello Antonio, have you taken any interesting photos recently?",
+      "Hi Gabriela, yes, I captured a stunning sunset last night.",
+      "That sounds beautiful! I'd love to see it sometime.",
+      "Sure thing, Gabriela! I'll show you the photo. Goodbye!"
+    ]
+  },
+  {
+    "id1": 16,
+    "id2": 2,
+    "conversation": [
+      "Hello Laura, spotted any interesting birds lately?",
+      "Hi Antonio, yes, I saw a rare bird in the park yesterday.",
+      "Sounds fascinating! I'd love to hear more about it.",
+      "Definitely, Antonio! I'll tell you all about it next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 16,
+    "id2": 4,
+    "conversation": [
+      "Hey Juan, how's your dancing practice going?",
+      "Hello Antonio, it's going well. I've been learning a new routine.",
+      "That's exciting! Keep up the good work.",
+      "Thanks, Antonio! I appreciate it. Goodbye!"
+    ]
+  },
+  {
+    "id1": 16,
+    "id2": 10,
+    "conversation": [
+      "Hi Diego, have you been writing anything new lately?",
+      "Hello Antonio, yes, I've been working on a short story.",
+      "That sounds interesting! I'd love to read it when you're done.",
+      "Sure thing, Antonio! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 16,
+    "id2": 13,
+    "conversation": [
+      "Hello Laura, have you taken any interesting photos recently?",
+      "Hi Antonio, yes, I captured a stunning sunset last night.",
+      "That sounds beautiful! I'd love to see it sometime.",
+      "Sure thing, Antonio! I'll show you the photo. Goodbye!"
+    ]
+  },
+  {
+    "id1": 17,
+    "id2": 2,
+    "conversation": [
+      "Hello Laura, have you been writing anything new lately?",
+      "Hi Luis, yes, I've been working on a short story.",
+      "That sounds interesting! I'd love to read it when you're done.",
+      "Sure thing, Luis! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 17,
+    "id2": 4,
+    "conversation": [
+      "Hey Juan, how's your pottery project coming along?",
+      "Hello Luis, it's going well. I'm working on a new vase design.",
+      "That's great! Can't wait to see it when it's finished.",
+      "Sure thing, Luis! I'll share it with you. Bye for now!"
+    ]
+  },
+  {
+    "id1": 17,
+    "id2": 10,
+    "conversation": [
+      "Hi Diego, played any interesting chess games recently?",
+      "Hello Luis, yes, I had a challenging game last week. It was quite a match!",
+      "Sounds exciting! I'd love to hear more about it.",
+      "Definitely, Luis! I'll tell you all about it next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 17,
+    "id2": 15,
+    "conversation": [
+      "Hello Gabriela, how's your garden coming along?",
+      "Hi Luis, it's thriving! I've got some new flowers blooming.",
+      "That's wonderful! I'd love to see them sometime.",
+      "Of course, Luis! You're welcome to visit. Bye for now!"
+    ]
+  },
+  {
+    "id1": 18,
+    "id2": 4,
+    "conversation": [
+      "Hello Juan, have you been writing anything new lately?",
+      "Hi Javier, yes, I've been working on a short story.",
+      "That sounds interesting! I'd love to read it when you're done.",
+      "Sure thing, Javier! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 18,
+    "id2": 10,
+    "conversation": [
+      "Hey Diego, how's your pottery project coming along?",
+      "Hello Javier, it's going well. I'm working on a new vase design.",
+      "That's great! Can't wait to see it when it's finished.",
+      "Sure thing, Javier! I'll share it with you. Bye for now!"
+    ]
+  },
+  {
+    "id1": 18,
+    "id2": 16,
+    "conversation": [
+      "Hi Antonio, played any interesting chess games recently?",
+      "Hello Javier, yes, I had a challenging game last week. It was quite a match!",
+      "Sounds exciting! I'd love to hear more about it.",
+      "Definitely, Javier! I'll tell you all about it next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 18,
+    "id2": 15,
+    "conversation": [
+      "Hello Gabriela, how's your garden coming along?",
+      "Hi Javier, it's thriving! I've got some new flowers blooming.",
+      "That's wonderful! I'd love to see them sometime.",
+      "Of course, Javier! You're welcome to visit. Bye for now!"
+    ]
+  },
+  {
+    "id1": 19,
+    "id2": 2,
+    "conversation": [
+      "Hello Laura, how's your pottery project coming along?",
+      "Hi Carlos, it's going well. I'm working on a new vase design.",
+      "That's great! Can't wait to see it when it's finished.",
+      "Sure thing, Carlos! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 19,
+    "id2": 4,
+    "conversation": [
+      "Hey Juan, played any interesting chess games recently?",
+      "Hello Carlos, yes, I had a challenging game last week. It was quite a match!",
+      "Sounds exciting! I'd love to hear more about it.",
+      "Definitely, Carlos! I'll tell you all about it next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 19,
+    "id2": 10,
+    "conversation": [
+      "Hi Diego, how's your garden coming along?",
+      "Hello Carlos, it's thriving! I've got some new flowers blooming.",
+      "That's wonderful! I'd love to see them sometime.",
+      "Of course, Carlos! You're welcome to visit. Bye for now!"
+    ]
+  },
+  {
+    "id1": 19,
+    "id2": 15,
+    "conversation": [
+      "Hello Gabriela, have you been writing anything new lately?",
+      "Hi Carlos, yes, I've been working on a short story.",
+      "That sounds interesting! I'd love to read it when you're done.",
+      "Sure thing, Carlos! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 20,
+    "id2": 1,
+    "conversation": [
+      "Hello Marcos, have you tried any new recipes recently?",
+      "Hi Dr. Martínez, yes, I've been experimenting with some new dessert recipes.",
+      "Sounds delicious! I'd love to try them sometime.",
+      "Sure thing, Dr. Martínez! I'll save some for you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 20,
+    "id2": 4,
+    "conversation": [
+      "Hey Juan, seen any interesting celestial bodies lately?",
+      "Hello Dr. Martínez, yes, I spotted a beautiful nebula last night. It was breathtaking!",
+      "Wow, that sounds amazing! I'd love to see it sometime.",
+      "Definitely, Dr. Martínez! I'll show you next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 20,
+    "id2": 10,
+    "conversation": [
+      "Hi Diego, working on any cool coding projects?",
+      "Hello Dr. Martínez, yes, I'm developing a new mobile app. It's quite challenging!",
+      "That sounds exciting! Can't wait to see it when it's done.",
+      "Sure thing, Dr. Martínez! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 20,
+    "id2": 15,
+    "conversation": [
+      "Hello Gabriela, have you taken any interesting photos recently?",
+      "Hi Dr. Martínez, yes, I captured a stunning sunset last night.",
+      "That sounds beautiful! I'd love to see it sometime.",
+      "Sure thing, Dr. Martínez! I'll show you the photo. Goodbye!"
+    ]
+  },
+  {
+    "id1": 21,
+    "id2": 4,
+    "conversation": [
+      "Hello Juan, read any interesting books lately?",
+      "Hi Ana, yes, I just finished a fascinating historical novel.",
+      "That sounds intriguing! I'd love to hear more about it.",
+      "Absolutely, Ana! I'll share my thoughts next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 21,
+    "id2": 10,
+    "conversation": [
+      "Hey Diego, been on any interesting hikes lately?",
+      "Hello Ana, yes, I explored a new trail last weekend. It was quite an adventure!",
+      "That sounds exciting! I'd love to hear more about it.",
+      "Definitely, Ana! I'll share my experience next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 21,
+    "id2": 11,
+    "conversation": [
+      "Hi Carlos, how's your painting project coming along?",
+      "Hello Ana, it's going well. I'm working on a new landscape painting.",
+      "That's great! Can't wait to see it when it's finished.",
+      "Sure thing, Ana! I'll share it with you. Bye for now!"
+    ]
+  },
+  {
+    "id1": 21,
+    "id2": 15,
+    "conversation": [
+      "Hello Gabriela, seen any interesting celestial bodies lately?",
+      "Hi Ana, yes, I spotted a beautiful nebula last night. It was breathtaking!",
+      "Wow, that sounds amazing! I'd love to see it sometime.",
+      "Definitely, Ana! I'll show you next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 22,
+    "id2": 2,
+    "conversation": [
+      "Hello Laura, how's your pottery project coming along?",
+      "Hi Miguel, it's going well. I'm working on a new vase design.",
+      "That's great! Can't wait to see it when it's finished.",
+      "Sure thing, Miguel! I'll share it with you. Goodbye!"
+    ]
+  },
+  {
+    "id1": 22,
+    "id2": 4,
+    "conversation": [
+      "Hey Juan, played any interesting chess games recently?",
+      "Hello Miguel, yes, I had a challenging game last week. It was quite a match!",
+      "Sounds exciting! I'd love to hear more about it.",
+      "Definitely, Miguel! I'll tell you all about it next time. Goodbye!"
+    ]
+  },
+  {
+    "id1": 22,
+    "id2": 10,
+    "conversation": [
+      "Hi Diego, how's your garden coming along?",
+      "Hello Miguel, it's thriving! I've got some new flowers blooming.",
+      "That's wonderful! I'd love to see them sometime.",
+      "Of course, Miguel! You're welcome to visit. Bye for now!"
+    ]
+  },
+  {
+    "id1": 22,
+    "id2": 15,
+    "conversation": [
+      "Hello Gabriela, have you been writing anything new lately?",
+      "Hi Miguel, yes, I've been working on a short story.",
+      "That sounds interesting! I'd love to read it when you're done.",
+      "Sure thing, Miguel! I'll share it with you. Goodbye!"
+    ]
+  }
+]

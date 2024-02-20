@@ -46,7 +46,6 @@ export default class Pathfinding {
     const scene = origin.scene as BaseScene;
     const startVec = scene.getValidTileForTotallySafeWalk(origin.x, origin.y);
     const targetVec = scene.getValidTileForTotallySafeWalk(target.x, target.y);
-    console.log('Voy de ', startVec, 'a', targetVec);
     if (!startVec || !targetVec) return;
     const path = this.aStarInstance.findPath(startVec, targetVec);
     const vectorPath: Phaser.Math.Vector2[] = [];

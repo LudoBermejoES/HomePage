@@ -8,6 +8,11 @@ import ExecutableAction from '../../actions/ExecutableAction';
 import { SpriteMovement } from '../../AI/base/core/SpriteMovement';
 import InteractableObject from '../../sprites/interactableObjects/InteractableObject';
 import { SIZES } from '../../lib/constants';
+import { ConversationNPC } from '../../ui/ConversationsNPC';
+import {
+  Conversation,
+  ConversationBetweenNPC
+} from '../../conversations/conversation';
 
 class WalkGoal extends Goal<CitizenActor> {
   timerEvent: Phaser.Time.TimerEvent | undefined;
@@ -84,6 +89,7 @@ class GotoTalkGoal extends Goal<CitizenActor> {
       callback: this.checkNewPath,
       callbackScope: this
     });
+    this.owner.isMovingToTalkWith = this.target;
   }
 
   checkNewPath() {
@@ -106,7 +112,7 @@ class GotoTalkGoal extends Goal<CitizenActor> {
     const owner = this.owner;
     if (!owner) return;
 
-    owner.setTint(0xffff00);
+    //owner.setTint(0xffff00);
     const ownerPos = {
       x: Math.round(owner.x / SIZES.BLOCK),
       y: Math.round(owner.y / SIZES.BLOCK)
@@ -120,7 +126,9 @@ class GotoTalkGoal extends Goal<CitizenActor> {
       Math.abs(ownerPos.x - targetPos.x) + Math.abs(ownerPos.y - targetPos.y) <=
       2
     ) {
+      owner.inAConversationWith = this.target;
       owner.isTalking = true;
+      owner.inAConversationWith.isTalking = true;
       this.status = Goal.STATUS.COMPLETED;
       this.lastPosToGo = undefined;
       if (this.owner) {
@@ -130,6 +138,7 @@ class GotoTalkGoal extends Goal<CitizenActor> {
       this.timerEvent?.destroy();
       this.timerEvent = undefined;
       owner.setVelocity(0, 0);
+      owner.isMovingToTalkWith = undefined;
       return;
     }
 
@@ -331,24 +340,100 @@ class TalkingGoal extends Goal<CitizenActor> {
   lastValidPosition: Phaser.Math.Vector2 | undefined;
   constructor(owner: CitizenActor) {
     super(owner);
+  }
+
+  activate() {
+    if (!this.owner) return;
+    const owner = this.owner;
     owner.movePath = undefined;
     owner.moveToTarget = undefined;
     owner.setVelocity(0, 0);
     const animation: string | undefined = owner?.anims.currentAnim?.key;
     if (!animation) return;
-    const animationName = animation.replace('stop', 'move');
+    const animationName = animation.replace('move', 'stop');
     owner.anims.play(animationName, true);
   }
 
-  activate() {
+  onCompleteDialog() {
     if (!this.owner) return;
+    this.status = Goal.STATUS.COMPLETED;
   }
 
   execute() {
-    //this.status = Goal.STATUS.COMPLETED;
+    console.log('Inicio el goal');
+    if (!this.owner) return;
+    const owner = this.owner;
+    if (!owner.inAConversationWith) return;
+    if (!owner.currentConversation) {
+      console.log('Creo la conversacion ');
+
+      owner.scene.cameras.main.startFollow(owner);
+      owner.currentConversation = new ConversationNPC(
+        owner.scene,
+        owner,
+        owner.inAConversationWith,
+        {
+          scene: owner.scene,
+          widthDialog: 300,
+          callback: (conversation: Conversation) => {
+            if (!owner.inAConversationWith) return;
+            owner.inAConversationWith.inAConversationWith = undefined;
+            owner.inAConversationWith.isTalking = false;
+            owner.inAConversationWith.currentConversation = undefined;
+            owner.inAConversationWith.lastConversation = owner.scene.time.now;
+
+            owner.inAConversationWith = undefined;
+            owner.isTalking = false;
+            owner.currentConversation = undefined;
+            owner.lastConversation = owner.scene.time.now;
+            if (!owner.inAConversationWith) return;
+
+            console.log(
+              'Termino con owner',
+              owner.info.name,
+              ' y esta con ',
+              owner.inAConversationWith.info.name
+            );
+            owner.isTalking = false;
+            conversation.lastTime = owner.scene.time.now;
+            const id: string = `${Math.min(
+              owner.info.id,
+              owner.inAConversationWith.info.id
+            )}-${Math.min(owner.info.id, owner.inAConversationWith.info.id)}`;
+
+            let conversationBetweenNPC: ConversationBetweenNPC | undefined =
+              owner.conversationsGroup.conversationsBetweenNPC.find(
+                (c) => c.id === id
+              );
+
+            if (!conversationBetweenNPC) {
+              conversationBetweenNPC = {
+                id,
+                lastTime: 0
+              };
+              owner.conversationsGroup.conversationsBetweenNPC.push(
+                conversationBetweenNPC
+              );
+            }
+            conversationBetweenNPC.lastTime = owner.scene.time.now;
+            const subgoal = owner.inAConversationWith.brain.currentSubgoal();
+            if (subgoal) {
+              subgoal.status = Goal.STATUS.COMPLETED;
+            }
+            this.status = Goal.STATUS.COMPLETED;
+          }
+        }
+      );
+      owner.inAConversationWith.currentConversation = owner.currentConversation;
+    }
   }
 
-  terminate() {}
+  terminate() {
+    if (!this.owner) return;
+    this.owner.inAConversationWith = undefined;
+    this.owner.isTalking = false;
+    this.owner.currentConversation = undefined;
+  }
 }
 
 export { WalkGoal, GoToRestGoal, RestingGoal, GotoTalkGoal, TalkingGoal };

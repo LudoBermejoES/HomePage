@@ -1,0 +1,926 @@
+{
+  "Citizens": [
+    {
+      "enneagram": "Type 5: The Investigator",
+      "name": "Marcos 'Rastro' Gutiérrez",
+      "age": 24,
+      "profession": "Hacker",
+      "background": {
+        "childhood": "Marcos was a brilliant child who got into hacking after watching War Games.",
+        "current": "He is a manga addict and has an impressive collection of comics. He lives with his mother."
+      },
+      "characteristics": {
+        "strength": 10,
+        "dexterity": 12,
+        "intelligence": 14,
+        "health": 10
+      },
+      "skills": {
+        "computerOperation": 14,
+        "computerProgramming": 14,
+        "electronicsOperation": 12,
+        "electronicsRepair": 12
+      },
+      "advantages": ["Eidetic Memory"],
+      "disadvantages": ["Obsession (Manga)", "Dependent (Mother)"],
+      "quirks": ["Collects Comics"],
+      "id": 1,
+      "sprite": "marcos_rastro_guttierrez",
+      "relationships": {
+        "3": "Gardening",
+        "4": "Cooking",
+        "6": "Reading",
+        "9": "Hiking",
+        "15": "Painting"
+      },
+      "hobbies": ["Gardening", "Cooking", "Reading", "Hiking", "Painting"],
+      "culture": {
+        "academic": 5,
+        "common": 3,
+        "geek": 10,
+        "popular": 4,
+        "technical": 9
+      },
+      "language": {
+        "culturalStyle": "Geek Jargon",
+        "speechStyle": "yells a lot, hesitant, polite, passive"
+      }
+    },
+    {
+      "enneagram": "Type 2: The Helper",
+      "name": "Laura 'Sombra'",
+      "age": 32,
+      "profession": "Nurse",
+      "background": {
+        "childhood": "Laura suffered an injury as a child that causes her ongoing pain.",
+        "current": "She has become addicted to painkillers. She is married, has a child, and enjoys walking in the mountains."
+      },
+      "characteristics": {
+        "strength": 10,
+        "dexterity": 11,
+        "intelligence": 12,
+        "health": 10
+      },
+      "skills": {
+        "firstAid": 14,
+        "physician": 12,
+        "pharmacy": 12,
+        "hiking": 11
+      },
+      "advantages": ["Empathy"],
+      "disadvantages": ["Chronic Pain", "Addiction (Painkillers)"],
+      "quirks": ["Loves Mountain Walks"],
+      "id": 2,
+      "sprite": "laura_sombra",
+      "relationships": {
+        "5": "Astronomy",
+        "7": "Coding",
+        "10": "Photography",
+        "13": "Yoga",
+        "16": "Bird Watching"
+      },
+      "hobbies": [
+        "Astronomy",
+        "Coding",
+        "Photography",
+        "Yoga",
+        "Bird Watching"
+      ],
+      "culture": {
+        "academic": 2,
+        "common": 4,
+        "geek": 0,
+        "popular": 4,
+        "technical": 8
+      },
+      "language": {
+        "culturalStyle": "Slang-filled",
+        "speechStyle": "sarcastic"
+      }
+    },
+    {
+      "enneagram": "Type 9: The Peacemaker",
+      "name": "Ricardo 'Muro' González",
+      "age": 40,
+      "profession": "Construction Worker",
+      "background": {
+        "childhood": "Ricardo was always a hard worker, even as a child. He grew up in a small town, where everyone knew each other. His father was a construction worker, and Ricardo followed in his footsteps.",
+        "current": "Now, at the age of 40, he's single and leads a solitary life. His work is his life - he's known as 'Muro' on the construction site, a nickname that means 'Wall' in Spanish, symbolizing his steadfastness and reliability."
+      },
+      "characteristics": {
+        "strength": 14,
+        "dexterity": 11,
+        "intelligence": 10,
+        "health": 12
+      },
+      "skills": {
+        "carpentry": 12,
+        "masonry": 12,
+        "architecture": 10,
+        "mechanics": 11
+      },
+      "advantages": ["High Pain Threshold", "Tough Skin"],
+      "disadvantages": ["Loneliness", "Workaholic"],
+      "quirks": ["Prefers Solitude"],
+      "id": 3,
+      "sprite": "ricardo_muro_gonzalez",
+      "relationships": {
+        "1": "Dancing",
+        "6": "Writing",
+        "9": "Pottery",
+        "14": "Chess",
+        "17": "Gardening"
+      },
+      "hobbies": ["Dancing", "Writing", "Pottery", "Chess", "Gardening"],
+      "culture": {
+        "academic": 2,
+        "common": 9,
+        "geek": 10,
+        "popular": 5,
+        "technical": 0
+      },
+      "language": {
+        "culturalStyle": "Geek Jargon",
+        "speechStyle": "assertive, animated, humorous, aggressive"
+      }
+    },
+    {
+      "enneagram": "Type 7: The Enthusiast",
+      "name": "Juan 'Sazón' Morales",
+      "age": 30,
+      "profession": "Chef",
+      "background": {
+        "childhood": "Juan grew up in a family of cooks and fell in love with the art of cooking at a young age.",
+        "current": "He now works as a chef in a renowned restaurant, where he is known for his unique flavors and creative dishes."
+      },
+      "hobbies": ["Cooking", "Reading", "Hiking", "Painting", "Astronomy"],
+      "characteristics": {
+        "strength": 11,
+        "dexterity": 13,
+        "intelligence": 12,
+        "health": 11
+      },
+      "skills": { "cooking": 14, "gardening": 12, "knife": 13 },
+      "advantages": ["Talent (Cooking)", "Fit"],
+      "disadvantages": ["Workaholic", "Obsession (Perfecting recipes)"],
+      "id": 4,
+      "sprite": "juan_sazon_morales",
+      "relationships": {
+        "1": "Cooking",
+        "7": "Reading",
+        "10": "Hiking",
+        "15": "Painting",
+        "18": "Astronomy"
+      },
+      "culture": {
+        "academic": 3,
+        "common": 5,
+        "geek": 0,
+        "popular": 7,
+        "technical": 0
+      },
+      "language": {
+        "culturalStyle": "Slang-filled",
+        "speechStyle": "fast-paced"
+      }
+    },
+    {
+      "enneagram": "Type 4: The Individualist",
+      "name": "William 'Windsor' Thompson",
+      "age": 50,
+      "profession": "English and Literature Professor",
+      "background": {
+        "childhood": "William was an avid reader from a young age, always with a book in hand.",
+        "current": "He now shares his love for literature with his students, inspiring them with his passion and knowledge."
+      },
+      "hobbies": ["Coding", "Photography", "Yoga", "Bird Watching", "Dancing"],
+      "characteristics": {
+        "strength": 10,
+        "dexterity": 10,
+        "intelligence": 14,
+        "health": 11
+      },
+      "skills": { "teaching": 14, "literature": 15, "writing": 13 },
+      "advantages": ["Language Talent", "Cultural Adaptability"],
+      "disadvantages": ["Workaholic", "Obsession (Literature)"],
+      "id": 5,
+      "sprite": "william_thomson",
+      "relationships": {
+        "2": "Coding",
+        "8": "Photography",
+        "11": "Yoga",
+        "14": "Bird Watching",
+        "19": "Dancing"
+      },
+      "culture": {
+        "academic": 10,
+        "common": 3,
+        "geek": 0,
+        "popular": 5,
+        "technical": 7
+      },
+      "language": {
+        "culturalStyle": "Slang-filled",
+        "speechStyle": "monotone, yells a lot"
+      }
+    },
+    {
+      "enneagram": "Type 5: The Investigator",
+      "name": "Samuel 'Sombras' Rodríguez",
+      "age": 45,
+      "profession": "Private Detective",
+      "background": {
+        "childhood": "Samuel was always curious and observant, qualities that served him well in his chosen profession.",
+        "current": "He now works as a private detective, using his sharp mind and keen eye to solve cases."
+      },
+      "hobbies": ["Writing", "Pottery", "Chess", "Gardening", "Cooking"],
+      "characteristics": {
+        "strength": 11,
+        "dexterity": 12,
+        "intelligence": 14,
+        "health": 11
+      },
+      "skills": { "detective": 14, "photography": 12, "observation": 13 },
+      "advantages": ["Intuition", "Sharp Eye"],
+      "disadvantages": ["Workaholic", "Obsession (Solving cases)"],
+      "id": 6,
+      "sprite": "Samuel_sombra",
+      "relationships": {
+        "3": "Writing",
+        "8": "Pottery",
+        "11": "Chess",
+        "14": "Gardening",
+        "20": "Cooking"
+      },
+      "culture": {
+        "academic": 5,
+        "common": 8,
+        "geek": 5,
+        "popular": 5,
+        "technical": 5
+      },
+      "language": {
+        "culturalStyle": "Formal Academic",
+        "speechStyle": "informal, yells a lot"
+      }
+    },
+    {
+      "enneagram": "Type 8: The Challenger",
+      "name": "Carlos 'Llamas' Rodríguez",
+      "age": 30,
+      "profession": "Firefighter",
+      "background": {
+        "childhood": "Carlos was always fascinated by fire trucks and dreamed of becoming a firefighter.",
+        "current": "He now bravely serves his community, risking his life to save others."
+      },
+      "hobbies": ["Reading", "Hiking", "Painting", "Astronomy", "Coding"],
+      "characteristics": {
+        "strength": 14,
+        "dexterity": 12,
+        "intelligence": 10,
+        "health": 14
+      },
+      "skills": { "firefighting": 14, "firstAid": 13, "climbing": 12 },
+      "advantages": ["Bravery", "Fit"],
+      "disadvantages": ["Duty (Fire Department)", "Sense of Duty (Innocents)"],
+      "id": 7,
+      "sprite": "carlos_llamas",
+      "relationships": {
+        "2": "Reading",
+        "4": "Hiking",
+        "10": "Painting",
+        "13": "Astronomy",
+        "18": "Coding"
+      },
+      "culture": {
+        "academic": 4,
+        "common": 7,
+        "geek": 1,
+        "popular": 6,
+        "technical": 6
+      },
+      "language": {
+        "culturalStyle": "Trendy Casual",
+        "speechStyle": "sarcastic, assertive"
+      }
+    },
+    {
+      "enneagram": "Type 3: The Achiever",
+      "name": "Isabella 'Galería' Martínez",
+      "age": 32,
+      "profession": "Art Dealer",
+      "background": {
+        "childhood": "Isabella was always drawn to the beauty of art, spending hours in museums and galleries.",
+        "current": "She now works as an art dealer, using her keen eye and knowledge to find and sell exquisite pieces of art."
+      },
+      "hobbies": ["Photography", "Yoga", "Bird Watching", "Dancing", "Writing"],
+      "characteristics": {
+        "strength": 10,
+        "dexterity": 11,
+        "intelligence": 14,
+        "health": 11
+      },
+      "skills": { "artHistory": 14, "merchant": 13, "painting": 12 },
+      "advantages": ["Wealth", "Cultural Adaptability"],
+      "disadvantages": ["Workaholic", "Obsession (Art)"],
+      "id": 8,
+      "sprite": "Isabella_galeria",
+      "relationships": {
+        "5": "Photography",
+        "6": "Yoga",
+        "11": "Bird Watching",
+        "14": "Dancing",
+        "19": "Writing"
+      },
+      "culture": {
+        "academic": 8,
+        "common": 5,
+        "geek": 10,
+        "popular": 8,
+        "technical": 6
+      },
+      "language": {
+        "culturalStyle": "Geek Jargon",
+        "speechStyle": "yells a lot, polite"
+      }
+    },
+    {
+      "enneagram": "Type 4: The Individualist",
+      "name": "María 'Flores' López",
+      "age": 39,
+      "profession": "Florist",
+      "background": {
+        "childhood": "María grew up in a family of gardeners and developed a love for flowers at a young age.",
+        "current": "She now owns a flower shop, where she uses her knowledge and passion to create beautiful arrangements."
+      },
+      "hobbies": ["Pottery", "Chess", "Gardening", "Cooking", "Reading"],
+      "characteristics": {
+        "strength": 10,
+        "dexterity": 12,
+        "intelligence": 12,
+        "health": 11
+      },
+      "skills": { "gardening": 14, "merchant": 13, "floristry": 14 },
+      "advantages": ["Green Thumb", "Aesthetic Sense"],
+      "disadvantages": ["Workaholic", "Obsession (Flowers)"],
+      "id": 9,
+      "sprite": "Maria_flores",
+      "relationships": {
+        "1": "Pottery",
+        "3": "Chess",
+        "6": "Gardening",
+        "15": "Cooking",
+        "20": "Reading"
+      },
+      "culture": {
+        "academic": 2,
+        "common": 7,
+        "geek": 3,
+        "popular": 7,
+        "technical": 4
+      },
+      "language": {
+        "culturalStyle": "Slang-filled",
+        "speechStyle": "polite, empathetic, eloquent"
+      }
+    },
+    {
+      "enneagram": "Type 1: The Reformer",
+      "name": "Diego 'Sable' Ramírez",
+      "age": 34,
+      "profession": "Fencing Instructor",
+      "background": {
+        "childhood": "Diego was introduced to fencing at a young age and quickly fell in love with the sport.",
+        "current": "He now works as a fencing instructor, teaching others the art and discipline of fencing."
+      },
+      "hobbies": ["Hiking", "Painting", "Astronomy", "Coding", "Photography"],
+      "characteristics": {
+        "strength": 12,
+        "dexterity": 14,
+        "intelligence": 11,
+        "health": 12
+      },
+      "skills": { "fencing": 15, "teaching": 13, "sports": 12 },
+      "advantages": ["Combat Reflexes", "Enhanced Dodge"],
+      "disadvantages": ["Workaholic", "Obsession (Fencing)"],
+      "id": 10,
+      "sprite": "diego_ramirez",
+      "relationships": {
+        "4": "Hiking",
+        "7": "Painting",
+        "13": "Astronomy",
+        "18": "Coding",
+        "21": "Photography"
+      },
+      "culture": {
+        "academic": 6,
+        "common": 6,
+        "geek": 6,
+        "popular": 6,
+        "technical": 6
+      },
+      "language": {
+        "culturalStyle": "Technical Jargon",
+        "speechStyle": "polite"
+      }
+    },
+    {
+      "enneagram": "Type 6: The Loyalist",
+      "name": "Carlos 'Ruedas' Rodríguez",
+      "age": 43,
+      "profession": "Bus Driver",
+      "background": {
+        "childhood": "Carlos was always fascinated by large vehicles and dreamed of driving them one day.",
+        "current": "He now works as a bus driver, ensuring passengers reach their destinations safely."
+      },
+      "hobbies": ["Yoga", "Bird Watching", "Dancing", "Writing", "Pottery"],
+      "characteristics": {
+        "strength": 11,
+        "dexterity": 13,
+        "intelligence": 10,
+        "health": 12
+      },
+      "skills": { "driving": 14, "mechanics": 12, "navigation": 11 },
+      "advantages": ["Absolute Direction", "Steady Hands"],
+      "disadvantages": ["Workaholic", "Sense of Duty (Passengers)"],
+      "id": 11,
+      "sprite": "carlos_ruedas_rodriguez",
+      "relationships": {
+        "5": "Yoga",
+        "8": "Bird Watching",
+        "14": "Dancing",
+        "19": "Writing",
+        "22": "Pottery"
+      },
+      "culture": {
+        "academic": 3,
+        "common": 6,
+        "geek": 6,
+        "popular": 10,
+        "technical": 5
+      },
+      "language": {
+        "culturalStyle": "Geek Jargon",
+        "speechStyle": "passive, confident"
+      }
+    },
+    {
+      "enneagram": "Type 7: The Enthusiast",
+      "name": "Sergio 'Envío' Martínez",
+      "age": 22,
+      "profession": "Package Delivery Person",
+      "background": {
+        "childhood": "Sergio was always on the move, never one to sit still for long.",
+        "current": "He now works as a package delivery person, a job that suits his active lifestyle."
+      },
+      "hobbies": ["Chess", "Gardening", "Cooking", "Reading", "Hiking"],
+      "characteristics": {
+        "strength": 12,
+        "dexterity": 13,
+        "intelligence": 10,
+        "health": 12
+      },
+      "skills": { "driving": 13, "navigation": 12, "areaKnowledge": 11 },
+      "advantages": ["Fit", "Absolute Direction"],
+      "disadvantages": ["Workaholic", "Sense of Duty (Customers)"],
+      "id": 12,
+      "sprite": "Sergio_Envios",
+      "relationships": {
+        "3": "Chess",
+        "6": "Gardening",
+        "9": "Cooking",
+        "15": "Reading",
+        "20": "Hiking"
+      },
+      "culture": {
+        "academic": 6,
+        "common": 4,
+        "geek": 2,
+        "popular": 5,
+        "technical": 6
+      },
+      "language": {
+        "culturalStyle": "Trendy Casual",
+        "speechStyle": "empathetic"
+      }
+    },
+    {
+      "enneagram": "Type 1: The Reformer",
+      "name": "Laura 'Justicia' Mendoza",
+      "age": 23,
+      "profession": "Police Officer",
+      "background": {
+        "childhood": "Laura was always inspired by stories of justice and dreamed of becoming a police officer.",
+        "current": "She now serves her community as a police officer, working tirelessly to uphold the law."
+      },
+      "hobbies": ["Painting", "Astronomy", "Coding", "Photography", "Yoga"],
+      "characteristics": {
+        "strength": 12,
+        "dexterity": 13,
+        "intelligence": 11,
+        "health": 12
+      },
+      "skills": { "law": 12, "policework": 13, "martialArts": 12 },
+      "advantages": ["Sense of Duty (Community)", "Courageous"],
+      "disadvantages": ["Workaholic", "Sense of Duty (Law)"],
+      "id": 13,
+      "sprite": "Laura_justicia",
+      "relationships": {
+        "2": "Astronomy",
+        "4": "Coding",
+        "7": "Photography",
+        "10": "Yoga",
+        "18": "Bird Watching"
+      },
+      "culture": {
+        "academic": 5,
+        "common": 10,
+        "geek": 0,
+        "popular": 6,
+        "technical": 5
+      },
+      "language": {
+        "culturalStyle": "Slang-filled",
+        "speechStyle": "eloquent, cheerful, assertive"
+      }
+    },
+    {
+      "enneagram": "Type 9: The Peacemaker",
+      "name": "Miguel 'Desamparo' Sánchez",
+      "age": 60,
+      "profession": "Homeless",
+      "background": {
+        "childhood": "Miguel had a tough childhood and faced many hardships.",
+        "current": "He now lives on the streets, surviving day by day."
+      },
+      "hobbies": ["Bird Watching", "Dancing", "Writing", "Pottery", "Chess"],
+      "characteristics": {
+        "strength": 9,
+        "dexterity": 10,
+        "intelligence": 10,
+        "health": 9
+      },
+      "skills": { "streetwise": 12, "scrounging": 13, "survival": 11 },
+      "advantages": ["Tough", "Street-Smart"],
+      "disadvantages": ["Poverty", "Social Stigma (Homeless)"],
+      "id": 14,
+      "sprite": "miguel_desamparo_sanchez",
+      "relationships": {
+        "3": "Dancing",
+        "5": "Writing",
+        "8": "Pottery",
+        "11": "Chess",
+        "19": "Gardening"
+      },
+      "culture": {
+        "academic": 0,
+        "common": 10,
+        "geek": 0,
+        "popular": 10,
+        "technical": 0
+      },
+      "language": { "culturalStyle": "Slang-filled", "speechStyle": "passive" }
+    },
+    {
+      "enneagram": "Type 1: The Reformer",
+      "name": "Gabriela 'Trámites' Soto",
+      "age": 32,
+      "profession": "Public Servant",
+      "background": {
+        "childhood": "Gabriela was always organized and efficient, qualities that led her to a career in public service.",
+        "current": "She now works as a public servant, helping to keep the machinery of government running smoothly."
+      },
+      "hobbies": ["Gardening", "Cooking", "Reading", "Hiking", "Painting"],
+      "characteristics": {
+        "strength": 10,
+        "dexterity": 11,
+        "intelligence": 13,
+        "health": 11
+      },
+      "skills": { "administration": 14, "law": 13, "diplomacy": 12 },
+      "advantages": ["Sense of Duty (Community)", "Honest"],
+      "disadvantages": ["Workaholic", "Sense of Duty (Job)"],
+      "id": 15,
+      "sprite": "gabriela_tramites_soto",
+      "relationships": {
+        "1": "Gardening",
+        "3": "Cooking",
+        "6": "Reading",
+        "9": "Hiking",
+        "20": "Painting"
+      },
+      "culture": {
+        "academic": 8,
+        "common": 6,
+        "geek": 0,
+        "popular": 6,
+        "technical": 6
+      },
+      "language": {
+        "culturalStyle": "Technical Jargon",
+        "speechStyle": "quiet, hesitant"
+      }
+    },
+    {
+      "enneagram": "Type 7: The Enthusiast",
+      "name": "Antonio 'Peseta' Fernández",
+      "age": 45,
+      "profession": "Taxi Driver",
+      "background": {
+        "childhood": "Antonio was always fascinated by cars and the open road.",
+        "current": "He now works as a taxi driver, meeting new people every day and helping them reach their destinations."
+      },
+      "hobbies": [
+        "Astronomy",
+        "Coding",
+        "Photography",
+        "Yoga",
+        "Bird Watching"
+      ],
+      "characteristics": {
+        "strength": 11,
+        "dexterity": 13,
+        "intelligence": 10,
+        "health": 12
+      },
+      "skills": { "driving": 14, "mechanics": 12, "areaKnowledge": 13 },
+      "advantages": ["Absolute Direction", "Night Vision"],
+      "disadvantages": ["Workaholic", "Sense of Duty (Passengers)"],
+      "id": 16,
+      "sprite": "antonio_peseta",
+      "relationships": {
+        "2": "Astronomy",
+        "5": "Coding",
+        "7": "Photography",
+        "10": "Yoga",
+        "13": "Bird Watching"
+      },
+      "culture": {
+        "academic": 0,
+        "common": 7,
+        "geek": 2,
+        "popular": 7,
+        "technical": 6
+      },
+      "language": {
+        "culturalStyle": "Trendy Casual",
+        "speechStyle": "humorous"
+      }
+    },
+    {
+      "enneagram": "Type 8: The Challenger",
+      "name": "Luis 'Gato' García",
+      "age": 30,
+      "profession": "Thief",
+      "background": {
+        "childhood": "Luis grew up in a tough neighborhood where he learned to fend for himself.",
+        "current": "He now lives on the edge of the law, using his skills to take what he needs."
+      },
+      "hobbies": ["Dancing", "Writing", "Pottery", "Chess", "Gardening"],
+      "characteristics": {
+        "strength": 11,
+        "dexterity": 14,
+        "intelligence": 12,
+        "health": 11
+      },
+      "skills": { "stealth": 14, "lockpicking": 13, "streetwise": 12 },
+      "advantages": ["Flexibility", "Perfect Balance"],
+      "disadvantages": [
+        "Secret (Criminal Activities)",
+        "Enemy (Law Enforcement)"
+      ],
+      "id": 17,
+      "sprite": "luis_gato_garcia",
+      "relationships": {
+        "3": "Dancing",
+        "6": "Writing",
+        "9": "Pottery",
+        "14": "Chess",
+        "19": "Gardening"
+      },
+      "culture": {
+        "academic": 6,
+        "common": 6,
+        "geek": 10,
+        "popular": 0,
+        "technical": 2
+      },
+      "language": {
+        "culturalStyle": "Geek Jargon",
+        "speechStyle": "yells a lot, formal, hesitant"
+      }
+    },
+    {
+      "enneagram": "Type 3: The Achiever",
+      "name": "Javier 'Negocios' Pérez",
+      "age": 24,
+      "profession": "Executive",
+      "background": {
+        "childhood": "Javier was always ambitious and driven, qualities that led him to a fast-paced career in business.",
+        "current": "He now works as an executive in a major corporation, making important decisions that shape the company's future."
+      },
+      "hobbies": ["Cooking", "Reading", "Hiking", "Painting", "Astronomy"],
+      "characteristics": {
+        "strength": 10,
+        "dexterity": 11,
+        "intelligence": 14,
+        "health": 11
+      },
+      "skills": { "administration": 14, "finance": 13, "leadership": 14 },
+      "advantages": ["Wealth", "Charisma"],
+      "disadvantages": ["Workaholic", "Sense of Duty (Company)"],
+      "id": 18,
+      "sprite": "javi_perez",
+      "relationships": {
+        "4": "Cooking",
+        "7": "Reading",
+        "10": "Hiking",
+        "15": "Painting",
+        "21": "Astronomy"
+      },
+      "culture": {
+        "academic": 7,
+        "common": 4,
+        "geek": 0,
+        "popular": 2,
+        "technical": 7
+      },
+      "language": {
+        "culturalStyle": "Slang-filled",
+        "speechStyle": "yells a lot, slow-paced"
+      }
+    },
+    {
+      "enneagram": "Type 4: The Individualist",
+      "name": "Carlos 'Barro' Ruiz",
+      "age": 35,
+      "profession": "Gardener",
+      "background": {
+        "childhood": "Carlos was always fascinated by the beauty of nature and spent his childhood helping his father in their small garden.",
+        "current": "Now, he works for a large botanical garden and is known for his ability to make any plant thrive."
+      },
+      "characteristics": {
+        "strength": 11,
+        "dexterity": 12,
+        "intelligence": 10,
+        "health": 11
+      },
+      "skills": { "gardening": 14, "botany": 12, "landscaping": 13 },
+      "advantages": ["Green Thumb"],
+      "disadvantages": ["Phobia (Insects)", "Duty (Garden)"],
+      "quirks": ["Loves Rain", "Talks to Plants", "Always Carries Seeds"],
+      "id": 19,
+      "sprite": "carlos_barro",
+      "relationships": {
+        "5": "Coding",
+        "8": "Photography",
+        "11": "Yoga",
+        "14": "Bird Watching",
+        "22": "Dancing"
+      },
+      "hobbies": ["Coding", "Photography", "Yoga", "Bird Watching", "Dancing"],
+      "culture": {
+        "academic": 0,
+        "common": 10,
+        "geek": 10,
+        "popular": 5,
+        "technical": 0
+      },
+      "language": {
+        "culturalStyle": "Geek Jargon",
+        "speechStyle": "cheerful, passive"
+      }
+    },
+    {
+      "enneagram": "Type 2: The Helper",
+      "name": "Dr. Luis 'Recetas' Martínez",
+      "age": 40,
+      "profession": "Doctor",
+      "background": {
+        "childhood": "Luis was inspired to become a doctor after a doctor saved his sister's life when they were children.",
+        "current": "He's a respected doctor in his community and is known for his compassionate care."
+      },
+      "characteristics": {
+        "strength": 10,
+        "dexterity": 11,
+        "intelligence": 14,
+        "health": 10
+      },
+      "skills": { "diagnosis": 14, "surgery": 13, "physician": 14 },
+      "advantages": ["Healer"],
+      "disadvantages": ["Workaholic", "Sense of Duty (Patients)"],
+      "quirks": [
+        "Hates Blood",
+        "Always Carries a Medical Kit",
+        "Loves Mystery Novels"
+      ],
+      "id": 20,
+      "sprite": "luis_recetas",
+      "relationships": {
+        "6": "Writing",
+        "9": "Pottery",
+        "12": "Chess",
+        "15": "Gardening",
+        "21": "Cooking"
+      },
+      "hobbies": ["Writing", "Pottery", "Chess", "Gardening", "Cooking"],
+      "culture": {
+        "academic": 7,
+        "common": 4,
+        "geek": 5,
+        "popular": 2,
+        "technical": 7
+      },
+      "language": {
+        "culturalStyle": "Formal Academic",
+        "speechStyle": "animated"
+      }
+    },
+    {
+      "enneagram": "Type 2: The Helper",
+      "name": "Ana 'Cajas' García",
+      "age": 24,
+      "profession": "Store Clerk",
+      "background": {
+        "childhood": "Ana grew up in a bustling city and took a job as a store clerk to support her studies.",
+        "current": "She's known for her friendly service and ability to find anything in the store."
+      },
+      "characteristics": {
+        "strength": 9,
+        "dexterity": 11,
+        "intelligence": 12,
+        "health": 10
+      },
+      "skills": { "salesmanship": 14, "accounting": 12, "observation": 13 },
+      "advantages": ["Charisma"],
+      "disadvantages": ["Workaholic", "Shyness"],
+      "quirks": ["Loves Puzzles", "Always Smiling", "Neat Freak"],
+      "id": 21,
+      "sprite": "ana_cajas_garcia",
+      "relationships": {
+        "4": "Reading",
+        "7": "Hiking",
+        "10": "Painting",
+        "13": "Astronomy",
+        "18": "Coding"
+      },
+      "hobbies": ["Reading", "Hiking", "Painting", "Astronomy", "Coding"],
+      "culture": {
+        "academic": 2,
+        "common": 6,
+        "geek": 7,
+        "popular": 4,
+        "technical": 5
+      },
+      "language": {
+        "culturalStyle": "Geek Jargon",
+        "speechStyle": "passive, aggressive, assertive"
+      }
+    },
+    {
+      "enneagram": "Type 1: The Reformer",
+      "name": "Miguel 'Plumilla' Hernández",
+      "age": 30,
+      "profession": "Office Worker",
+      "background": {
+        "childhood": "Miguel was a studious child who always had his nose in a book.",
+        "current": "He's an office worker who's known for his organization skills and attention to detail."
+      },
+      "characteristics": {
+        "strength": 9,
+        "dexterity": 10,
+        "intelligence": 13,
+        "health": 10
+      },
+      "skills": {
+        "administration": 14,
+        "accounting": 13,
+        "computerOperation": 14
+      },
+      "advantages": ["Single-Minded"],
+      "disadvantages": ["Workaholic", "Shyness"],
+      "quirks": ["Loves Sudoku", "Neat Freak", "Always Carries a Planner"],
+      "id": 22,
+      "sprite": "miguel_plumilla",
+      "relationships": {
+        "5": "Photography",
+        "8": "Yoga",
+        "11": "Bird Watching",
+        "14": "Dancing",
+        "19": "Writing"
+      },
+      "hobbies": ["Photography", "Yoga", "Bird Watching", "Dancing", "Writing"],
+      "culture": {
+        "academic": 4,
+        "common": 5,
+        "geek": 4,
+        "popular": 2,
+        "technical": 6
+      },
+      "language": {
+        "culturalStyle": "Slang-filled",
+        "speechStyle": "sarcastic, passive"
+      }
+    }
+  ]
+}

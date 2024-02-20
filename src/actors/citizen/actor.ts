@@ -10,9 +10,12 @@ import { GameEntity } from '../../AI/base/core/GameEntity';
 import { DEPTH } from '../../lib/constants';
 import * as Phaser from 'phaser';
 import Statics from '../statics/statics';
-import { Citizens } from './data/citizens.json';
 import BaseScene from '../../scenes/baseScene';
-import Conversations from './data/conversations.json';
+import { ConversationNPC } from '../../ui/ConversationsNPC';
+import {
+  Conversation,
+  ConversationsGroup
+} from '../../conversations/conversation';
 
 export interface CharacterInfo {
   name: string;
@@ -35,6 +38,7 @@ interface Props {
   y: number;
   texture?: string;
   info: CharacterInfo;
+  conversationsGroup: ConversationsGroup;
 }
 
 export interface Background {
@@ -49,23 +53,22 @@ export interface Characteristics {
   health: number;
 }
 
-export interface Conversation {
-  id: number;
-  text: string[];
-  lastTimeTalked?: number;
-}
-
 export class CitizenActor extends GameEntity {
   brain: Think<CitizenActor>;
   isAfraid: boolean = false;
   isTired: boolean = false;
   isResting: boolean = false;
+  isMovingToTalkWith?: CitizenActor;
   isTalking: boolean = false;
   static baseScale: 0.7;
   info: CharacterInfo;
   velocity: number = 125;
   currentEnergy: number = -1;
-  conversations: Conversation[] = [];
+  conversationsGroup: ConversationsGroup;
+  conversations: Conversation[];
+  inAConversationWith?: CitizenActor;
+  currentConversation?: ConversationNPC;
+  lastConversation: number = Phaser.Math.Between(0, 1000 * 60);
 
   groupOfRelations: Phaser.Physics.Arcade.Group;
 
@@ -79,6 +82,7 @@ export class CitizenActor extends GameEntity {
       config.info.characteristics.health * CitizenActor.cyclesToRest
     );
     this.info = config.info;
+    this.conversationsGroup = config.conversationsGroup;
     this.conversations = this.getConversations(config.info);
     this.brain = new Think(this);
     this.brain.addEvaluator(
@@ -106,12 +110,9 @@ export class CitizenActor extends GameEntity {
   }
 
   getConversations(info: CharacterInfo): Conversation[] {
-    return Conversations.filter(
+    return this.conversationsGroup.conversations.filter(
       (conversation) => conversation.id1 === info.id
-    ).map((conversation) => ({
-      id: Number(conversation.id2),
-      text: conversation.conversation
-    }));
+    );
   }
 
   setOriginalBodySize() {
@@ -129,9 +130,9 @@ export class CitizenActor extends GameEntity {
   }
 
   prepareRelations(groupOfCitizens: Phaser.Physics.Arcade.Group) {
-    const ids: number[] = this.conversations.map(
-      (conversation) => conversation.id
-    );
+    const ids: number[] = this.conversations
+      .filter((conversation) => conversation.id1 === this.info.id)
+      .map((conversation) => conversation.id2);
     this.groupOfRelations = this.scene.physics.add.group();
     groupOfCitizens.children.entries.forEach(
       (c: Phaser.GameObjects.GameObject) => {
@@ -143,7 +144,7 @@ export class CitizenActor extends GameEntity {
     );
   }
 
-  static preloadCitizens(scene: Phaser.Scene) {
+  static preloadCitizens(scene: Phaser.Scene, Citizens: CharacterInfo[]) {
     Citizens.filter((citizen) => citizen.sprite).forEach((citizenInfo) => {
       scene.load.aseprite(
         citizenInfo.name || '',
@@ -153,15 +154,21 @@ export class CitizenActor extends GameEntity {
     });
   }
 
-  static createCitizens(scene: BaseScene) {
+  static createCitizens(
+    scene: BaseScene,
+    Citizens: CharacterInfo[],
+    Conversations: ConversationsGroup
+  ) {
     Citizens.filter((citizen) => citizen.sprite).forEach((citizenInfo) => {
       const citizen = new CitizenActor({
         scene,
         x: 0,
         y: 0,
         texture: citizenInfo.name,
-        info: citizenInfo
+        info: citizenInfo,
+        conversationsGroup: Conversations
       });
+
       citizen.scale = CitizenActor.baseScale;
       citizen.setPushable(false);
       citizen.depth = DEPTH.CITIZENS;
